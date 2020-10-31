@@ -1,3 +1,4 @@
 node_modules/
+htmlcov/
 package-lock.json
 .env
