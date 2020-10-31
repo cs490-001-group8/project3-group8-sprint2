@@ -24,9 +24,6 @@
         1. `npm install`
         2. `npm install -g webpack`
         3. `npm install --save-dev webpack`
-        4. `npm install socket.io-client --save`
-        5. `npm install html-react-parser --save`
-        6. `npm install react-google-login`
     
     If you wish to utilize test cases, pip install unittest and requests\_mock, run `python umocked_unit_tests.py` and
       `python ocked_unit_tests.py`to use the tests in those files.  To test code coverage, run the
