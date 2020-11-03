@@ -5,21 +5,18 @@ import CommentList from './CommentList';
 import CommentInput from './CommentInput';
 
 export default function CommentBlock({ currTab }) {
-
-  const [comments, updateComments] = useState(() => [])
+  const [comments, updateComments] = useState(() => []);
 
   useEffect(() => {
-    Socket.on("new comment", (data) =>
-      {
-        updateComments((comments) => [{"text": data.text}].concat(comments));
-      });
-      
-    Socket.on("old comments", (data) =>
-      {
-        updateComments(() => data.comments);
-      });
+    Socket.on('new comment', (data) => {
+      updateComments((oldComments) => [{ text: data.text }].concat(oldComments));
+    });
 
-    Socket.emit("get comments", {"tab": "Home"});
+    Socket.on('old comments', (data) => {
+      updateComments(() => data.comments);
+    });
+
+    Socket.emit('get comments', { tab: 'Home' });
   }, []);
 
   return (

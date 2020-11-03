@@ -17,5 +17,5 @@ export default function CommentList({ comments }) {
 }
 
 CommentList.propTypes = {
-  currTab: PropTypes.arrayOf(PropTypes.string).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
