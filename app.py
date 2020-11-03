@@ -21,13 +21,19 @@ BASE.metadata.create_all(ENGINE, checkfirst=True)
 
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
-
-
-@APP.route("/")
+    
+@APP.route('/')
 def hello():
     """When someone opens the app, send them the page"""
     return flask.render_template("index.html")
 
+@SOCKETIO.on('user login')
+def on_user_login(data):
+    '''Recieve OAuth information when sent by the client'''
+    print(data["name"] + " has logged in!")
+    
+    # Send user information information back to the clientside.
+    SOCKETIO.emit('send client', data)
 
 @SOCKETIO.on("get comments")
 def on_get_comments(data):
