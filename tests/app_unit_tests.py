@@ -74,6 +74,17 @@ class AppTestCases(unittest.TestCase):
         if not isinstance(comment.text, str):
             raise ValueError("Text not string")
 
+    def mock_flask_emit_all(self, channel, data = {}):
+        """Mock Session add for comments"""
+        if channel == "new comment":
+            if "comments" not in data:
+                raise ValueError("NO COMMENTS")
+            for comment in data["comments"]:
+                if "text" not in comment:
+                    raise ValueError("NO TEXT IN COMMENT")
+        else:
+            raise ValueError("NO ESTABLISHED CHANNEL")
+
     def test_app_runs_success(self):
         """Test successful test cases"""
         with mock.patch("flask.render_template", self.mocked_flask_render):
@@ -87,6 +98,8 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
         ), mock.patch(
             "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ):
             app.on_new_comment({"text": "Hello, I'm Joe", "tab": "Home"})
 

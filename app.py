@@ -35,10 +35,10 @@ def on_new_comment(data):
         which_tab = data["tab"]
         session.add(tables.Comment(new_text, which_tab))
         session.commit()
-        all_comments = [{"text": comment.text}
+        all_comments_tab = [{"text": comment.text}
             for comment in session.query(tables.Comment).filter(tables.Comment.tab == which_tab).all()]
-        all_comments.reverse()
-        print(all_comments)
+        all_comments_tab.reverse()
+        SOCKETIO.emit("new comment", {"comments": all_comments_tab})
     except KeyError:
         return
 
