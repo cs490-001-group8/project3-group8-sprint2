@@ -106,8 +106,6 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
         ), mock.patch(
-            "sqlalchemy.orm.session.Session.query", self.mock_session_query
-        ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ):
             app.on_new_comment({"text": "Hello, I'm Joe", "tab": "Home"})
@@ -116,12 +114,31 @@ class AppTestCases(unittest.TestCase):
         """Test failed new comments"""
         with mock.patch(
                 "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
+        ):
+            app.on_new_comment({"text": "Hello, I'm Joe"})
+            app.on_new_comment({"text": 9, "tab": "Home"})
+            app.on_new_comment({"text": "Hello", "tab": 7})
+
+    def test_app_get_comments_success(self):
+        """Test successful new comments"""
+        with mock.patch(
+                "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
         ), mock.patch(
             "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
         ), mock.patch(
             "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.emit", self.mock_flask_emit_one
         ):
-            app.on_new_comment({"text": "Hello, I'm Joe"})
+            app.on_get_comments({"tab": "Home"})
+            app.on_get_comments({"t": "Home"})
+
+    def test_app_get_comments_failure(self):
+        """Test successful new comments"""
+        with mock.patch(
+                "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
+        ):
+            app.on_get_comments({})
 
 
 if __name__ == "__main__":
