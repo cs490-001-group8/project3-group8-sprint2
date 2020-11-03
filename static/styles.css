@@ -2,3 +2,16 @@ body {
   padding: 0px;
   margin: 0px;
 }
+
+  .body {
+    width: 98%;
+    border: 3px black solid;
+    height: 85%;
+    margin: auto;
+  }
+  
+  .head {
+    height: 15%;
+    text-align: center;
+  }
+  
