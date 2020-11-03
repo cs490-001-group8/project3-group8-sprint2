@@ -31,6 +31,11 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask.render_template", self.mocked_flask_render):
             app.hello()
 
+    def test_app_new_comment_success(self):
+        app.on_new_comment({"text": "Hello, I'm Joe", "tab": "Home"})
+
+    def test_app_new_comment_failure(self):
+        app.on_new_comment({"text": "Hello, I'm Joe"})
 
 if __name__ == "__main__":
     unittest.main()
