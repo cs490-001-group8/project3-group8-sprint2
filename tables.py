@@ -2,7 +2,7 @@
     tables.py
     This file defines the tables to be used in sqlalchemy of app.py
 '''
-from sqlalchemy import Column, Integer, Sequence, String
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 BASE = declarative_base()

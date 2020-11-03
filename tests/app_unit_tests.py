@@ -11,11 +11,15 @@ from os.path import dirname, join
 sys.path.append(join(dirname(__file__), "../"))
 import app
 
+# pylint: disable=R0903
+# pylint: disable=W0613
+
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
     def __init__(self, text):
         self.text = text
+
 
 class MockedFilterResponse:
     """Pretend to be an query response"""
@@ -27,20 +31,21 @@ class MockedFilterResponse:
         """Mock an all() call from a query response"""
         return self.texts
 
+
 class MockedQueryResponse:
     """Pretend to be an query response"""
 
     def __init__(self, text):
-        self.texts = [
-            MockedQueryResponseObj(text["text"])
-        ]
+        self.texts = [MockedQueryResponseObj(text["text"])]
 
     def filter(self, text):
+        """Pretend to be an query filter"""
         return MockedFilterResponse(self.texts)
 
     def all(self):
         """Mock an all() call from a query response"""
         return self.texts
+
 
 # pylint: disable=R0902
 # pylint: disable=R0201
@@ -73,7 +78,7 @@ class AppTestCases(unittest.TestCase):
         if not isinstance(comment.text, str):
             raise ValueError("Text not string")
 
-    def mock_flask_emit_all(self, channel, data = {}):
+    def mock_flask_emit_all(self, channel, data=""):
         """Mock Session add for comments"""
         if channel == "new comment":
             if "text" not in data or not isinstance(data["text"], str):
@@ -83,7 +88,7 @@ class AppTestCases(unittest.TestCase):
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
-    def mock_flask_emit_one(self, channel, data = {}):
+    def mock_flask_emit_one(self, channel, data=""):
         """Mock Session add for comments"""
         if channel == "old comments":
             if "comments" not in data:
@@ -140,6 +145,7 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
         ):
             app.on_get_comments({})
+
 
 if __name__ == "__main__":
     unittest.main()

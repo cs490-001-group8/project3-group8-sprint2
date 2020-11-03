@@ -21,7 +21,7 @@ BASE.metadata.create_all(ENGINE, checkfirst=True)
 
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
-    
+
 @APP.route('/')
 def hello():
     """When someone opens the app, send them the page"""
