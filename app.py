@@ -16,7 +16,7 @@ def hello():
     return flask.render_template('index.html')
 
 @SOCKETIO.on('new comment')
-def on_connect(data):
+def on_new_comment(data):
     '''Process a new connection'''
     try:
         new_text = data["text"]
