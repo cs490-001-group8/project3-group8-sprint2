@@ -10,6 +10,14 @@ APP = flask.Flask(__name__)
 SOCKETIO = flask_socketio.SocketIO(APP)
 SOCKETIO.init_app(APP, cors_allowed_origins="*")
 
+@SOCKETIO.on('user login')
+def on_user_login(data):
+    '''Recieve OAuth information when sent by the client'''
+    print(data["name"] + " has logged in!")
+    
+    # Send user information information back to the clientside.
+    SOCKETIO.emit('send client', data)
+    
 @APP.route('/')
 def hello():
     '''When someone opens the app, send them the page'''
