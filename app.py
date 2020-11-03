@@ -16,7 +16,7 @@ APP = flask.Flask(__name__)
 SOCKETIO = flask_socketio.SocketIO(APP)
 SOCKETIO.init_app(APP, cors_allowed_origins="*")
 
-<<<<<<< HEAD
+
 
 @APP.route('/')
 def hello():
@@ -25,7 +25,7 @@ def hello():
 
 
 if __name__ == '__main__':
-=======
+
 ENGINE = sqlalchemy.create_engine(os.environ["DATABASE_URL"])
 BASE.metadata.create_all(ENGINE, checkfirst=True)
 
@@ -74,7 +74,6 @@ def on_new_comment(data):
 
 
 if __name__ == "__main__":
->>>>>>> 166e7a9634524212c7f8edf9596af224f115035a
     SOCKETIO.run(
         APP,
         host=os.getenv("IP", "0.0.0.0"),
