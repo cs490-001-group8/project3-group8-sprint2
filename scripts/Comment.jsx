@@ -1,11 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Comment() {
+export default function Comment({ commentBody }) {
   return (
     <li>
       <div className="Comment">
-        This is a comment.
+        {commentBody}
       </div>
     </li>
   );
 }
+
+Comment.propTypes = {
+  commentBody: PropTypes.string.isRequired,
+};

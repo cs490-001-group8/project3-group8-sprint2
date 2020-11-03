@@ -24,7 +24,7 @@ export default function CommentBlock({ currTab }) {
 
   return (
     <div className="Comment-Block">
-      <CommentList />
+      <CommentList comments={comments} />
       <CommentInput currTab={currTab} />
     </div>
   );
