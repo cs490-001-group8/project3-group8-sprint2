@@ -98,7 +98,6 @@ class AppTestCases(unittest.TestCase):
         """Test successful test cases"""
         with mock.patch("flask.render_template", self.mocked_flask_render):
             app.hello()
-<<<<<<< HEAD
 
     def test_app_new_comment_success(self):
         """Test successful new comments"""
@@ -140,24 +139,6 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
         ):
             app.on_get_comments({})
-
-=======
-    
-    def mocked_user_object(self, user_object):
-        if not isinstance(user_object, dict):
-            raise ValueError("user_object is not a dictionary")
-    
-    def test_on_user_login(self):
-        test_user = {
-            "id": "xxxxxxx",
-            "name": "Ameer",
-            "image": "https://xxxxx",
-            "email": "xxx@xxxx.com"
-        }
-        with mock.patch("app.on_user_login", self.mocked_user_object):
-            app.on_user_login(test_user)
-            self.assertEqual(4, len(test_user))
->>>>>>> 23da7af0c0b35f29f8f098835423e91ae2c8b9fb
 
 if __name__ == "__main__":
     unittest.main()

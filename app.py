@@ -30,8 +30,6 @@ def hello():
 @SOCKETIO.on('user login')
 def on_user_login(data):
     '''Recieve OAuth information when sent by the client'''
-    print(data["name"] + " has logged in!")
-    
     # Send user information information back to the clientside.
     SOCKETIO.emit('send client', data)
 
