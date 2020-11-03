@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { GoogleLogin } from 'react-google-login';
-import { Socket } from './Socket';
 
-export default function OAuthButton({logIn}) {
-  let clientID = '881732433179-i733jq65m0j09pio425p40hosd8r2klf.apps.googleusercontent.com';
-  
+export default function OAuthButton({ logIn }) {
+  const clientID = '881732433179-i733jq65m0j09pio425p40hosd8r2klf.apps.googleusercontent.com';
+
   function successGoogle(response) {
     logIn(response.profileObj.name);
   }
@@ -17,7 +16,7 @@ export default function OAuthButton({logIn}) {
       onSuccess={successGoogle}
       id="googleButton"
     />
-  )
+  );
 }
 
 OAuthButton.propTypes = {

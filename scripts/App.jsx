@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react';
 import Body from './Body';
 import Head from './Head';
-import { Socket } from './Socket';
 
 export default function App() {
   const [name, setName] = useState(() => '');
   const [loggedIn, setLoggedIn] = useState(() => false);
-  
-  function logIn(name)
-  {
-    setName(() => name);
+
+  function logIn(newName) {
+    setName(() => newName);
     setLoggedIn(() => true);
   }
-  
+
   return (
     <div className="App">
       <Head logIn={logIn} />
-      <Body />
+      <Body loggedIn={loggedIn} name={name} />
     </div>
   );
 }
