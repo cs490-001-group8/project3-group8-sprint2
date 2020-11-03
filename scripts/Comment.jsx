@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 
 export default function Comment({ commentBody }) {
   return (
-    <li>
-      <div className="Comment">
-        {commentBody}
-      </div>
+    <li className="comment">
+      <div className="comment-body">{commentBody}</div>
     </li>
   );
 }
