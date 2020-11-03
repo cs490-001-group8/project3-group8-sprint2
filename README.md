@@ -18,6 +18,28 @@
         I used pip install for flask, coverage, pylint, black, and flask-socketio
         I used npm for heroku (`npm install -g heroku`)
         I also used the Git CLI which I highly suggest you utilizing.
+        
+    You need to get PSQL to work with python by running these commands:
+        1. `sudo yum update`, and enter yes to all prompts    
+        2. `sudo pip install --upgrade pip`  
+        3. `sudo pip install psycopg2-binary`    
+        4. `sudo pip install Flask-SQLAlchemy==2.1`
+        
+    If you do not already have a psql database, you need to initialize one:
+        1. `sudo yum install postgresql postgresql-server postgresql-devel postgresql-contrib postgresql-docs`    
+            Enter yes to all prompts.    
+        2. `sudo service postgresql initdb`  
+        3. `sudo service postgresql start`    
+        4. Make a new superuser: `sudo -u postgres createuser --superuser $USER` 
+        5. Make a new database: `sudo -u postgres createdb $USER`   
+        6. Make sure your user shows up and make a new one:    
+            a) `psql`    
+            b) `\du` look for yourself as a user    
+            c) `\l` look for yourself as a database 
+            b) `create user [some_username_here] superuser password '[password]';` 
+              i) Make sure you remember the quotes around password and the semicolon. 
+                Check `\du` to ensure it worked.
+            c) `\q` to quit out of sql
             
     There are also a few commands you need to run on the directory in which 
       this project is installed, those are:
