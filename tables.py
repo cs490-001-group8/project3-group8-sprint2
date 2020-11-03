@@ -7,6 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 BASE = declarative_base()
 
+
 # pylint: disable=E1101
 # pylint: disable=R0903
 class Comment(BASE):
