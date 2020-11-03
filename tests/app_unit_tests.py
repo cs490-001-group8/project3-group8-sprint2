@@ -26,16 +26,30 @@ class AppTestCases(unittest.TestCase):
         if not isinstance(url, str):
             raise ValueError("URL not string")
 
+    def mock_session_commit(self):
+        return
+    
+    def mock_session_add_comment(self, comment):
+        if not isinstance(comment.tab, str):
+            raise ValueError("Tab not string")
+        if not isinstance(comment.text, str):
+            raise ValueError("Text not string")
+        return
+
     def test_app_runs_success(self):
         """Test successful test cases"""
         with mock.patch("flask.render_template", self.mocked_flask_render):
             app.hello()
 
     def test_app_new_comment_success(self):
-        app.on_new_comment({"text": "Hello, I'm Joe", "tab": "Home"})
+        with mock.patch("sqlalchemy.orm.session.Session.commit", self.mock_session_commit
+        ), mock.patch("sqlalchemy.orm.session.Session.add", self.mock_session_add_comment):
+            app.on_new_comment({"text": "Hello, I'm Joe", "tab": "Home"})
 
     def test_app_new_comment_failure(self):
-        app.on_new_comment({"text": "Hello, I'm Joe"})
+        with mock.patch("sqlalchemy.orm.session.Session.commit", self.mock_session_commit
+        ), mock.patch("sqlalchemy.orm.session.Session.add", self.mock_session_add_comment):
+            app.on_new_comment({"text": "Hello, I'm Joe"})
 
 if __name__ == "__main__":
     unittest.main()
