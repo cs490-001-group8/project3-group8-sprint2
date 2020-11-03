@@ -29,14 +29,18 @@ def hello():
 
 @SOCKETIO.on('new comment')
 def on_new_comment(data):
-    '''Process a new connection'''
+    '''Process a new comment'''
     try:
         new_text = data["text"]
         which_tab = data["tab"]
         session.add(tables.Comment(new_text, which_tab))
         session.commit()
+        all_comments = [{"text": comment.text}
+            for comment in session.query(tables.Comment).filter(tables.Comment.tab == which_tab).all()]
+        all_comments.reverse()
+        print(all_comments)
     except:
-        return
+        print(data)
 
 if __name__ == '__main__':
     SOCKETIO.run(
