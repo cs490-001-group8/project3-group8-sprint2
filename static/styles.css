@@ -10,6 +10,11 @@ body {
     margin: auto;
   }
   
+    .comment-block {
+      border: 3px black solid;
+      width: 25%;
+    }
+  
   .head {
     height: 15%;
     text-align: center;
