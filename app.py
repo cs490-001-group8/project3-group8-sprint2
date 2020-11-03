@@ -15,6 +15,16 @@ def hello():
     '''When someone opens the app, send them the page'''
     return flask.render_template('index.html')
 
+@SOCKETIO.on('new comment')
+def on_connect(data):
+    '''Process a new connection'''
+    try:
+        new_text = data["text"]
+        which_tab = data["tab"]
+        print(new_text + "\t" + which_tab)
+    except:
+        return
+
 if __name__ == '__main__':
     SOCKETIO.run(
         APP,
