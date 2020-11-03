@@ -17,7 +17,6 @@ class MockedQueryResponseObj:
     def __init__(self, text):
         self.text = text
 
-
 class MockedFilterResponse:
     """Pretend to be an query response"""
 
@@ -77,6 +76,16 @@ class AppTestCases(unittest.TestCase):
     def mock_flask_emit_all(self, channel, data = {}):
         """Mock Session add for comments"""
         if channel == "new comment":
+            if "text" not in data or not isinstance(data["text"], str):
+                raise ValueError("NO TEXT")
+            if "tab" not in data or not isinstance(data["tab"], str):
+                raise ValueError("NO TAB")
+        else:
+            raise ValueError("NO ESTABLISHED CHANNEL")
+
+    def mock_flask_emit_one(self, channel, data = {}):
+        """Mock Session add for comments"""
+        if channel == "old comments":
             if "comments" not in data:
                 raise ValueError("NO COMMENTS")
             for comment in data["comments"]:
