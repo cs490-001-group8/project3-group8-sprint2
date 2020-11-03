@@ -108,7 +108,7 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ):
-            app.on_new_comment({"text": "Hello, I'm Joe", "tab": "Home"})
+            app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
 
     def test_app_new_comment_failure(self):
         """Test failed new comments"""
@@ -118,6 +118,7 @@ class AppTestCases(unittest.TestCase):
             app.on_new_comment({"text": "Hello, I'm Joe"})
             app.on_new_comment({"text": 9, "tab": "Home"})
             app.on_new_comment({"text": "Hello", "tab": 7})
+            app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
 
     def test_app_get_comments_success(self):
         """Test successful new comments"""
