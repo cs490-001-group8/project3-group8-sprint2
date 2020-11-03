@@ -1,5 +1,5 @@
 """
-    unmocked_unit_tests.py
+    mocked_unit_tests.py
     This file does all non-mocked unit tests
 """
 import unittest
@@ -9,6 +9,7 @@ from os.path import dirname, join
 
 sys.path.append(join(dirname(__file__), "../"))
 import app
+
 
 # pylint: disable=R0902
 class AppTestCases(unittest.TestCase):
@@ -20,7 +21,7 @@ class AppTestCases(unittest.TestCase):
         """Set up test cases"""
         self.success_test_params = [
         ]
-        
+
     def mocked_flask_render(self, url):
         """Mock Flask render"""
         if not isinstance(url, str):

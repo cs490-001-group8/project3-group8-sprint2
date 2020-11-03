@@ -2,3 +2,5 @@ node_modules/
 htmlcov/
 package-lock.json
 .env
+.idea
+__pycache__
