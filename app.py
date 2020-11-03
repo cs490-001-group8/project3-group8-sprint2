@@ -19,6 +19,9 @@ SOCKETIO.init_app(APP, cors_allowed_origins="*")
 engine = sqlalchemy.create_engine(os.environ['DATABASE_URL'])
 BASE.metadata.create_all(engine, checkfirst=True)
 
+Session = sqlalchemy.orm.sessionmaker(bind=engine)
+session = Session()
+
 @APP.route('/')
 def hello():
     '''When someone opens the app, send them the page'''
