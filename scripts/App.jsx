@@ -4,25 +4,18 @@ import Head from './Head';
 import { Socket } from './Socket';
 
 export default function App() {
-  const [userList, setUserList] = useState([]);
+  const [name, setName] = useState(() => '');
+  const [loggedIn, setLoggedIn] = useState(() => false);
   
-  function updateUserList () {
-    React.useEffect(() => {
-      Socket.on('send client', (data) => {
-        setUserList(userList => [...userList, data])
-      })
-      
-      return () => {
-        Socket.off('send client');
-      }
-    });
+  function logIn(name)
+  {
+    setName(() => name);
+    setLoggedIn(() => true);
   }
-  
-  updateUserList()
   
   return (
     <div className="App">
-      <Head />
+      <Head logIn={logIn} />
       <Body />
     </div>
   );
