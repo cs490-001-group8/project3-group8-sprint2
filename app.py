@@ -29,6 +29,23 @@ def hello():
     return flask.render_template("index.html")
 
 
+@SOCKETIO.on("get comments")
+def on_get_comments(data):
+    """Process a new comment"""
+    try:
+        which_tab = data["tab"]
+        all_comments_tab = [
+            {"text": comment.text}
+            for comment in SESSION.query(tables.Comment)
+            .filter(tables.Comment.tab == which_tab)
+            .all()
+        ]
+        all_comments_tab.reverse()
+        flask_socketio.emit("old comments", {"comments": all_comments_tab})
+    except KeyError:
+        return
+
+
 @SOCKETIO.on("new comment")
 def on_new_comment(data):
     """Process a new comment"""
@@ -37,14 +54,7 @@ def on_new_comment(data):
         which_tab = data["tab"]
         SESSION.add(tables.Comment(new_text, which_tab))
         SESSION.commit()
-        all_comments_tab = [
-            {"text": comment.text}
-            for comment in SESSION.query(tables.Comment)
-            .filter(tables.Comment.tab == which_tab)
-            .all()
-        ]
-        all_comments_tab.reverse()
-        SOCKETIO.emit("new comment", {"comments": all_comments_tab})
+        SOCKETIO.emit("new comment", {"text": new_text, "tab": which_tab})
     except KeyError:
         return
 
