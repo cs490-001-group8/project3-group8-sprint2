@@ -33,7 +33,8 @@ def on_new_comment(data):
     try:
         new_text = data["text"]
         which_tab = data["tab"]
-        print(new_text + "\t" + which_tab)
+        session.add(tables.Comment(new_text, which_tab))
+        session.commit()
     except:
         return
 
