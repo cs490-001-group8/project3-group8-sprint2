@@ -11,13 +11,13 @@ from os.path import dirname, join
 sys.path.append(join(dirname(__file__), "../"))
 import app
 
-<<<<<<< HEAD:tests/mocked_unit_tests.py
-=======
+
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
     def __init__(self, text):
         self.text = text
+
 
 class MockedFilterResponse:
     """Pretend to be an query response"""
@@ -28,6 +28,7 @@ class MockedFilterResponse:
     def all(self):
         """Mock an all() call from a query response"""
         return self.texts
+
 
 class MockedQueryResponse:
     """Pretend to be an query response"""
@@ -43,7 +44,7 @@ class MockedQueryResponse:
     def all(self):
         """Mock an all() call from a query response"""
         return self.texts
->>>>>>> 166e7a9634524212c7f8edf9596af224f115035a:tests/app_unit_tests.py
+
 
 # pylint: disable=R0902
 # pylint: disable=R0201
@@ -54,12 +55,7 @@ class AppTestCases(unittest.TestCase):
 
     def setUp(self):
         """Set up test cases"""
-<<<<<<< HEAD:tests/mocked_unit_tests.py
-        self.success_test_params = [
-        ]
-=======
         self.success_test_params = []
->>>>>>> 166e7a9634524212c7f8edf9596af224f115035a:tests/app_unit_tests.py
 
     def mocked_flask_render(self, url):
         """Mock Flask render"""
@@ -147,6 +143,7 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
         ):
             app.on_get_comments({})
+
 
 if __name__ == "__main__":
     unittest.main()
