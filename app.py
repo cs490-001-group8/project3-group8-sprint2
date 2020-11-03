@@ -5,10 +5,19 @@
 import os
 import flask
 import flask_socketio
+import sqlalchemy
+from dotenv import load_dotenv
+import tables
+from tables import BASE
+
+load_dotenv()
 
 APP = flask.Flask(__name__)
 SOCKETIO = flask_socketio.SocketIO(APP)
 SOCKETIO.init_app(APP, cors_allowed_origins="*")
+
+engine = sqlalchemy.create_engine(os.environ['DATABASE_URL'])
+BASE.metadata.create_all(engine, checkfirst=True)
 
 @APP.route('/')
 def hello():
