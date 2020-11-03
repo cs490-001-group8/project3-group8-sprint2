@@ -5,7 +5,7 @@ import CommentList from './CommentList';
 import CommentInput from './CommentInput';
 import CommentTitle from './CommentTitle';
 
-export default function CommentBlock({ currTab }) {
+export default function CommentBlock({ currTab, myName }) {
   const [comments, updateComments] = useState(() => []);
 
   useEffect(() => {
@@ -24,11 +24,12 @@ export default function CommentBlock({ currTab }) {
     <div className="Comment-Block">
       <CommentTitle />
       <CommentList comments={comments} />
-      <CommentInput currTab={currTab} />
+      <CommentInput currTab={currTab} myName={myName} />
     </div>
   );
 }
 
 CommentBlock.propTypes = {
   currTab: PropTypes.string.isRequired,
+  myName: PropTypes.string.isRequired,
 };

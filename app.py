@@ -56,7 +56,8 @@ def on_new_comment(data):
     try:
         new_text = data["text"]
         which_tab = data["tab"]
-        SESSION.add(tables.Comment(new_text, which_tab))
+        who_sent = data["name"]
+        SESSION.add(tables.Comment(new_text, who_sent, which_tab))
         SESSION.commit()
         SOCKETIO.emit("new comment", {"text": new_text, "tab": which_tab})
     except KeyError:

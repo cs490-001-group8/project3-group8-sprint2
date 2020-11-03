@@ -14,7 +14,7 @@ export default function App() {
   return (
     <div className="App">
       <Head logIn={logIn} />
-      <Body loggedIn={loggedIn} name={name} />
+      <Body loggedIn={loggedIn} myName={name} />
     </div>
   );
 }

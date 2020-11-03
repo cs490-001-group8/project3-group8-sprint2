@@ -4,7 +4,7 @@ import { Socket } from './Socket';
 import CommentInputText from './CommentInputText';
 import CommentInputButton from './CommentInputButton';
 
-export default function CommentInput({ currTab }) {
+export default function CommentInput({ currTab, myName }) {
   // Create something to keep track of what's currently in the input
   const [currIn, updateCurrIn] = useState(() => '');
 
@@ -12,6 +12,7 @@ export default function CommentInput({ currTab }) {
   function getInput() {
     Socket.emit('new comment', {
       text: currIn,
+      name: myName,
       tab: currTab,
     });
     updateCurrIn(() => '');
@@ -35,4 +36,5 @@ export default function CommentInput({ currTab }) {
 
 CommentInput.propTypes = {
   currTab: PropTypes.string.isRequired,
+  myName: PropTypes.string.isRequired,
 };

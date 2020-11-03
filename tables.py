@@ -14,10 +14,12 @@ class Comment(BASE):
     __tablename__ = 'comment'
     id = Column(Integer, primary_key=True)
     tab = Column(String(50))
+    name = Column(String(100))
     text = Column(String(1000))
 
-    def __init__(self, text, tab):
+    def __init__(self, text, name, tab):
         self.text = text
+        self.name = name
         self.tab = tab
 
     def __repr__(self):
