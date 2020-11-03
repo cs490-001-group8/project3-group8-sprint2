@@ -36,6 +36,7 @@
     ]
   },
   "dependencies": {
+    "react": "^16.12.0",
     "html-react-parser": "^0.14.0",
     "prop-types": "^15.7.2",
     "react-dotenv": "^0.1.2",
