@@ -39,8 +39,8 @@ def on_new_comment(data):
             for comment in session.query(tables.Comment).filter(tables.Comment.tab == which_tab).all()]
         all_comments.reverse()
         print(all_comments)
-    except:
-        print(data)
+    except KeyError:
+        return
 
 if __name__ == '__main__':
     SOCKETIO.run(
