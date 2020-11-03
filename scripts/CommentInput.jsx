@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { Socket } from './Socket';
 import CommentInputText from './CommentInputText';
 import CommentInputButton from './CommentInputButton';
 
-export default function CommentInput() {
+export default function CommentInput({ currTab }) {
   // Create something to keep track of what's currently in the input
   const [currIn, updateCurrIn] = useState(() => '');
 
   // Submit current text and clear the field
   function getInput() {
-    console.log(currIn);
+    Socket.emit('new comment', {
+      text: currIn,
+      tab: currTab,
+    });
     updateCurrIn(() => '');
   }
 
@@ -27,3 +32,7 @@ export default function CommentInput() {
     </div>
   );
 }
+
+CommentInput.propTypes = {
+  currTab: PropTypes.string.isRequired,
+};

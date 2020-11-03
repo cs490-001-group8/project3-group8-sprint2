@@ -5,7 +5,7 @@ export default function Body() {
   return (
     <div className="Body">
       This is a body.
-      <CommentBlock />
+      <CommentBlock currTab="Home" />
     </div>
   );
 }
