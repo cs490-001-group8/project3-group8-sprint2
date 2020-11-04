@@ -91,7 +91,6 @@ class AppTestCases(unittest.TestCase):
 
     def mock_do_nothing(self, first="", checkfirst="", bind=""):
         """Mock Session commit"""
-        print("DO NOTHING")
         return
 
     def mock_session_query(self, model):
@@ -132,13 +131,13 @@ class AppTestCases(unittest.TestCase):
     def test_app_runs_success(self):
         """Test successful test cases"""
         with mock.patch(
-            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ):
             import app
             with mock.patch(
                     "flask.render_template", self.mocked_flask_render
-            ), mock.patch(
-                "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
             ):
                 app.hello()
 
