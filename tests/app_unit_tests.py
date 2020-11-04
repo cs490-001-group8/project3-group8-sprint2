@@ -4,6 +4,7 @@
 """
 import unittest
 import unittest.mock as mock
+from datetime import datetime
 import sys
 from os.path import dirname, join
 
@@ -17,9 +18,10 @@ sys.path.append(join(dirname(__file__), "../"))
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
-    def __init__(self, text, name):
+    def __init__(self, text, name, time):
         self.text = text
         self.name = name
+        self.time = time
 
 
 class MockedFilterResponse:
@@ -37,7 +39,7 @@ class MockedQueryResponse:
     """Pretend to be an query response"""
 
     def __init__(self, text):
-        self.texts = [MockedQueryResponseObj(text["text"], text["name"])]
+        self.texts = [MockedQueryResponseObj(text["text"], text["name"], text["time"])]
 
     def filter(self, text):
         """Pretend to be an query filter"""
@@ -75,7 +77,7 @@ class AppTestCases(unittest.TestCase):
 
     def mock_session_query(self, model):
         """Mock Session commit"""
-        return MockedQueryResponse({"text": "TEST", "name": "USER"})
+        return MockedQueryResponse({"text": "TEST", "name": "USER", "time": datetime.now()})
 
     def mock_session_add_comment(self, comment):
         """Mock Session add for comments"""
