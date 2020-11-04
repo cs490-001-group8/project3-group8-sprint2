@@ -15,7 +15,7 @@
     Before running this app, make sure you have everything you need installed installed.  
       I have everything I had installed in the requirements.txt file, but all of 
       that is not necessary.  I will lay out what you need below:
-        I used pip install for flask, coverage, pylint, black, and flask-socketio
+        I used pip install for flask, coverage, pylint, pytz, black, and flask-socketio
         I used npm for heroku (`npm install -g heroku`)
         I also used the Git CLI which I highly suggest you utilizing.
         
