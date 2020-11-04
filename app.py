@@ -22,16 +22,25 @@ BASE.metadata.create_all(ENGINE, checkfirst=True)
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
 
+LOGGEDIN_CLIENTS = []
+
 @APP.route('/')
 def hello():
     """When someone opens the app, send them the page"""
     return flask.render_template("index.html")
 
-@SOCKETIO.on('user login')
-def on_user_login(data):
+@SOCKETIO.on('log in')
+def on_user_login():
     '''Recieve OAuth information when sent by the client'''
-    # Send user information information back to the clientside.
-    SOCKETIO.emit('send client', data)
+    if flask.request.sid not in LOGGEDIN_CLIENTS:
+        LOGGEDIN_CLIENTS.append(flask.request.sid)
+
+@SOCKETIO.on('disconnect')
+def on_user_disconnect():
+    '''Recieve OAuth information when sent by the client'''
+    if flask.request.sid in LOGGEDIN_CLIENTS:
+        LOGGEDIN_CLIENTS.remove(flask.request.sid)
+    
 
 @SOCKETIO.on("get comments")
 def on_get_comments(data):

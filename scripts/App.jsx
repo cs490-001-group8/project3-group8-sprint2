@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Socket } from './Socket';
 import Body from './Body';
 import Head from './Head';
 
@@ -9,6 +10,7 @@ export default function App() {
   function logIn(newName) {
     setName(() => newName);
     setLoggedIn(() => true);
+    Socket.emit("log in")
   }
 
   return (
