@@ -95,7 +95,26 @@ body {
           flex: 4;
           resize: none;
         }
-  
+
+        .tab{
+          background-color: white;
+          color: black;
+          border: 2px solid #555555;
+          padding: 10px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          transition-duration: 0.4s;
+          cursor: pointer;
+        }
+
+        .tab:hover {
+          background-color: #555555;
+          color: white;
+        }
+
   .head {
     height: 15%;
     text-align: center;

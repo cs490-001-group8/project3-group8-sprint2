@@ -35,6 +35,7 @@
     ]
   },
   "dependencies": {
+    "@reach/tabs": "^0.11.2",
     "google-map-react": "^2.1.9",
     "google-maps-react": "^2.0.6",
     "html-react-parser": "^0.14.0",
