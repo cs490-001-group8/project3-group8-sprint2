@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Tabs, TabList, Tab, TabPanels, TabPanel,
 } from '@reach/tabs';
@@ -8,19 +8,26 @@ import GoogleTrafficView from './GoogleTrafficView';
 import CommentBlock from './CommentBlock';
 
 export default function RouteTab({ myName, loggedIn }) {
+  const tabs = ["Home", "Commuter"]
+  const [tabInd, changeTabInd] = useState(() => 0);
+  const currTab = tabs[tabInd]
+
   return (
-    <Tabs>
+    <Tabs
+      onChange={(index) => changeTabInd(() => index)}
+    >
       <TabList>
         <Tab className="tab">Home</Tab>
         <Tab className="tab">Commuter</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel>
+        <TabPanel label="Home">
           <GoogleTrafficView />
-          <CommentBlock currTab="Home" myName={myName} loggedIn={loggedIn} />
+          <CommentBlock currTab={currTab} myName={myName} loggedIn={loggedIn} />
         </TabPanel>
-        <TabPanel>
+        <TabPanel label="Commuter">
           <p>Commuter!</p>
+          <CommentBlock currTab={currTab} myName={myName} loggedIn={loggedIn} />
         </TabPanel>
       </TabPanels>
     </Tabs>

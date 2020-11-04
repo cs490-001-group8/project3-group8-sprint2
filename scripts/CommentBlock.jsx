@@ -18,8 +18,14 @@ export default function CommentBlock({ currTab, myName, loggedIn }) {
       updateComments(() => data.comments);
     });
 
-    Socket.emit('get comments', { tab: 'Home' });
+    Socket.emit('get comments', { tab: currTab });
   }, []);
+
+  useEffect(() => {
+    Socket.emit('get comments', { tab: currTab });
+  }, [currTab]);
+  
+  console.log(currTab)
 
   if (loggedIn) {
     return (

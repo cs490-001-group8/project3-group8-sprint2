@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RouteTab from './routeTab';
+import RouteTab from './RouteTab';
 
 export default function Body({ myName, loggedIn }) {
   return (
