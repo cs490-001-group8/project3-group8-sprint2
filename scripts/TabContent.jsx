@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import CommentBlock from './CommentBlock';
 import TabWidgets from './TabWidgets';
 
-export default function TabContent({ myName, loggedIn, currTab, currTabComment }) {
+export default function TabContent({
+  myName, loggedIn, currTab, currTabComment,
+}) {
   return (
     <div className="TabContent">
-        <TabWidgets currTab={currTab} />
-        <CommentBlock currTab={currTabComment} myName={myName} loggedIn={loggedIn} />
+      <TabWidgets currTab={currTab} />
+      <CommentBlock currTab={currTabComment} myName={myName} loggedIn={loggedIn} />
     </div>
   );
 }

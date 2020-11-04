@@ -14,7 +14,7 @@ const createMapOptions = () => ({
   ],
 });
 
-export default function GoogleTrafficView({ myName, loggedIn }) {
+export default function GoogleTrafficView() {
   return (
     <div style={{ height: '60vh', width: '40%' }}>
       <GoogleMapReact
