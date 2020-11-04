@@ -15,23 +15,27 @@ load_dotenv()
 APP = flask.Flask(__name__)
 SOCKETIO = flask_socketio.SocketIO(APP)
 SOCKETIO.init_app(APP, cors_allowed_origins="*")
+database_url = os.getenv('DATABASE_URL')
 
-ENGINE = sqlalchemy.create_engine(os.environ["DATABASE_URL"])
+ENGINE = sqlalchemy.create_engine(database_url)
 BASE.metadata.create_all(ENGINE, checkfirst=True)
 
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
+
 
 @APP.route('/')
 def hello():
     """When someone opens the app, send them the page"""
     return flask.render_template("index.html")
 
+
 @SOCKETIO.on('user login')
 def on_user_login(data):
     '''Recieve OAuth information when sent by the client'''
     # Send user information information back to the clientside.
     SOCKETIO.emit('send client', data)
+
 
 @SOCKETIO.on("get comments")
 def on_get_comments(data):
@@ -41,8 +45,8 @@ def on_get_comments(data):
         all_comments_tab = [
             {"text": comment.text}
             for comment in SESSION.query(tables.Comment)
-            .filter(tables.Comment.tab == which_tab)
-            .all()
+                .filter(tables.Comment.tab == which_tab)
+                .all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
