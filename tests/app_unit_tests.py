@@ -71,7 +71,7 @@ class AppTestCases(unittest.TestCase):
         if not isinstance(url, str):
             raise ValueError("URL not string")
 
-    def mock_session_commit(self):
+    def mock_do_nothing(self):
         """Mock Session commit"""
         return
 
@@ -120,6 +120,8 @@ class AppTestCases(unittest.TestCase):
             "app.flask.request", mocker
         ), mock.patch(
             "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ):
             import app
             with mock.patch("flask.render_template", self.mocked_flask_render):
@@ -128,7 +130,7 @@ class AppTestCases(unittest.TestCase):
     def test_app_new_comment(self):
         """Test successful new comments"""
         with mock.patch(
-                "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
+                "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
         ), mock.patch(
             "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
         ), mock.patch(
@@ -142,6 +144,8 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
             ), mock.patch(
                 "sqlalchemy.ext.declarative.declarative_base", mocker
+            ), mock.patch(
+                "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
             ):
                 import app
                 app.on_user_login()
@@ -156,7 +160,7 @@ class AppTestCases(unittest.TestCase):
     def test_app_get_comments_success(self):
         """Test successful new comments"""
         with mock.patch(
-                "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
+                "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
         ), mock.patch(
             "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
         ), mock.patch(
@@ -174,6 +178,8 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ), mock.patch(
                 "sqlalchemy.orm.sessionmaker", mocker
+            ), mock.patch(
+                "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
             ):
                 import app
                 app.on_get_comments({"tab": "Home"})
@@ -191,10 +197,12 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.ext.declarative.declarative_base", mocker
         ), mock.patch(
             "sqlalchemy.orm.sessionmaker", mocker
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ):
             import app
             with mock.patch(
-                    "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
+                    "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
             ):
                 app.on_get_comments({})
 
