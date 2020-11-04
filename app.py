@@ -62,6 +62,8 @@ def on_get_comments(data):
 @SOCKETIO.on("new comment")
 def on_new_comment(data):
     """Process a new comment"""
+    if flask.request.sid not in LOGGEDIN_CLIENTS:
+        return
     try:
         new_text = data["text"]
         which_tab = data["tab"]
