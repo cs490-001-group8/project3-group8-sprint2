@@ -107,20 +107,21 @@ class AppTestCases(unittest.TestCase):
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
+    def mock_sqlalchemy_create_engine(self, url):
+        return "THIS IS AN ENGINE"
+
     def test_app_runs_success(self):
         """Test successful test cases"""
         mocker = mock.MagicMock()
         mocker.values("AAAA")
         with mock.patch(
-                "app.flask.request", mocker
+                "sqlalchemy.ext.declarative.declarative_base", mocker
         ), mock.patch(
-            "sqlalchemy.create_engine", mocker
+            "app.flask.request", mocker
         ), mock.patch(
-            "sqlalchemy.ext.declarative.declarative_base", mocker
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
         ), mock.patch(
             "sqlalchemy.sql.schema.MetaData.create_all", mocker
-        ), mock.patch(
-            "sqlalchemy.orm.sessionmaker", mocker
         ):
             import app
             with mock.patch("flask.render_template", self.mocked_flask_render):
@@ -140,13 +141,11 @@ class AppTestCases(unittest.TestCase):
             with mock.patch(
                     "app.flask.request", mocker
             ), mock.patch(
-                "sqlalchemy.create_engine", mocker
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
             ), mock.patch(
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ), mock.patch(
                 "sqlalchemy.sql.schema.MetaData.create_all", mocker
-            ), mock.patch(
-                "sqlalchemy.orm.sessionmaker", mocker
             ):
                 import app
                 app.on_user_login()
@@ -174,7 +173,7 @@ class AppTestCases(unittest.TestCase):
             with mock.patch(
                     "app.flask.request", mocker
             ), mock.patch(
-                "sqlalchemy.create_engine", mocker
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
             ), mock.patch(
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ), mock.patch(
@@ -193,7 +192,7 @@ class AppTestCases(unittest.TestCase):
         with mock.patch(
                 "app.flask.request", mocker
         ), mock.patch(
-            "sqlalchemy.create_engine", mocker
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
         ), mock.patch(
             "sqlalchemy.ext.declarative.declarative_base", mocker
         ), mock.patch(
