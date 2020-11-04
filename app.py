@@ -54,7 +54,7 @@ def on_get_comments(data):
     try:
         which_tab = data["tab"]
         all_comments_tab = [
-            {"text": comment.text, "name": comment.name, "time": comment.time.strftime("%m/%d/%Y, %H:%M:%S")}
+            {"text": comment.text, "name": comment.name, "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")}
             for comment in SESSION.query(tables.Comment)
             .filter(tables.Comment.tab == which_tab)
             .all()
@@ -74,10 +74,10 @@ def on_new_comment(data):
         new_text = data["text"]
         which_tab = data["tab"]
         who_sent = data["name"]
-        time = datetime.now(EST)
+        time = datetime.now()
         SESSION.add(tables.Comment(new_text, who_sent, which_tab, time))
         SESSION.commit()
-        time_str = time.strftime("%m/%d/%Y, %H:%M:%S")
+        time_str = time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")
         SOCKETIO.emit("new comment", {"text": new_text, "name": who_sent, "tab": which_tab, "time": time_str})
     except KeyError:
         return

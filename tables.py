@@ -17,7 +17,7 @@ class Comment(BASE):
     tab = Column(String(50))
     name = Column(String(100))
     text = Column(String(1000))
-    time = Column(DateTime)
+    time = Column(DateTime(timezone=False))
 
     def __init__(self, text, name, tab, time):
         self.text = text
