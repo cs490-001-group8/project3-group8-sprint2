@@ -24,8 +24,6 @@ export default function CommentBlock({ currTab, myName, loggedIn }) {
   useEffect(() => {
     Socket.emit('get comments', { tab: currTab });
   }, [currTab]);
-  
-  console.log(currTab)
 
   if (loggedIn) {
     return (

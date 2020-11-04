@@ -8,9 +8,9 @@ import GoogleTrafficView from './GoogleTrafficView';
 import CommentBlock from './CommentBlock';
 
 export default function RouteTab({ myName, loggedIn }) {
-  const tabs = ["Home", "Commuter"]
+  const tabs = ['Home', 'Commuter'];
   const [tabInd, changeTabInd] = useState(() => 0);
-  const currTab = tabs[tabInd]
+  const currTab = tabs[tabInd];
 
   return (
     <Tabs
