@@ -10,7 +10,7 @@ export default function App() {
   function logIn(newName) {
     setName(() => newName);
     setLoggedIn(() => true);
-    Socket.emit("log in")
+    Socket.emit('log in');
   }
 
   return (

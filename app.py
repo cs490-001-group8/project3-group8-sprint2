@@ -40,7 +40,7 @@ def on_user_disconnect():
     '''Recieve OAuth information when sent by the client'''
     if flask.request.sid in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS.remove(flask.request.sid)
-    
+
 
 @SOCKETIO.on("get comments")
 def on_get_comments(data):

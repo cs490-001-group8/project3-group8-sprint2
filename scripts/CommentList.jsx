@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import Comment from './Comment';
 
 export default function CommentList({ comments, loggedIn }) {
-  
-  if(loggedIn)
-  {
+  if (loggedIn) {
     return (
       <ul className="comment-list">
         {comments.map((comment) => (
@@ -17,19 +15,17 @@ export default function CommentList({ comments, loggedIn }) {
       </ul>
     );
   }
-  else
-  {
-    return (
-      <ul className="comment-list-loggedout">
-        {comments.map((comment) => (
-          <Comment
-            commentBody={comment.text}
-            commentName={comment.name}
-          />
-        ))}
-      </ul>
-    );
-  }
+
+  return (
+    <ul className="comment-list-loggedout">
+      {comments.map((comment) => (
+        <Comment
+          commentBody={comment.text}
+          commentName={comment.name}
+        />
+      ))}
+    </ul>
+  );
 }
 
 CommentList.propTypes = {

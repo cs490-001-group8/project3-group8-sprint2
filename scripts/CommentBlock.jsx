@@ -20,8 +20,7 @@ export default function CommentBlock({ currTab, myName, loggedIn }) {
     Socket.emit('get comments', { tab: 'Home' });
   }, []);
 
-  if (loggedIn)
-  {
+  if (loggedIn) {
     return (
       <div className="Comment-Block">
         <CommentTitle />
@@ -30,15 +29,13 @@ export default function CommentBlock({ currTab, myName, loggedIn }) {
       </div>
     );
   }
-  else
-  {
-    return (
-      <div className="Comment-Block">
-        <CommentTitle />
-        <CommentList comments={comments} loggedIn={loggedIn} />
-      </div>
-    );
-  }
+
+  return (
+    <div className="Comment-Block">
+      <CommentTitle />
+      <CommentList comments={comments} loggedIn={loggedIn} />
+    </div>
+  );
 }
 
 CommentBlock.propTypes = {

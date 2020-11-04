@@ -4,9 +4,7 @@ import OAuthButton from './OAuthButton';
 import LoggedIn from './LoggedIn';
 
 export default function Head({ logIn, loggedIn }) {
-  
-  if (loggedIn)
-  {
+  if (loggedIn) {
     return (
       <div className="Head">
         This is a Head.
@@ -14,15 +12,13 @@ export default function Head({ logIn, loggedIn }) {
       </div>
     );
   }
-  else
-  {
-    return (
-      <div className="Head">
-        This is a Head.
-        <OAuthButton logIn={logIn} />
-      </div>
-    );
-  }
+
+  return (
+    <div className="Head">
+      This is a Head.
+      <OAuthButton logIn={logIn} />
+    </div>
+  );
 }
 
 Head.propTypes = {
