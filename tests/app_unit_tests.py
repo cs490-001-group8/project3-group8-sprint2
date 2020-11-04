@@ -54,6 +54,24 @@ class MockedRequestObject:
     def __init__(self):
         self.sid = "AAAAA"
 
+class MockedSQLBase:
+    """Pretend to be a sql model"""
+    # pylint: disable=C0103
+    # pylint: disable=R0201
+    def __init__(self):
+        self.id = 0
+
+    def create_all(self):
+        """Mock the create_all method"""
+        return
+
+    def Column(self, obj, primary_key=True):
+        """Mock the Column method"""
+        return None
+
+    def String(self, obj):
+        """Mock the String method"""
+        return None
 
 # pylint: disable=R0902
 # pylint: disable=R0201
@@ -73,6 +91,7 @@ class AppTestCases(unittest.TestCase):
 
     def mock_do_nothing(self, first="", checkfirst="", bind=""):
         """Mock Session commit"""
+        print("DO NOTHING")
         return
 
     def mock_session_query(self, model):
@@ -112,25 +131,15 @@ class AppTestCases(unittest.TestCase):
 
     def test_app_runs_success(self):
         """Test successful test cases"""
-        mocker = mock.MagicMock()
-        mocker.values("AAAA")
-        session_mocker = mock.MagicMock()
-        base_mocker = mock.MagicMock()
         with mock.patch(
-                "app.flask.request", mocker
-        ), mock.patch(
             "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
-        ), mock.patch(
-            "app.create_all", self.mock_do_nothing
-        ), mock.patch(
-            "sqlalchemy.ext.declarative.declarative_base", self.mock_do_nothing
-        ), mock.patch(
-            "sqlalchemy.orm.sessionmaker", session_mocker
-        ), mock.patch(
-            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
         ):
             import app
-            with mock.patch("flask.render_template", self.mocked_flask_render):
+            with mock.patch(
+                    "flask.render_template", self.mocked_flask_render
+            ), mock.patch(
+                "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+            ):
                 app.hello()
 
     # def test_app_new_comment(self):

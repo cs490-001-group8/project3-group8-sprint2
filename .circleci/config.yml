@@ -13,9 +13,6 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: sudo service postgresql start
-          name: start server
-      - run:
           command: python ./tests/app_unit_tests.py
           name: app.py Tests
 
