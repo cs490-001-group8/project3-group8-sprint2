@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CommentBlock from './CommentBlock';
 
-export default function Body({myName}) {
+export default function Body({ myName }) {
   return (
     <div className="Body">
       This is a body.
