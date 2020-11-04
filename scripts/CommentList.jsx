@@ -8,6 +8,7 @@ export default function CommentList({ comments }) {
       {comments.map((comment) => (
         <Comment
           commentBody={comment.text}
+          commentName={comment.name}
         />
       ))}
     </ul>
