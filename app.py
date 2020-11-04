@@ -20,7 +20,7 @@ SOCKETIO.init_app(APP, cors_allowed_origins="*")
 
 # ENGINE = sqlalchemy.create_engine(database_url)
 ENGINE = sqlalchemy.create_engine(os.environ["DATABASE_URL"])
-# BASE.metadata.create_all(ENGINE, checkfirst=True)
+BASE.metadata.create_all(ENGINE, checkfirst=True)
 
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
