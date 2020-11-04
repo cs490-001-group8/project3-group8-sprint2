@@ -115,12 +115,15 @@ class AppTestCases(unittest.TestCase):
         mocker = mock.MagicMock()
         mocker.values("AAAA")
         session_mocker = mock.MagicMock()
+        base_mocker = mock.MagicMock()
         with mock.patch(
                 "app.flask.request", mocker
         ), mock.patch(
             "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
         ), mock.patch(
-            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+            "app.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.ext.declarative.declarative_base", self.mock_do_nothing
         ), mock.patch(
             "sqlalchemy.orm.sessionmaker", session_mocker
         ), mock.patch(
