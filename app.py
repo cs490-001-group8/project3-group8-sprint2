@@ -15,7 +15,6 @@ load_dotenv()
 APP = flask.Flask(__name__)
 SOCKETIO = flask_socketio.SocketIO(APP)
 SOCKETIO.init_app(APP, cors_allowed_origins="*")
-database_url = os.getenv('DATABASE_URL')
 
 # ENGINE = sqlalchemy.create_engine(database_url)
 ENGINE = sqlalchemy.create_engine(os.environ["DATABASE_URL"])
@@ -53,8 +52,8 @@ def on_get_comments(data):
         all_comments_tab = [
             {"text": comment.text, "name": comment.name}
             for comment in SESSION.query(tables.Comment)
-                .filter(tables.Comment.tab == which_tab)
-                .all()
+            .filter(tables.Comment.tab == which_tab)
+            .all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})

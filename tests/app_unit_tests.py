@@ -119,9 +119,9 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ):
-            m = mock.MagicMock()
-            m.values("AAAA")
-            with mock.patch("app.flask.request", m):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            with mock.patch("app.flask.request", mocker):
                 app.on_user_login()
                 app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
                 app.on_new_comment({"text": "Hello, I'm Joe"})
