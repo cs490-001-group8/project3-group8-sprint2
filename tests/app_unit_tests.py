@@ -120,8 +120,6 @@ class AppTestCases(unittest.TestCase):
             "app.flask.request", mocker
         ), mock.patch(
             "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
-        ), mock.patch(
-            "sqlalchemy.sql.schema.MetaData.create_all", mocker
         ):
             import app
             with mock.patch("flask.render_template", self.mocked_flask_render):
@@ -144,8 +142,6 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
             ), mock.patch(
                 "sqlalchemy.ext.declarative.declarative_base", mocker
-            ), mock.patch(
-                "sqlalchemy.sql.schema.MetaData.create_all", mocker
             ):
                 import app
                 app.on_user_login()
@@ -177,8 +173,6 @@ class AppTestCases(unittest.TestCase):
             ), mock.patch(
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ), mock.patch(
-                "sqlalchemy.sql.schema.MetaData.create_all", mocker
-            ), mock.patch(
                 "sqlalchemy.orm.sessionmaker", mocker
             ):
                 import app
@@ -195,8 +189,6 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
         ), mock.patch(
             "sqlalchemy.ext.declarative.declarative_base", mocker
-        ), mock.patch(
-            "sqlalchemy.sql.schema.MetaData.create_all", mocker
         ), mock.patch(
             "sqlalchemy.orm.sessionmaker", mocker
         ):
