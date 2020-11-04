@@ -5,7 +5,7 @@ import CommentList from './CommentList';
 import CommentInput from './CommentInput';
 import CommentTitle from './CommentTitle';
 
-export default function CommentBlock({ currTab, myName }) {
+export default function CommentBlock({ currTab, myName, loggedIn }) {
   const [comments, updateComments] = useState(() => []);
 
   useEffect(() => {
@@ -20,16 +20,29 @@ export default function CommentBlock({ currTab, myName }) {
     Socket.emit('get comments', { tab: 'Home' });
   }, []);
 
-  return (
-    <div className="Comment-Block">
-      <CommentTitle />
-      <CommentList comments={comments} />
-      <CommentInput currTab={currTab} myName={myName} />
-    </div>
-  );
+  if (loggedIn)
+  {
+    return (
+      <div className="Comment-Block">
+        <CommentTitle />
+        <CommentList comments={comments} loggedIn={loggedIn} />
+        <CommentInput currTab={currTab} myName={myName} />
+      </div>
+    );
+  }
+  else
+  {
+    return (
+      <div className="Comment-Block">
+        <CommentTitle />
+        <CommentList comments={comments} loggedIn={loggedIn} />
+      </div>
+    );
+  }
 }
 
 CommentBlock.propTypes = {
   currTab: PropTypes.string.isRequired,
   myName: PropTypes.string.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
 };
