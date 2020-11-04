@@ -71,7 +71,7 @@ class AppTestCases(unittest.TestCase):
         if not isinstance(url, str):
             raise ValueError("URL not string")
 
-    def mock_do_nothing(self):
+    def mock_do_nothing(self, first="", checkfirst="", bind=""):
         """Mock Session commit"""
         return
 
@@ -110,22 +110,25 @@ class AppTestCases(unittest.TestCase):
     def mock_sqlalchemy_create_engine(self, url):
         return "THIS IS AN ENGINE"
 
-    # def test_app_runs_success(self):
-    #     """Test successful test cases"""
-    #     mocker = mock.MagicMock()
-    #     mocker.values("AAAA")
-    #     with mock.patch(
-    #             "sqlalchemy.ext.declarative.declarative_base", mocker
-    #     ), mock.patch(
-    #         "app.flask.request", mocker
-    #     ), mock.patch(
-    #         "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
-    #     ), mock.patch(
-    #         "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
-    #     ):
-    #         import app
-    #         with mock.patch("flask.render_template", self.mocked_flask_render):
-    #             app.hello()
+    def test_app_runs_success(self):
+        """Test successful test cases"""
+        mocker = mock.MagicMock()
+        mocker.values("AAAA")
+        session_mocker = mock.MagicMock()
+        with mock.patch(
+                "app.flask.request", mocker
+        ), mock.patch(
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.sessionmaker", session_mocker
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ):
+            import app
+            with mock.patch("flask.render_template", self.mocked_flask_render):
+                app.hello()
 
     # def test_app_new_comment(self):
     #     """Test successful new comments"""
@@ -185,26 +188,24 @@ class AppTestCases(unittest.TestCase):
     #             app.on_get_comments({"tab": "Home"})
     #             app.on_get_comments({"t": "Home"})
 
-    def test_app_get_comments_failure(self):
-        """Test successful new comments"""
-        mocker = mock.MagicMock()
-        mocker.values("AAAA")
-        base_mocker = mock.MagicMock()
-        with mock.patch(
-                "app.flask.request", mocker
-        ), mock.patch(
-            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
-        ), mock.patch(
-            "sqlalchemy.ext.declarative.declarative_base", base_mocker
-        ), mock.patch(
-            "sqlalchemy.orm.sessionmaker", mocker
-        ), mock.patch(
-            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
-        ), mock.patch(
-            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
-        ):
-            import app
-            app.on_get_comments({})
+    # def test_app_get_comments_failure(self):
+    #     """Test successful new comments"""
+    #     mocker = mock.MagicMock()
+    #     mocker.values("AAAA")
+    #     session_mocker = mock.MagicMock()
+    #     with mock.patch(
+    #             "app.flask.request", mocker
+    #     ), mock.patch(
+    #         "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+    #     ), mock.patch(
+    #         "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+    #     ), mock.patch(
+    #         "sqlalchemy.orm.sessionmaker", session_mocker
+    #     ), mock.patch(
+    #         "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+    #     ):
+    #         import app
+    #         app.on_get_comments({})
 
 
 if __name__ == "__main__":
