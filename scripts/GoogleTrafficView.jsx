@@ -14,21 +14,20 @@ const createMapOptions = () => ({
   ],
 });
 
-const GoogleTrafficView = () => (
-  // Important! Always set the container height explicitly
-  <div style={{ height: '60vh', width: '40%' }}>
-    <GoogleMapReact
-      bootstrapURLKeys={{
-        key: 'AIzaSyCazVH5o22VYBnDJzQ6wa7JtBAz7y8jHao',
-        language: 'en',
-        region: 'us',
-      }}
-      defaultCenter={{ lat: 40.560806, lng: -74.465591 }}
-      defaultZoom={9}
-      layerTypes={['TrafficLayer']}
-      options={createMapOptions}
-    />
-  </div>
-);
-
-export default GoogleTrafficView;
+export default function GoogleTrafficView({ myName, loggedIn }) {
+  return (
+    <div style={{ height: '60vh', width: '40%' }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{
+          key: 'AIzaSyCazVH5o22VYBnDJzQ6wa7JtBAz7y8jHao',
+          language: 'en',
+          region: 'us',
+        }}
+        defaultCenter={{ lat: 40.560806, lng: -74.465591 }}
+        defaultZoom={9}
+        layerTypes={['TrafficLayer']}
+        options={createMapOptions}
+      />
+    </div>
+  );
+}
