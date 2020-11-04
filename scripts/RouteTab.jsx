@@ -4,8 +4,7 @@ import {
 } from '@reach/tabs';
 import '@reach/tabs/styles.css';
 import PropTypes from 'prop-types';
-import GoogleTrafficView from './GoogleTrafficView';
-import CommentBlock from './CommentBlock';
+import TabContent from './TabContent';
 
 export default function RouteTab({ myName, loggedIn }) {
   const tabs = ['Home', 'Commuter'];
@@ -22,12 +21,10 @@ export default function RouteTab({ myName, loggedIn }) {
       </TabList>
       <TabPanels>
         <TabPanel label="Home">
-          <GoogleTrafficView />
-          <CommentBlock currTab={currTab} myName={myName} loggedIn={loggedIn} />
+          <TabContent currTab={currTab} myName={myName} loggedIn={loggedIn} />
         </TabPanel>
         <TabPanel label="Commuter">
-          <p>Commuter!</p>
-          <CommentBlock currTab={currTab} myName={myName} loggedIn={loggedIn} />
+          <TabContent currTab={currTab} myName={myName} loggedIn={loggedIn} />
         </TabPanel>
       </TabPanels>
     </Tabs>
