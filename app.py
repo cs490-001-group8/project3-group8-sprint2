@@ -9,6 +9,8 @@ import sqlalchemy
 from dotenv import load_dotenv
 import tables
 from tables import BASE
+from datetime import datetime
+from pytz import timezone
 
 load_dotenv()
 
@@ -24,6 +26,8 @@ SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
 
 LOGGEDIN_CLIENTS = []
+
+EST = timezone("EST")
 
 @APP.route('/')
 def hello():
@@ -70,7 +74,7 @@ def on_new_comment(data):
         new_text = data["text"]
         which_tab = data["tab"]
         who_sent = data["name"]
-        SESSION.add(tables.Comment(new_text, who_sent, which_tab))
+        SESSION.add(tables.Comment(new_text, who_sent, which_tab, datetime.now(EST)))
         SESSION.commit()
         SOCKETIO.emit("new comment", {"text": new_text, "name": who_sent, "tab": which_tab})
     except KeyError:

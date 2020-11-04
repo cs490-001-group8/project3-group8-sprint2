@@ -2,7 +2,7 @@
     tables.py
     This file defines the tables to be used in sqlalchemy of app.py
 '''
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 
 BASE = declarative_base()
@@ -17,11 +17,13 @@ class Comment(BASE):
     tab = Column(String(50))
     name = Column(String(100))
     text = Column(String(1000))
+    time = Column(DateTime)
 
-    def __init__(self, text, name, tab):
+    def __init__(self, text, name, tab, time):
         self.text = text
         self.name = name
         self.tab = tab
+        self.time = time
 
     def __repr__(self):
         return 'Comment: %s, On Tab: %s' % (self.text, self.tab)
