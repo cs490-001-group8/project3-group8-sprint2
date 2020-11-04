@@ -3,14 +3,14 @@
     This file launches the flask server for the app
 """
 import os
+from datetime import datetime
 import flask
 import flask_socketio
 import sqlalchemy
 from dotenv import load_dotenv
+from pytz import timezone
 import tables
 from tables import BASE
-from datetime import datetime
-from pytz import timezone
 
 load_dotenv()
 
@@ -29,23 +29,25 @@ LOGGEDIN_CLIENTS = []
 
 EST = timezone("EST")
 
-@APP.route('/')
+
+@APP.route("/")
 def hello():
     """When someone opens the app, send them the page"""
     return flask.render_template("index.html")
 
-@SOCKETIO.on('log in')
+
+@SOCKETIO.on("log in")
 def on_user_login():
-    '''Recieve OAuth information when sent by the client'''
+    """Recieve OAuth information when sent by the client"""
     if flask.request.sid not in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS.append(flask.request.sid)
 
-@SOCKETIO.on('disconnect')
+
+@SOCKETIO.on("disconnect")
 def on_user_disconnect():
-    '''Recieve OAuth information when sent by the client'''
+    """Recieve OAuth information when sent by the client"""
     if flask.request.sid in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS.remove(flask.request.sid)
-
 
 
 @SOCKETIO.on("get comments")
@@ -54,7 +56,11 @@ def on_get_comments(data):
     try:
         which_tab = data["tab"]
         all_comments_tab = [
-            {"text": comment.text, "name": comment.name, "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")}
+            {
+                "text": comment.text,
+                "name": comment.name,
+                "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S"),
+            }
             for comment in SESSION.query(tables.Comment)
             .filter(tables.Comment.tab == which_tab)
             .all()
@@ -78,7 +84,10 @@ def on_new_comment(data):
         SESSION.add(tables.Comment(new_text, who_sent, which_tab, time))
         SESSION.commit()
         time_str = time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")
-        SOCKETIO.emit("new comment", {"text": new_text, "name": who_sent, "tab": which_tab, "time": time_str})
+        SOCKETIO.emit(
+            "new comment",
+            {"text": new_text, "name": who_sent, "tab": which_tab, "time": time_str},
+        )
     except KeyError:
         return
 
