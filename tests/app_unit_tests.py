@@ -141,35 +141,35 @@ class AppTestCases(unittest.TestCase):
             ):
                 app.hello()
 
-    # def test_app_new_comment(self):
-    #     """Test successful new comments"""
-    #     with mock.patch(
-    #             "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
-    #     ), mock.patch(
-    #         "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
-    #     ), mock.patch(
-    #         "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
-    #     ):
-    #         mocker = mock.MagicMock()
-    #         mocker.values("AAAA")
-    #         with mock.patch(
-    #                 "app.flask.request", mocker
-    #         ), mock.patch(
-    #             "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
-    #         ), mock.patch(
-    #             "sqlalchemy.ext.declarative.declarative_base", mocker
-    #         ), mock.patch(
-    #             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
-    #         ):
-    #             import app
-    #             app.on_user_login()
-    #             app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
-    #             app.on_new_comment({"text": "Hello, I'm Joe"})
-    #             app.on_new_comment({"text": 9, "tab": "Home"})
-    #             app.on_new_comment({"text": "Hello", "tab": 7})
-    #             app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
-    #             app.on_user_disconnect()
-    #             app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
+    def test_app_new_comment(self):
+        """Test successful new comments"""
+        with mock.patch(
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            with mock.patch(
+                    "app.flask.request", mocker
+            ), mock.patch(
+                "sqlalchemy.ext.declarative.declarative_base", mocker
+            ):
+                import app
+                app.on_user_login()
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
+                app.on_new_comment({"text": "Hello, I'm Joe"})
+                app.on_new_comment({"text": 9, "tab": "Home"})
+                app.on_new_comment({"text": "Hello", "tab": 7})
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
+                app.on_user_disconnect()
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
 
     # def test_app_get_comments_success(self):
     #     """Test successful new comments"""
