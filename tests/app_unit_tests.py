@@ -9,10 +9,10 @@ from os.path import dirname, join
 
 # pylint: disable=C0413
 sys.path.append(join(dirname(__file__), "../"))
-import app
 
 # pylint: disable=R0903
 # pylint: disable=W0613
+# pylint: disable=C0415
 
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
@@ -109,10 +109,15 @@ class AppTestCases(unittest.TestCase):
         """Test successful test cases"""
         mocker = mock.MagicMock()
         mocker.values("AAAA")
-        with mock.patch("app.flask.request", mocker
-        ), mock.patch("sqlalchemy.create_engine", mocker
-        ), mock.patch("sqlalchemy.sql.schema.MetaData.create_all", mocker
-        ), mock.patch("sqlalchemy.orm.sessionmaker", mocker):
+        with mock.patch(
+                "app.flask.request", mocker
+        ), mock.patch(
+            "sqlalchemy.create_engine", mocker
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", mocker
+        ), mock.patch(
+            "sqlalchemy.orm.sessionmaker", mocker
+        ):
             import app
             with mock.patch("flask.render_template", self.mocked_flask_render):
                 app.hello()
@@ -128,10 +133,15 @@ class AppTestCases(unittest.TestCase):
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
-            with mock.patch("app.flask.request", mocker
-            ), mock.patch("sqlalchemy.create_engine", mocker
-            ), mock.patch("sqlalchemy.sql.schema.MetaData.create_all", mocker
-            ), mock.patch("sqlalchemy.orm.sessionmaker", mocker):
+            with mock.patch(
+                    "app.flask.request", mocker
+            ), mock.patch(
+                "sqlalchemy.create_engine", mocker
+            ), mock.patch(
+                "sqlalchemy.sql.schema.MetaData.create_all", mocker
+            ), mock.patch(
+                "sqlalchemy.orm.sessionmaker", mocker
+            ):
                 import app
                 app.on_user_login()
                 app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
@@ -155,10 +165,15 @@ class AppTestCases(unittest.TestCase):
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
-            with mock.patch("app.flask.request", mocker
-            ), mock.patch("sqlalchemy.create_engine", mocker
-            ), mock.patch("sqlalchemy.sql.schema.MetaData.create_all", mocker
-            ), mock.patch("sqlalchemy.orm.sessionmaker", mocker):
+            with mock.patch(
+                    "app.flask.request", mocker
+            ), mock.patch(
+                "sqlalchemy.create_engine", mocker
+            ), mock.patch(
+                "sqlalchemy.sql.schema.MetaData.create_all", mocker
+            ), mock.patch(
+                "sqlalchemy.orm.sessionmaker", mocker
+            ):
                 import app
                 app.on_get_comments({"tab": "Home"})
                 app.on_get_comments({"t": "Home"})
@@ -167,10 +182,15 @@ class AppTestCases(unittest.TestCase):
         """Test successful new comments"""
         mocker = mock.MagicMock()
         mocker.values("AAAA")
-        with mock.patch("app.flask.request", mocker
-        ), mock.patch("sqlalchemy.create_engine", mocker
-        ), mock.patch("sqlalchemy.sql.schema.MetaData.create_all", mocker
-        ), mock.patch("sqlalchemy.orm.sessionmaker", mocker):
+        with mock.patch(
+                "app.flask.request", mocker
+        ), mock.patch(
+            "sqlalchemy.create_engine", mocker
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", mocker
+        ), mock.patch(
+            "sqlalchemy.orm.sessionmaker", mocker
+        ):
             import app
             with mock.patch(
                     "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
