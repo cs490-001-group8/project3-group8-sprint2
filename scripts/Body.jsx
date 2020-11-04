@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CommentBlock from './CommentBlock';
+import GoogleTrafficView from './GoogleTrafficView';
 
 export default function Body({ myName, loggedIn }) {
   return (
     <div className="Body">
-      This is a body.
+      <GoogleTrafficView />
       <CommentBlock currTab="Home" myName={myName} loggedIn={loggedIn} />
     </div>
   );
