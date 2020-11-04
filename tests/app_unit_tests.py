@@ -47,6 +47,11 @@ class MockedQueryResponse:
         """Mock an all() call from a query response"""
         return self.texts
 
+class MockedRequestObject:
+    """Pretend to be an query response"""
+    def __init__(self):
+        self.sid = "AAAAA"
+
 
 # pylint: disable=R0902
 # pylint: disable=R0201
@@ -105,7 +110,7 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask.render_template", self.mocked_flask_render):
             app.hello()
 
-    def test_app_new_comment_success(self):
+    def test_app_new_comment(self):
         """Test successful new comments"""
         with mock.patch(
                 "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
@@ -114,17 +119,17 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ):
-            app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
-
-    def test_app_new_comment_failure(self):
-        """Test failed new comments"""
-        with mock.patch(
-                "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
-        ):
-            app.on_new_comment({"text": "Hello, I'm Joe"})
-            app.on_new_comment({"text": 9, "tab": "Home"})
-            app.on_new_comment({"text": "Hello", "tab": 7})
-            app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
+            m = mock.MagicMock()
+            m.values("AAAA")
+            with mock.patch("app.flask.request", m):
+                app.on_user_login()
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
+                app.on_new_comment({"text": "Hello, I'm Joe"})
+                app.on_new_comment({"text": 9, "tab": "Home"})
+                app.on_new_comment({"text": "Hello", "tab": 7})
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
+                app.on_user_disconnect()
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
 
     def test_app_get_comments_success(self):
         """Test successful new comments"""
