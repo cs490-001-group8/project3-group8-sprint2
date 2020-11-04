@@ -126,6 +126,7 @@ class AppTestCases(unittest.TestCase):
             raise ValueError("NO ESTABLISHED CHANNEL")
 
     def mock_sqlalchemy_create_engine(self, url):
+        """Mock create_engine"""
         return "THIS IS AN ENGINE"
 
     def test_app_runs_success(self):
