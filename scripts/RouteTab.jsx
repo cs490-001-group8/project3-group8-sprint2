@@ -21,10 +21,10 @@ export default function RouteTab({ myName, loggedIn }) {
       </TabList>
       <TabPanels>
         <TabPanel label="Home">
-          <TabContent currTab={currTab} myName={myName} loggedIn={loggedIn} />
+          <TabContent currTab="Home" currTabComment={currTab} myName={myName} loggedIn={loggedIn} />
         </TabPanel>
         <TabPanel label="Commuter">
-          <TabContent currTab={currTab} myName={myName} loggedIn={loggedIn} />
+          <TabContent currTab="Commuter" currTabComment={currTab} myName={myName} loggedIn={loggedIn} />
         </TabPanel>
       </TabPanels>
     </Tabs>
