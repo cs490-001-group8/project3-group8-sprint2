@@ -171,33 +171,33 @@ class AppTestCases(unittest.TestCase):
                 app.on_user_disconnect()
                 app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
 
-    # def test_app_get_comments_success(self):
-    #     """Test successful new comments"""
-    #     with mock.patch(
-    #             "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
-    #     ), mock.patch(
-    #         "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
-    #     ), mock.patch(
-    #         "sqlalchemy.orm.session.Session.query", self.mock_session_query
-    #     ), mock.patch(
-    #         "flask_socketio.emit", self.mock_flask_emit_one
-    #     ):
-    #         mocker = mock.MagicMock()
-    #         mocker.values("AAAA")
-    #         with mock.patch(
-    #                 "app.flask.request", mocker
-    #         ), mock.patch(
-    #             "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
-    #         ), mock.patch(
-    #             "sqlalchemy.ext.declarative.declarative_base", mocker
-    #         ), mock.patch(
-    #             "sqlalchemy.orm.sessionmaker", mocker
-    #         ), mock.patch(
-    #             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
-    #         ):
-    #             import app
-    #             app.on_get_comments({"tab": "Home"})
-    #             app.on_get_comments({"t": "Home"})
+    def test_app_get_comments_success(self):
+        """Test successful new comments"""
+        with mock.patch(
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.emit", self.mock_flask_emit_one
+        ):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            with mock.patch(
+                    "app.flask.request", mocker
+            ), mock.patch(
+                "sqlalchemy.ext.declarative.declarative_base", mocker
+            ):
+                import app
+                app.on_get_comments({"tab": "Home"})
+                app.on_get_comments({"t": "Home"})
 
     # def test_app_get_comments_failure(self):
     #     """Test successful new comments"""
