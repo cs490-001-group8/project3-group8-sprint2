@@ -1,5 +1,5 @@
 """
-    unmocked_unit_tests.py
+    mocked_unit_tests.py
     This file does all non-mocked unit tests
 """
 import unittest
@@ -11,16 +11,13 @@ from os.path import dirname, join
 sys.path.append(join(dirname(__file__), "../"))
 import app
 
-# pylint: disable=R0903
-# pylint: disable=W0613
-
+<<<<<<< HEAD:tests/mocked_unit_tests.py
+=======
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
-    def __init__(self, text, name):
+    def __init__(self, text):
         self.text = text
-        self.name = name
-
 
 class MockedFilterResponse:
     """Pretend to be an query response"""
@@ -32,21 +29,21 @@ class MockedFilterResponse:
         """Mock an all() call from a query response"""
         return self.texts
 
-
 class MockedQueryResponse:
     """Pretend to be an query response"""
 
     def __init__(self, text):
-        self.texts = [MockedQueryResponseObj(text["text"], text["name"])]
+        self.texts = [
+            MockedQueryResponseObj(text["text"])
+        ]
 
     def filter(self, text):
-        """Pretend to be an query filter"""
         return MockedFilterResponse(self.texts)
 
     def all(self):
         """Mock an all() call from a query response"""
         return self.texts
-
+>>>>>>> 166e7a9634524212c7f8edf9596af224f115035a:tests/app_unit_tests.py
 
 # pylint: disable=R0902
 # pylint: disable=R0201
@@ -57,7 +54,12 @@ class AppTestCases(unittest.TestCase):
 
     def setUp(self):
         """Set up test cases"""
+<<<<<<< HEAD:tests/mocked_unit_tests.py
+        self.success_test_params = [
+        ]
+=======
         self.success_test_params = []
+>>>>>>> 166e7a9634524212c7f8edf9596af224f115035a:tests/app_unit_tests.py
 
     def mocked_flask_render(self, url):
         """Mock Flask render"""
@@ -70,7 +72,7 @@ class AppTestCases(unittest.TestCase):
 
     def mock_session_query(self, model):
         """Mock Session commit"""
-        return MockedQueryResponse({"text": "TEST", "name": "USER"})
+        return MockedQueryResponse({"text": "TEST"})
 
     def mock_session_add_comment(self, comment):
         """Mock Session add for comments"""
@@ -79,7 +81,7 @@ class AppTestCases(unittest.TestCase):
         if not isinstance(comment.text, str):
             raise ValueError("Text not string")
 
-    def mock_flask_emit_all(self, channel, data=""):
+    def mock_flask_emit_all(self, channel, data = {}):
         """Mock Session add for comments"""
         if channel == "new comment":
             if "text" not in data or not isinstance(data["text"], str):
@@ -89,7 +91,7 @@ class AppTestCases(unittest.TestCase):
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
-    def mock_flask_emit_one(self, channel, data=""):
+    def mock_flask_emit_one(self, channel, data = {}):
         """Mock Session add for comments"""
         if channel == "old comments":
             if "comments" not in data:
@@ -114,7 +116,7 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ):
-            app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
+            app.on_new_comment({"text": "Hello, I'm Joe", "tab": "Home"})
 
     def test_app_new_comment_failure(self):
         """Test failed new comments"""
@@ -124,7 +126,6 @@ class AppTestCases(unittest.TestCase):
             app.on_new_comment({"text": "Hello, I'm Joe"})
             app.on_new_comment({"text": 9, "tab": "Home"})
             app.on_new_comment({"text": "Hello", "tab": 7})
-            app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
 
     def test_app_get_comments_success(self):
         """Test successful new comments"""
@@ -146,7 +147,6 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.orm.session.Session.commit", self.mock_session_commit
         ):
             app.on_get_comments({})
-
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,3 +2,7 @@ node_modules/
 htmlcov/
 package-lock.json
 .env
+.idea
+__pycache__
+docker-compose.yml
+postgres-data
