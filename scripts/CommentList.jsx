@@ -10,6 +10,7 @@ export default function CommentList({ comments, loggedIn }) {
           <Comment
             commentBody={comment.text}
             commentName={comment.name}
+            commentTime={comment.time}
           />
         ))}
       </ul>
@@ -22,6 +23,7 @@ export default function CommentList({ comments, loggedIn }) {
         <Comment
           commentBody={comment.text}
           commentName={comment.name}
+          commentTime={comment.time}
         />
       ))}
     </ul>

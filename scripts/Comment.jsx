@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Comment({ commentBody, commentName }) {
+export default function Comment({ commentBody, commentName, commentTime }) {
   return (
     <li className="comment">
-      <span className="comment-name">
-        {commentName}
-        :
-        {' '}
-      </span>
+      <span className="comment-name">{commentName}: {commentTime}</span><br></br>
       <span className="comment-body">{commentBody}</span>
     </li>
   );
@@ -17,4 +13,5 @@ export default function Comment({ commentBody, commentName }) {
 Comment.propTypes = {
   commentBody: PropTypes.string.isRequired,
   commentName: PropTypes.string.isRequired,
+  commentTime: PropTypes.string.isRequired,
 };
