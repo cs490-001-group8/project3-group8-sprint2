@@ -17,8 +17,9 @@ import app
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
-    def __init__(self, text):
+    def __init__(self, text, name):
         self.text = text
+        self.name = name
 
 
 class MockedFilterResponse:
@@ -36,7 +37,7 @@ class MockedQueryResponse:
     """Pretend to be an query response"""
 
     def __init__(self, text):
-        self.texts = [MockedQueryResponseObj(text["text"])]
+        self.texts = [MockedQueryResponseObj(text["text"], text["name"])]
 
     def filter(self, text):
         """Pretend to be an query filter"""
@@ -69,7 +70,7 @@ class AppTestCases(unittest.TestCase):
 
     def mock_session_query(self, model):
         """Mock Session commit"""
-        return MockedQueryResponse({"text": "TEST"})
+        return MockedQueryResponse({"text": "TEST", "name": "USER"})
 
     def mock_session_add_comment(self, comment):
         """Mock Session add for comments"""

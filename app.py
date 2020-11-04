@@ -39,7 +39,7 @@ def on_get_comments(data):
     try:
         which_tab = data["tab"]
         all_comments_tab = [
-            {"text": comment.text}
+            {"text": comment.text, "name": comment.name}
             for comment in SESSION.query(tables.Comment)
             .filter(tables.Comment.tab == which_tab)
             .all()
@@ -59,7 +59,7 @@ def on_new_comment(data):
         who_sent = data["name"]
         SESSION.add(tables.Comment(new_text, who_sent, which_tab))
         SESSION.commit()
-        SOCKETIO.emit("new comment", {"text": new_text, "tab": which_tab})
+        SOCKETIO.emit("new comment", {"text": new_text, "name": who_sent, "tab": which_tab})
     except KeyError:
         return
 
