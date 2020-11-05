@@ -16,7 +16,7 @@ const createMapOptions = () => ({
 
 export default function GoogleTrafficView() {
   return (
-    <div style={{ height: '60vh', width: '40%' }}>
+    <div className="widget">
       <GoogleMapReact
         bootstrapURLKeys={{
           key: 'AIzaSyCazVH5o22VYBnDJzQ6wa7JtBAz7y8jHao',

@@ -7,7 +7,7 @@ export default function TabContent({
   myName, loggedIn, currTab, currTabComment,
 }) {
   return (
-    <div className="TabContent">
+    <div className="tab-content">
       <TabWidgets currTab={currTab} />
       <CommentBlock currTab={currTabComment} myName={myName} loggedIn={loggedIn} />
     </div>

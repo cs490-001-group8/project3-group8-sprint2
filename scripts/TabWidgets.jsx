@@ -5,14 +5,14 @@ import GoogleTrafficView from './GoogleTrafficView';
 export default function TabWidgets({ currTab }) {
   if (currTab === 'Commuter') {
     return (
-      <div className="TabWidgets">
+      <div className="tab-widgets-section">
         <GoogleTrafficView />
       </div>
     );
   }
 
   return (
-    <div className="TabWidgets">
+    <div className="tab-widgets-section">
       Commuter
     </div>
   );
