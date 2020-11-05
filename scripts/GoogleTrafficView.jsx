@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
+import WidgetTitle from './WidgetTitle';
 
 const createMapOptions = () => ({
   panControl: false,
@@ -17,6 +18,7 @@ const createMapOptions = () => ({
 export default function GoogleTrafficView() {
   return (
     <div className="widget">
+      <WidgetTitle title="Traffic" />
       <GoogleMapReact
         bootstrapURLKeys={{
           key: 'AIzaSyCazVH5o22VYBnDJzQ6wa7JtBAz7y8jHao',

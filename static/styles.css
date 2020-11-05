@@ -40,11 +40,21 @@ body {
           
           flex: 1;
           flex-direction: row;
-            
+          
           margin: 20px;
           
           overflow: hidden;
         }
+
+          .widget-title {
+            height: 5%;
+            text-align: center;
+            
+            margin: 20px;
+            
+            font-size: 30pt;
+            font-weight: bold;
+          }
   
       .comment-block {
         border: 3px black solid;
@@ -154,6 +164,9 @@ body {
 
   .head {
     height: 10%;
-    text-align: center;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
