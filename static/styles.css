@@ -165,8 +165,27 @@ body {
   .head {
     height: 10%;
     
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 25% auto 25%;
   }
+
+    .login {
+      font-size: 14pt;
+      
+      grid-column-start: 3;
+      
+      margin: auto;
+    }
+
+    .head-title {
+      font-size: 50pt;
+      font-weight: bold;
+      
+      grid-column-start: 2;
+      grid-column-end: 3;
+      
+      margin: auto;
+    }
   

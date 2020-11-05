@@ -10,12 +10,14 @@ export default function OAuthButton({ logIn }) {
   }
 
   return (
-    <GoogleLogin
-      clientId={clientID}
-      buttonText="Login"
-      onSuccess={successGoogle}
-      id="googleButton"
-    />
+    <div className="login">
+      <GoogleLogin
+        clientId={clientID}
+        buttonText="Login"
+        onSuccess={successGoogle}
+        id="googleButton"
+      />
+    </div>
   );
 }
 

@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import OAuthButton from './OAuthButton';
 import LoggedIn from './LoggedIn';
+import HeadTitle from './HeadTitle';
 
 export default function Head({ logIn, loggedIn }) {
   if (loggedIn) {
     return (
       <div className="Head">
-        This is a Head.
+        <HeadTitle />
         <LoggedIn />
       </div>
     );
@@ -15,7 +16,7 @@ export default function Head({ logIn, loggedIn }) {
 
   return (
     <div className="Head">
-      This is a Head.
+      <HeadTitle />
       <OAuthButton logIn={logIn} />
     </div>
   );
