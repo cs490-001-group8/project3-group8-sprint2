@@ -3,7 +3,11 @@ import { Item, Placeholder, Image } from 'semantic-ui-react'
 import WidgetTitle from './WidgetTitle'
 import axios from 'axios'
 
+<<<<<<< HEAD
 const apiURL = "https://gnews.io/api/v4/search?q=new jersey&token="
+=======
+const apiURL = "https://newsapi.org/v2/everything?q=new-jersey&apiKey="
+>>>>>>> 59a74e2a5a66c7176f65c48a1ffa206f6f158c2c
 
 export default function NewsList() {
     const [news, setNews] = useState(() => [{}, {}, {}, {}, {},])
@@ -28,7 +32,11 @@ export default function NewsList() {
                                     <Placeholder.Image />
                                 </Placeholder>
                             ) : (
+<<<<<<< HEAD
                                     <Image src={item.image} className="news-image" />
+=======
+                                    <Image src={item.urlToImage} className="news-image" />
+>>>>>>> 59a74e2a5a66c7176f65c48a1ffa206f6f158c2c
                                 )}
                         </Item.Image>
                         <Item.Content>
