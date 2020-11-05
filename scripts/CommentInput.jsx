@@ -28,6 +28,7 @@ export default function CommentInput({ currTab, myName }) {
       <CommentInputText
         onChange={changeIn}
         input={currIn}
+        onEnter={getInput}
       />
       <CommentInputButton OnPress={getInput} />
     </div>

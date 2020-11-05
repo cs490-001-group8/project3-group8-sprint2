@@ -85,10 +85,12 @@ body {
     
         .comment-list {
           border: 2px black solid;
-          width: 100%;
+          width: 98%;
           height: 80%;
           
           text-align: left;
+          
+          overflow: auto;
           
           padding: 0px;
           margin: 0px;
