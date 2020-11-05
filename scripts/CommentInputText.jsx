@@ -7,7 +7,7 @@ export default function CommentInputText({ input, onChange, onEnter }) {
       onEnter();
     }
   };
-  
+
   return (
     <textarea
       className="comment-input-text"
