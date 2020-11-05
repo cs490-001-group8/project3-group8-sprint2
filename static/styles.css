@@ -5,14 +5,14 @@ body {
 
   .body {
     width: 98%;
-    border: 3px black solid;
-    height: 85%;
+    height: 90%;
     margin: auto;
   }
   
     .tab-content {
+      border: 3px black solid;
       width: 100%;
-      height: 100%;
+      height: 95%;
       
       display: flex;
       flex-direction: row;
@@ -25,15 +25,29 @@ body {
         height: 95%;
         
         flex: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         flex-direction: row;
           
         margin: 2px;
       }
+
+        .widget {
+          height: 95%;
+          border: 3px black solid;
+          border-radius: 25px;
+          
+          flex: 1;
+          flex-direction: row;
+            
+          margin: 20px;
+        }
   
       .comment-block {
         border: 3px black solid;
         width: 25%;
-        height: 95%;
+        height: 100%;
         
         flex: 1;
         display: flex;
@@ -137,7 +151,7 @@ body {
     }
 
   .head {
-    height: 15%;
+    height: 10%;
     text-align: center;
   }
   
