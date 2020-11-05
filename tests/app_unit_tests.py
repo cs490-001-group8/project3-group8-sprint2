@@ -15,7 +15,6 @@ sys.path.append(join(dirname(__file__), "../"))
 # pylint: disable=W0613
 # pylint: disable=C0415
 
-
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
@@ -50,17 +49,13 @@ class MockedQueryResponse:
         """Mock an all() call from a query response"""
         return self.texts
 
-
 class MockedRequestObject:
     """Pretend to be an query response"""
-
     def __init__(self):
         self.sid = "AAAAA"
 
-
 class MockedSQLBase:
     """Pretend to be a sql model"""
-
     # pylint: disable=C0103
     # pylint: disable=R0201
     def __init__(self):
@@ -77,7 +72,6 @@ class MockedSQLBase:
     def String(self, obj):
         """Mock the String method"""
         return None
-
 
 # pylint: disable=R0902
 # pylint: disable=R0201
@@ -101,9 +95,7 @@ class AppTestCases(unittest.TestCase):
 
     def mock_session_query(self, model):
         """Mock Session commit"""
-        return MockedQueryResponse(
-            {"text": "TEST", "name": "USER", "time": datetime.now()}
-        )
+        return MockedQueryResponse({"text": "TEST", "name": "USER", "time": datetime.now()})
 
     def mock_session_add_comment(self, comment):
         """Mock Session add for comments"""
@@ -112,21 +104,17 @@ class AppTestCases(unittest.TestCase):
         if not isinstance(comment.text, str):
             raise ValueError("Text not string")
 
-    def mock_flask_emit_all(self, channel, data="", room=""):
+    def mock_flask_emit_all(self, channel, data=""):
         """Mock Session add for comments"""
         if channel == "new comment":
             if "text" not in data or not isinstance(data["text"], str):
                 raise ValueError("NO TEXT")
-            if "time" not in data or not isinstance(data["time"], str):
+            if "tab" not in data or not isinstance(data["tab"], str):
                 raise ValueError("NO TAB")
-            if "name" not in data or not isinstance(data["name"], str):
-                raise ValueError("NO NAME")
-            if room == "" or not isinstance(room, str):
-                raise ValueError("NO ROOM")
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
-    def mock_flask_emit_one(self, channel, data="", room=""):
+    def mock_flask_emit_one(self, channel, data=""):
         """Mock Session add for comments"""
         if channel == "old comments":
             if "comments" not in data:
@@ -141,11 +129,6 @@ class AppTestCases(unittest.TestCase):
         """Mock create_engine"""
         return "THIS IS AN ENGINE"
 
-    def mock_flask_leave_or_join(self, room):
-        """Mock create_engine"""
-        if not isinstance(room, str):
-            raise ValueError("BAD ROOM")
-
     def test_app_runs_success(self):
         """Test successful test cases"""
         with mock.patch(
@@ -154,8 +137,9 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ):
             import app
-
-            with mock.patch("flask.render_template", self.mocked_flask_render):
+            with mock.patch(
+                    "flask.render_template", self.mocked_flask_render
+            ):
                 app.hello()
 
     def test_app_new_comment(self):
@@ -179,36 +163,14 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
-
                 app.on_user_login()
-                app.on_new_comment(
-                    {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
-                )
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
                 app.on_new_comment({"text": "Hello, I'm Joe"})
                 app.on_new_comment({"text": 9, "tab": "Home"})
                 app.on_new_comment({"text": "Hello", "tab": 7})
-                self.assertRaises(
-                    ValueError,
-                    lambda: app.on_new_comment(
-                        {"text": "Hello, I'm Joe", "name": 9, "tab": "Home"}
-                    ),
-                )
-                self.assertRaises(
-                    ValueError,
-                    lambda: app.on_new_comment(
-                        {"text": 8, "name": "name", "tab": "Home"}
-                    ),
-                )
-                self.assertRaises(
-                    ValueError,
-                    lambda: app.on_new_comment(
-                        {"text": "TEXT", "name": "name", "tab": 9}
-                    ),
-                )
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
                 app.on_user_disconnect()
-                app.on_new_comment(
-                    {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
-                )
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
 
     def test_app_get_comments_success(self):
         """Test successful new comments"""
@@ -223,10 +185,6 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ), mock.patch(
-            "flask_socketio.join_room", self.mock_flask_leave_or_join
-        ), mock.patch(
-            "flask_socketio.leave_room", self.mock_flask_leave_or_join
-        ), mock.patch(
             "sqlalchemy.orm.session.Session.query", self.mock_session_query
         ), mock.patch(
             "flask_socketio.emit", self.mock_flask_emit_one
@@ -239,9 +197,7 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
-
                 app.on_get_comments({"tab": "Home"})
-                app.on_get_comments({"tab": "Commuter"})
 
     def test_app_get_comments_failure(self):
         """Test successful new comments"""
@@ -256,10 +212,6 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ), mock.patch(
-            "flask_socketio.join_room", self.mock_flask_leave_or_join
-        ), mock.patch(
-            "flask_socketio.leave_room", self.mock_flask_leave_or_join
-        ), mock.patch(
             "sqlalchemy.orm.session.Session.query", self.mock_session_query
         ), mock.patch(
             "flask_socketio.emit", self.mock_flask_emit_one
@@ -273,7 +225,6 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.orm.sessionmaker", session_mocker
             ):
                 import app
-
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
 
