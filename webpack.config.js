@@ -1,3 +1,5 @@
+const Dotenv = require('dotenv-webpack');
+
 module.exports = {
     entry: "./scripts/Main.jsx",
     output: {
@@ -15,14 +17,14 @@ module.exports = {
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 options: {
-                     presets: [
+                    presets: [
                         '@babel/preset-react',
                         [
                             '@babel/preset-env',
                             {
-                              targets: {
-                                esmodules: false
-                              }
+                                targets: {
+                                    esmodules: false
+                                }
                             }
                         ]
                     ]
@@ -31,6 +33,9 @@ module.exports = {
         ]
     },
     resolve: {
-    extensions: ['.js', '.jsx'],
-  }
+        extensions: ['.js', '.jsx'],
+    },
+    plugins: [
+        new Dotenv()
+    ]
 };
