@@ -8,6 +8,9 @@
 import sys
 import unittest
 import unittest.mock as mock
+from os.path import dirname, join
+sys.path.append(join(dirname(__file__), "../"))
+# pylint: disable=C0413
 from forward_geocoding import (
     get_latlon,
     KEY_LATITUDE,
@@ -16,7 +19,6 @@ from forward_geocoding import (
     KEY_LOCATION,
     KEY_LONGITUDE_RETURN,
 )
-sys.path.append("..")
 
 
 KEY_INPUT = "input"
