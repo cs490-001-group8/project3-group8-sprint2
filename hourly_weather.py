@@ -67,7 +67,7 @@ def format_hourly_response(hourly_list):
                 KEY_TEMP: each[KEY_TEMP],
                 KEY_FEELS_LIKE: each[KEY_FEELS_LIKE],
                 KEY_DESCRIPTON: each[KEY_WEATHER][0][KEY_DESCRIPTON],
-                KEY_ICON: "http://openweathermap.org/img/wn/"
+                KEY_ICON: "https://openweathermap.org/img/wn/"
                           + each[KEY_WEATHER][0][KEY_ICON]
                           + "@2x.png",
             }
@@ -108,7 +108,7 @@ def fetch_weather(city):
                 KEY_TEMP: response[KEY_CURRENT][KEY_TEMP],
                 KEY_FEELS_LIKE: response[KEY_CURRENT][KEY_FEELS_LIKE],
                 KEY_DESCRIPTON: response[KEY_CURRENT][KEY_WEATHER][0][KEY_DESCRIPTON],
-                KEY_ICON: "http://openweathermap.org/img/wn/"
+                KEY_ICON: "https://openweathermap.org/img/wn/"
                           + response[KEY_CURRENT][KEY_WEATHER][0][KEY_ICON]
                           + "@2x.png",
             },

@@ -16,7 +16,7 @@ function handleSubmit(event) {
 
 export default function WeatherModule() {
   const [currWeather, setCurrWeather] = useState(() => []);
-  const [currCity, setCurrCity] = useState(() => 'Hourly');
+  const [currCity, setCurrCity] = useState("Hourly");
 
   function recieveWeather() {
     React.useEffect(() => {
@@ -34,12 +34,12 @@ export default function WeatherModule() {
             />
           );
           // eslint-disable-next-line no-shadow
-          setCurrWeather((currWeather) => [...currWeather, iterWeather]);
+          setCurrWeather(currWeather => [...currWeather, iterWeather]);
         }
       });
 
       return () => {
-        Socket.off('user login');
+        Socket.off('send weather');
       };
     });
   }
