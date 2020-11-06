@@ -41,11 +41,11 @@ In order to get the modules to work correctly, you will need to register and obt
 2. [Geocodio API](https://www.geocod.io/) - This is used to retrieve the latitude and longitude for use with the OpenWeather API.
 3. [GNews API](https://www.gnews.io/) - This is used to retrieve relevant New Jersey news.
 
-Create a file named `API_KEYS.env` and set it up as the following:
+Create a file named `.env` and set it up as the following:
 ```
-export OPEN_WEATHER_API_KEY=<Open weather API Key Here>
-export GEOCODIO_API_KEY=<Geocodio API Key Here>
-export GNEWS_API_KEY=<Gnews API Key Here>
+OPEN_WEATHER_API_KEY=<Open weather API Key Here>
+GEOCODIO_API_KEY=<Geocodio API Key Here>
+REACT_APP_NEWS_API_KEY=<Gnews API Key Here>
 ```
 Note: Do not include quotes or the `<>` characters in the `.env` file.
 
@@ -90,6 +90,12 @@ If you wish to check the linting on this project, execute the following commands
 ## Known Problems
 TODO
 ## Technical Issues and Solutions
-TODO
+The comment section was having an issue where each tab was not recognizing different comment sections as different.
+  This was solved by utilizing hooks to keep the comment sections as the same element that
+  simply updates on a switched tab.
+  
+The comment section was having issues where they were getting the comments sent to all tabs.
+  This was solved by utilizing rooms in the backend to ensure that comments were only sent 
+  to users in one tab.
 ## Other
 TODO
