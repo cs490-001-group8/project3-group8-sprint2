@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 from pytz import timezone
 import tables
 from tables import BASE
+import hourly_weather
 
 load_dotenv()
 
@@ -90,6 +91,13 @@ def on_new_comment(data):
         )
     except KeyError:
         return
+
+@SOCKETIO.on("weather request")
+def on_weather_request(data):
+    """Recieve city, return back weather for the day"""
+    weather_object = hourly_weather.fetch_weather(data["city_name"])
+    weather_object["city_name"] = data["city_name"]
+    SOCKETIO.emit("send weather", weather_object)
 
 
 if __name__ == "__main__":
