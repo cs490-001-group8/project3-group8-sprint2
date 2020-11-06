@@ -8,6 +8,8 @@
 import sys
 import unittest
 import unittest.mock as mock
+from os.path import dirname, join
+sys.path.append(join(dirname(__file__), "../"))
 from forward_geocoding import (
     get_latlon,
     KEY_LATITUDE,
