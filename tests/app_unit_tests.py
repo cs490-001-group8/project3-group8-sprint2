@@ -227,6 +227,19 @@ class AppTestCases(unittest.TestCase):
                 import app
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
+    
+    def mocked_weather(self, city_name):
+        def __init__ (self, city_name):
+            city_name = city_name
+    
+    def test_weather_sending(self):
+        test_weather = {
+            "city_name": "Newark"
+        }
+        import app
+        with mock.patch("app.on_weather_request", self.mocked_weather):
+            app.on_weather_request(test_weather)
+            self.assertIsInstance(test_weather, dict)
 
 
 if __name__ == "__main__":
