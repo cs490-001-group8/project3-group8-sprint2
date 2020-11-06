@@ -183,3 +183,21 @@ body {
   padding: 8;
   overflow-y: scroll;
 }
+
+.hourlyWeather{
+  text-align: center;
+  text-transform: capitalize;
+  padding: auto;
+  margin: 8px;
+  display: inline-block;
+}
+
+.weather_widget{
+  text-align: center;
+  overflow: scroll;
+}
+
+.weather_widget::-webkit-scrollbar{
+    width: 0px;
+    background: transparent;
+}
