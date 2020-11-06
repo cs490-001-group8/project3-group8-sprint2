@@ -15,6 +15,12 @@ jobs:
       - run:
           command: python ./tests/app_unit_tests.py
           name: app.py Tests
+      - run:
+          command: python ./tests/forward_geocoding_unit_test.py
+          name: forward_geocoding_unit_test.py Tests
+      - run:
+          command: python ./tests/hourly_weather_unit_test.py
+          name: hourly_weather_unit_test.py Tests
 
 workflows:
   heroku_deploy:
