@@ -6,7 +6,6 @@ import os
 from datetime import datetime
 import flask
 import flask_socketio
-from flask_socketio import join_room, leave_room
 import sqlalchemy
 from dotenv import load_dotenv
 from pytz import timezone
@@ -28,8 +27,6 @@ SESSION = SESSION_MAKER()
 
 LOGGEDIN_CLIENTS = []
 
-ROOM_CLIENT_IN = {}
-
 EST = timezone("EST")
 
 
@@ -48,21 +45,16 @@ def on_user_login():
 
 @SOCKETIO.on("disconnect")
 def on_user_disconnect():
-    """Remove client from info"""
+    """Recieve OAuth information when sent by the client"""
     if flask.request.sid in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS.remove(flask.request.sid)
-    ROOM_CLIENT_IN.pop(flask.request.sid, None)
 
 
 @SOCKETIO.on("get comments")
 def on_get_comments(data):
     """Process a new comment"""
     try:
-        if flask.request.sid in ROOM_CLIENT_IN:
-            leave_room(ROOM_CLIENT_IN[flask.request.sid])
         which_tab = data["tab"]
-        join_room(which_tab)
-        ROOM_CLIENT_IN[flask.request.sid] = which_tab
         all_comments_tab = [
             {
                 "text": comment.text,
@@ -94,8 +86,7 @@ def on_new_comment(data):
         time_str = time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")
         SOCKETIO.emit(
             "new comment",
-            {"text": new_text, "name": who_sent, "time": time_str},
-            room=which_tab,
+            {"text": new_text, "name": who_sent, "tab": which_tab, "time": time_str},
         )
     except KeyError:
         return
