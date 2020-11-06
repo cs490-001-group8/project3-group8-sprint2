@@ -8,6 +8,8 @@ from datetime import datetime
 import unittest
 import unittest.mock as mock
 import sys
+from os.path import dirname, join
+sys.path.append(join(dirname(__file__), "../"))
 from hourly_weather import (
     TZ_NY,
     format_time_to_ny,
