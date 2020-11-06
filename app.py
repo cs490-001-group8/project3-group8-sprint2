@@ -2,6 +2,8 @@
     app.py
     This file launches the flask server for the app
 """
+# pylint: disable=E1101
+# E1101 disabled, false positive when working with database.
 import os
 from datetime import datetime
 import flask
