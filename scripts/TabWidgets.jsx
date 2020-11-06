@@ -16,8 +16,8 @@ export default function TabWidgets({ currTab }) {
 
   return (
     <div className="tab-widgets-section">
-        <NewsList />
-        <GoogleTrafficView />
+      <NewsList />
+      <GoogleTrafficView />
     </div>
   );
 }
