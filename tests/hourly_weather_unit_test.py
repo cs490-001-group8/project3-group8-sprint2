@@ -8,6 +8,9 @@ from datetime import datetime
 import unittest
 import unittest.mock as mock
 import sys
+from os.path import dirname, join
+# pylint: disable=C0413
+sys.path.append(join(dirname(__file__), "../"))
 from hourly_weather import (
     TZ_NY,
     format_time_to_ny,
@@ -27,7 +30,6 @@ from hourly_weather import (
     KEY_HOURLY,
 )
 from forward_geocoding import KEY_LATITUDE, KEY_LONGITUDE_RETURN
-sys.path.append("..")
 
 KEY_INPUT = "input"
 KEY_EXPECTED = "expected"

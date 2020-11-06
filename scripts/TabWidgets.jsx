@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GoogleTrafficView from './GoogleTrafficView';
-import NewsList from './NewsList'
+import NewsList from './NewsList';
+import WeatherModule from './WeatherModule';
 
 export default function TabWidgets({ currTab }) {
   if (currTab === 'Commuter') {
     return (
       <div className="tab-widgets-section">
-        <GoogleTrafficView />
-        <NewsList />
+        <WeatherModule />
         <GoogleTrafficView />
       </div>
     );
@@ -16,7 +16,8 @@ export default function TabWidgets({ currTab }) {
 
   return (
     <div className="tab-widgets-section">
-      Home
+      <NewsList />
+      <WeatherModule />
     </div>
   );
 }

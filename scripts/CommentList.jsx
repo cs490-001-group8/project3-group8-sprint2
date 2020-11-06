@@ -31,6 +31,10 @@ export default function CommentList({ comments, loggedIn }) {
 }
 
 CommentList.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.string).isRequired,
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string,
+    name: PropTypes.string,
+    time: PropTypes.time,
+  })).isRequired,
   loggedIn: PropTypes.bool.isRequired,
 };
