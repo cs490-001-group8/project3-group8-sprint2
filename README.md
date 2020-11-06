@@ -41,6 +41,11 @@
                 Check `\du` to ensure it worked.
             c) `\q` to quit out of sql
             
+    Update the API keys in the env file for the news api 
+            a. Go to "https://www.gnews.io/"
+            b. Sign up and you will granted an API key
+            c. copy and paste that key in .env file 
+            
     There are also a few commands you need to run on the directory in which 
       this project is installed, those are:
         1. `npm install`
