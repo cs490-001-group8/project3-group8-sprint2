@@ -5,23 +5,23 @@ import NewsList from './NewsList';
 import WeatherModule from './WeatherModule';
 
 export default function TabWidgets({ currTab }) {
-  if (currTab === 'Commuter') {
-    return (
-      <div className="tab-widgets-section">
-        <WeatherModule />
-        <GoogleTrafficView />
-      </div>
-    );
-  }
+    if (currTab === 'Commuter') {
+        return (
+            <div className="tab-widgets-section">
+                <WeatherModule />
+                <GoogleTrafficView />
+            </div>
+        );
+    }
 
-  return (
-    <div className="tab-widgets-section">
-      <NewsList />
-      <WeatherModule />
-    </div>
-  );
+    return (
+        <div className="tab-widgets-section">
+            <NewsList />
+            <WeatherModule />
+        </div>
+    );
 }
 
 TabWidgets.propTypes = {
-  currTab: PropTypes.string.isRequired,
+    currTab: PropTypes.string.isRequired,
 };

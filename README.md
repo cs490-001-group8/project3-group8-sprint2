@@ -40,7 +40,8 @@ In order to get the modules to work correctly, you will need to register and obt
 1. [OpenWeather API](https://openweathermap.org/) - This is used for the weather module, used for retrieval of up-to-date weather information.
 2. [Geocodio API](https://www.geocod.io/) - This is used to retrieve the latitude and longitude for use with the OpenWeather API.
 3. [GNews API](https://www.gnews.io/) - This is used to retrieve relevant New Jersey news.
-
+4. [Google Maps API](https://developers.google.com/maps/documentation) - This is used to retrieve traffic related data from Google Maps.
+ 
 Create a file named `.env` and set it up as the following:
 ```
 OPEN_WEATHER_API_KEY=<Open weather API Key Here>

@@ -6,45 +6,45 @@ import CommentInput from './CommentInput';
 import CommentTitle from './CommentTitle';
 
 export default function CommentBlock({ currTab, myName, loggedIn }) {
-  const [comments, updateComments] = useState(() => []);
+    const [comments, updateComments] = useState(() => []);
 
-  useEffect(() => {
-    Socket.on('new comment', (data) => {
-      updateComments((oldComments) => [
-        { text: data.text, name: data.name, time: data.time }].concat(oldComments));
-    });
+    useEffect(() => {
+        Socket.on('new comment', (data) => {
+            updateComments((oldComments) => [
+                { text: data.text, name: data.name, time: data.time }].concat(oldComments));
+        });
 
-    Socket.on('old comments', (data) => {
-      updateComments(() => data.comments);
-    });
+        Socket.on('old comments', (data) => {
+            updateComments(() => data.comments);
+        });
 
-    Socket.emit('get comments', { tab: currTab });
-  }, []);
+        Socket.emit('get comments', { tab: currTab });
+    }, []);
 
-  useEffect(() => {
-    Socket.emit('get comments', { tab: currTab });
-  }, [currTab]);
+    useEffect(() => {
+        Socket.emit('get comments', { tab: currTab });
+    }, [currTab]);
 
-  if (loggedIn) {
+    if (loggedIn) {
+        return (
+            <div className="Comment-Block">
+                <CommentTitle />
+                <CommentList comments={comments} loggedIn={loggedIn} />
+                <CommentInput currTab={currTab} myName={myName} />
+            </div>
+        );
+    }
+
     return (
-      <div className="Comment-Block">
-        <CommentTitle />
-        <CommentList comments={comments} loggedIn={loggedIn} />
-        <CommentInput currTab={currTab} myName={myName} />
-      </div>
+        <div className="Comment-Block">
+            <CommentTitle />
+            <CommentList comments={comments} loggedIn={loggedIn} />
+        </div>
     );
-  }
-
-  return (
-    <div className="Comment-Block">
-      <CommentTitle />
-      <CommentList comments={comments} loggedIn={loggedIn} />
-    </div>
-  );
 }
 
 CommentBlock.propTypes = {
-  currTab: PropTypes.string.isRequired,
-  myName: PropTypes.string.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
+    currTab: PropTypes.string.isRequired,
+    myName: PropTypes.string.isRequired,
+    loggedIn: PropTypes.bool.isRequired,
 };
