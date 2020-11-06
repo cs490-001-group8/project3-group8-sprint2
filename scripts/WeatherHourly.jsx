@@ -1,3 +1,5 @@
+/* eslint react/prop-types: 0 */
+// Proptype enforcement breaks the module.
 import React from 'react';
 
 function convertTime(time) {
@@ -40,10 +42,3 @@ export default function WeatherHourly(props) {
     </div>
   );
 }
-
-WeatherHourly.propTypes = {
-  time: WeatherHourly.string.isRequired,
-  icon: WeatherHourly.string.isRequired,
-  description: WeatherHourly.string.isRequired,
-  temp: WeatherHourly.string.isRequired,
-};
