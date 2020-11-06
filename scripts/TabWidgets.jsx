@@ -9,14 +9,14 @@ export default function TabWidgets({ currTab }) {
       <div className="tab-widgets-section">
         <GoogleTrafficView />
         <NewsList />
-        <GoogleTrafficView />
       </div>
     );
   }
 
   return (
     <div className="tab-widgets-section">
-      Home
+        <NewsList />
+        <GoogleTrafficView />
     </div>
   );
 }
