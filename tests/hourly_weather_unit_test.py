@@ -235,7 +235,7 @@ class HourlyWeatherTests(unittest.TestCase):
                         KEY_TEMP: 63,
                         KEY_FEELS_LIKE: 55,
                         KEY_DESCRIPTON: "clear sky",
-                        KEY_ICON: "http://openweathermap.org/img/wn/"
+                        KEY_ICON: "https://openweathermap.org/img/wn/"
                                   + "01d"
                                   + "@2x.png",
                     }
@@ -254,7 +254,7 @@ class HourlyWeatherTests(unittest.TestCase):
                         KEY_TEMP: 65,
                         KEY_FEELS_LIKE: 60,
                         KEY_DESCRIPTON: "broken cloud",
-                        KEY_ICON: "http://openweathermap.org/img/wn/01d@2x.png",
+                        KEY_ICON: "https://openweathermap.org/img/wn/01d@2x.png",
                     }
                 },
             }
