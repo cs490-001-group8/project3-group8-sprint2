@@ -18,5 +18,8 @@ module.exports = {
     'react',
   ],
   rules: {
+    "indent" : ["error", 4, { "ignoredNodes": ["JSXElement *"] }],
+    "react/jsx-indent" : ["error", 4],
+    "linebreak-style": 0,
   },
 };

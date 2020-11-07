@@ -1,37 +1,40 @@
-import React, { useState } from 'react';
-import {
-  Tabs, TabList, Tab, TabPanels, TabPanel,
-} from '@reach/tabs';
-import '@reach/tabs/styles.css';
+import React from 'react';
 import PropTypes from 'prop-types';
+import {
+    BrowserRouter, NavLink, Route, Switch,
+} from 'react-router-dom';
 import TabContent from './TabContent';
 
 export default function RouteTab({ myName, loggedIn }) {
-  const tabs = ['Home', 'Commuter'];
-  const [tabInd, changeTabInd] = useState(() => 0);
-  const currTab = tabs[tabInd];
-
-  return (
-    <Tabs
-      onChange={(index) => changeTabInd(() => index)}
-    >
-      <TabList>
-        <Tab className="tab">Home</Tab>
-        <Tab className="tab">Commuter</Tab>
-      </TabList>
-      <TabPanels>
-        <TabPanel label="Home">
-          <TabContent currTab="Home" currTabComment={currTab} myName={myName} loggedIn={loggedIn} />
-        </TabPanel>
-        <TabPanel label="Commuter">
-          <TabContent currTab="Commuter" currTabComment={currTab} myName={myName} loggedIn={loggedIn} />
-        </TabPanel>
-      </TabPanels>
-    </Tabs>
-  );
+    return (
+        <BrowserRouter>
+            <div>
+                <div>
+                    <NavLink className="tab" to="/">Home</NavLink>
+                    <NavLink className="tab" to="/Commuter">Commuter</NavLink>
+                </div>
+                <Switch>
+                    <Route
+                      exact
+                      path="/"
+                      render={() => (
+                          <TabContent currTab="Home" myName={myName} loggedIn={loggedIn} />
+                        )}
+                    />
+                    <Route
+                      exact
+                      path="/Commuter"
+                      render={() => (
+                          <TabContent currTab="Commuter" myName={myName} loggedIn={loggedIn} />
+                        )}
+                    />
+                </Switch>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 RouteTab.propTypes = {
-  myName: PropTypes.string.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
+    myName: PropTypes.string.isRequired,
+    loggedIn: PropTypes.bool.isRequired,
 };
