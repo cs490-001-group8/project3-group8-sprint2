@@ -8,7 +8,7 @@ This Project allows you to post to launch a website that acts as a hub for NJ re
 
 # Installations and Technologies.
 Before running this app, make sure you have all of the dependencies installed. All the dependencies are in the `requirements.txt` file, but all of these packages are not necessary.
-1. Use the command `pip install` to install flask, coverage, pylint, pytz, black, and flask-socketio.
+1. Use the command `pip install` to install flask, coverage, pylint, pytz, black, tweepy, and flask-socketio.
 2. Use `npm` to install the heroku package, `npm install -g heroku`
 3. It's recommended that you use the `Git CLI` in order to keep your code up to date.
 
@@ -41,12 +41,18 @@ In order to get the modules to work correctly, you will need to register and obt
 2. [Geocodio API](https://www.geocod.io/) - This is used to retrieve the latitude and longitude for use with the OpenWeather API.
 3. [GNews API](https://www.gnews.io/) - This is used to retrieve relevant New Jersey news.
 4. [Google Maps API](https://developers.google.com/maps/documentation) - This is used to retrieve traffic related data from Google Maps.
- 
+5. [Twitter API](https://developer.twitter.com/en/apply-for-access) - This is used to retrieve tweets from New Jersey political figures.
+
 Create a file named `.env` and set it up as the following:
 ```
 OPEN_WEATHER_API_KEY=<Open weather API Key Here>
 GEOCODIO_API_KEY=<Geocodio API Key Here>
 REACT_APP_NEWS_API_KEY=<Gnews API Key Here>
+DATABASE_URL=<URL to your psql database>
+TWITTER_CONSUMER_KEY = "<Twitter consumer key>"
+TWITTER_CONSUMER_SECRET = "<Twitter consumer secret>"
+TWITTER_ACCESS_TOKEN = "<Twitter access token>"
+TWITTER_ACCESS_TOKEN_SECRET = "<Twitter access token secret>"
 ```
 Note: Do not include quotes or the `<>` characters in the `.env` file.\
 Optional, but you can run the command `source .env` to ensure the system has read the API Key variables.
