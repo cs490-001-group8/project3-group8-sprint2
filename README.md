@@ -42,6 +42,8 @@ In order to get the modules to work correctly, you will need to register and obt
 3. [GNews API](https://www.gnews.io/) - This is used to retrieve relevant New Jersey news.
 4. [Google Maps API](https://developers.google.com/maps/documentation) - This is used to retrieve traffic related data from Google Maps.
 5. [Twitter API](https://developer.twitter.com/en/apply-for-access) - This is used to retrieve tweets from New Jersey political figures.
+	1. Go to https://developer.twitter.com/en/apply-for-access and apply for access.
+	2. When you are approved, create a project and save your consumer key, consumer secret, access token, and access token secret.
 
 Create a file named `.env` and set it up as the following:
 ```
