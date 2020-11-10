@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import TweetList from './TweetList';
+import TweetList from './Tweet_React/TweetList';
 import { Socket } from './Socket';
 import WidgetTitle from './WidgetTitle';
 
@@ -11,6 +11,7 @@ export default function TweetWidget() {
         Socket.on('political tweets', (data) => {
             getGovTweet(() => data.gov);
             getSenTweets(() => data.sen);
+            console.log(data)
         });
 
         Socket.emit('get political tweets');
@@ -18,7 +19,7 @@ export default function TweetWidget() {
     
     return (
         <div className="widget">
-            <WidgetTitle title="Tweets" />
+            <WidgetTitle title="Politicians' Tweets" />
 
             <TweetList
               tweets={govTweet}

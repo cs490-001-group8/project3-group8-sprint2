@@ -210,7 +210,6 @@ body {
   
   width: 100%;
   margin: auto;
-  margin-top: 2em;
   padding: 1em;
   
   flex: 1;
@@ -246,4 +245,12 @@ body {
 .tweet-foot {
   color: #657786;
   margin-top: 14px;
+}
+
+.tweet-list {
+  width: 100%;
+  text-align: left;
+  overflow: auto;
+  padding: 0px;
+  margin-bottom: 5%;
 }

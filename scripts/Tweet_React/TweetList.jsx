@@ -4,7 +4,7 @@ import Tweet from './Tweet';
 
 export default function TweetList({ tweets }) {
     return (
-        <ul className="comment-list-loggedout">
+        <ul className="tweet-list">
             {tweets.map((tweet) => (
                 <Tweet
                   tweetUserPic={tweet.ppic}
