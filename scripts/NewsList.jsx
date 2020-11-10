@@ -1,40 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Item, Placeholder, Image } from 'semantic-ui-react';
 import axios from 'axios';
+import { nanoid } from 'nanoid';
 import WidgetTitle from './WidgetTitle';
 
-const apiURL = 'https://gnews.io/api/v4/search?q=new jersey&token=';
+const apiURL = `https://gnews.io/api/v4/search?q=new jersey&token=${process.env.REACT_APP_NEWS_API_KEY}`;
+
 
 export default function NewsList() {
-    const [news, setNews] = useState(() => [
-        {
-            author: 'A',
-            publishedAt: '2020-11-04',
-        },
-        {
-            author: 'B',
-            publishedAt: '2020-11-04',
-        },
-        {
-            author: 'C',
-            publishedAt: '2020-11-04',
-        },
-        {
-            author: 'D',
-            publishedAt: '2020-11-04',
-        },
-        {
-            author: 'E',
-            publishedAt: '2020-11-04',
-        },
-    ]);
+    const [news, setNews] = useState(() => [{}, {}, {}, {}, {}]);
     const [loading, setLoading] = useState(() => true);
 
     useEffect(() => {
-        axios.get(`${apiURL}${process.env.REACT_APP_NEWS_API_KEY}`).then((response) => {
-            setNews(response.data.articles.slice(0, 5));
-            setLoading(false);
-        });
+        
+        axios.get(`${apiURL}).then((response) => {
+            .then((response) => {
+                setNews(response.data.articles.slice(0, 5));
+                setLoading(false);
+            });
     });
 
     return (
@@ -42,7 +25,7 @@ export default function NewsList() {
             <WidgetTitle title="News" />
             <Item.Group className="news-group">
                 {news.map((item) => (
-                    <Item className="news-wrapper" key={item.author + item.publishedAt}>
+                    <Item className="news-wrapper" key={nanoid()}>
                         <Item.Image size="tiny" className="news-image">
                             {loading ? (
                                 <Placeholder className="news-image">
