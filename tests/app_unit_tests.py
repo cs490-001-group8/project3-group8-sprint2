@@ -1,6 +1,6 @@
 """
-    unmocked_unit_tests.py
-    This file does all non-mocked unit tests
+    app_unit_tests.py
+    This file does all tests for app.py
 """
 import unittest
 import unittest.mock as mock

@@ -1,5 +1,5 @@
 """
-    tweetpy
+    tweets.py
     This file searches twitter for tweets
 """
 import os
@@ -23,37 +23,26 @@ GOV_TWITTER = "@GovMurphy"
 
 EST = timezone("EST")
 
+def get_tweet(username):
+    tweet = API.user_timeline(screen_name=username, count=1, tweet_mode="extended")[0]
+    result = {}
+    result["text"] = html.unescape(tweet.full_text.replace("\n", "   "))
+    result["sname"] = tweet.user.screen_name
+    result["ppic"] = tweet.user.profile_image_url
+    result["uname"] = tweet.user.name
+    tweetDT = tweet.created_at
+    result['time'] = html.unescape(tweetDT.astimezone(EST).strftime("%-I:%M %p"))
+    result['date'] = html.unescape(tweetDT.astimezone(EST).strftime("%-m/%-d/%y"))
+    return result
+
 def get_politicians_latest_tweets():
     results = {}
-    gov_tweet = API.user_timeline(screen_name=GOV_TWITTER, count=1, tweet_mode="extended")[0]
-    results["gov"] = {}
-    results["gov"]["text"] = html.unescape(gov_tweet.full_text.replace("\n", "   "))
-    results["gov"]["sname"] = gov_tweet.user.screen_name
-    results["gov"]["ppic"] = gov_tweet.user.profile_image_url
-    results["gov"]["uname"] = gov_tweet.user.name
-    tweetDT = gov_tweet.created_at
-    results["gov"]['time'] = html.unescape(tweetDT.astimezone(EST).strftime("%-I:%M %p"))
-    results["gov"]['date'] = html.unescape(tweetDT.astimezone(EST).strftime("%-m/%-d/%y"))
+    results["gov"] = get_tweet(GOV_TWITTER)
     
     results["sen"] = [{}, {}]
     
-    gov_tweet = API.user_timeline(screen_name=SENATOR_TWITTERS[0], count=1, tweet_mode="extended")[0]
-    results["sen"][0]["text"] = html.unescape(gov_tweet.full_text)
-    results["sen"][0]["sname"] = gov_tweet.user.screen_name
-    results["sen"][0]["ppic"] = gov_tweet.user.profile_image_url
-    results["sen"][0]["uname"] = gov_tweet.user.name
-    tweetDT = gov_tweet.created_at
-    results["sen"][0]['time'] = html.unescape(tweetDT.astimezone(EST).strftime("%-I:%M %p"))
-    results["sen"][0]['date'] = html.unescape(tweetDT.astimezone(EST).strftime("%-m/%-d/%y"))
-    
-    gov_tweet = API.user_timeline(screen_name=SENATOR_TWITTERS[1], count=1, tweet_mode="extended")[0]
-    results["sen"][1]["text"] = html.unescape(gov_tweet.full_text)
-    results["sen"][1]["sname"] = gov_tweet.user.screen_name
-    results["sen"][1]["ppic"] = gov_tweet.user.profile_image_url
-    results["sen"][1]["uname"] = gov_tweet.user.name
-    tweetDT = gov_tweet.created_at
-    results["sen"][1]['time'] = html.unescape(tweetDT.astimezone(EST).strftime("%-I:%M %p"))
-    results["sen"][1]['date'] = html.unescape(tweetDT.astimezone(EST).strftime("%-m/%-d/%y"))
+    for i in range(2):
+        results["send"][i] = get_tweet(SENATOR_TWITTERS[i])
     
     return results
 
