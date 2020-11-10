@@ -19,7 +19,6 @@ export default function TabWidgets({ currTab }) {
         <div className="tab-widgets-section">
             <NewsList />
             <WeatherModule />
-            <TweetWidget />
         </div>
     );
 }
