@@ -55,16 +55,20 @@ TWITTER_CONSUMER_KEY = "<Twitter consumer key>"
 TWITTER_CONSUMER_SECRET = "<Twitter consumer secret>"
 TWITTER_ACCESS_TOKEN = "<Twitter access token>"
 TWITTER_ACCESS_TOKEN_SECRET = "<Twitter access token secret>"
+GOOGLE_MAP_API_KEY=<Google map API Key Here>
 ```
+
 Note: Do not include quotes or the `<>` characters in the `.env` file.\
 Optional, but you can run the command `source .env` to ensure the system has read the API Key variables.
 
 ## Setting up the clientside
 There are a few commands you must run in order to ensure that the clientside will run properly.
 1. `npm install`
-2. `npm install -g webpack`
-3. `npm install --save-dev webpack`
-4. `npm install --save google-map-react`
+2. `npm i nanoid`
+3. `npm install -g webpack`
+4. `npm install --save-dev webpack`
+5. `npm install --save google-map-react`
+
 
 ## Setting up testcases
 If you wish to utilize test cases, enter the following commands to ensure you have the correct modules:
@@ -109,3 +113,4 @@ The comment section was having issues where they were getting the comments sent 
   to users in one tab.
 ## Other
 TODO
+
