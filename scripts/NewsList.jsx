@@ -4,14 +4,16 @@ import axios from 'axios';
 import { nanoid } from 'nanoid';
 import WidgetTitle from './WidgetTitle';
 
-const apiURL = 'https://gnews.io/api/v4/search?q=new jersey&token=';
+const apiURL = `https://gnews.io/api/v4/search?q=new jersey&token=${process.env.REACT_APP_NEWS_API_KEY}`;
+
 
 export default function NewsList() {
     const [news, setNews] = useState(() => [{}, {}, {}, {}, {}]);
     const [loading, setLoading] = useState(() => true);
 
     useEffect(() => {
-        axios.get(`${apiURL}${process.env.REACT_APP_NEWS_API_KEY}`)
+        
+        axios.get(`${apiURL}).then((response) => {
             .then((response) => {
                 setNews(response.data.articles.slice(0, 5));
                 setLoading(false);
