@@ -13,6 +13,9 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
+          command: npm run watch
+          name: Make scripts.js
+      - run:
           command: python ./tests/app_unit_tests.py
           name: app.py Tests
       - run:
@@ -33,7 +36,10 @@ jobs:
       
 
 workflows:
-  heroku_deploy:
+  version: 2
+  build-test-and-deploy:
     jobs:
       - build-and-test
-      - heroku-deploy
+      - heroku-deploy:
+          requires:
+            - build-and-test
