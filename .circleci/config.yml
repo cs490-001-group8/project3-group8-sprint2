@@ -22,7 +22,7 @@ jobs:
           command: python ./tests/hourly_weather_unit_test.py
           name: hourly_weather_unit_test.py Tests
       - run:
-          command: python ./tests/tweets_unit_test.py
+          command: python ./tests/tweets_unit_tests.py
           name: tweets_unit_test.py Tests
 
 workflows:
