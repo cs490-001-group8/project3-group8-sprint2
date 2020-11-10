@@ -12,12 +12,10 @@ export default function NewsList() {
     const [loading, setLoading] = useState(() => true);
 
     useEffect(() => {
-        
         axios.get(`${apiURL}`).then((response) => {
-            .then((response) => {
-                setNews(response.data.articles.slice(0, 5));
-                setLoading(false);
-            });
+            setNews(response.data.articles.slice(0, 5));
+            setLoading(false);
+        });
     });
 
     return (
