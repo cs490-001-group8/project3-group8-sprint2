@@ -1,8 +1,11 @@
 node_modules/
 htmlcov/
-package-lock.json
 .env
 .idea
 __pycache__
 docker-compose.yml
 postgres-data
+.~c9_invoke_zhbN8X.py
+tests/__pycache__
+sql.env
+.DS_Store

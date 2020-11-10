@@ -14,6 +14,8 @@ sys.path.append(join(dirname(__file__), "../"))
 # pylint: disable=R0903
 # pylint: disable=W0613
 # pylint: disable=C0415
+# pylint: disable=W0612
+# pylint: disable=E0401
 
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
@@ -227,6 +229,13 @@ class AppTestCases(unittest.TestCase):
                 import app
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
+
+    def test_weather_sending(self):
+        """test the on_weather_request function"""
+        test_weather = {"city_name": "Newark"}
+        import app
+        app.on_weather_request(test_weather)
+        self.assertIsInstance(test_weather, dict)
 
 
 if __name__ == "__main__":
