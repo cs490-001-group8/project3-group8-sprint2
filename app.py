@@ -100,7 +100,7 @@ def on_weather_request(data):
     """Recieve city, return back weather for the day"""
     weather_object = hourly_weather.fetch_weather(data["city_name"])
     weather_object["city_name"] = data["city_name"]
-    SOCKETIO.emit("send weather", weather_object)
+    SOCKETIO.emit("send weather", weather_object, room=flask.request.sid)
 
 @SOCKETIO.on("get political tweets")
 def on_pol_tweet_request():
