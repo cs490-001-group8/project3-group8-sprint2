@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default function TweetHeadPic({ tweetUserPic }) {
     return (
         <div className="tweet-head-pic">
-            <img src={tweetUserPic} />
+            <img src={tweetUserPic} alt="" />
         </div>
     );
 }

@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 export default function TweetFoot({ tweetTime, tweetDate }) {
     return (
         <div className="tweet-foot">
-            <span className="tweet-foot-time">{tweetTime}</span>  <span className="tweet-foot-date">{tweetDate}</span>
+            <span className="tweet-foot-time">{tweetTime}</span>
+            {' '}
+            <span className="tweet-foot-date">{tweetDate}</span>
         </div>
     );
 }

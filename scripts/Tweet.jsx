@@ -4,10 +4,16 @@ import TweetHead from './TweetHead';
 import TweetText from './TweetText';
 import TweetFoot from './TweetFoot';
 
-export default function Tweet({ tweetUserPic, tweetUserName, tweetScreenName, tweetBody, tweetTime, tweetDate }) {
+export default function Tweet({
+    tweetUserPic, tweetUserName, tweetScreenName, tweetBody, tweetTime, tweetDate,
+}) {
     return (
         <div className="tweet">
-            <TweetHead tweetUserPic={tweetUserPic} tweetUserName={tweetUserName} tweetScreenName={tweetScreenName} />
+            <TweetHead
+              tweetUserPic={tweetUserPic}
+              tweetUserName={tweetUserName}
+              tweetScreenName={tweetScreenName}
+            />
             <TweetText tweetBody={tweetBody} />
             <TweetFoot tweetTime={tweetTime} tweetDate={tweetDate} />
         </div>
