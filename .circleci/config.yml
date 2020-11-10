@@ -24,14 +24,16 @@ jobs:
       - run:
           command: python ./tests/tweets_unit_tests.py
           name: tweets_unit_test.py Tests
+  heroku-deploy:
+    executor: python/default
+    steps:
+      - checkout
+      - run:
+          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
+      
 
 workflows:
   heroku_deploy:
     jobs:
       - build-and-test
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
-          requires:
-            - build-and-test
-          filters:
-            branches:
-              only: master
+      - heroku-deploy
