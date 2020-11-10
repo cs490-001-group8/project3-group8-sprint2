@@ -13,9 +13,6 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: npm run watch
-          name: Make scripts.js
-      - run:
           command: python ./tests/app_unit_tests.py
           name: app.py Tests
       - run:
