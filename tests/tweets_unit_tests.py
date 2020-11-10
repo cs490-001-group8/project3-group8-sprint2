@@ -33,6 +33,23 @@ class TweetTestCases(unittest.TestCase):
             ):
                 raise ValueError
 
+    # pylint: disable=R0201
+    # pylint: disable=R0916
+    def test_tweets_get_politicians(self):
+        """Test get_politicians_latest_tweets"""
+        mocker = mock.MagicMock()
+        with mock.patch("tweepy.API", mocker):
+            import tweets
+
+            result = tweets.get_politicians_latest_tweets()
+            if (
+                    "gov" not in result
+                    or "sen" not in result
+                    or not isinstance(result["sen"], list)
+                    or len(result["sen"]) != 2
+            ):
+                raise ValueError
+
 
 if __name__ == "__main__":
     unittest.main()
