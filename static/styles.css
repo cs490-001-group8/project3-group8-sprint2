@@ -254,3 +254,10 @@ body {
   padding: 0px;
   margin-bottom: 5%;
 }
+
+.tweets-title {
+  height: 5%;
+  text-align: center;
+  font-size: 25pt;
+  font-weight: normal;
+}

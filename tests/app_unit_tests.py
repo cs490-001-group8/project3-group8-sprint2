@@ -124,6 +124,31 @@ class AppTestCases(unittest.TestCase):
             for comment in data["comments"]:
                 if "text" not in comment:
                     raise ValueError("NO TEXT IN COMMENT")
+        elif channel == "political tweets":
+            if "gov" not in data:
+                raise ValueError("NO GOVENOR")
+            for tweet in data["gov"]:
+                if (
+                        "text" not in tweet
+                        or "sname" not in tweet
+                        or "ppic" not in tweet
+                        or "uname" not in tweet
+                        or "time" not in tweet
+                        or "date" not in tweet
+                ):
+                    raise ValueError
+            if "sen" not in data:
+                raise ValueError("NO SENATORS")
+            for tweet in data["sen"]:
+                if (
+                        "text" not in tweet
+                        or "sname" not in tweet
+                        or "ppic" not in tweet
+                        or "uname" not in tweet
+                        or "time" not in tweet
+                        or "date" not in tweet
+                ):
+                    raise ValueError
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -245,6 +270,15 @@ class AppTestCases(unittest.TestCase):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
 
+    def test_on_pol_tweet_request(self):
+        """test the on_weather_request function"""
+        mocker = mock.MagicMock()
+        with mock.patch("tweepy.API", mocker):
+            import app 
+            with mock.patch(
+                "flask_socketio.emit", self.mock_flask_emit_one
+            ):
+                app.on_pol_tweet_request()
 
 if __name__ == "__main__":
     unittest.main()

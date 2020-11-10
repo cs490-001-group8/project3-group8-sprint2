@@ -106,8 +106,7 @@ def on_weather_request(data):
 def on_pol_tweet_request():
     """Return tweets from politicians"""
     pol_tweets = tweets.get_politicians_latest_tweets()
-    print(pol_tweets)
-    SOCKETIO.emit("political tweets", pol_tweets)
+    flask_socketio.emit("political tweets", pol_tweets)
 
 
 if __name__ == "__main__":
