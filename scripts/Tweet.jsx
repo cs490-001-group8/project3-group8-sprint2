@@ -8,7 +8,7 @@ export default function Tweet({
     tweetUserPic, tweetUserName, tweetScreenName, tweetBody, tweetTime, tweetDate,
 }) {
     return (
-        <div className="tweet">
+        <li className="tweet">
             <TweetHead
               tweetUserPic={tweetUserPic}
               tweetUserName={tweetUserName}
@@ -16,7 +16,7 @@ export default function Tweet({
             />
             <TweetText tweetBody={tweetBody} />
             <TweetFoot tweetTime={tweetTime} tweetDate={tweetDate} />
-        </div>
+        </li>
     );
 }
 

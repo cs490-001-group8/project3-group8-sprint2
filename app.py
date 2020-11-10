@@ -14,6 +14,7 @@ from pytz import timezone
 import tables
 from tables import BASE
 import hourly_weather
+import tweets
 
 load_dotenv()
 
@@ -100,6 +101,12 @@ def on_weather_request(data):
     weather_object = hourly_weather.fetch_weather(data["city_name"])
     weather_object["city_name"] = data["city_name"]
     SOCKETIO.emit("send weather", weather_object)
+
+@SOCKETIO.on("get political tweets")
+def on_pol_tweet_request():
+    """Return tweets from politicians"""
+    pol_tweets = tweets.get_politicians_latest_tweets()
+    SOCKETIO.emit("political tweets", pol_tweets)
 
 
 if __name__ == "__main__":
