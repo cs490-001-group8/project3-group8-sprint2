@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import GoogleTrafficView from './GoogleTrafficView';
 import NewsList from './NewsList';
 import WeatherModule from './WeatherModule';
+import TweetWidget from './TweetWidget';
 
 export default function TabWidgets({ currTab }) {
     if (currTab === 'Commuter') {
@@ -18,6 +19,7 @@ export default function TabWidgets({ currTab }) {
         <div className="tab-widgets-section">
             <NewsList />
             <WeatherModule />
+            <TweetWidget />
         </div>
     );
 }
