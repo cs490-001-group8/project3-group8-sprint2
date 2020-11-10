@@ -76,6 +76,7 @@ class MockedSQLBase:
         return None
 
 # pylint: disable=R0902
+# pylint: disable=R0916
 # pylint: disable=R0201
 class AppTestCases(unittest.TestCase):
     """Make all the test cases"""
@@ -257,7 +258,7 @@ class AppTestCases(unittest.TestCase):
 
     def mocked_weather(self, city_name):
         """mock an emit from clientside"""
-        def __init__ (self, city_name):
+        def __init__(self, city_name):
             curr_city_name = city_name
 
     def test_weather_sending(self):
@@ -274,9 +275,9 @@ class AppTestCases(unittest.TestCase):
         """test the on_weather_request function"""
         mocker = mock.MagicMock()
         with mock.patch("tweepy.API", mocker):
-            import app 
+            import app
             with mock.patch(
-                "flask_socketio.emit", self.mock_flask_emit_one
+                    "flask_socketio.emit", self.mock_flask_emit_one
             ):
                 app.on_pol_tweet_request()
 
