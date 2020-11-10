@@ -99,6 +99,12 @@ class AppTestCases(unittest.TestCase):
         """Mock Session commit"""
         return
 
+    def mock_get_latest_tweet(self):
+        return {"gov":[{"text": "A", "sname":"A", "ppic": "A", "uname": "A", "time": "A", "date": "A"}],
+            "sen":[{"text": "A", "sname":"A", "ppic": "A", "uname": "A", "time": "A", "date": "A"},
+            {"text": "A", "sname":"A", "ppic": "A", "uname": "A", "time": "A", "date": "A"}],
+        }
+
     def mock_session_query(self, model):
         """Mock Session commit"""
         return MockedQueryResponse({"text": "TEST", "name": "USER", "time": datetime.now()})
@@ -279,16 +285,14 @@ class AppTestCases(unittest.TestCase):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
 
-    # def test_on_pol_tweet_request(self):
-    #     """test the on_pol_tweet_request function"""
-    #     mocker = mock.MagicMock()
-    #     with mock.patch("tweepy.API", mocker
-    #     ), mock.patch("tweepy.OAuthHandler", mocker):
-    #         import app
-    #         with mock.patch(
-    #                 "flask_socketio.emit", self.mock_flask_emit_one
-    #         ), mock.patch("html.unescape", self.mock_html_unescape):
-    #             app.on_pol_tweet_request()
+    def test_on_pol_tweet_request(self):
+        """test the on_pol_tweet_request function"""
+        with mock.patch("tweets.get_politicians_latest_tweets", self.mock_get_latest_tweet):
+            import app
+            with mock.patch(
+                    "flask_socketio.emit", self.mock_flask_emit_one
+            ):
+                app.on_pol_tweet_request()
 
 if __name__ == "__main__":
     unittest.main()
