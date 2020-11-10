@@ -278,7 +278,8 @@ class AppTestCases(unittest.TestCase):
     def test_on_pol_tweet_request(self):
         """test the on_weather_request function"""
         mocker = mock.MagicMock()
-        with mock.patch("tweepy.API", mocker):
+        with mock.patch("tweepy.API", mocker
+        ), mock.patch("tweepy.OAuthHandler", mocker):
             import app
             with mock.patch(
                     "flask_socketio.emit", self.mock_flask_emit_one

@@ -19,7 +19,11 @@ class TweetTestCases(unittest.TestCase):
     def test_tweets_get_tweets(self):
         """Test get_tweets"""
         mocker = mock.MagicMock()
-        with mock.patch("tweepy.API", mocker):
+        with mock.patch(
+                    "tweepy.API", mocker
+            ), mock.patch(
+                "tweepy.OAuthHandler", mocker
+            ):
             import tweets
 
             result = tweets.get_tweet("AAAA")
@@ -38,7 +42,11 @@ class TweetTestCases(unittest.TestCase):
     def test_tweets_get_politicians(self):
         """Test get_politicians_latest_tweets"""
         mocker = mock.MagicMock()
-        with mock.patch("tweepy.API", mocker):
+        with mock.patch(
+                    "tweepy.API", mocker
+            ), mock.patch(
+                "tweepy.OAuthHandler", mocker
+            ):
             import tweets
 
             result = tweets.get_politicians_latest_tweets()
