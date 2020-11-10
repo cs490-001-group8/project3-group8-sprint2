@@ -167,6 +167,10 @@ class AppTestCases(unittest.TestCase):
     def mock_sqlalchemy_create_engine(self, url):
         """Mock create_engine"""
         return "THIS IS AN ENGINE"
+    
+    def mock_html_unescape(self, escapable):
+        """Mock html.unescape"""
+        return "ESCAPED"
 
     def test_app_runs_success(self):
         """Test successful test cases"""
@@ -276,14 +280,14 @@ class AppTestCases(unittest.TestCase):
             self.assertIsInstance(test_weather, dict)
 
     def test_on_pol_tweet_request(self):
-        """test the on_weather_request function"""
+        """test the on_pol_tweet_request function"""
         mocker = mock.MagicMock()
         with mock.patch("tweepy.API", mocker
         ), mock.patch("tweepy.OAuthHandler", mocker):
             import app
             with mock.patch(
                     "flask_socketio.emit", self.mock_flask_emit_one
-            ):
+            ), mock.patch("html.unescape", self.mock_html_unescape):
                 app.on_pol_tweet_request()
 
 if __name__ == "__main__":
