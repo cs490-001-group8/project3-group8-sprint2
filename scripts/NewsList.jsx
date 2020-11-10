@@ -13,7 +13,7 @@ export default function NewsList() {
 
     useEffect(() => {
         
-        axios.get(`${apiURL}).then((response) => {
+        axios.get(`${apiURL}`).then((response) => {
             .then((response) => {
                 setNews(response.data.articles.slice(0, 5));
                 setLoading(false);
