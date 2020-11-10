@@ -100,14 +100,13 @@ def on_weather_request(data):
     """Recieve city, return back weather for the day"""
     weather_object = hourly_weather.fetch_weather(data["city_name"])
     weather_object["city_name"] = data["city_name"]
-    SOCKETIO.emit("send weather", weather_object, room=flask.request.sid)
+    flask_socketio.emit("send weather", weather_object)
 
 @SOCKETIO.on("get political tweets")
 def on_pol_tweet_request():
     """Return tweets from politicians"""
     pol_tweets = tweets.get_politicians_latest_tweets()
     flask_socketio.emit("political tweets", pol_tweets)
-
 
 if __name__ == "__main__":
     SOCKETIO.run(

@@ -17,6 +17,9 @@ sys.path.append(join(dirname(__file__), "../"))
 # pylint: disable=W0612
 # pylint: disable=E0401
 
+def weather_do_nothing (a, b, c):
+    pass
+
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
@@ -152,6 +155,14 @@ class AppTestCases(unittest.TestCase):
                     raise ValueError
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
+            
+    def mock_flask_emit_weather(self, channel, data={}):
+        """Mock Session for no emit (weather testing)"""
+        if channel == "send weather":
+            if (len(data) == 0):
+                raise ValueError("DATA IS EMPTY")
+        else:
+            raise ValueError("NO ESTABLISHED CHANNEL")
 
     def mock_sqlalchemy_create_engine(self, url):
         """Mock create_engine"""
@@ -260,8 +271,9 @@ class AppTestCases(unittest.TestCase):
         """test the on_weather_request function"""
         test_weather = {"city_name": "Newark"}
         import app
-        app.on_weather_request(test_weather)
-        self.assertIsInstance(test_weather, dict)
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
+            app.on_weather_request(test_weather)
+            self.assertIsInstance(test_weather, dict)
 
     def test_on_pol_tweet_request(self):
         """test the on_weather_request function"""
