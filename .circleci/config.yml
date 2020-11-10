@@ -21,6 +21,9 @@ jobs:
       - run:
           command: python ./tests/hourly_weather_unit_test.py
           name: hourly_weather_unit_test.py Tests
+      - run:
+          command: python ./tests/tweets_unit_test.py
+          name: tweets_unit_test.py Tests
 
 workflows:
   heroku_deploy:

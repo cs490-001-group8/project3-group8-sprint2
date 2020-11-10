@@ -1,6 +1,5 @@
 """
-    tweets.py
-    This file searches twitter for tweets
+    This file searches twitter for tweets 
 """
 import os
 import html
@@ -19,7 +18,6 @@ API = tweepy.API(AUTH, wait_on_rate_limit=True)
 SENATOR_TWITTERS = ["@SenBooker", "@SenatorMenendez"]
 
 GOV_TWITTER = "@GovMurphy"
-
 
 EST = timezone("EST")
 
@@ -42,8 +40,8 @@ def get_politicians_latest_tweets():
     results["sen"] = [{}, {}]
     
     for i in range(2):
-        results["send"][i] = get_tweet(SENATOR_TWITTERS[i])
+        results["sen"][i] = get_tweet(SENATOR_TWITTERS[i])
     
     return results
 
-print(get_politicians_latest_tweets())
+# print(get_politicians_latest_tweets())
