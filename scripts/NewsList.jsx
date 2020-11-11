@@ -15,7 +15,7 @@ export default function NewsList() {
             setNews(response.data.articles.slice(0, 5));
             setLoading(false);
         });
-    });
+    }, []);
 
     return (
         <div className="widget">
