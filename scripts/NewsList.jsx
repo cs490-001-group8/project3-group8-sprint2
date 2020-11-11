@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Item, Placeholder, Image } from 'semantic-ui-react';
-import axios from 'axios';
 import { nanoid } from 'nanoid';
+import { Socket } from './Socket';
 import WidgetTitle from './WidgetTitle';
-
-const apiURL = `https://gnews.io/api/v4/search?q=new jersey&token=${process.env.REACT_APP_NEWS_API_KEY}`;
 
 export default function NewsList() {
     const [news, setNews] = useState(() => [{}, {}, {}, {}, {}]);
     const [loading, setLoading] = useState(() => true);
 
     useEffect(() => {
-        axios.get(`${apiURL}`).then((response) => {
-            setNews(response.data.articles.slice(0, 5));
+        Socket.on('news', (data) => {
+            console.log("Hello")
+            setNews(data);
             setLoading(false);
         });
+
+        Socket.emit('get news');
     }, []);
 
     return (

@@ -15,6 +15,7 @@ import tables
 from tables import BASE
 import hourly_weather
 import tweets
+import news
 
 load_dotenv()
 
@@ -74,7 +75,6 @@ def on_get_comments(data):
     except KeyError:
         return
 
-
 @SOCKETIO.on("new comment")
 def on_new_comment(data):
     """Process a new comment"""
@@ -108,10 +108,17 @@ def on_pol_tweet_request():
     pol_tweets = tweets.get_politicians_latest_tweets()
     flask_socketio.emit("political tweets", pol_tweets)
 
+@SOCKETIO.on("get news")
+def on_get_news():
+    """Returns news for New Jersey"""
+    news_object = news.get_latest_news()
+    print("asdf")
+    flask_socketio.emit("news", news_object)
+
 if __name__ == "__main__":
     SOCKETIO.run(
         APP,
         host=os.getenv("IP", "0.0.0.0"),
-        port=int(os.getenv("PORT", "8080")),
+        port=int(os.getenv("PORT", "3000")),
         debug=True,
     )
