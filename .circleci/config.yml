@@ -29,7 +29,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
+          command: git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
       
 
 workflows:
@@ -37,7 +37,7 @@ workflows:
   build-test-and-deploy:
     jobs:
       - build-and-test
-      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+      - heroku-deployt: # Maybe use the pre-configured job, heroku/deploy-via-git
           requires:
             - build-and-test
           filters:
