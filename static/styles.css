@@ -203,6 +203,7 @@ body {
 }
 
 /* Landing Page style start here */
+
 .landing-page {
   margin: 0;
   padding: 0;
@@ -216,7 +217,7 @@ body {
   width: auto;
   height: auto;
 }
-.landing-page header {
+.landing-page header{
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -246,18 +247,21 @@ body {
   flex-direction: column;
 }
 .first-page .headings {
+  font-family: monospace, arial;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 50%;
   height: 50%;
+  padding: 1rem;
   margin: auto;
   border-radius: 10%;
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
   background: #FFBD33;
+  overflow: scroll;
 }
 .first-page .headings .main-heading {
   font-size: 3vw;
@@ -293,6 +297,10 @@ body {
   border-radius: 6px;
   background: #34c6eb;
   box-shadow: 0 10px 6px -6px #777;
+  transition: all .3s ease-in-out;
+}
+.team-member:hover{
+  transform: scale(1.1);
 }
 .member-picture{
   width: 100px;
