@@ -20,7 +20,7 @@ class TweetTestCases(unittest.TestCase):
         """Test get_tweets"""
         mocker = mock.MagicMock()
         with mock.patch(
-                    "tweepy.API", mocker
+                "tweepy.API", mocker
             ), mock.patch(
                 "tweepy.OAuthHandler", mocker
             ):
@@ -43,7 +43,7 @@ class TweetTestCases(unittest.TestCase):
         """Test get_politicians_latest_tweets"""
         mocker = mock.MagicMock()
         with mock.patch(
-                    "tweepy.API", mocker
+                "tweepy.API", mocker
             ), mock.patch(
                 "tweepy.OAuthHandler", mocker
             ):
