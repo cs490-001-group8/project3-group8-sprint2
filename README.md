@@ -49,7 +49,7 @@ Create a file named `.env` and set it up as the following:
 ```
 OPEN_WEATHER_API_KEY=<Open weather API Key Here>
 GEOCODIO_API_KEY=<Geocodio API Key Here>
-REACT_APP_NEWS_API_KEY=<Gnews API Key Here>
+FREE_NEWS_API_KEY=<Gnews API Key Here>
 DATABASE_URL=<URL to your psql database>
 TWITTER_CONSUMER_KEY = "<Twitter consumer key>"
 TWITTER_CONSUMER_SECRET = "<Twitter consumer secret>"
