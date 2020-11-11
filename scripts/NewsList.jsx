@@ -10,7 +10,6 @@ export default function NewsList() {
 
     useEffect(() => {
         Socket.on('news', (data) => {
-            console.log("Hello")
             setNews(data);
             setLoading(false);
         });

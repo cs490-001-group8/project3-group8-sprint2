@@ -112,7 +112,6 @@ def on_pol_tweet_request():
 def on_get_news():
     """Returns news for New Jersey"""
     news_object = news.get_latest_news()
-    print("asdf")
     flask_socketio.emit("news", news_object)
 
 if __name__ == "__main__":
