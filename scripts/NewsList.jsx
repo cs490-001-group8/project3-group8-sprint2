@@ -6,7 +6,6 @@ import WidgetTitle from './WidgetTitle';
 
 const apiURL = `https://gnews.io/api/v4/search?q=new jersey&token=${process.env.REACT_APP_NEWS_API_KEY}`;
 
-
 export default function NewsList() {
     const [news, setNews] = useState(() => [{}, {}, {}, {}, {}]);
     const [loading, setLoading] = useState(() => true);
