@@ -170,8 +170,8 @@ body {
 
 .head {
   height: 10%;
-  padding: 0px;
-  margin: 0px;
+  padding: 5px;
+  margin: 10px;
   display: grid;
   grid-template-columns: 25% auto 25%;
 }
