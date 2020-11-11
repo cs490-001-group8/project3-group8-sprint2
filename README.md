@@ -102,7 +102,8 @@ If you wish to check the linting on this project, execute the following commands
 6. Run `pylint [FILE]` on any of the python files.
 
 ## Known Problems
-TODO
+API Requests are incredibly frequent, making it likely we run out of requests often.
+
 ## Technical Issues and Solutions
 The comment section was having an issue where each tab was not recognizing different comment sections as different.
   This was solved by utilizing hooks to keep the comment sections as the same element that
