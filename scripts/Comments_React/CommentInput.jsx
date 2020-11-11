@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Socket } from './Socket';
+import { Socket } from '../Socket';
 import CommentInputText from './CommentInputText';
 import CommentInputButton from './CommentInputButton';
 
