@@ -109,20 +109,39 @@ body {
     margin: 0px;
   }
 
-  .comment {
-    border: 1px #CCCCCC solid;
-    width: 100%;
-    font-size: 16pt;
-    list-style-type: none;
-    margin-bottom: 4px;
-  }
-
-    .comment-body {
-      width: 99%;
-      word-break: break-word;
-      padding: 1px;
-      margin: 0px;
+    .comment {
+      border: 1px #CCCCCC solid;
+      width: 100%;
+      font-size: 16pt;
+      list-style-type: none;
+      margin-bottom: 4px;
     }
+  
+      .comment-info {
+        width: 99%;
+        word-break: break-word;
+        padding: 1px;
+        margin-bottom: 5px;
+        margin-top: 2px;
+        color: #525252;
+      }
+  
+        .comment-info-name {
+          float: left;
+        }
+  
+        .comment-info-time {
+          float: right;
+        }
+  
+      .comment-body {
+        clear: both;
+        width: 99%;
+        word-break: break-word;
+        padding: 1px;
+        margin-bottom: 2px;
+        color: #6D6D6D;
+      }
 
   .comment-input {
     width: 100%;
