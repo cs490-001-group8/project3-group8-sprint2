@@ -17,8 +17,11 @@ sys.path.append(join(dirname(__file__), "../"))
 # pylint: disable=W0612
 # pylint: disable=E0401
 
-def weather_do_nothing (a, b, c):
-    pass
+
+def weather_do_nothing(one, two, three):
+    """Do nothing instead of getting weather"""
+    return
+
 
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
@@ -54,13 +57,17 @@ class MockedQueryResponse:
         """Mock an all() call from a query response"""
         return self.texts
 
+
 class MockedRequestObject:
     """Pretend to be an query response"""
+
     def __init__(self):
         self.sid = "AAAAA"
 
+
 class MockedSQLBase:
     """Pretend to be a sql model"""
+
     # pylint: disable=C0103
     # pylint: disable=R0201
     def __init__(self):
@@ -77,6 +84,7 @@ class MockedSQLBase:
     def String(self, obj):
         """Mock the String method"""
         return None
+
 
 # pylint: disable=R0902
 # pylint: disable=R0916
@@ -100,14 +108,43 @@ class AppTestCases(unittest.TestCase):
         return
 
     def mock_get_latest_tweet(self):
-        return {"gov":[{"text": "A", "sname":"A", "ppic": "A", "uname": "A", "time": "A", "date": "A"}],
-            "sen":[{"text": "A", "sname":"A", "ppic": "A", "uname": "A", "time": "A", "date": "A"},
-            {"text": "A", "sname":"A", "ppic": "A", "uname": "A", "time": "A", "date": "A"}],
+        """Mock getting the latest tweets from politicians"""
+        return {
+            "gov": [
+                {
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
+                }
+            ],
+            "sen": [
+                {
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
+                },
+                {
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
+                },
+            ],
         }
 
     def mock_session_query(self, model):
         """Mock Session commit"""
-        return MockedQueryResponse({"text": "TEST", "name": "USER", "time": datetime.now()})
+        return MockedQueryResponse(
+            {"text": "TEST", "name": "USER", "time": datetime.now()}
+        )
 
     def mock_session_add_comment(self, comment):
         """Mock Session add for comments"""
@@ -161,11 +198,12 @@ class AppTestCases(unittest.TestCase):
                     raise ValueError
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
-            
+
+    # pylint: disable=W0102
     def mock_flask_emit_weather(self, channel, data={}):
         """Mock Session for no emit (weather testing)"""
         if channel == "send weather":
-            if (len(data) == 0):
+            if len(data) == 0:
                 raise ValueError("DATA IS EMPTY")
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -173,7 +211,7 @@ class AppTestCases(unittest.TestCase):
     def mock_sqlalchemy_create_engine(self, url):
         """Mock create_engine"""
         return "THIS IS AN ENGINE"
-    
+
     def mock_html_unescape(self, escapable):
         """Mock html.unescape"""
         return "ESCAPED"
@@ -186,9 +224,8 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ):
             import app
-            with mock.patch(
-                    "flask.render_template", self.mocked_flask_render
-            ):
+
+            with mock.patch("flask.render_template", self.mocked_flask_render):
                 app.hello()
 
     def test_app_new_comment(self):
@@ -206,20 +243,23 @@ class AppTestCases(unittest.TestCase):
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
-            with mock.patch(
-                    "app.flask.request", mocker
-            ), mock.patch(
-                "sqlalchemy.ext.declarative.declarative_base", mocker
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
+
                 app.on_user_login()
-                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
+                app.on_new_comment(
+                    {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
+                )
                 app.on_new_comment({"text": "Hello, I'm Joe"})
                 app.on_new_comment({"text": 9, "tab": "Home"})
                 app.on_new_comment({"text": "Hello", "tab": 7})
                 app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
                 app.on_user_disconnect()
-                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
+                app.on_new_comment(
+                    {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
+                )
 
     def test_app_get_comments_success(self):
         """Test successful new comments"""
@@ -240,12 +280,11 @@ class AppTestCases(unittest.TestCase):
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
-            with mock.patch(
-                    "app.flask.request", mocker
-            ), mock.patch(
-                "sqlalchemy.ext.declarative.declarative_base", mocker
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
+
                 app.on_get_comments({"tab": "Home"})
 
     def test_app_get_comments_failure(self):
@@ -268,12 +307,11 @@ class AppTestCases(unittest.TestCase):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
             session_mocker = mock.MagicMock()
-            with mock.patch(
-                    "app.flask.request", mocker
-            ), mock.patch(
-                "sqlalchemy.orm.sessionmaker", session_mocker
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.orm.sessionmaker", session_mocker
             ):
                 import app
+
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
 
@@ -281,18 +319,21 @@ class AppTestCases(unittest.TestCase):
         """test the on_weather_request function"""
         test_weather = {"city_name": "Newark"}
         import app
+
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
 
     def test_on_pol_tweet_request(self):
         """test the on_pol_tweet_request function"""
-        with mock.patch("tweets.get_politicians_latest_tweets", self.mock_get_latest_tweet):
+        with mock.patch(
+                "tweets.get_politicians_latest_tweets", self.mock_get_latest_tweet
+        ):
             import app
-            with mock.patch(
-                    "flask_socketio.emit", self.mock_flask_emit_one
-            ):
+
+            with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_pol_tweet_request()
+
 
 if __name__ == "__main__":
     unittest.main()
