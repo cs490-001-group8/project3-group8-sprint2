@@ -1,117 +1,392 @@
 """
-    news_unit_tests.py
-    This file does all tests for news.py
+    app_unit_tests.py
+    This file does all tests for app.py
 """
-import sys
 import unittest
 import unittest.mock as mock
-import datetime
-import json
+from datetime import datetime
+import sys
 from os.path import dirname, join
 
-# pylint: disable=C0415
+# pylint: disable=C0413
 sys.path.append(join(dirname(__file__), "../"))
-from news import get_cache_news, get_latest_news
 
-KEY_INPUT = "input"
-KEY_METHOD = "method"
-KEY_EXPECTED = "expected"
+# pylint: disable=R0903
+# pylint: disable=W0613
+# pylint: disable=C0415
+# pylint: disable=W0612
+# pylint: disable=E0401
 
-class MockedAPIResponse:
+
+def weather_do_nothing(one, two, three):
+    """Do nothing instead of getting weather"""
+    return
+
+
+class MockedQueryResponseObj:
+    """Pretend to be a query response object"""
+
+    def __init__(self, text, name, time):
+        self.text = text
+        self.name = name
+        self.time = time
+
+
+class MockedFilterResponse:
+    """Pretend to be an query response"""
+
+    def __init__(self, texts):
+        self.texts = texts
+
+    def all(self):
+        """Mock an all() call from a query response"""
+        return self.texts
+
+
+class MockedQueryResponse:
+    """Pretend to be an query response"""
 
     def __init__(self, text):
-        self.status_code = 200
-        self.text = text
+        self.texts = [MockedQueryResponseObj(text["text"], text["name"], text["time"])]
 
-    def json(self):
-        return json.loads(self.text)
+    def filter(self, text):
+        """Pretend to be an query filter"""
+        return MockedFilterResponse(self.texts)
 
-class NewsTestCases(unittest.TestCase):
+    def all(self):
+        """Mock an all() call from a query response"""
+        return self.texts
+
+
+class MockedRequestObject:
+    """Pretend to be an query response"""
+
+    def __init__(self):
+        self.sid = "AAAAA"
+
+
+class MockedSQLBase:
+    """Pretend to be a sql model"""
+
+    # pylint: disable=C0103
+    # pylint: disable=R0201
+    def __init__(self):
+        self.id = 0
+
+    def create_all(self):
+        """Mock the create_all method"""
+        return
+
+    def Column(self, obj, primary_key=True):
+        """Mock the Column method"""
+        return None
+
+    def String(self, obj):
+        """Mock the String method"""
+        return None
+
+
+# pylint: disable=R0902
+# pylint: disable=R0916
+# pylint: disable=R0201
+class AppTestCases(unittest.TestCase):
     """Make all the test cases"""
 
-    # pylint: disable=R0201
-    # pylint: disable=R0916
+    maxDiff = None
+
     def setUp(self):
-        self.test_fetch_cache_success = {
-            KEY_INPUT: {
-                "timestamp": datetime.datetime.now().timestamp(),
-                "articles": [
-                    {
-                        "title": "Former \u2018Jersey Shore\u2019 Star Sammi Giancola Shows Off Long Legs In Short White Dress",
-                        "description": "Former Jersey Shore star Sammi \u201cSweetheart\u201d Giancola showed off her long legs in a short white dress in a new Instagram share. The former reality show star, who was seen in the original ...",
-                        "content": "Former Jersey Shore star Sammi \u201cSweetheart\u201d Giancola showed off her long legs in a short white dress in a new Instagram share. The former reality show star, who was seen in the original six seasons of the series, stunned her followers in the snap. He... [2288 chars]",
-                        "url": "https://www.inquisitr.com/6379236/jersey-shore-sammi-giancola-long-legs/",
-                        "image": "https://cdn.inquisitr.com/wp-content/uploads/2020/11/sammi-giancola.jpg",
-                        "publishedAt": "2020-11-11T17:13:59Z",
-                        "source": {
-                            "name": "The Inquisitr",
-                            "url": "https://www.inquisitr.com/"
-                        }
-                    }
-                ]
-            },
-            KEY_EXPECTED: [
+        """Set up test cases"""
+        self.success_test_params = []
+
+    def mocked_flask_render(self, url):
+        """Mock Flask render"""
+        if not isinstance(url, str):
+            raise ValueError("URL not string")
+
+    def mock_do_nothing(self, first="", checkfirst="", bind=""):
+        """Mock Session commit"""
+        return
+
+    def mock_get_latest_tweet(self):
+        """Mock getting the latest tweets from politicians"""
+        return {
+            "gov": [
                 {
-                    "title": "Former \u2018Jersey Shore\u2019 Star Sammi Giancola Shows Off Long Legs In Short White Dress",
-                    "description": "Former Jersey Shore star Sammi \u201cSweetheart\u201d Giancola showed off her long legs in a short white dress in a new Instagram share. The former reality show star, who was seen in the original ...",
-                    "content": "Former Jersey Shore star Sammi \u201cSweetheart\u201d Giancola showed off her long legs in a short white dress in a new Instagram share. The former reality show star, who was seen in the original six seasons of the series, stunned her followers in the snap. He... [2288 chars]",
-                    "url": "https://www.inquisitr.com/6379236/jersey-shore-sammi-giancola-long-legs/",
-                    "image": "https://cdn.inquisitr.com/wp-content/uploads/2020/11/sammi-giancola.jpg",
-                    "publishedAt": "2020-11-11T17:13:59Z",
-                    "source": {
-                        "name": "The Inquisitr",
-                        "url": "https://www.inquisitr.com/"
-                    }
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
                 }
-            ]
+            ],
+            "sen": [
+                {
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
+                },
+                {
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
+                },
+            ],
         }
 
-        self.test_fetch_recent_success = {
-            KEY_INPUT: 
-                """{"articles": [
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}}
-                ]}""",
-            KEY_EXPECTED: [
-                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}}
-            ]
-        }
+    def mock_get_latest_news(self):
+        """Mock getting the latest news"""
+        return [            
+            {
+                "title": "A",
+                "description": "A",
+                "content": "A",
+                "url": "A",
+                "image": "A",
+                "publishedAt": "A",
+                "source": {
+                    "name": "A",
+                    "url": "A"
+                }
+            },
+            {
+                "title": "A",
+                "description": "A",
+                "content": "A",
+                "url": "A",
+                "image": "A",
+                "publishedAt": "A",
+                "source": {
+                    "name": "A",
+                    "url": "A"
+                }
+            },
+        ]
 
-    # pylint: disable=R0201
-    # pylint: disable=R0916
-    def test_news_get_cache(self):
-        p1 = mock.patch( "builtins.open", mock.MagicMock() )
-        m = mock.MagicMock( side_effect = [ self.test_fetch_cache_success[KEY_INPUT] ] )
-        p2 = mock.patch( "json.load", m )
+    def mock_session_query(self, model):
+        """Mock Session commit"""
+        return MockedQueryResponse(
+            {"text": "TEST", "name": "USER", "time": datetime.now()}
+        )
 
-        with p1, p2:
-            result = get_cache_news()
+    def mock_session_add_comment(self, comment):
+        """Mock Session add for comments"""
+        if not isinstance(comment.tab, str):
+            raise ValueError("Tab not string")
+        if not isinstance(comment.text, str):
+            raise ValueError("Text not string")
 
-        self.assertEqual(result, self.test_fetch_cache_success[KEY_EXPECTED])
-        
-    # pylint: disable=R0201
-    # pylint: disable=R0916
-    def test_news_get_recent(self):
-        p1 = mock.patch( "requests.get", self.mocked_requests )
-        m2 = mock.MagicMock( side_effect = [ None ] )
-        p2 = mock.patch( "news.get_cache_news", m2 )
-        p3 = mock.patch( "builtins.open", mock.MagicMock() )
+    def mock_flask_emit_all(self, channel, data=""):
+        """Mock Session add for comments"""
+        if channel == "new comment":
+            if "text" not in data or not isinstance(data["text"], str):
+                raise ValueError("NO TEXT")
+            if "tab" not in data or not isinstance(data["tab"], str):
+                raise ValueError("NO TAB")
+        else:
+            raise ValueError("NO ESTABLISHED CHANNEL")
 
-        with p1, p2, p3:
-            result = get_latest_news()
+    def mock_flask_emit_one(self, channel, data=""):
+        """Mock Session add for comments"""
+        if channel == "old comments":
+            if "comments" not in data:
+                raise ValueError("NO COMMENTS")
+            for comment in data["comments"]:
+                if "text" not in comment:
+                    raise ValueError("NO TEXT IN COMMENT")
+        elif channel == "news":
+            for news in data:
+                if (
+                        "title" not in news
+                        or "description" not in news
+                        or "content" not in news
+                        or "url" not in news
+                        or "image" not in news
+                        or "publishedAt" not in news
+                        or "source" not in news
+                        or "name" not in news["source"]
+                        or "url" not in news["source"]
+                ):
+                    raise ValueError
+        elif channel == "political tweets":
+            if "gov" not in data:
+                raise ValueError("NO GOVENOR")
+            for tweet in data["gov"]:
+                if (
+                        "text" not in tweet
+                        or "sname" not in tweet
+                        or "ppic" not in tweet
+                        or "uname" not in tweet
+                        or "time" not in tweet
+                        or "date" not in tweet
+                ):
+                    raise ValueError
+            if "sen" not in data:
+                raise ValueError("NO SENATORS")
+            for tweet in data["sen"]:
+                if (
+                        "text" not in tweet
+                        or "sname" not in tweet
+                        or "ppic" not in tweet
+                        or "uname" not in tweet
+                        or "time" not in tweet
+                        or "date" not in tweet
+                ):
+                    raise ValueError
+        else:
+            raise ValueError("NO ESTABLISHED CHANNEL")
 
-        self.assertEqual(result, self.test_fetch_recent_success[KEY_EXPECTED])
-        
-    def mocked_requests(self, url, params):
-        return MockedAPIResponse(self.test_fetch_recent_success[KEY_INPUT])
+    # pylint: disable=W0102
+    def mock_flask_emit_weather(self, channel, data={}):
+        """Mock Session for no emit (weather testing)"""
+        if channel == "send weather":
+            if len(data) == 0:
+                raise ValueError("DATA IS EMPTY")
+        else:
+            raise ValueError("NO ESTABLISHED CHANNEL")
+
+    def mock_sqlalchemy_create_engine(self, url):
+        """Mock create_engine"""
+        return "THIS IS AN ENGINE"
+
+    def mock_html_unescape(self, escapable):
+        """Mock html.unescape"""
+        return "ESCAPED"
+
+    def test_app_runs_success(self):
+        """Test successful test cases"""
+        with mock.patch(
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ):
+            import app
+
+            with mock.patch("flask.render_template", self.mocked_flask_render):
+                app.hello()
+
+    def test_app_new_comment(self):
+        """Test successful new comments"""
+        with mock.patch(
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.ext.declarative.declarative_base", mocker
+            ):
+                import app
+
+                app.on_user_login()
+                app.on_new_comment(
+                    {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
+                )
+                app.on_new_comment({"text": "Hello, I'm Joe"})
+                app.on_new_comment({"text": 9, "tab": "Home"})
+                app.on_new_comment({"text": "Hello", "tab": 7})
+                app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
+                app.on_user_disconnect()
+                app.on_new_comment(
+                    {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
+                )
+
+    def test_app_get_comments_success(self):
+        """Test successful new comments"""
+        with mock.patch(
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.emit", self.mock_flask_emit_one
+        ):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.ext.declarative.declarative_base", mocker
+            ):
+                import app
+
+                app.on_get_comments({"tab": "Home"})
+
+    def test_app_get_comments_failure(self):
+        """Test successful new comments"""
+        with mock.patch(
+                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.emit", self.mock_flask_emit_one
+        ):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            session_mocker = mock.MagicMock()
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.orm.sessionmaker", session_mocker
+            ):
+                import app
+
+                app.on_get_comments({})
+                app.on_get_comments({"t": "Home"})
+
+    def test_weather_sending(self):
+        """test the on_weather_request function"""
+        test_weather = {"city_name": "Newark"}
+        import app
+
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
+            app.on_weather_request(test_weather)
+            self.assertIsInstance(test_weather, dict)
+
+    def test_on_pol_tweet_request(self):
+        """test the on_pol_tweet_request function"""
+        with mock.patch(
+                "tweets.get_politicians_latest_tweets", self.mock_get_latest_tweet
+        ):
+            import app
+
+            with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+                app.on_pol_tweet_request()
+
+    def test_on_news_request(self):
+        """test the on_news_request"""
+        with mock.patch(
+                "news.get_latest_news", self.mock_get_latest_news
+        ):
+            import app
+
+            with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+                app.on_news_request()
+
 
 if __name__ == "__main__":
     unittest.main()
