@@ -1,64 +1,64 @@
 {
-    "timestamp": 1605208404.910128,
+    "timestamp": 1605213094.642034,
     "articles": [
         {
-            "title": "A",
-            "description": "B",
-            "content": "C",
-            "url": "D",
-            "image": "E",
-            "publishedAt": "F",
+            "title": "'Chinese virus' sign at doctor's office draws rebuke",
+            "description": "A sign at a chiropractor's office in Jersey City, New Jersey, referring to the coronavirus as the \"Chinese virus\" is being slammed online as racist.",
+            "content": "A sign at a chiropractor's office in New Jersey referring to the coronavirus as the \"Chinese virus\" is being slammed online as racist.\nAnnesia Paraison took a photo of the sign Tuesday at the Jersey City office of Kevin Julian and uploaded it to Face... [3802 chars]",
+            "url": "https://www.nbcnews.com/news/asian-america/chinese-virus-sign-doctor-s-office-draws-rebuke-n1247418",
+            "image": "https://media4.s-nbcnews.com/j/newscms/2020_46/3427613/201111-chiropractor-office-se-1236p_d07f86412abebde5201880d178bc925c.nbcnews-fp-1200-630.jpg",
+            "publishedAt": "2020-11-12T19:46:00Z",
             "source": {
-                "name": "G",
-                "url": "H"
+                "name": "NBC News",
+                "url": "https://www.nbcnews.com/"
             }
         },
         {
-            "title": "A",
-            "description": "B",
-            "content": "C",
-            "url": "D",
-            "image": "E",
-            "publishedAt": "F",
+            "title": "New Jersey sees COVID-19 surge as positivity rate hits 12%",
+            "description": "Gov. Phil Murphy also reported on Twitter that hospitalizations in the Garden State have reached levels not seen since the first wave of the pandemic began to recede in June.",
+            "content": "Sign up for our special edition newsletter to get a daily update on the coronavirus pandemic.\nThe coronavirus pandemic is roaring back in New Jersey as officials revealed Thursday that the Garden State has seen more than 10,000 new cases since Monday... [1471 chars]",
+            "url": "https://nypost.com/2020/11/12/new-jersey-sees-covid-19-surge-as-positivity-rate-hits-12/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/new-jersey-covid-14-1.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-11-12T19:17:57Z",
             "source": {
-                "name": "G",
-                "url": "H"
+                "name": "New York Post",
+                "url": "https://nypost.com/"
             }
         },
         {
-            "title": "A",
-            "description": "B",
-            "content": "C",
-            "url": "D",
-            "image": "E",
-            "publishedAt": "F",
+            "title": "New England Governors Agree to Suspend Interstate Youth Hockey Competitions",
+            "description": "The governors of all six New England states, in addition to New Jersey, jointly announced Thursday interstate youth hockey competitions would be suspended as...",
+            "content": "The governors of all six New England states, in addition to New Jersey, jointly announced Thursday interstate youth hockey competitions would be suspended as the region grapples with rising coronavirus cases.\nIn a joint statement, governors said the ... [1263 chars]",
+            "url": "https://www.nbcboston.com/news/coronavirus/new-england-governors-agree-to-suspend-interstate-youth-hockey-competitions/2228485/",
+            "image": "https://media.nbcboston.com/2019/09/hockey-generic-722x406.jpg?fit=722%2C406",
+            "publishedAt": "2020-11-12T10:10:09Z",
             "source": {
-                "name": "G",
-                "url": "H"
+                "name": "NBC10 Boston",
+                "url": "https://www.nbcboston.com/"
             }
         },
         {
-            "title": "A",
-            "description": "B",
-            "content": "C",
-            "url": "D",
-            "image": "E",
-            "publishedAt": "F",
+            "title": "New England and New Jersey governors agree to suspend interstate hockey games until 2021",
+            "description": "Hockey rinks have been identified as a source of rising COVID-19 cases, prompting a coordinated effort to limit further spread.",
+            "content": "This comes after Massachusetts, New Hampshire, and other states mandated a two-week shutdown of ice rinks after tying the facilities to coronavirus cases.\nIn a joint effort, the governors of the six New England states, along with New Jersey\u2019s Phil Mu... [2060 chars]",
+            "url": "https://www.bostonglobe.com/2020/11/12/sports/new-england-new-jersey-governors-agree-suspend-interstate-hockey-games-until-2021/",
+            "image": "https://bostonglobe-prod.cdn.arcpublishing.com/resizer/DlPxFPdd-w6iOtIE0_Tp0uRUhBs=/506x0/cloudfront-us-east-1.images.arcpublishing.com/bostonglobe/7HSJAEHM3S5RSIOTFMEVFRWJ4U.jpg",
+            "publishedAt": "2020-11-12T05:00:00Z",
             "source": {
-                "name": "G",
-                "url": "H"
+                "name": "The Boston Globe",
+                "url": "https://www.bostonglobe.com/"
             }
         },
         {
-            "title": "A",
-            "description": "B",
-            "content": "C",
-            "url": "D",
-            "image": "E",
-            "publishedAt": "F",
+            "title": "New York governor issues new restrictions as U.S. grim records mount",
+            "description": "In New Jersey, one of the early U.S. hotspots, a spike in cases in Newark, the state's largest city, prompted Mayor Ras Baraka to implement aggressive measures, including a mandatory curfew for certain areas. In Newark, the positivity rate hovered at 19%, more than double the state's 7.74% seven-day average, Baraka said in a statement on Tuesday.",
+            "content": "New York Governor Andrew Cuomo on Wednesday imposed a new round of restrictions aimed at curbing the spread of the coronavirus as the infection rate climbed and hospitalizations soared in the state that was the epicenter of the U.S. outbreak in its e... [3047 chars]",
+            "url": "https://www.devdiscourse.com/article/health/1305469-new-york-governor-issues-new-restrictions-as-us-grim-records-mount",
+            "image": "https://www.devdiscourse.com/remote.axd?https://devdiscourse.blob.core.windows.net/imagegallery/03_03_2020_18_59_53_6525806.jpg?width=920&format=jpeg",
+            "publishedAt": "2020-11-11T19:37:25Z",
             "source": {
-                "name": "G",
-                "url": "H"
+                "name": "Devdiscourse",
+                "url": "https://www.devdiscourse.com/"
             }
         }
     ]

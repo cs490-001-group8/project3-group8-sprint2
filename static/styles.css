@@ -302,7 +302,7 @@ body {
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
   background: #FFBD33;
-  overflow: scroll;
+  overflow: hidden;
 }
 .first-page .headings .main-heading {
   font-size: 3vw;
@@ -366,7 +366,7 @@ body {
 }
 .third-page h3{
   font-size: 3rem;
-  color: #f00;
+  color: #FFFDFD;
 }
 .third-page .container{
   display: grid;
@@ -382,18 +382,22 @@ body {
 .box-1 {
   grid-area: box-1;
   background: rgba(50, 115, 220, 0.3);
+  padding: 2%;
 }
 .box-2 {
   grid-area: box-2;
   background: rgba(50, 115, 220, 0.3);
+  padding: 2%;
 }
 .box-3 {
   grid-area: box-3;
   background: rgba(201, 76, 76, 0.3);
+  padding: 2%;
 }
 .box-4{
   grid-area: box-4;
   background: rgba(201, 76, 76, 0.3);
+  padding: 2%;
 }
 .fourth-page{
   display: flex;
