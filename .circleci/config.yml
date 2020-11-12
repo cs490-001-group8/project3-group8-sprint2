@@ -25,8 +25,8 @@ jobs:
           command: python ./tests/tweets_unit_tests.py
           name: tweets_unit_test.py Tests
       - run:
-          command: python ./tests/news_unit_tests.py
-          name: news_unit_tests.py Tests
+          command: python ./tests/news_unit_test.py
+          name: news_unit_test.py Tests
   heroku-deploy:
     executor: python/default
     steps:
