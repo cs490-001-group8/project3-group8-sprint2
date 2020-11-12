@@ -242,6 +242,7 @@ body {
   min-width: 50%;
   max-width: 500%;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 .landing-page-logo {
   width: auto;
@@ -338,6 +339,7 @@ body {
   height: auto;
   font-size: 1.5rem;
   padding: 1rem;
+  border: 2px solid #12718a;
   border-radius: 6px;
   background: #34c6eb;
   box-shadow: 0 10px 6px -6px #777;
@@ -347,18 +349,20 @@ body {
   transform: scale(1.1);
 }
 .team-member h4{
+  margin-top: 1rem;
   margin-bottom: 0;
 }
 .team-member a{
   color: white;
 }
 .team-member p{
-  margin: 0;
+  margin: 1rem;
 }
 .member-picture{
   width: 100px;
   height: 100px;
   border-radius: 1rem;
+  border: 2px solid #12718a;
 }
 .third-page{
   display: flex;
@@ -373,7 +377,7 @@ body {
 }
 .third-page h3{
   font-size: 3rem;
-  color: #FFFDFD;
+  color: white;
 }
 .third-page .container{
   display: grid;
@@ -384,27 +388,27 @@ body {
 }
 .box{
   padding: 1rem;
-  font-size: 2vw;
+  /*font-size: 2vw;*/
 }
+.box h2{
+  text-align: center;
+}
+
 .box-1 {
   grid-area: box-1;
   background: rgba(50, 115, 220, 0.3);
-  padding: 2%;
 }
 .box-2 {
   grid-area: box-2;
   background: rgba(50, 115, 220, 0.3);
-  padding: 2%;
 }
 .box-3 {
   grid-area: box-3;
   background: rgba(201, 76, 76, 0.3);
-  padding: 2%;
 }
 .box-4{
   grid-area: box-4;
   background: rgba(201, 76, 76, 0.3);
-  padding: 2%;
 }
 .fourth-page{
   display: flex;
