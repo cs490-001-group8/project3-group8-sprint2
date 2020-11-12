@@ -1,6 +1,18 @@
 {
-    "timestamp": 1605198287.985169,
+    "timestamp": 1605210621.104364,
     "articles": [
+        {
+            "title": "New Jersey sees COVID-19 surge as positivity rate hits 12%",
+            "description": "Gov. Phil Murphy also reported on Twitter that hospitalizations in the Garden State have reached levels not seen since the first wave of the pandemic began to recede in June.",
+            "content": "Sign up for our special edition newsletter to get a daily update on the coronavirus pandemic.\nThe coronavirus pandemic is roaring back in New Jersey as officials revealed Thursday that the Garden State has seen more than 10,000 new cases since Monday... [1471 chars]",
+            "url": "https://nypost.com/2020/11/12/new-jersey-sees-covid-19-surge-as-positivity-rate-hits-12/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/new-jersey-covid-14-1.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-11-12T19:17:57Z",
+            "source": {
+                "name": "New York Post",
+                "url": "https://nypost.com/"
+            }
+        },
         {
             "title": "New England Governors Agree to Suspend Interstate Youth Hockey Competitions",
             "description": "The governors of all six New England states, in addition to New Jersey, jointly announced Thursday interstate youth hockey competitions would be suspended as...",
@@ -47,18 +59,6 @@
             "source": {
                 "name": "Barron's",
                 "url": "https://www.barrons.com/"
-            }
-        },
-        {
-            "title": "NJ Expands Coronavirus Travel Quarantine List To 45 States",
-            "description": "NJ Expands Coronavirus Travel Quarantine List To 45 States - Asbury Park, NJ - New Jersey updated its coronavirus travel advisory again, expanding the quarantine list to its biggest yet. Here's where:",
-            "content": "NEW JERSEY \u2013 Gov. Phil Murphy has once again expanded the quarantine travel advisory list to its biggest ever, now demanding any travelers from 45 states and territories to quarantine for two weeks after returning \u2013 even if their travel route started... [2106 chars]",
-            "url": "https://patch.com/new-jersey/asbury-park/nj-expands-coronavirus-travel-quarantine-list-45-states",
-            "image": "https://patch.com/img/cdn20/users/65079/20200618/094928/styles/patch_image/public/rich-hundley-rich-hundley-iii-murphy-6-17-20-11___18094851317.jpg",
-            "publishedAt": "2020-11-11T13:29:16Z",
-            "source": {
-                "name": "Joliet, IL Patch",
-                "url": "https://patch.com/"
             }
         }
     ]
