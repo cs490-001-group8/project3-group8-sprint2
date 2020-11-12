@@ -232,7 +232,7 @@ class AppTestCases(unittest.TestCase):
 
     def mocked_weather(self, city_name):
         """mock an emit from clientside"""
-        def __init__ (self, city_name):
+        def __init__(self, city_name):
             curr_city_name = city_name
 
     def test_weather_sending(self):
@@ -244,7 +244,13 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("app.on_weather_request", self.mocked_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
-
+    def test_render_landing_page(self):
+        """Test landing_page rendering"""
+        import app
+        with mock.patch(
+                "flask.render_template", self.mocked_flask_render
+        ):
+            app.landing_page()
 
 if __name__ == "__main__":
     unittest.main()

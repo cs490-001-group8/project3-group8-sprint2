@@ -203,7 +203,11 @@ body {
 }
 
 /* Landing Page style start here */
-
+.landing-page-link {
+  padding: 0;
+  background: none;
+  border: none;
+}
 .landing-page {
   margin: 0;
   padding: 0;
@@ -223,20 +227,31 @@ body {
   align-items: center;
   width: auto;
   height: 8%;
-  background: 	#D3D3D3;
+  background: #F0FFFF;
 }
-.button {
+.first-page .button {
   padding: 0.5rem;
-  background: transparent;
+  background: #000;
   border: none;
+  border-radius: 5%;
   width: auto;
   font-size: 1rem;
   height: fit-content;
+  color: #fff;
   transition: background 1s ease-in-out;
 }
-.button:hover {
+.first-page .button:hover {
   cursor: pointer;
-  background: #fff;
+  background: #FFB6C1;
+  color: #000;
+}
+.first-page .button a{
+  text-decoration: none;
+  color: inherit;
+  transition: color 1s ease-in-out;
+}
+.first-page .button a:hover{
+  color: inherit;
 }
 .first-page{
   width: 100vw;
@@ -285,7 +300,7 @@ body {
   grid-template-columns: repeat(3, auto);
   justify-content: space-evenly;
   grid-gap: 50px;
-  margin: 0 2rem;
+  margin: 2rem;
 }
 .team-member{
   display: flex;
@@ -317,7 +332,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 100vw;
+  width: auto;
   height: auto;
   padding: 1rem;
   color: #fff;
@@ -344,11 +359,11 @@ body {
 }
 .box-2 {
   grid-area: box-2;
-  background: rgb(50, 115, 220);
+  background: rgba(50, 115, 220, 0.3);
 }
 .box-3 {
   grid-area: box-3;
-  background: #ADD8E6;
+  background: rgba(201, 76, 76, 0.3);
 }
 .box-4{
   grid-area: box-4;
@@ -359,7 +374,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  width: 100vw;
+  width: auto;
   height: auto;
   color: #fff;
   background: url("images/third_page.jpg") center/cover no-repeat fixed;
@@ -382,6 +397,10 @@ body {
   margin: 1rem;
   padding: 1rem;
   text-align: center;
+  transition: .5s ease-in-out;
+}
+.technologies-list li:hover{
+  transform: scale(1.02);
 }
 .technologies-list li a{
   display: block;
@@ -408,8 +427,8 @@ body {
   .third-page .container{
     grid-template-areas:
     'box-1'
-    'box-2'
     'box-3'
+    'box-2'
     'box-4';
     grid-template-columns: auto auto;
   }
@@ -436,5 +455,10 @@ body {
   }
   .technologies ul{
     font-size: 4vw;
+  }
+  .technologies ul{
+    grid-template-columns: auto;
+    font-size: 4vw;
+    padding: inherit;
   }
 }
