@@ -2,9 +2,9 @@
     This file searches twitter for tweets
 """
 import os
-import requests
 import json
 import datetime
+import requests
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -20,7 +20,7 @@ FREE_NEWS_API_BASE_URL = "https://gnews.io/api/v4/search"
 
 def get_cache_news():
     """Get the cache data"""
-    with open(CACHE_FILE, "r", encoding="utf8") as cache: 
+    with open(CACHE_FILE, "r", encoding="utf8") as cache:
         data = json.load(cache)
         timestamp = datetime.datetime.now().timestamp()
         if timestamp - data[KEY_TIMESTAMP] < 3600:
@@ -30,7 +30,7 @@ def get_cache_news():
 def get_latest_news():
     """Get the most recent 5 news using API"""
     result = get_cache_news()
-    if result == None:
+    if result is None:
         payload = {
             KEY_QUERY: "new jersey",
             KEY_TOKEN: FREE_NEWS_API_KEY,
@@ -38,7 +38,7 @@ def get_latest_news():
         response = requests.get(FREE_NEWS_API_BASE_URL, params=payload)
         result = response.json()[KEY_ARTICLES][:5]
 
-        with open(CACHE_FILE, "w", encoding="utf8") as cache: 
+        with open(CACHE_FILE, "w", encoding="utf8") as cache:
             json_object = json.dumps({
                 KEY_TIMESTAMP: datetime.datetime.now().timestamp(),
                 KEY_ARTICLES: result

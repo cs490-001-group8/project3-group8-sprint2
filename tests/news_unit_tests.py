@@ -6,15 +6,25 @@ import sys
 import unittest
 import unittest.mock as mock
 import datetime
+import json
 from os.path import dirname, join
 
 # pylint: disable=C0415
 sys.path.append(join(dirname(__file__), "../"))
-from news import get_cache_news
+from news import get_cache_news, get_latest_news
 
 KEY_INPUT = "input"
 KEY_METHOD = "method"
 KEY_EXPECTED = "expected"
+
+class MockedAPIResponse:
+
+    def __init__(self, text):
+        self.status_code = 200
+        self.text = text
+
+    def json(self):
+        return json.loads(self.text)
 
 class NewsTestCases(unittest.TestCase):
     """Make all the test cases"""
@@ -56,6 +66,25 @@ class NewsTestCases(unittest.TestCase):
             ]
         }
 
+        self.test_fetch_recent_success = {
+            KEY_INPUT: 
+                """{"articles": [
+                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}}
+                ]}""",
+            KEY_EXPECTED: [
+                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}}
+            ]
+        }
+
     # pylint: disable=R0201
     # pylint: disable=R0916
     def test_news_get_cache(self):
@@ -68,6 +97,20 @@ class NewsTestCases(unittest.TestCase):
 
         self.assertEqual(result, self.test_fetch_cache_success[KEY_EXPECTED])
         
+    # pylint: disable=R0201
+    # pylint: disable=R0916
+    def test_news_get_recent(self):
+        p1 = mock.patch( "requests.get", self.mocked_requests )
+        m2 = mock.MagicMock( side_effect = [ None ] )
+        p2 = mock.patch( "news.get_cache_news", m2 )
+
+        with p1, p2:
+            result = get_latest_news()
+
+        self.assertEqual(result, self.test_fetch_recent_success[KEY_EXPECTED])
         
+    def mocked_requests(self, url, params):
+        return MockedAPIResponse(self.test_fetch_recent_success[KEY_INPUT])
+
 if __name__ == "__main__":
     unittest.main()
