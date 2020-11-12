@@ -305,6 +305,7 @@ body {
   overflow: hidden;
 }
 .first-page .headings .main-heading {
+  text-align: center;
   font-size: 3vw;
 }
 .first-page .headings .sub-heading {
@@ -344,6 +345,12 @@ body {
 }
 .team-member:hover{
   transform: scale(1.1);
+}
+.team-member h4{
+  margin-bottom: 0;
+}
+.team-member a{
+  color: white;
 }
 .team-member p{
   margin: 0;
