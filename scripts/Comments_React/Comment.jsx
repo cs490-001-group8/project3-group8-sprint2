@@ -4,14 +4,11 @@ import PropTypes from 'prop-types';
 export default function Comment({ commentBody, commentName, commentTime }) {
     return (
         <li className="comment">
-            <span className="comment-name">
-                {commentName}
-                :
-                {' '}
-                {commentTime}
-            </span>
-            <br />
-            <span className="comment-body">{commentBody}</span>
+            <div className="comment-info">
+                <span className="comment-info-name">{commentName}</span>
+                <span className="comment-info-time">{commentTime}</span>
+            </div>
+            <div className="comment-body">{commentBody}</div>
         </li>
     );
 }
