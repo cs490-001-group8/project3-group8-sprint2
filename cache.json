@@ -1,6 +1,18 @@
 {
-    "timestamp": 1605151048.433978,
+    "timestamp": 1605196065.261558,
     "articles": [
+        {
+            "title": "New England Governors Agree to Suspend Interstate Youth Hockey Competitions",
+            "description": "The governors of all six New England states, in addition to New Jersey, jointly announced Thursday interstate youth hockey competitions would be suspended as...",
+            "content": "The governors of all six New England states, in addition to New Jersey, jointly announced Thursday interstate youth hockey competitions would be suspended as the region grapples with rising coronavirus cases.\nIn a joint statement, governors said the ... [1263 chars]",
+            "url": "https://www.nbcboston.com/news/coronavirus/new-england-governors-agree-to-suspend-interstate-youth-hockey-competitions/2228485/",
+            "image": "https://media.nbcboston.com/2019/09/hockey-generic-722x406.jpg?fit=722%2C406",
+            "publishedAt": "2020-11-12T10:10:09Z",
+            "source": {
+                "name": "NBC10 Boston",
+                "url": "https://www.nbcboston.com/"
+            }
+        },
         {
             "title": "New York governor issues new restrictions as U.S. grim records mount",
             "description": "In New Jersey, one of the early U.S. hotspots, a spike in cases in Newark, the state's largest city, prompted Mayor Ras Baraka to implement aggressive measures, including a mandatory curfew for certain areas. In Newark, the positivity rate hovered at 19%, more than double the state's 7.74% seven-day average, Baraka said in a statement on Tuesday.",
@@ -47,18 +59,6 @@
             "source": {
                 "name": "Joliet, IL Patch",
                 "url": "https://patch.com/"
-            }
-        },
-        {
-            "title": "Joby Weeks Cops a Plea in $722M BitClub Mining Scheme",
-            "description": "The plea, entered November 5 in federal court in New Jersey, is the third deal the government has reached with former promoters and principals of the BitClub Network, which promised high returns to customers who purchased shares in a cryptocurrency \"mining pool.\"",
-            "content": "Jobadiah Sinclair Weeks, Colorado whiz-kid entrepreneur turned Bitcoin evangelist, has pleaded guilty to tax evasion and conspiracy to sell unregistered securities, in what federal investigators have described as one of the largest cryptocurrency fra... [3351 chars]",
-            "url": "https://www.westword.com/news/bitclub-cryptocurrency-scam-joby-weeks-bitcoin-plea-11839570",
-            "image": "https://images1.westword.com/imager/u/original/11839573/feature_travel.jpg",
-            "publishedAt": "2020-11-11T11:50:00Z",
-            "source": {
-                "name": "Westword",
-                "url": "https://www.westword.com/"
             }
         }
     ]
