@@ -1,0 +1,65 @@
+{
+    "timestamp": 1605208404.910128,
+    "articles": [
+        {
+            "title": "A",
+            "description": "B",
+            "content": "C",
+            "url": "D",
+            "image": "E",
+            "publishedAt": "F",
+            "source": {
+                "name": "G",
+                "url": "H"
+            }
+        },
+        {
+            "title": "A",
+            "description": "B",
+            "content": "C",
+            "url": "D",
+            "image": "E",
+            "publishedAt": "F",
+            "source": {
+                "name": "G",
+                "url": "H"
+            }
+        },
+        {
+            "title": "A",
+            "description": "B",
+            "content": "C",
+            "url": "D",
+            "image": "E",
+            "publishedAt": "F",
+            "source": {
+                "name": "G",
+                "url": "H"
+            }
+        },
+        {
+            "title": "A",
+            "description": "B",
+            "content": "C",
+            "url": "D",
+            "image": "E",
+            "publishedAt": "F",
+            "source": {
+                "name": "G",
+                "url": "H"
+            }
+        },
+        {
+            "title": "A",
+            "description": "B",
+            "content": "C",
+            "url": "D",
+            "image": "E",
+            "publishedAt": "F",
+            "source": {
+                "name": "G",
+                "url": "H"
+            }
+        }
+    ]
+}

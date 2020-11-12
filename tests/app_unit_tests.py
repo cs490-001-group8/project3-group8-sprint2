@@ -1,6 +1,6 @@
 """
-    unmocked_unit_tests.py
-    This file does all non-mocked unit tests
+    app_unit_tests.py
+    This file does all tests for app.py
 """
 import unittest
 import unittest.mock as mock
@@ -16,6 +16,12 @@ sys.path.append(join(dirname(__file__), "../"))
 # pylint: disable=C0415
 # pylint: disable=W0612
 # pylint: disable=E0401
+
+
+def weather_do_nothing(one, two, three):
+    """Do nothing instead of getting weather"""
+    return
+
 
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
@@ -51,13 +57,17 @@ class MockedQueryResponse:
         """Mock an all() call from a query response"""
         return self.texts
 
+
 class MockedRequestObject:
     """Pretend to be an query response"""
+
     def __init__(self):
         self.sid = "AAAAA"
 
+
 class MockedSQLBase:
     """Pretend to be a sql model"""
+
     # pylint: disable=C0103
     # pylint: disable=R0201
     def __init__(self):
@@ -75,7 +85,9 @@ class MockedSQLBase:
         """Mock the String method"""
         return None
 
+
 # pylint: disable=R0902
+# pylint: disable=R0916
 # pylint: disable=R0201
 class AppTestCases(unittest.TestCase):
     """Make all the test cases"""
@@ -95,9 +107,44 @@ class AppTestCases(unittest.TestCase):
         """Mock Session commit"""
         return
 
+    def mock_get_latest_tweet(self):
+        """Mock getting the latest tweets from politicians"""
+        return {
+            "gov": [
+                {
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
+                }
+            ],
+            "sen": [
+                {
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
+                },
+                {
+                    "text": "A",
+                    "sname": "A",
+                    "ppic": "A",
+                    "uname": "A",
+                    "time": "A",
+                    "date": "A",
+                },
+            ],
+        }
+
     def mock_session_query(self, model):
         """Mock Session commit"""
-        return MockedQueryResponse({"text": "TEST", "name": "USER", "time": datetime.now()})
+        return MockedQueryResponse(
+            {"text": "TEST", "name": "USER", "time": datetime.now()}
+        )
 
     def mock_session_add_comment(self, comment):
         """Mock Session add for comments"""
@@ -124,12 +171,50 @@ class AppTestCases(unittest.TestCase):
             for comment in data["comments"]:
                 if "text" not in comment:
                     raise ValueError("NO TEXT IN COMMENT")
+        elif channel == "political tweets":
+            if "gov" not in data:
+                raise ValueError("NO GOVENOR")
+            for tweet in data["gov"]:
+                if (
+                        "text" not in tweet
+                        or "sname" not in tweet
+                        or "ppic" not in tweet
+                        or "uname" not in tweet
+                        or "time" not in tweet
+                        or "date" not in tweet
+                ):
+                    raise ValueError
+            if "sen" not in data:
+                raise ValueError("NO SENATORS")
+            for tweet in data["sen"]:
+                if (
+                        "text" not in tweet
+                        or "sname" not in tweet
+                        or "ppic" not in tweet
+                        or "uname" not in tweet
+                        or "time" not in tweet
+                        or "date" not in tweet
+                ):
+                    raise ValueError
+        else:
+            raise ValueError("NO ESTABLISHED CHANNEL")
+
+    # pylint: disable=W0102
+    def mock_flask_emit_weather(self, channel, data={}):
+        """Mock Session for no emit (weather testing)"""
+        if channel == "send weather":
+            if len(data) == 0:
+                raise ValueError("DATA IS EMPTY")
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
     def mock_sqlalchemy_create_engine(self, url):
         """Mock create_engine"""
         return "THIS IS AN ENGINE"
+
+    def mock_html_unescape(self, escapable):
+        """Mock html.unescape"""
+        return "ESCAPED"
 
     def test_app_runs_success(self):
         """Test successful test cases"""
@@ -139,9 +224,8 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ):
             import app
-            with mock.patch(
-                    "flask.render_template", self.mocked_flask_render
-            ):
+
+            with mock.patch("flask.render_template", self.mocked_flask_render):
                 app.hello()
 
     def test_app_new_comment(self):
@@ -159,20 +243,23 @@ class AppTestCases(unittest.TestCase):
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
-            with mock.patch(
-                    "app.flask.request", mocker
-            ), mock.patch(
-                "sqlalchemy.ext.declarative.declarative_base", mocker
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
+
                 app.on_user_login()
-                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
+                app.on_new_comment(
+                    {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
+                )
                 app.on_new_comment({"text": "Hello, I'm Joe"})
                 app.on_new_comment({"text": 9, "tab": "Home"})
                 app.on_new_comment({"text": "Hello", "tab": 7})
                 app.on_new_comment({"text": "Hello, I'm Joe", "name": 9, "tab": "Home"})
                 app.on_user_disconnect()
-                app.on_new_comment({"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"})
+                app.on_new_comment(
+                    {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
+                )
 
     def test_app_get_comments_success(self):
         """Test successful new comments"""
@@ -193,12 +280,11 @@ class AppTestCases(unittest.TestCase):
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
-            with mock.patch(
-                    "app.flask.request", mocker
-            ), mock.patch(
-                "sqlalchemy.ext.declarative.declarative_base", mocker
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
+
                 app.on_get_comments({"tab": "Home"})
 
     def test_app_get_comments_failure(self):
@@ -221,27 +307,21 @@ class AppTestCases(unittest.TestCase):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
             session_mocker = mock.MagicMock()
-            with mock.patch(
-                    "app.flask.request", mocker
-            ), mock.patch(
-                "sqlalchemy.orm.sessionmaker", session_mocker
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                    "sqlalchemy.orm.sessionmaker", session_mocker
             ):
                 import app
+
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
 
-    def mocked_weather(self, city_name):
-        """mock an emit from clientside"""
-        def __init__(self, city_name):
-            curr_city_name = city_name
 
     def test_weather_sending(self):
         """test the on_weather_request function"""
-        test_weather = {
-            "city_name": "Newark"
-        }
+        test_weather = {"city_name": "Newark"}
         import app
-        with mock.patch("app.on_weather_request", self.mocked_weather):
+
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
     def test_render_landing_page(self):
@@ -251,6 +331,17 @@ class AppTestCases(unittest.TestCase):
                 "flask.render_template", self.mocked_flask_render
         ):
             app.landing_page()
+
+    def test_on_pol_tweet_request(self):
+        """test the on_pol_tweet_request function"""
+        with mock.patch(
+                "tweets.get_politicians_latest_tweets", self.mock_get_latest_tweet
+        ):
+            import app
+
+            with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+                app.on_pol_tweet_request()
+
 
 if __name__ == "__main__":
     unittest.main()

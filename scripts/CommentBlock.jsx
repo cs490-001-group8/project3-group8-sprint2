@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Socket } from './Socket';
-import CommentList from './CommentList';
-import CommentInput from './CommentInput';
-import CommentTitle from './CommentTitle';
+import CommentList from './Comments_React/CommentList';
+import CommentInput from './Comments_React/CommentInput';
+import CommentTitle from './Comments_React/CommentTitle';
 
 export default function CommentBlock({ currTab, myName, loggedIn }) {
     const [comments, updateComments] = useState(() => []);

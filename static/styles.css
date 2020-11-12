@@ -3,6 +3,10 @@ body {
   margin: 0px;
 }
 
+.App {
+  background-color: #FFFFFF;
+}
+
 .body {
   width: 98%;
   height: 90%;
@@ -10,6 +14,7 @@ body {
 }
 
 .tab-content {
+  background-color: #FEFAFA;
   border: 3px black solid;
   width: 100%;
   height: 95%;
@@ -18,18 +23,38 @@ body {
   margin: 2px;
 }
 
-.tab-widgets-section {
-  width: 100%;
-  height: 95%;
-  flex: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin: 2px;
-}
+  .tab-widgets-section {
+    width: 100%;
+    height: 95%;
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 2px;
+  }
+
+  .tab {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .tab:hover {
+    background-color: #555555;
+    color: white;
+  }
 
 .widget {
+  background-color: #FFFFFF;
   height: 95%;
   border: 3px black solid;
   border-radius: 25px;
@@ -39,15 +64,16 @@ body {
   overflow: hidden;
 }
 
-.widget-title {
-  height: 5%;
-  text-align: center;
-  margin: 20px;
-  font-size: 30pt;
-  font-weight: bold;
-}
+  .widget-title {
+    height: 5%;
+    text-align: center;
+    margin: 20px;
+    font-size: 30pt;
+    font-weight: bold;
+  }
 
 .comment-block {
+  background-color: #FFFFFF;
   border: 3px black solid;
   width: 25%;
   height: 100%;
@@ -58,131 +84,131 @@ body {
   margin: 0px;
 }
 
-.comment-title {
-  width: 100%;
-  height: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30pt;
-  font-weight: bold;
-  padding: 0px;
-  margin: 0px;
-}
+  .comment-title {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30pt;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+  }
 
-.comment-list {
-  border: 2px black solid;
-  width: 98%;
-  height: 80%;
-  text-align: left;
-  overflow: auto;
-  padding: 0px;
-  margin: 0px;
-}
+  .comment-list {
+    border: 2px black solid;
+    width: 98%;
+    height: 80%;
+    text-align: left;
+    overflow: auto;
+    padding: 0px;
+    margin: 0px;
+  }
 
-.comment-list-loggedout {
-  border: 2px black solid;
-  width: 100%;
-  height: 95%;
-  text-align: left;
-  overflow: auto;
-  padding: 0px;
-  margin: 0px;
-}
+  .comment-list-loggedout {
+    border: 2px black solid;
+    width: 100%;
+    height: 95%;
+    text-align: left;
+    overflow: auto;
+    padding: 0px;
+    margin: 0px;
+  }
 
-.comment {
-  border: 1px #CCCCCC solid;
-  width: 100%;
-  font-size: 16pt;
-  list-style-type: none;
-  margin-bottom: 4px;
-}
+    .comment {
+      border: 1px #CCCCCC solid;
+      width: 100%;
+      font-size: 16pt;
+      list-style-type: none;
+      margin-bottom: 4px;
+    }
+  
+      .comment-info {
+        width: 99%;
+        word-break: break-word;
+        padding: 1px;
+        margin-bottom: 5px;
+        margin-top: 2px;
+        color: #525252;
+      }
+  
+        .comment-info-name {
+          float: left;
+        }
+  
+        .comment-info-time {
+          float: right;
+        }
+  
+      .comment-body {
+        clear: both;
+        width: 99%;
+        word-break: break-word;
+        padding: 1px;
+        margin-bottom: 2px;
+        color: #6D6D6D;
+      }
 
-.comment-body {
-  width: 99%;
-  word-break: break-word;
-  padding: 1px;
-  margin: 0px;
-}
+  .comment-input {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+  }
 
-.comment-input {
-  width: 100%;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: row;
-}
+    .comment-input-button {
+      flex: 1;
+    }
 
-.comment-input-button {
-  flex: 1;
-}
-
-.comment-input-text {
-  font-size: 14pt;
-  color: #464646;
-  flex: 4;
-  resize: none;
-}
-
-.tab {
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
-  padding: 10px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.tab:hover {
-  background-color: #555555;
-  color: white;
-}
+    .comment-input-text {
+      font-size: 14pt;
+      color: #464646;
+      flex: 4;
+      resize: none;
+    }
 
 .head {
   height: 10%;
-  padding: 0px;
-  margin: 0px;
+  padding: 5px;
+  margin: 10px;
   display: grid;
   grid-template-columns: 25% auto 25%;
 }
 
-.login {
-  font-size: 14pt;
-  grid-column-start: 3;
-  margin: auto;
-}
+  .login {
+    font-size: 14pt;
+    grid-column-start: 3;
+    margin: auto;
+  }
 
-.head-title {
-  font-size: 50pt;
-  font-weight: bold;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  margin: auto;
-}
-
-.news-wrapper {
-  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15) !important;
-  padding: 16 !important;
-}
-
-.news-image {
-  height: 96 !important;
-  width: 96 !important;
-}
-
-.news-description {
-  white-space: pre-line;
-}
+  .head-title {
+    font-size: 50pt;
+    font-weight: bold;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin: auto;
+  }
 
 .news-group {
   height: 90%;
   padding: 8;
   overflow-y: scroll;
 }
+
+  .news-wrapper {
+    box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15) !important;
+    padding: 16 !important;
+  }
+
+    .news-image {
+      height: 96 !important;
+      width: 96 !important;
+    }
+
+    .news-description {
+      white-space: pre-line;
+    }
 
 .hourlyWeather{
   text-align: center;
@@ -461,4 +487,68 @@ body {
     font-size: 4vw;
     padding: inherit;
   }
+}
+
+.tweet {
+  font-family: Helvetica;
+  text-align: left;
+  color: #14171A;
+  border: 2px black solid;
+  
+  width: 100%;
+  margin: auto;
+  padding: 1em;
+  
+  flex: 1;
+}
+  
+  .tweet-head {
+    display: flex;
+  }
+    
+    .tweet-head-user {
+      margin: auto;
+      
+      flex:1;
+    }
+    
+    .tweet-head-user-name {
+      font-weight: bold;
+    }
+    
+    .tweet-head-user-sname {
+      color: #657786;
+    }
+    
+    .tweet-head img {
+      border-radius: 50%;
+      margin: 5px;
+      width: 20px;
+      height: 20px;
+      
+      flex:1;
+    }
+  
+  .tweet-foot {
+    color: #657786;
+    margin-top: 14px;
+  }
+  
+  .tweet-list {
+    width: 100%;
+    text-align: left;
+    overflow: auto;
+    padding: 0px;
+    margin-bottom: 5%;
+  }
+  
+  .tweets-title {
+    height: 5%;
+    text-align: center;
+    font-size: 25pt;
+    font-weight: normal;
+  }
+
+.traffic-map {
+  height: 95%;
 }

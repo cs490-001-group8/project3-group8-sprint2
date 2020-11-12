@@ -14,6 +14,8 @@ from pytz import timezone
 import tables
 from tables import BASE
 import hourly_weather
+import tweets
+import news
 
 load_dotenv()
 
@@ -77,7 +79,6 @@ def on_get_comments(data):
     except KeyError:
         return
 
-
 @SOCKETIO.on("new comment")
 def on_new_comment(data):
     """Process a new comment"""
@@ -103,8 +104,19 @@ def on_weather_request(data):
     """Recieve city, return back weather for the day"""
     weather_object = hourly_weather.fetch_weather(data["city_name"])
     weather_object["city_name"] = data["city_name"]
-    SOCKETIO.emit("send weather", weather_object)
+    flask_socketio.emit("send weather", weather_object)
 
+@SOCKETIO.on("get political tweets")
+def on_pol_tweet_request():
+    """Return tweets from politicians"""
+    pol_tweets = tweets.get_politicians_latest_tweets()
+    flask_socketio.emit("political tweets", pol_tweets)
+
+@SOCKETIO.on("get news")
+def on_news_request():
+    """Returns news for New Jersey"""
+    news_object = news.get_latest_news()
+    flask_socketio.emit("news", news_object)
 
 if __name__ == "__main__":
     SOCKETIO.run(
