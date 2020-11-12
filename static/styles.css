@@ -421,8 +421,10 @@ body {
   background: url("images/third_page.jpg") center/cover no-repeat fixed;
 }
 .technologies h3 {
-  font-size:  3rem;
+  font-size:  4rem;
   color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
   text-align: center;
 }
 .technologies ul{
@@ -431,17 +433,19 @@ body {
   justify-content: stretch;
   align-items: center;
   list-style-type: none;
-  font-size: 3vw;
+  font-size: 2vw;
 }
 .technologies-list li{
-  background: #f00;
+  background: rgba(120, 0, 0, 0.5);
+  border: 2px solid rgb(120, 0, 0);
+  border-radius: 5px;
   margin: 1rem;
   padding: 1rem;
   text-align: center;
   transition: .5s ease-in-out;
 }
 .technologies-list li:hover{
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 .technologies-list li a{
   display: block;
