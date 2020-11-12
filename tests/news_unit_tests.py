@@ -103,7 +103,7 @@ class NewsTestCases(unittest.TestCase):
         p1 = mock.patch( "requests.get", self.mocked_requests )
         m2 = mock.MagicMock( side_effect = [ None ] )
         p2 = mock.patch( "news.get_cache_news", m2 )
-        p3 = mock.patch( "builtins.write", mock.MagicMock() )
+        p3 = mock.patch( "builtins.open", mock.MagicMock() )
 
         with p1, p2, p3:
             result = get_latest_news()
