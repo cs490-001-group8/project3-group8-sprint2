@@ -109,7 +109,7 @@ def on_pol_tweet_request():
     flask_socketio.emit("political tweets", pol_tweets)
 
 @SOCKETIO.on("get news")
-def on_get_news():
+def on_news_request():
     """Returns news for New Jersey"""
     news_object = news.get_latest_news()
     flask_socketio.emit("news", news_object)
@@ -118,6 +118,6 @@ if __name__ == "__main__":
     SOCKETIO.run(
         APP,
         host=os.getenv("IP", "0.0.0.0"),
-        port=int(os.getenv("PORT", "3000")),
+        port=int(os.getenv("PORT", "8080")),
         debug=True,
     )
