@@ -2,6 +2,8 @@
 *CS490, Group 8 Final Project*
 
 ---
+The Jersey Bulletin's Deployment can be found here: [https://young-chamber-62436.herokuapp.com/](https://young-chamber-62436.herokuapp.com/)
+
 The Jersey Bulletin is an open forum for New Jersey residents while also acting as a one stop shop for information you may need as a New Jersey resident. This web app will feature different tabs containing different information relating to different aspects of life in the Garden state. Some of the information we hope to relay to the user include weather, politics, traffic, and news. Along with this information, all tabs will also feature their own bulletin board. In order to add any messages to the bulletin board, you must sign in with your Google account via OAuth.
 
 This Project allows you to post to launch a website that acts as a hub for NJ residents. To launch the app run the command `npm run build` to update your script.js and then run `python app.py` in order to run the app. If running `npm run build` asks you if you want to install `webpack-CLI` respond 'yes'.
