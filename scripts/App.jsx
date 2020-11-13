@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Socket } from './Socket';
 import Body from './Body';
 import Head from './Head';
+import Footer from './Footer';
 
 export default function App() {
     const [name, setName] = useState(() => '');
@@ -17,6 +18,7 @@ export default function App() {
         <div className="App">
             <Head loggedIn={loggedIn} logIn={logIn} />
             <Body loggedIn={loggedIn} myName={name} />
+            <Footer />
         </div>
     );
 }
