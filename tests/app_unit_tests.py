@@ -171,6 +171,30 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
+    def mock_json_load_oldcache(self, file):
+        """Mock an outdated cache"""
+        old_time = datetime.now().timestamp() - (5000 + 100)
+        return {"timestamp": old_time}
+
+    # pylint: disable=W0622
+    # pylint: disable=R0913
+    def mock_search_bills(
+            self, state, updated_since, type, chamber, sort, search_window
+    ):
+        """Mock searching bills"""
+        return [
+            {
+                "title": "BILL1",
+                "updated_at": datetime.now(),
+                "sponsors": [{"name": "JOE"}, {"name": "SAM"}],
+            },
+            {
+                "title": "BILL2",
+                "updated_at": datetime.now(),
+                "sponsors": [{"name": "KAT"}, {"name": "NICOLE"}],
+            },
+        ]
+
     def mock_session_query(self, model):
         """Mock Session commit"""
         return MockedQueryResponse(
@@ -241,6 +265,17 @@ class AppTestCases(unittest.TestCase):
                         or "date" not in tweet
                 ):
                     raise ValueError
+        elif channel == "send bills":
+            for bill in data["bills"]:
+                if (
+                        "title" not in bill
+                        or "updated_at" not in bill
+                        or "sponsors" not in bill
+                ):
+                    raise ValueError("VALUE MISSING IN BILL")
+                for sponsor in bill["sponsors"]:
+                    if not isinstance(sponsor, str):
+                        raise ValueError("NAME BAD")
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -388,6 +423,16 @@ class AppTestCases(unittest.TestCase):
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_news_request()
+
+    def test_on_bill_request(self):
+        """Test the on_bills_request method"""
+        with mock.patch("json.load", self.mock_json_load_oldcache), mock.patch(
+                "pyopenstates.search_bills", self.mock_search_bills
+        ), mock.patch("builtins.open", mock.mock_open()):
+            import app
+
+            with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+                app.on_bills_request()
 
 
 if __name__ == "__main__":
