@@ -14,7 +14,7 @@ KEY_TOKEN = "token"
 KEY_ARTICLES = "articles"
 KEY_TIMESTAMP = "timestamp"
 
-CACHE_FILE = "cache.json"
+CACHE_FILE = "news_cache.json"
 FREE_NEWS_API_KEY = os.getenv("FREE_NEWS_API_KEY")
 FREE_NEWS_API_BASE_URL = "https://gnews.io/api/v4/search"
 
