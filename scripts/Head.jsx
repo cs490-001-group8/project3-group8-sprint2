@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import OAuthButton from './OAuthButton';
 import LoggedIn from './LoggedIn';
 import HeadTitle from './HeadTitle';
-import FacebookAuth from './FacebookAuth';
+import LoginModal from './LoginModal';
 
 export default function Head({ logIn, loggedIn }) {
+    const [display, setDisplay] = useState('none');
+
+    const handleClick = () => {
+        setDisplay('block');
+    };
+
     if (loggedIn) {
         return (
             <div className="Head">
@@ -18,8 +23,8 @@ export default function Head({ logIn, loggedIn }) {
     return (
         <div className="Head">
             <HeadTitle />
-            <OAuthButton logIn={logIn} />
-            <FacebookAuth logIn={logIn} />
+            <button onClick={handleClick} type="button" className="login-button">Log In</button>
+            <LoginModal logIn={logIn} display={display} setDisplay={setDisplay} />
         </div>
     );
 }

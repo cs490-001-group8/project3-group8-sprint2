@@ -41,6 +41,11 @@ def hello():
     """When someone opens the app, send them the page"""
     return flask.render_template("index.html")
 
+@APP.route("/landing_page")
+def landing_page():
+    """When someone click About link, render landing page"""
+    return flask.render_template("landing_page.html")
+
 
 @SOCKETIO.on("log in")
 def on_user_login():

@@ -141,6 +141,4 @@ API Requests are incredibly frequent, making it likely we run out of requests of
 The comment section was having issues where they were getting the comments sent to all tabs.
   This was solved by utilizing rooms in the backend to ensure that comments were only sent 
   to users in one tab.
-## Other
-TODO
 

@@ -395,6 +395,7 @@ class AppTestCases(unittest.TestCase):
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
 
+
     def test_weather_sending(self):
         """test the on_weather_request function"""
         test_weather = {"city_name": "Newark"}
@@ -403,6 +404,13 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
+    def test_render_landing_page(self):
+        """Test landing_page rendering"""
+        import app
+        with mock.patch(
+                "flask.render_template", self.mocked_flask_render
+        ):
+            app.landing_page()
 
     def test_on_pol_tweet_request(self):
         """test the on_pol_tweet_request function"""
