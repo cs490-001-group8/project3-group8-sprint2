@@ -1,6 +1,18 @@
 {
-    "timestamp": 1605292145.536204,
+    "timestamp": 1605302923.741586,
     "articles": [
+        {
+            "title": "Lifeguard drops prosthetic leg to rescue driver of sinking SUV",
+            "description": "An off-duty lifeguard in New Jersey is being hailed as a hero after he shed his prosthetic leg to jump into Newark Bay and rescue the driver of an SUV that plunged into the water.",
+            "content": "Nov. 13 (UPI) -- An off-duty lifeguard in New Jersey is being hailed as a hero after he shed his prosthetic leg to jump into Newark Bay and rescue the driver of an SUV that plunged into the water.\nAnthony Capuano said he had just finished a workout a... [1288 chars]",
+            "url": "https://www.upi.com/Odd_News/2020/11/13/Lifeguard-drops-prosthetic-leg-to-rescue-driver-of-sinking-SUV/2881605295435/",
+            "image": "https://cdnph.upi.com/ph/st/th/2881605295435/2020/i/16052955985873/v1.5/Lifeguard-drops-prosthetic-leg-to-rescue-driver-of-sinking-SUV.jpg?lg=2",
+            "publishedAt": "2020-11-13T20:00:10Z",
+            "source": {
+                "name": "UPI News",
+                "url": "https://www.upi.com/"
+            }
+        },
         {
             "title": "NJ chiropractor ripped for sign calling COVID-19 'Chinese Virus'",
             "description": "New Jersey chiropractor Kevin Julian is facing heat over a sign in his office that refers to COVID-19 as \u201cthe Chinese Virus.\u201d",
@@ -47,18 +59,6 @@
             "source": {
                 "name": "NBC News",
                 "url": "https://www.nbcnews.com/"
-            }
-        },
-        {
-            "title": "Old Bridge, New Brunswick Restaurants Named Two Of Best In State",
-            "description": "Old Bridge, New Brunswick Restaurants Named Two Of Best In State - New Brunswick, NJ - This locals' secret on Rt. 516 was just named to New Jersey Monthly's list of the top 30 best restaurants in the state.",
-            "content": "OLD BRIDGE, NJ \u2014 Dined at Heirloom Kitchen lately?\nThis locals' secret on Rt. 516 in Old Bridge was just named to New Jersey Monthly's list of the top 30 best restaurants in the state. Heirloom Kitchen joins The Frog and the Peach in New Brunswick, w... [1159 chars]",
-            "url": "https://patch.com/new-jersey/newbrunswick/old-bridge-new-brunswick-restaurants-named-two-best-state",
-            "image": "https://patch.com/img/cdn20/shutterstock/22870800/20201112/024257/styles/patch_image/public/shutterstock-162000425-1___12144209318.jpg",
-            "publishedAt": "2020-11-12T19:42:58Z",
-            "source": {
-                "name": "Joliet, IL Patch",
-                "url": "https://patch.com/"
             }
         }
     ]

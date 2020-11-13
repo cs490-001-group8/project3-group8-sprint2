@@ -4,6 +4,7 @@ import TrafficWidget from './TrafficWidget';
 import NewsList from './NewsList';
 import WeatherModule from './WeatherModule';
 import TweetWidget from './TweetWidget';
+import BillsWidget from './BillsWidget';
 
 export default function TabWidgets({ currTab }) {
     if (currTab === 'Commuter') {
@@ -19,6 +20,7 @@ export default function TabWidgets({ currTab }) {
         return (
             <div className="tab-widgets-section">
                 <TweetWidget />
+                <BillsWidget />
             </div>
         );
     }

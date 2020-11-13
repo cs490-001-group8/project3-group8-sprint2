@@ -16,6 +16,7 @@ from tables import BASE
 import hourly_weather
 import tweets
 import news
+import bills
 
 load_dotenv()
 
@@ -113,6 +114,12 @@ def on_news_request():
     """Returns news for New Jersey"""
     news_object = news.get_latest_news()
     flask_socketio.emit("news", news_object)
+
+@SOCKETIO.on("get bills")
+def on_bills_request():
+    """Returns bills for New Jersey"""
+    bills_object = bills.get_recent_bills()
+    flask_socketio.emit("send bills", bills_object)
 
 if __name__ == "__main__":
     SOCKETIO.run(
