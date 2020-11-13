@@ -10,7 +10,7 @@ This Project allows you to post to launch a website that acts as a hub for NJ re
 
 # Installations and Technologies.
 Before running this app, make sure you have all of the dependencies installed. All the dependencies are in the `requirements.txt` file, but all of these packages are not necessary.
-1. Use the command `pip install` to install flask, coverage, pylint, pytz, black, tweepy, and flask-socketio.
+1. Use the command `pip install` to install flask, coverage, pylint, pytz, black, tweepy, pyopenstates, and flask-socketio.
 2. Use `npm` to install the heroku package, `npm install -g heroku`
 3. It's recommended that you use the `Git CLI` in order to keep your code up to date.
 
