@@ -253,7 +253,7 @@ body {
   justify-content: space-around;
   align-items: center;
   width: auto;
-  height: 8%;
+  height: 10vh;
   background: #F0FFFF;
 }
 .first-page .button {
@@ -346,7 +346,7 @@ body {
   transition: all .3s ease-in-out;
 }
 .team-member:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .team-member h4{
   margin-top: 1rem;
