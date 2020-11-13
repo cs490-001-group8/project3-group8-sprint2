@@ -24,7 +24,7 @@ class BillsTestCases(unittest.TestCase):
     def mock_json_load_newcache(self, file):
         """Mock an up to date cache"""
         new_time = datetime.datetime.now().timestamp()
-        return {"timestamp": new_time}
+        return {"timestamp": new_time, "bills": []}
 
     def mock_json_load_oldcache(self, file):
         """Mock an outdated cache"""

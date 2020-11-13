@@ -90,8 +90,11 @@ class MockedSQLBase:
 # pylint: disable=R0916
 # pylint: disable=R0201
 # pylint: disable=R0912
+# pylint: disable=R0904
 class AppTestCases(unittest.TestCase):
     """Make all the test cases"""
+    # pylint: disable=W0622
+    # pylint: disable=R0913
 
     maxDiff = None
 
@@ -171,29 +174,27 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
-    def mock_json_load_oldcache(self, file):
+    def mock_search_bills(
+            self, sort, type, chamber, state, search_window, updated_since
+    ):
+        """Mock searching bills through openstates"""
+        return [
+            {
+                "title": "Bill1",
+                "updated_at": datetime.now(),
+                "sponsors": [{"name": "Joe"}, {"name": "Sam"}],
+            },
+            {
+                "title": "Bill2",
+                "updated_at": datetime.now(),
+                "sponsors": [{"name": "Kat"}, {"name": "Nicole"}],
+            },
+        ]
+
+    def mock_json_load_oldcache_bills(self, file):
         """Mock an outdated cache"""
         old_time = datetime.now().timestamp() - (5000 + 100)
         return {"timestamp": old_time}
-
-    # pylint: disable=W0622
-    # pylint: disable=R0913
-    def mock_search_bills(
-            self, state, updated_since, type, chamber, sort, search_window
-    ):
-        """Mock searching bills"""
-        return [
-            {
-                "title": "BILL1",
-                "updated_at": datetime.now(),
-                "sponsors": [{"name": "JOE"}, {"name": "SAM"}],
-            },
-            {
-                "title": "BILL2",
-                "updated_at": datetime.now(),
-                "sponsors": [{"name": "KAT"}, {"name": "NICOLE"}],
-            },
-        ]
 
     def mock_session_query(self, model):
         """Mock Session commit"""
@@ -434,7 +435,7 @@ class AppTestCases(unittest.TestCase):
 
     def test_on_bill_request(self):
         """Test the on_bills_request method"""
-        with mock.patch("json.load", self.mock_json_load_oldcache), mock.patch(
+        with mock.patch("json.load", self.mock_json_load_oldcache_bills), mock.patch(
                 "pyopenstates.search_bills", self.mock_search_bills
         ), mock.patch("builtins.open", mock.mock_open()):
             import app
