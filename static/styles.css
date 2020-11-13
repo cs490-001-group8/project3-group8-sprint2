@@ -176,6 +176,20 @@ body {
   grid-template-columns: 25% auto 25%;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+.footer a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #000;
+}
+
   .login {
     font-size: 14pt;
     grid-column-start: 3;
@@ -229,11 +243,6 @@ body {
 }
 
 /* Landing Page style start here */
-.landing-page-link {
-  padding: 0;
-  background: none;
-  border: none;
-}
 .landing-page {
   margin: 0;
   padding: 0;

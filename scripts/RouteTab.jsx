@@ -12,7 +12,6 @@ export default function RouteTab({ myName, loggedIn }) {
                 <div>
                     <NavLink className="tab" to="/">Home</NavLink>
                     <NavLink className="tab" to="/Commuter">Commuter</NavLink>
-                    <button className="landing-page-link" type="submit"><a className="tab" href="/landing_page">About</a></button>
                 </div>
                 <Switch>
                     <Route
