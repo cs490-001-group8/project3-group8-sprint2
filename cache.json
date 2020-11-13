@@ -1,6 +1,30 @@
 {
-    "timestamp": 1605236167.761132,
+    "timestamp": 1605305436.166969,
     "articles": [
+        {
+            "title": "Lifeguard drops prosthetic leg to rescue driver of sinking SUV",
+            "description": "An off-duty lifeguard in New Jersey is being hailed as a hero after he shed his prosthetic leg to jump into Newark Bay and rescue the driver of an SUV that plunged into the water.",
+            "content": "Nov. 13 (UPI) -- An off-duty lifeguard in New Jersey is being hailed as a hero after he shed his prosthetic leg to jump into Newark Bay and rescue the driver of an SUV that plunged into the water.\nAnthony Capuano said he had just finished a workout a... [1288 chars]",
+            "url": "https://www.upi.com/Odd_News/2020/11/13/Lifeguard-drops-prosthetic-leg-to-rescue-driver-of-sinking-SUV/2881605295435/",
+            "image": "https://cdnph.upi.com/ph/st/th/2881605295435/2020/i/16052955985873/v1.5/Lifeguard-drops-prosthetic-leg-to-rescue-driver-of-sinking-SUV.jpg?lg=2",
+            "publishedAt": "2020-11-13T20:00:10Z",
+            "source": {
+                "name": "UPI News",
+                "url": "https://www.upi.com/"
+            }
+        },
+        {
+            "title": "NJ chiropractor ripped for sign calling COVID-19 'Chinese Virus'",
+            "description": "New Jersey chiropractor Kevin Julian is facing heat over a sign in his office that refers to COVID-19 as \u201cthe Chinese Virus.\u201d",
+            "content": "A New Jersey chiropractor is facing heat over a sign in his office that refers to COVID-19 as \u201cthe Chinese Virus.\u201d\nAnnesia Paraison said in a Facebook post on Tuesday that she brought her daughter to the Jersey City office of Dr. Kevin Julian before ... [551 chars]",
+            "url": "https://nypost.com/2020/11/12/nj-chiropractor-ripped-for-sign-calling-covid-19-chinese-virus/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/E767599E-FDB4-4784-9948-7D8C6F602BD0.jpeg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-11-13T04:49:45Z",
+            "source": {
+                "name": "New York Post",
+                "url": "https://nypost.com/"
+            }
+        },
         {
             "title": "New Jersey governor pleads with Covid-fatigued residents to choose inconvenience over death",
             "description": "New Jersey Gov. Phil Murphy tells his constituents tired of Covid-19 restrictions: \"You know what's really uncomfortable and annoying? When you die.\"",
@@ -35,30 +59,6 @@
             "source": {
                 "name": "NBC News",
                 "url": "https://www.nbcnews.com/"
-            }
-        },
-        {
-            "title": "New Jersey sees COVID-19 surge as positivity rate hits 12%",
-            "description": "Gov. Phil Murphy also reported on Twitter that hospitalizations in the Garden State have reached levels not seen since the first wave of the pandemic began to recede in June.",
-            "content": "Sign up for our special edition newsletter to get a daily update on the coronavirus pandemic.\nThe coronavirus pandemic is roaring back in New Jersey as officials revealed Thursday that the Garden State has seen more than 10,000 new cases since Monday... [1471 chars]",
-            "url": "https://nypost.com/2020/11/12/new-jersey-sees-covid-19-surge-as-positivity-rate-hits-12/",
-            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/new-jersey-covid-14-1.jpg?quality=90&strip=all&w=1200",
-            "publishedAt": "2020-11-12T19:17:57Z",
-            "source": {
-                "name": "New York Post",
-                "url": "https://nypost.com/"
-            }
-        },
-        {
-            "title": "Newark imposes curfew, other measures as virus surges",
-            "description": "NEWARK, N.J. (AP) \u2014 Residents in some parts of New Jersey's largest city are facing a 9 p.m. curfew for at least the rest of the month as officials seek to stop a surge in coronavirus infections....",
-            "content": "NEWARK, N.J. (AP) \u2014 Residents in some parts of New Jersey\u2019s largest city are facing a 9 p.m. curfew for at least the rest of the month as officials seek to stop a surge in coronavirus infections.\nNewark Mayor Ras Baraka announced the new measures Wed... [2407 chars]",
-            "url": "https://apnews.com/article/business-newark-ras-baraka-coronavirus-pandemic-new-jersey-e920f70ebda5a7007c8fa4f135dec539",
-            "image": "https://apnews.com/images/ShareLogo2.png",
-            "publishedAt": "2020-11-12T13:06:19Z",
-            "source": {
-                "name": "The Associated Press",
-                "url": "https://apnews.com/"
             }
         }
     ]
