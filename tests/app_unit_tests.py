@@ -89,6 +89,7 @@ class MockedSQLBase:
 # pylint: disable=R0902
 # pylint: disable=R0916
 # pylint: disable=R0201
+# pylint: disable=R0912
 class AppTestCases(unittest.TestCase):
     """Make all the test cases"""
 
@@ -140,6 +141,36 @@ class AppTestCases(unittest.TestCase):
             ],
         }
 
+
+    def mock_get_latest_news(self):
+        """Mock getting the latest news"""
+        return [
+            {
+                "title": "A",
+                "description": "A",
+                "content": "A",
+                "url": "A",
+                "image": "A",
+                "publishedAt": "A",
+                "source": {
+                    "name": "A",
+                    "url": "A"
+                }
+            },
+            {
+                "title": "A",
+                "description": "A",
+                "content": "A",
+                "url": "A",
+                "image": "A",
+                "publishedAt": "A",
+                "source": {
+                    "name": "A",
+                    "url": "A"
+                }
+            },
+        ]
+
     def mock_session_query(self, model):
         """Mock Session commit"""
         return MockedQueryResponse(
@@ -171,6 +202,20 @@ class AppTestCases(unittest.TestCase):
             for comment in data["comments"]:
                 if "text" not in comment:
                     raise ValueError("NO TEXT IN COMMENT")
+        elif channel == "news":
+            for news in data:
+                if (
+                        "title" not in news
+                        or "description" not in news
+                        or "content" not in news
+                        or "url" not in news
+                        or "image" not in news
+                        or "publishedAt" not in news
+                        or "source" not in news
+                        or "name" not in news["source"]
+                        or "url" not in news["source"]
+                ):
+                    raise ValueError
         elif channel == "political tweets":
             if "gov" not in data:
                 raise ValueError("NO GOVENOR")
@@ -333,6 +378,16 @@ class AppTestCases(unittest.TestCase):
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_pol_tweet_request()
+
+    def test_on_news_request(self):
+        """test the on_news_request"""
+        with mock.patch(
+                "news.get_latest_news", self.mock_get_latest_news
+        ):
+            import app
+
+            with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+                app.on_news_request()
 
 
 if __name__ == "__main__":

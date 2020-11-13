@@ -31,7 +31,10 @@ def get_tweet(username):
     """Get the most recent tweet from someone with a given username"""
     tweet = API.user_timeline(screen_name=username, count=1, tweet_mode="extended")[0]
     result = {}
-    result["text"] = html.unescape(tweet.full_text.replace("\n", "   "))
+    try:
+        result["text"] = html.unescape(tweet.retweeted_status.full_text.replace("\n", "   "))
+    except AttributeError:
+        result["text"] = html.unescape(tweet.full_text.replace("\n", "   "))
     result["sname"] = tweet.user.screen_name
     result["ppic"] = tweet.user.profile_image_url
     result["uname"] = tweet.user.name

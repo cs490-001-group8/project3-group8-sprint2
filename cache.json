@@ -1,6 +1,42 @@
 {
-    "timestamp": 1605210621.104364,
+    "timestamp": 1605236167.761132,
     "articles": [
+        {
+            "title": "New Jersey governor pleads with Covid-fatigued residents to choose inconvenience over death",
+            "description": "New Jersey Gov. Phil Murphy tells his constituents tired of Covid-19 restrictions: \"You know what's really uncomfortable and annoying? When you die.\"",
+            "content": "New Jersey Gov. Phil Murphy pleaded with coronavirus-fatigued residents on Thursday to keep following health guidelines, bluntly telling them the ultimate inconvenience is \"when you die.\"\nMurphy rattled off a long series of numbers showing how the vi... [1247 chars]",
+            "url": "https://www.nbcnews.com/news/us-news/new-jersey-governor-pleads-covid-fatigued-residents-choose-inconvenience-over-n1247599",
+            "image": "https://media3.s-nbcnews.com/j/newscms/2020_46/3427902/201112-resturant-new-jersey-ew-317p_1c076d4a7bcbd68f28786178dd57e7d5.nbcnews-fp-1200-630.jpg",
+            "publishedAt": "2020-11-12T21:46:00Z",
+            "source": {
+                "name": "NBC News",
+                "url": "https://www.nbcnews.com/"
+            }
+        },
+        {
+            "title": "At Least 6 NJ Hospitals On 'Divert' Status As COVID-19 Cases Rise",
+            "description": "At Least 6 NJ Hospitals On 'Divert' Status As COVID-19 Cases Rise - Manasquan-Belmar, NJ - At least six New Jersey hospitals have been dealing with too many coronavirus patients and other issues as cases keeping rising.",
+            "content": "NEW JERSEY \u2013 At least six New Jersey hospitals have been on partial \"divert\" status as they deal with too many coronavirus cases and other issues amid the second-wave of the COVID-19 outbreak.\n\"Divert\" status usually means that hospitals send notice ... [1378 chars]",
+            "url": "https://patch.com/new-jersey/manasquan/least-6-nj-hospitals-divert-status-covid-19-cases-rise",
+            "image": "https://patch.com/img/cdn20/users/65079/20201112/031731/styles/patch_image/public/persichelli-gannet___12144323349.jpg",
+            "publishedAt": "2020-11-12T20:17:32Z",
+            "source": {
+                "name": "Joliet, IL Patch",
+                "url": "https://patch.com/"
+            }
+        },
+        {
+            "title": "'Chinese virus' sign at doctor's office draws rebuke",
+            "description": "A sign at a chiropractor's office in Jersey City, New Jersey, referring to the coronavirus as the \"Chinese virus\" is being slammed online as racist.",
+            "content": "A sign at a chiropractor's office in New Jersey referring to the coronavirus as the \"Chinese virus\" is being slammed online as racist.\nAnnesia Paraison took a photo of the sign Tuesday at the Jersey City office of Kevin Julian and uploaded it to Face... [3802 chars]",
+            "url": "https://www.nbcnews.com/news/asian-america/chinese-virus-sign-doctor-s-office-draws-rebuke-n1247418",
+            "image": "https://media4.s-nbcnews.com/j/newscms/2020_46/3427613/201111-chiropractor-office-se-1236p_d07f86412abebde5201880d178bc925c.nbcnews-fp-1200-630.jpg",
+            "publishedAt": "2020-11-12T19:46:00Z",
+            "source": {
+                "name": "NBC News",
+                "url": "https://www.nbcnews.com/"
+            }
+        },
         {
             "title": "New Jersey sees COVID-19 surge as positivity rate hits 12%",
             "description": "Gov. Phil Murphy also reported on Twitter that hospitalizations in the Garden State have reached levels not seen since the first wave of the pandemic began to recede in June.",
@@ -14,51 +50,15 @@
             }
         },
         {
-            "title": "New England Governors Agree to Suspend Interstate Youth Hockey Competitions",
-            "description": "The governors of all six New England states, in addition to New Jersey, jointly announced Thursday interstate youth hockey competitions would be suspended as...",
-            "content": "The governors of all six New England states, in addition to New Jersey, jointly announced Thursday interstate youth hockey competitions would be suspended as the region grapples with rising coronavirus cases.\nIn a joint statement, governors said the ... [1263 chars]",
-            "url": "https://www.nbcboston.com/news/coronavirus/new-england-governors-agree-to-suspend-interstate-youth-hockey-competitions/2228485/",
-            "image": "https://media.nbcboston.com/2019/09/hockey-generic-722x406.jpg?fit=722%2C406",
-            "publishedAt": "2020-11-12T10:10:09Z",
+            "title": "Newark imposes curfew, other measures as virus surges",
+            "description": "NEWARK, N.J. (AP) \u2014 Residents in some parts of New Jersey's largest city are facing a 9 p.m. curfew for at least the rest of the month as officials seek to stop a surge in coronavirus infections....",
+            "content": "NEWARK, N.J. (AP) \u2014 Residents in some parts of New Jersey\u2019s largest city are facing a 9 p.m. curfew for at least the rest of the month as officials seek to stop a surge in coronavirus infections.\nNewark Mayor Ras Baraka announced the new measures Wed... [2407 chars]",
+            "url": "https://apnews.com/article/business-newark-ras-baraka-coronavirus-pandemic-new-jersey-e920f70ebda5a7007c8fa4f135dec539",
+            "image": "https://apnews.com/images/ShareLogo2.png",
+            "publishedAt": "2020-11-12T13:06:19Z",
             "source": {
-                "name": "NBC10 Boston",
-                "url": "https://www.nbcboston.com/"
-            }
-        },
-        {
-            "title": "New York governor issues new restrictions as U.S. grim records mount",
-            "description": "In New Jersey, one of the early U.S. hotspots, a spike in cases in Newark, the state's largest city, prompted Mayor Ras Baraka to implement aggressive measures, including a mandatory curfew for certain areas. In Newark, the positivity rate hovered at 19%, more than double the state's 7.74% seven-day average, Baraka said in a statement on Tuesday.",
-            "content": "New York Governor Andrew Cuomo on Wednesday imposed a new round of restrictions aimed at curbing the spread of the coronavirus as the infection rate climbed and hospitalizations soared in the state that was the epicenter of the U.S. outbreak in its e... [3047 chars]",
-            "url": "https://www.devdiscourse.com/article/health/1305469-new-york-governor-issues-new-restrictions-as-us-grim-records-mount",
-            "image": "https://www.devdiscourse.com/remote.axd?https://devdiscourse.blob.core.windows.net/imagegallery/03_03_2020_18_59_53_6525806.jpg?width=920&format=jpeg",
-            "publishedAt": "2020-11-11T19:37:25Z",
-            "source": {
-                "name": "Devdiscourse",
-                "url": "https://www.devdiscourse.com/"
-            }
-        },
-        {
-            "title": "Former \u2018Jersey Shore\u2019 Star Sammi Giancola Shows Off Long Legs In Short White Dress",
-            "description": "Former Jersey Shore star Sammi \u201cSweetheart\u201d Giancola showed off her long legs in a short white dress in a new Instagram share. The former reality show star, who was seen in the original ...",
-            "content": "Former Jersey Shore star Sammi \u201cSweetheart\u201d Giancola showed off her long legs in a short white dress in a new Instagram share. The former reality show star, who was seen in the original six seasons of the series, stunned her followers in the snap. He... [2288 chars]",
-            "url": "https://www.inquisitr.com/6379236/jersey-shore-sammi-giancola-long-legs/",
-            "image": "https://cdn.inquisitr.com/wp-content/uploads/2020/11/sammi-giancola.jpg",
-            "publishedAt": "2020-11-11T17:13:59Z",
-            "source": {
-                "name": "The Inquisitr",
-                "url": "https://www.inquisitr.com/"
-            }
-        },
-        {
-            "title": "New Jersey Joins Hawaii in Pandemic Credit Downgrades, but Their Bonds Have Diverged",
-            "description": "New Jersey\u2019s bond yields have declined since it was downgraded last week, even though rating downgrades typically drive bond prices lower and boost yields. The reasons for the divergence suggest Hawaii\u2019s bonds should perform better.",
-            "content": "Text size\nNew Jersey just became the second state to get a credit-rating downgrade since the coronavirus pandemic struck, following Hawaii\u2019s downgrade earlier this year.\nBut New Jersey\u2019s bond yields have declined since then, even though rating downgr... [2053 chars]",
-            "url": "https://www.barrons.com/articles/new-jersey-joins-hawaii-in-pandemic-credit-downgrades-but-their-bonds-have-diverged-51605105814",
-            "image": "https://images.barrons.com/im-257142/social",
-            "publishedAt": "2020-11-11T14:43:00Z",
-            "source": {
-                "name": "Barron's",
-                "url": "https://www.barrons.com/"
+                "name": "The Associated Press",
+                "url": "https://apnews.com/"
             }
         }
     ]
