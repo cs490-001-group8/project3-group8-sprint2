@@ -66,6 +66,3 @@ def get_recent_bills():
         return data
 
     return saved_bills
-
-
-print(get_recent_bills())
