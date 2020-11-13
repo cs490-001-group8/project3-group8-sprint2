@@ -89,6 +89,7 @@ class MockedSQLBase:
 # pylint: disable=R0902
 # pylint: disable=R0916
 # pylint: disable=R0201
+# pylint: disable=R0912
 class AppTestCases(unittest.TestCase):
     """Make all the test cases"""
 
@@ -143,7 +144,7 @@ class AppTestCases(unittest.TestCase):
 
     def mock_get_latest_news(self):
         """Mock getting the latest news"""
-        return [            
+        return [
             {
                 "title": "A",
                 "description": "A",
