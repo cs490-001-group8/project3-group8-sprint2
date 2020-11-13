@@ -15,6 +15,14 @@ export default function TabWidgets({ currTab }) {
         );
     }
 
+    if (currTab === 'Politics') {
+        return (
+            <div className="tab-widgets-section">
+                <TweetWidget />
+            </div>
+        );
+    }
+
     return (
         <div className="tab-widgets-section">
             <NewsList />

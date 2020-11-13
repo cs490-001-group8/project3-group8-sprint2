@@ -2,6 +2,8 @@
 *CS490, Group 8 Final Project*
 
 ---
+The Jersey Bulletin's Deployment can be found here: [https://young-chamber-62436.herokuapp.com/](https://young-chamber-62436.herokuapp.com/)
+
 The Jersey Bulletin is an open forum for New Jersey residents while also acting as a one stop shop for information you may need as a New Jersey resident. This web app will feature different tabs containing different information relating to different aspects of life in the Garden state. Some of the information we hope to relay to the user include weather, politics, traffic, and news. Along with this information, all tabs will also feature their own bulletin board. In order to add any messages to the bulletin board, you must sign in with your Google account via OAuth.
 
 This Project allows you to post to launch a website that acts as a hub for NJ residents. To launch the app run the command `npm run build` to update your script.js and then run `python app.py` in order to run the app. If running `npm run build` asks you if you want to install `webpack-CLI` respond 'yes'.
@@ -101,17 +103,38 @@ If you wish to check the linting on this project, execute the following commands
 	1.  Run `eslint --fix scripts/[FILE]` in order to automatically fix some of the linting errors
 6. Run `pylint [FILE]` on any of the python files.
 
-## Known Problems
-API Requests are incredibly frequent, making it likely we run out of requests often.
+## Work Completed by Each Group Member
+1. Ameer Hassan
+	1. Create the weather widget and its functionality.
+	2. Establish Google OAuth.
+	3. Set up the Heroku deployment.
+2. Joseph Fiore
+	1. Create the Comment section and have it be different for every tab.
+	2. Create the widget displaying tweets from political figures.
+3. Akash Patel
+	1. Create the Traffic Widget so it shows a map of NJ and the traffic within.
+	2. Create the page's landing page and set up that page's CSS.
+4. Karan Patoliya
+	1. Add tab switching and the functionality therein.
+	2. Give users the option of using FaceBook OAuth.
+5. Bishoy Kamel
+	1. Create a widget to display local news stories.
+6. Group Work
+	1. Edit Proposal
+	2. Establish and continuously update Kanban Board
+	3. Work on the style of the site.
+	4. Add content to the landing page.
+	5. Find bugs and report them to the person who's work it applies to.
+	6. Lint and test their code.
 
 ## Technical Issues and Solutions
 The comment section was having an issue where each tab was not recognizing different comment sections as different.
   This was solved by utilizing hooks to keep the comment sections as the same element that
   simply updates on a switched tab.
+API Requests are incredibly frequent, making it likely we run out of requests often.
+  This was solved by caching the results of API requests so a minimal amount of them occur.
   
 The comment section was having issues where they were getting the comments sent to all tabs.
   This was solved by utilizing rooms in the backend to ensure that comments were only sent 
   to users in one tab.
-## Other
-TODO
 
