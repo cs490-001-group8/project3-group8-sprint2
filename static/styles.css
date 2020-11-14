@@ -576,31 +576,40 @@ body {
     font-size: 25pt;
     font-weight: normal;
   }
-
-.bill {
-  font-family: Helvetica;
-  text-align: left;
-  color: #14171A;
+  
+.bill-list {
   border: 1px black solid;
-  
   width: 100%;
-  margin: auto;
-  padding: 1em;
+  height: 95%;
+  text-align: left;
+  overflow: auto;
+  padding: 0px;
+  margin-bottom: 5%;
 }
-  
-  .bill-list {
-    width: 100%;
+
+  .bill {
+    font-family: Helvetica;
     text-align: left;
-    overflow: auto;
-    padding: 0px;
-    margin-bottom: 5%;
+    color: #14171A;
+    border: 1px black solid;
+    
+    width: 100%;
+    margin: auto;
+    padding: 1em;
   }
   
     .bill-title {
       font-size: 20pt;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       line-height: 1.25;
+    }
+  
+    .bill-update {
+      font-size: 12pt;
+      font-weight: normal;
+      line-height: 1.25;
+      color: #666666;
     }
 
 .traffic-map {
