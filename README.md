@@ -10,7 +10,7 @@ This Project allows you to post to launch a website that acts as a hub for NJ re
 
 # Installations and Technologies.
 Before running this app, make sure you have all of the dependencies installed. All the dependencies are in the `requirements.txt` file, but all of these packages are not necessary.
-1. Use the command `pip install` to install flask, coverage, pylint, pytz, black, tweepy, and flask-socketio.
+1. Use the command `pip install` to install flask, coverage, pylint, pytz, black, tweepy, pyopenstates, and flask-socketio.
 2. Use `npm` to install the heroku package, `npm install -g heroku`
 3. It's recommended that you use the `Git CLI` in order to keep your code up to date.
 
@@ -46,6 +46,9 @@ In order to get the modules to work correctly, you will need to register and obt
 5. [Twitter API](https://developer.twitter.com/en/apply-for-access) - This is used to retrieve tweets from New Jersey political figures.
 	1. Go to https://developer.twitter.com/en/apply-for-access and apply for access.
 	2. When you are approved, create a project and save your consumer key, consumer secret, access token, and access token secret.
+6. [OpenStates API](https://v3.openstates.org/docs) - This is used for the modules for politician information and bill information.
+	1. Go to the link above and click on "Register for an account".
+	2. Follow the steps and click "Activate API Key"
 
 Create a file named `.env` and set it up as the following:
 ```
@@ -58,6 +61,7 @@ TWITTER_CONSUMER_SECRET = "<Twitter consumer secret>"
 TWITTER_ACCESS_TOKEN = "<Twitter access token>"
 TWITTER_ACCESS_TOKEN_SECRET = "<Twitter access token secret>"
 GOOGLE_MAP_API_KEY=<Google map API Key Here>
+POLITICS_API_KEY=<OpenStates API key Here>
 ```
 
 Note: Do not include quotes or the `<>` characters in the `.env` file.\

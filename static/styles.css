@@ -517,65 +517,111 @@ body {
   }
 }
 
-.tweet {
-  font-family: Helvetica;
-  text-align: left;
-  color: #14171A;
-  border: 2px black solid;
-  
+.tweet-all-sections {
+  padding-top: 10px;
+  padding-bottom: 10px;
   width: 100%;
-  margin: auto;
-  padding: 1em;
-  
-  flex: 1;
+  height: 95%;
+  border: 1px black solid;
+  overflow: auto;
 }
-  
-  .tweet-head {
-    display: flex;
-  }
-    
-    .tweet-head-user {
-      margin: auto;
-      
-      flex:1;
-    }
-    
-    .tweet-head-user-name {
-      font-weight: bold;
-    }
-    
-    .tweet-head-user-sname {
-      color: #657786;
-    }
-    
-    .tweet-head img {
-      border-radius: 50%;
-      margin: 5px;
-      width: 20px;
-      height: 20px;
-      
-      flex:1;
-    }
-  
-  .tweet-foot {
-    color: #657786;
-    margin-top: 14px;
-  }
   
   .tweet-list {
     width: 100%;
     text-align: left;
-    overflow: auto;
     padding: 0px;
     margin-bottom: 5%;
   }
   
-  .tweets-title {
-    height: 5%;
-    text-align: center;
-    font-size: 25pt;
-    font-weight: normal;
+    .tweet {
+      font-family: Helvetica;
+      text-align: left;
+      color: #14171A;
+      border: 2px black solid;
+      
+      width: 100%;
+      margin: auto;
+      padding: 1em;
+      
+      flex: 1;
+    }
+      
+      .tweet-head {
+        display: flex;
+      }
+        
+        .tweet-head-user {
+          margin: auto;
+          
+          flex:1;
+        }
+        
+        .tweet-head-user-name {
+          font-weight: bold;
+        }
+        
+        .tweet-head-user-sname {
+          color: #657786;
+        }
+        
+        .tweet-head img {
+          border-radius: 50%;
+          margin: 5px;
+          width: 20px;
+          height: 20px;
+          
+          flex:1;
+        }
+      
+      .tweet-foot {
+        color: #657786;
+        margin-top: 14px;
+      }
+      
+      .tweets-title {
+        height: 5%;
+        text-align: center;
+        font-size: 25pt;
+        font-weight: normal;
+      }
+  
+.bill-list {
+  border: 1px black solid;
+  width: 100%;
+  height: 95%;
+  text-align: left;
+  list-style-type: none;
+  overflow: auto;
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-bottom: 50px;
+  margin-bottom: 5%;
+}
+
+  .bill {
+    font-family: Helvetica;
+    text-align: left;
+    color: #14171A;
+    border: 1px black solid;
+    
+    width: 100%;
+    margin: auto;
+    padding: 1em;
   }
+  
+    .bill-title {
+      font-size: 20pt;
+      font-weight: bold;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+  
+    .bill-update {
+      font-size: 12pt;
+      font-weight: normal;
+      line-height: 1.25;
+      color: #666666;
+    }
 
 .traffic-map {
   height: 95%;

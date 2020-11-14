@@ -14,7 +14,7 @@ export default function TweetList({ tweets }) {
                   tweetTime={tweet.time}
                   tweetDate={tweet.date}
                 />
-      ))}
+            ))}
         </ul>
     );
 }
