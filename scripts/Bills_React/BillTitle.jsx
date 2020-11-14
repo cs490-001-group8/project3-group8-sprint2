@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function BillTitle({ billTitle })
-{
+export default function BillTitle({ billTitle }) {
     return (
         <div className="bill-title">
             {billTitle}

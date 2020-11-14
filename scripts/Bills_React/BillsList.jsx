@@ -6,7 +6,12 @@ export default function BillsList({ bills }) {
     return (
         <ul className="bill-list">
             {bills.map((bill) => (
-                <Bill billTitle={bill.title} billUpdate={bill.updated_at} billAction={bill.last_action} billSponsors={bill.sponsors} />
+                <Bill
+                  billTitle={bill.title}
+                  billUpdate={bill.updated_at}
+                  billAction={bill.last_action}
+                  billSponsors={bill.sponsors}
+                />
             ))}
         </ul>
     );

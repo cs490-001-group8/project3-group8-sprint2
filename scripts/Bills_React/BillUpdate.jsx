@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function BillUpdate({ billUpdate, billAction })
-{
+export default function BillUpdate({ billUpdate, billAction }) {
     return (
         <div className="bill-update">
-            Last update: {billUpdate}, {billAction}
+            Last update:
+            {' '}
+            {billUpdate}
+            ,
+            {' '}
+            {billAction}
         </div>
     );
 }

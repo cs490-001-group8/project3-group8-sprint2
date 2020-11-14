@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Bill from './Bill';
 
 export default function BillSponsors({ billSponsors }) {
     return (
         <div className="bill-sponsors">
-            Sponsors: 
+            Sponsors:
             <ul>
-                {billSponsors.map((sponsor, i) => (
-                    <li key={i}>{sponsor}</li>
+                {billSponsors.map((sponsor) => (
+                    <li>{sponsor}</li>
                 ))}
             </ul>
         </div>

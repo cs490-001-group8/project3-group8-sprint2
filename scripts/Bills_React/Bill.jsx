@@ -4,8 +4,9 @@ import BillTitle from './BillTitle';
 import BillUpdate from './BillUpdate';
 import BillSponsors from './BillSponsors';
 
-export default function Bill({ billTitle, billUpdate, billAction, billSponsors })
-{
+export default function Bill({
+    billTitle, billUpdate, billAction, billSponsors,
+}) {
     return (
         <li className="bill">
             <BillTitle billTitle={billTitle} />
