@@ -183,11 +183,13 @@ class AppTestCases(unittest.TestCase):
                 "title": "Bill1",
                 "updated_at": datetime.now(),
                 "sponsors": [{"name": "Joe"}, {"name": "Sam"}],
+                "actions": [{"action": "first"}, {"action": "second"}],
             },
             {
                 "title": "Bill2",
                 "updated_at": datetime.now(),
                 "sponsors": [{"name": "Kat"}, {"name": "Nicole"}],
+                "actions": [{"action": "first"}, {"action": "second"}],
             },
         ]
 
@@ -272,6 +274,7 @@ class AppTestCases(unittest.TestCase):
                         "title" not in bill
                         or "updated_at" not in bill
                         or "sponsors" not in bill
+                        or "last_action" not in bill
                 ):
                     raise ValueError("VALUE MISSING IN BILL")
                 for sponsor in bill["sponsors"]:

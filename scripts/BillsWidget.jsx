@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Socket } from './Socket';
 import WidgetTitle from './WidgetTitle';
+import BillsList from './Bills_React/BillsList'
 
 export default function BillsWidget() {
     const [bills, getBills] = useState(() => []);
@@ -17,7 +18,7 @@ export default function BillsWidget() {
         <div className="widget">
             <WidgetTitle title="Recent Bills" />
 
-            Bills bills bills
+            <BillsList bills={bills}/>
         </div>
     );
 }

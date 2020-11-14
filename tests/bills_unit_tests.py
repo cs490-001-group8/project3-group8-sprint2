@@ -42,11 +42,13 @@ class BillsTestCases(unittest.TestCase):
                 "title": "BILL1",
                 "updated_at": datetime.datetime.now(),
                 "sponsors": [{"name": "JOE"}, {"name": "SAM"}],
+                "actions": [{"action": "first"}, {"action": "second"}],
             },
             {
                 "title": "BILL2",
                 "updated_at": datetime.datetime.now(),
                 "sponsors": [{"name": "KAT"}, {"name": "NICOLE"}],
+                "actions": [{"action": "first"}, {"action": "second"}],
             },
         ]
 

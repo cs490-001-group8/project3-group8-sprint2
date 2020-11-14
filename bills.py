@@ -56,6 +56,7 @@ def get_recent_bills():
                 {
                     "title": this_bill["title"],
                     "updated_at": this_bill["updated_at"].strftime("%Y-%m-%d"),
+                    "last_action": this_bill["actions"][-1]["action"],
                     "sponsors": this_bill_sponsors,
                 }
             )
