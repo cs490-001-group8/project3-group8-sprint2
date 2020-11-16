@@ -9,7 +9,7 @@ export default function PoliticianBody({
 }) {
     return (
         <div className="politician-body">
-            <PoliticianName name={name} /> 
+            <PoliticianName name={name} />
             <PoliticianDescription district={district} party={party} chamber={chamber} />
             <PoliticianSite website={website} />
         </div>

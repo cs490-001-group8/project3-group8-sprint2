@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function PoliticianPhoto({ photo }) {
     return (
-        <div className="politician-photo">
-            <image src={photo} alt="" />
-        </div>
+        <img className="politician-photo" src={photo} alt="" />
     );
 }
 

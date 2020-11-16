@@ -634,6 +634,7 @@ body {
   padding-left: 0px;
   padding-bottom: 50px;
   margin-bottom: 5%;
+  margin-right: 3%;
 }
 
   .politician {
@@ -645,12 +646,13 @@ body {
     width: 100%;
     margin: auto;
     display: flex;
+    overflow-wrap: break-word;
   }
 
     .politician-photo {
       flex: 1;
-      width: 20px;
-      height: 20px;
+      width: 151px;
+      height: 220px;
     }
     
     .politician-body {

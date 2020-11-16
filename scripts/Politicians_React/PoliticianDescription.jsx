@@ -4,7 +4,17 @@ import PropTypes from 'prop-types';
 export default function PoliticianDescription({ district, party, chamber }) {
     return (
         <div className="politician-description">
-            {party} member of the {chamber} chamber in the {district} district.
+            {party}
+            {' '}
+            member of the
+            {' '}
+            {chamber}
+            {' '}
+            chamber in the
+            {' '}
+            {district}
+            {' '}
+            district.
         </div>
     );
 }
