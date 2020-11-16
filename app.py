@@ -37,9 +37,22 @@ EST = timezone("EST")
 
 
 @APP.route("/")
-def hello():
-    """When someone opens the app, send them the page"""
+def home():
+    """When someone opens the home tab, send them the page"""
     return flask.render_template("index.html")
+
+
+@APP.route("/Commuter")
+def commuter():
+    """When someone opens the commuter tab, send them the page"""
+    return flask.render_template("index.html")
+
+
+@APP.route("/Politics")
+def politics():
+    """When someone opens the politics tab, send them the page"""
+    return flask.render_template("index.html")
+
 
 @APP.route("/landing_page")
 def landing_page():
@@ -73,13 +86,14 @@ def on_get_comments(data):
                 "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S"),
             }
             for comment in SESSION.query(tables.Comment)
-            .filter(tables.Comment.tab == which_tab)
-            .all()
+                .filter(tables.Comment.tab == which_tab)
+                .all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
     except KeyError:
         return
+
 
 @SOCKETIO.on("new comment")
 def on_new_comment(data):
@@ -101,6 +115,7 @@ def on_new_comment(data):
     except KeyError:
         return
 
+
 @SOCKETIO.on("weather request")
 def on_weather_request(data):
     """Recieve city, return back weather for the day"""
@@ -108,11 +123,13 @@ def on_weather_request(data):
     weather_object["city_name"] = data["city_name"]
     flask_socketio.emit("send weather", weather_object)
 
+
 @SOCKETIO.on("get political tweets")
 def on_pol_tweet_request():
     """Return tweets from politicians"""
     pol_tweets = tweets.get_politicians_latest_tweets()
     flask_socketio.emit("political tweets", pol_tweets)
+
 
 @SOCKETIO.on("get news")
 def on_news_request():
@@ -120,11 +137,13 @@ def on_news_request():
     news_object = news.get_latest_news()
     flask_socketio.emit("news", news_object)
 
+
 @SOCKETIO.on("get bills")
 def on_bills_request():
     """Returns bills for New Jersey"""
     bills_object = bills.get_recent_bills()
     flask_socketio.emit("send bills", bills_object)
+
 
 if __name__ == "__main__":
     SOCKETIO.run(
