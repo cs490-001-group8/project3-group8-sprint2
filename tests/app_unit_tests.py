@@ -144,7 +144,6 @@ class AppTestCases(unittest.TestCase):
             ],
         }
 
-
     def mock_get_latest_news(self):
         """Mock getting the latest news"""
         return [
@@ -193,9 +192,37 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
+    def mock_search_politicians(
+            self, state, chamber, active
+    ):
+        """Mock searching bills"""
+        return [
+            {
+                "full_name": "Joe Shmoo",
+                "photo_url": "url",
+                "url": "https://www.google.com/",
+                "district": "6A",
+                "party": "Democrat",
+                "chamber": "upper",
+            },
+            {
+                "full_name": "Jane Shmane",
+                "photo_url": "url",
+                "url": "https://www.google.com/",
+                "district": "7b",
+                "party": "Republican",
+                "chamber": "lower",
+            },
+        ]
+
     def mock_json_load_oldcache_bills(self, file):
         """Mock an outdated cache"""
         old_time = datetime.now().timestamp() - (5000 + 100)
+        return {"timestamp": old_time}
+
+    def mock_json_load_oldcache_politicians(self, file):
+        """Mock an outdated cache"""
+        old_time = datetime.now().timestamp() - (90000 + 100)
         return {"timestamp": old_time}
 
     def mock_session_query(self, model):
@@ -280,6 +307,17 @@ class AppTestCases(unittest.TestCase):
                 for sponsor in bill["sponsors"]:
                     if not isinstance(sponsor, str):
                         raise ValueError("NAME BAD")
+        elif channel == "send politicians":
+            for pol in data["politicians"]:
+                if (
+                        "name" not in pol
+                        or "photo" not in pol
+                        or "website" not in pol
+                        or "district" not in pol
+                        or "party" not in pol
+                        or "chamber" not in pol
+                ):
+                    raise ValueError("VALUE MISSING IN POLITICIAN")
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -403,7 +441,6 @@ class AppTestCases(unittest.TestCase):
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
 
-
     def test_weather_sending(self):
         """test the on_weather_request function"""
         test_weather = {"city_name": "Newark"}
@@ -412,6 +449,7 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
+
     def test_render_landing_page(self):
         """Test landing_page rendering"""
         import app
@@ -450,15 +488,15 @@ class AppTestCases(unittest.TestCase):
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_bills_request()
 
-    # def on_politicians_request(self):
-    #     """Test the on_politicians_request method"""
-    #     with mock.patch("json.load", self.mock_json_load_oldcache_bills), mock.patch(
-    #             "pyopenstates.search_bills", self.mock_search_bills
-    #     ), mock.patch("builtins.open", mock.mock_open()):
-    #         import app
+    def test_on_politicians_request(self):
+        """Test the on_politicians_request method"""
+        with mock.patch("json.load", self.mock_json_load_oldcache_politicians), mock.patch(
+                "pyopenstates.search_legislators", self.mock_search_politicians
+        ), mock.patch("builtins.open", mock.mock_open()):
+            import app
 
-    #         with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
-    #             app.on_politicians_request()
+            with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+                app.on_politicians_request()
 
 
 if __name__ == "__main__":
