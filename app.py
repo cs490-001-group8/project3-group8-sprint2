@@ -5,6 +5,7 @@
 # pylint: disable=E1101
 # E1101 disabled, false positive when working with database.
 import os
+import json
 from datetime import datetime
 import flask
 import flask_socketio
@@ -34,7 +35,6 @@ SESSION = SESSION_MAKER()
 LOGGEDIN_CLIENTS = []
 
 EST = timezone("EST")
-
 
 @APP.route("/")
 def home():
@@ -119,10 +119,24 @@ def on_new_comment(data):
 @SOCKETIO.on("weather request")
 def on_weather_request(data):
     """Recieve city, return back weather for the day"""
-    weather_object = hourly_weather.fetch_weather(data["city_name"])
-    weather_object["city_name"] = data["city_name"]
-    flask_socketio.emit("send weather", weather_object)
-
+    request_name = data["city_name"]
+    
+    zip_codes = {}
+    with open('weather_resources/zip_dict.json') as f:
+        zip_codes = json.load(f)
+    cities = set([line.strip() for line in open("weather_resources/city_list.txt", 'r')])
+    
+    if (request_name.isdigit() and request_name in zip_codes):
+        request_name = zip_codes[request_name]
+        weather_object = hourly_weather.fetch_weather(request_name)
+        weather_object["city_name"] = request_name
+        flask_socketio.emit("send weather", weather_object)
+    elif (request_name in cities):
+        weather_object = hourly_weather.fetch_weather(request_name)
+        weather_object["city_name"] = request_name
+        flask_socketio.emit("send weather", weather_object)
+    else:
+        flask_socketio.emit("weather error", {})
 
 @SOCKETIO.on("get political tweets")
 def on_pol_tweet_request():
