@@ -113,4 +113,3 @@ def get_politicians():
         return data
 
     return saved_politicians
-
