@@ -667,6 +667,16 @@ body {
         font-size: 20pt;
       }
 
+      .politician-description {
+        flex: 1;
+        font-size: 15pt;
+      }
+
+      .politician-site {
+        flex: 1;
+        font-size: 12pt;
+      }
+
 .traffic-map {
   height: 95%;
 }

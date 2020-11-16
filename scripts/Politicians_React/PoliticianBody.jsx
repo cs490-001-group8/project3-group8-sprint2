@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PoliticianName from './PoliticianName';
+import PoliticianDescription from './PoliticianDescription';
+import PoliticianSite from './PoliticianSite';
 
 export default function PoliticianBody({
     name, website, district, party, chamber,
@@ -8,7 +10,8 @@ export default function PoliticianBody({
     return (
         <div className="politician-body">
             <PoliticianName name={name} /> 
-            {website}  {district}  {party}  {chamber}
+            <PoliticianDescription district={district} party={party} chamber={chamber} />
+            <PoliticianSite website={website} />
         </div>
     );
 }
