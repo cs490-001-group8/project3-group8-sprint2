@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Socket } from './Socket';
-import WidgetTitle from './WidgetTitle';
-import BillsList from './Bills_React/BillsList';
+import { Socket } from '../Socket';
+import WidgetTitle from '../WidgetTitle';
+import BillsList from './BillsList';
 
 export default function BillsWidget() {
     const [bills, getBills] = useState(() => []);

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Item, Placeholder, Image } from 'semantic-ui-react';
 import { nanoid } from 'nanoid';
-import { Socket } from './Socket';
-import WidgetTitle from './WidgetTitle';
+import { Socket } from '../Socket';
+import WidgetTitle from '../WidgetTitle';
 
 export default function NewsList() {
     const [news, setNews] = useState(() => [{}, {}, {}, {}, {}]);

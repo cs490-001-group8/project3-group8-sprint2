@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import LoggedIn from './LoggedIn';
+import LoggedIn from './Auth_React/LoggedIn';
 import HeadTitle from './HeadTitle';
-import LoginModal from './LoginModal';
+import LoginModal from './Auth_React/LoginModal';
 
 export default function Head({ logIn, loggedIn }) {
     const [display, setDisplay] = useState('none');
