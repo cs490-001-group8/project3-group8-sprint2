@@ -653,6 +653,9 @@ body {
       flex: 1;
       width: 151px;
       height: 220px;
+      text-align: center;
+      font-size: 10pt;
+      margin: 5px;
     }
     
     .politician-body {
