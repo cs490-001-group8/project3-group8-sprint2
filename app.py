@@ -85,9 +85,11 @@ def on_get_comments(data):
                 "name": comment.name,
                 "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S"),
             }
-            for comment in SESSION.query(tables.Comment)
-                .filter(tables.Comment.tab == which_tab)
-                .all()
+            for comment in SESSION.query(
+                tables.Comment
+                ).filter(
+                    tables.Comment.tab == which_tab
+                ).all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
