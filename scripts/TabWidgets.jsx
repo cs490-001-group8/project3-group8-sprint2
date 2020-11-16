@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TrafficWidget from './TrafficWidget';
-import NewsList from './NewsList';
-import WeatherModule from './WeatherModule';
-import TweetWidget from './TweetWidget';
-import BillsWidget from './BillsWidget';
+import TrafficWidget from './Traffic_React/TrafficWidget';
+import NewsList from './News_React/NewsList';
+import WeatherModule from './Weather_React/WeatherModule';
+import TweetWidget from './Tweet_React/TweetWidget';
+import BillsWidget from './Bills_React/BillsWidget';
 
 export default function TabWidgets({ currTab }) {
     if (currTab === 'Commuter') {

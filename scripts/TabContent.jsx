@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CommentBlock from './CommentBlock';
+import CommentBlock from './Comments_React/CommentBlock';
 import TabWidgets from './TabWidgets';
 
 export default function TabContent({

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import WidgetTitle from './WidgetTitle';
+import WidgetTitle from '../WidgetTitle';
 import WeatherHourly from './WeatherHourly';
-import { Socket } from './Socket';
+import { Socket } from '../Socket';
 
 export default function WeatherModule() {
     const [currWeather, setCurrWeather] = useState(() => []);
