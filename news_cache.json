@@ -1,6 +1,30 @@
 {
-    "timestamp": 1605561533.882944,
+    "timestamp": 1605570430.235206,
     "articles": [
+        {
+            "title": "COVID-19 surges across the United States",
+            "description": "Philadelphia will ban indoor gatherings altogether and the New Jersey will strictly limit their size as US officials struggle to slow a COVID-19 surge that co...",
+            "content": "news, latest-news\nPhiladelphia will ban indoor gatherings altogether and the New Jersey will strictly limit their size as US officials struggle to slow a COVID-19 surge that could overwhelm hospitals and kill thousands. Philadelphia, the nation's six... [3273 chars]",
+            "url": "https://www.canberratimes.com.au/story/7015487/covid-19-surges-across-the-united-states/",
+            "image": "https://www.canberratimes.com.au/images/transform/v1/crop/frm/silverstone-feed-data/ee3c6bfe-e439-41e8-8866-6d116ded7c7e.jpg/r0_74_800_526_w1200_h678_fmax.jpg",
+            "publishedAt": "2020-11-16T22:23:44Z",
+            "source": {
+                "name": "The Canberra Times",
+                "url": "https://www.canberratimes.com.au/"
+            }
+        },
+        {
+            "title": "Across party lines, Americans embrace marijuana legalization in 2020 election",
+            "description": "Recreational marijuana initiatives passed in four states this year, from liberal New Jersey to conservative Montana and South Dakota. The results prove how broadly accepted marijuana has become.",
+            "content": "article\nBill Stocker could be considered the archetype of a conservative voter: He's a retired Marine and former police officer who voted for President Donald Trump. But he's also among the majority of South Dakota voters who broadly legalized mariju... [5723 chars]",
+            "url": "https://www.fox4news.com/news/across-party-lines-americans-embrace-marijuana-legalization-in-2020-election",
+            "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/11/1280/720/GettyImages-1227698974.jpg?ve=1&tl=1",
+            "publishedAt": "2020-11-16T22:05:59Z",
+            "source": {
+                "name": "FOX 4 News",
+                "url": "https://www.fox4news.com/"
+            }
+        },
         {
             "title": "New Jersey limits indoor, outdoor gatherings ahead of Thanksgiving as COVID surges",
             "description": "New Jersey will limit the number of people allowed to gather indoors and outdoors in an effort to bring down skyrocketing COVID-19 infections and hospitalizations, Gov. Phil Murphy (D) announced Monday.",
@@ -35,30 +59,6 @@
             "source": {
                 "name": "Yahoo Canada Sports",
                 "url": "https://ca.sports.yahoo.com/"
-            }
-        },
-        {
-            "title": "Bleachers \u2018Chinatown\u2019 With Bruce Springsteen",
-            "description": "Bleachers released a new single, \u201cchinatown,\u201d featuring Bruce Springsteen and a New Jersey\u2013set music video. It\u2019s the band\u2019s first offering from a new album out in 2021, along with another new song, \u201c45.\u201d",
-            "content": "Between the legal weed and the new albums by Bruce Springsteen and Bon Jovi, Jersey pride has already reached record levels over the past few months. Expect another spike due to Bleachers\u2019 new song, \u201cchinatown,\u201d the New Jerseyest thing to happen in m... [1501 chars]",
-            "url": "https://www.vulture.com/2020/11/bleachers-bruce-springsteen-chinatown-video.html",
-            "image": "https://pyxis.nymag.com/v1/imgs/8fa/ad1/2e472397c0654d1e5952afe90b4f0e42ff-bleachers-chinatown.1x.rsocial.w1200.jpg",
-            "publishedAt": "2020-11-16T17:50:45Z",
-            "source": {
-                "name": "Vulture",
-                "url": "https://www.vulture.com/"
-            }
-        },
-        {
-            "title": "Every new NHL throwback jersey, described in one sentence",
-            "description": "I need this Ducks jersey right now.",
-            "content": "The NHL unveiled their new reverse retro jerseys on Monday morning, and for the most part they\u2019re pretty great. Many play into the staunch traditional of organizations, others play with the nostalgia of the era in which they were created. Some are ju... [3073 chars]",
-            "url": "https://www.sbnation.com/2020/11/16/21569664/nhl-throwback-jerseys-new-2021",
-            "image": "https://cdn.vox-cdn.com/thumbor/_fHOdMCaM6XFidLNd-F6bWedJmk=/0x56:679x411/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22045830/Em89MrPXIAMOeNL.jpg",
-            "publishedAt": "2020-11-16T17:18:03Z",
-            "source": {
-                "name": "SB Nation",
-                "url": "https://www.sbnation.com/"
             }
         }
     ]
