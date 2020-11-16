@@ -135,7 +135,7 @@ class PoliticsTestCases(unittest.TestCase):
         """Make get_recent_bills test"""
         with mock.patch("json.load", self.mock_json_load_oldcache_politicians), mock.patch(
                 "pyopenstates.search_legislators", self.mock_search_politicians
-        ):
+        ), mock.patch("builtins.open", mock.mock_open()):
             res = politics.get_politicians()
             self.assertIsInstance(res, dict)
 

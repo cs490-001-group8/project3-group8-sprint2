@@ -450,6 +450,16 @@ class AppTestCases(unittest.TestCase):
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_bills_request()
 
+    # def on_politicians_request(self):
+    #     """Test the on_politicians_request method"""
+    #     with mock.patch("json.load", self.mock_json_load_oldcache_bills), mock.patch(
+    #             "pyopenstates.search_bills", self.mock_search_bills
+    #     ), mock.patch("builtins.open", mock.mock_open()):
+    #         import app
+
+    #         with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+    #             app.on_politicians_request()
+
 
 if __name__ == "__main__":
     unittest.main()

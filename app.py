@@ -147,6 +147,13 @@ def on_bills_request():
     flask_socketio.emit("send bills", bills_object)
 
 
+@SOCKETIO.on("get politicians")
+def on_politicians_request():
+    """Returns politicians for New Jersey"""
+    pols_object = politics.get_politicians()
+    flask_socketio.emit("send politicians", pols_object)
+
+
 if __name__ == "__main__":
     SOCKETIO.run(
         APP,
