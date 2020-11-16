@@ -96,10 +96,14 @@ def get_politicians():
         data = {"timestamp": curr_time, "politicians": []}
 
         for pol in politicians:
+            imagefix = pol["photo_url"]
+            if imagefix != "":
+                imagefix = "https" + imagefix[4:]
+            
             data["politicians"].append(
                 {
                     "name": pol["full_name"],
-                    "photo": pol["photo_url"],
+                    "photo": imagefix,
                     "website": pol["url"],
                     "district": pol["district"],
                     "party": pol["party"],

@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import PoliticianBody from './PoliticianBody';
 
 export default function Politician({
     name, photo, website, district, party, chamber,
 }) {
     return (
-        <li className="bill">
-            {name}{photo}{website}{district}{party}{chamber}
+        <li className="politician">
+            <PoliticianBody name={name} website={website} district={district} party={party} chamber={chamber} />
         </li>
     );
 }

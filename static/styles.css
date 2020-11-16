@@ -622,6 +622,50 @@ body {
       line-height: 1.25;
       color: #666666;
     }
+  
+.politician-list {
+  border: 1px black solid;
+  width: 100%;
+  height: 95%;
+  text-align: left;
+  list-style-type: none;
+  overflow: auto;
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-bottom: 50px;
+  margin-bottom: 5%;
+}
+
+  .politician {
+    font-family: Helvetica;
+    text-align: left;
+    color: #14171A;
+    border: 1px black solid;
+    
+    width: 100%;
+    margin: auto;
+    display: flex;
+  }
+
+    .politician-photo {
+      flex: 1;
+      width: 20px;
+      height: 20px;
+    }
+    
+    .politician-body {
+      padding: 20px;
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+      .politician-name {
+        flex: 2;
+        font-weight: bold;
+        font-size: 20pt;
+      }
 
 .traffic-map {
   height: 95%;

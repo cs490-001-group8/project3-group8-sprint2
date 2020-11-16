@@ -4,7 +4,7 @@ import Politician from './Politician';
 
 export default function PoliticianList({ politicians }) {
     return (
-        <ul className="bill-list">
+        <ul className="politician-list">
             {politicians.map((pol) => (
                 <Politician
                   name={pol.name}
