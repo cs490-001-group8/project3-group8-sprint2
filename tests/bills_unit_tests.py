@@ -9,7 +9,7 @@ import datetime
 from os.path import dirname, join
 # pylint: disable=C0413
 sys.path.append(join(dirname(__file__), "../"))
-import bills
+import politics
 
 
 # pylint: disable=W0613
@@ -28,7 +28,7 @@ class BillsTestCases(unittest.TestCase):
 
     def mock_json_load_oldcache(self, file):
         """Mock an outdated cache"""
-        old_time = datetime.datetime.now().timestamp() - (bills.CACHE_LIFE + 100)
+        old_time = datetime.datetime.now().timestamp() - (politics.BILL_CACHE_LIFE + 100)
         return {"timestamp": old_time}
 
     # pylint: disable=W0622
@@ -57,19 +57,19 @@ class BillsTestCases(unittest.TestCase):
     def test_get_cached_bills(self):
         """Make get_cached_bills test"""
         with mock.patch("json.load", self.mock_json_load_nocache):
-            res = bills.get_cached_bills()
+            res = politics.get_cached_bills()
             self.assertIsNone(res)
         with mock.patch("json.load", self.mock_json_load_oldcache):
-            res = bills.get_cached_bills()
+            res = politics.get_cached_bills()
             self.assertIsNone(res)
         with mock.patch("json.load", self.mock_json_load_newcache):
-            res = bills.get_cached_bills()
+            res = politics.get_cached_bills()
             self.assertIsInstance(res, dict)
 
     def test_get_recent_bills_cached(self):
         """Make get_recent_bills test"""
         with mock.patch("json.load", self.mock_json_load_newcache):
-            res = bills.get_recent_bills()
+            res = politics.get_recent_bills()
             self.assertIsInstance(res, dict)
 
     def test_get_recent_bills_new(self):
@@ -77,7 +77,7 @@ class BillsTestCases(unittest.TestCase):
         with mock.patch("json.load", self.mock_json_load_oldcache), mock.patch(
                 "pyopenstates.search_bills", self.mock_search_bills
         ), mock.patch("builtins.open", mock.mock_open()):
-            res = bills.get_recent_bills()
+            res = politics.get_recent_bills()
             self.assertIsInstance(res, dict)
 
 

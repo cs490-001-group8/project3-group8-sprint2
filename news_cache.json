@@ -1,6 +1,42 @@
 {
-    "timestamp": 1605549040.762962,
+    "timestamp": 1605552796.717582,
     "articles": [
+        {
+            "title": "Bleachers \u2018Chinatown\u2019 With Bruce Springsteen",
+            "description": "Bleachers released a new single, \u201cchinatown,\u201d featuring Bruce Springsteen and a New Jersey\u2013set music video. It\u2019s the band\u2019s first offering from a new album out in 2021, along with another new song, \u201c45.\u201d",
+            "content": "Between the legal weed and the new albums by Bruce Springsteen and Bon Jovi, Jersey pride has already reached record levels over the past few months. Expect another spike due to Bleachers\u2019 new song, \u201cchinatown,\u201d the New Jerseyest thing to happen in m... [1501 chars]",
+            "url": "https://www.vulture.com/2020/11/bleachers-bruce-springsteen-chinatown-video.html",
+            "image": "https://pyxis.nymag.com/v1/imgs/8fa/ad1/2e472397c0654d1e5952afe90b4f0e42ff-bleachers-chinatown.1x.rsocial.w1200.jpg",
+            "publishedAt": "2020-11-16T17:50:45Z",
+            "source": {
+                "name": "Vulture",
+                "url": "https://www.vulture.com/"
+            }
+        },
+        {
+            "title": "Every new NHL throwback jersey, described in one sentence",
+            "description": "I need this Ducks jersey right now.",
+            "content": "The NHL unveiled their new reverse retro jerseys on Monday morning, and for the most part they\u2019re pretty great. Many play into the staunch traditional of organizations, others play with the nostalgia of the era in which they were created. Some are ju... [3073 chars]",
+            "url": "https://www.sbnation.com/2020/11/16/21569664/nhl-throwback-jerseys-new-2021",
+            "image": "https://cdn.vox-cdn.com/thumbor/_fHOdMCaM6XFidLNd-F6bWedJmk=/0x56:679x411/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/22045830/Em89MrPXIAMOeNL.jpg",
+            "publishedAt": "2020-11-16T17:18:03Z",
+            "source": {
+                "name": "SB Nation",
+                "url": "https://www.sbnation.com/"
+            }
+        },
+        {
+            "title": "New Red Wings \u2018Reverse Retro\u2019 jersey: Is this trash?",
+            "description": "It's a simple yes or no question.",
+            "content": "The Detroit Red Wings have released their version of the NHL\u2019s new Adidas \u201cReverse Retro\u201d jerseys.\nNow we are faced with a simple yes or no question:\nMy opinion: Yes, these are trash.\nIn fact, I think it\u2019s clear Adidas had no idea what to do with the... [440 chars]",
+            "url": "https://www.clickondetroit.com/sports/2020/11/16/new-red-wings-reverse-retro-jersey-is-this-trash/",
+            "image": "https://www.clickondetroit.com/resizer/jxkySRTnuM-Blkwa95XwUpGYUCY=/1600x900/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/56DP42P7ERFKDI7BGM2YB6UIYM.jpeg",
+            "publishedAt": "2020-11-16T17:14:53Z",
+            "source": {
+                "name": "WDIV ClickOnDetroit",
+                "url": "https://www.clickondetroit.com/"
+            }
+        },
         {
             "title": "New Jersey tightens restrictions as COVID-19 surges across the United States",
             "description": "New Jersey Governor Phil Murphy on Monday announced stricter capacity restrictions for both indoor and outdoor gatherings as more U.S. states took steps to combat the latest coronavirus surge.",
@@ -23,42 +59,6 @@
             "source": {
                 "name": "The Mercury News",
                 "url": "https://www.mercurynews.com/"
-            }
-        },
-        {
-            "title": "Thunder Reveal City Edition Jersey, NBA Twitter Reacts",
-            "description": "These new City Edition uniforms are getting a split reaction. With just about a month to go before the start of the NBA season, numerous teams are now taking...",
-            "content": "With just about a month to go before the start of the NBA season, numerous teams are now taking to Twitter to show off their brand new City Edition jerseys. These uniforms always lead to some split reactions on social media, which is certainly what h... [892 chars]",
-            "url": "https://www.hotnewhiphop.com/thunder-reveal-city-edition-jersey-nba-twitter-reacts-news.121357.html",
-            "image": "https://www.hotnewhiphop.com/image/740x416/cover/1605541210_512833931981138b9e7cc27de0b21b9c.jpg/f2f0ef7aefbc0681b4f033d06bc66af9/1605541210_d42b64805aeea1ecb319993e3aca5ad5.jpg",
-            "publishedAt": "2020-11-16T15:54:59Z",
-            "source": {
-                "name": "HotNewHipHop",
-                "url": "https://www.hotnewhiphop.com/"
-            }
-        },
-        {
-            "title": "NHL, adidas release Dallas Stars\u2019 new all-white Reverse Retro uniforms",
-            "description": "Another new look for the Dallas Stars is coming in 2021. After debuting its \u201cBlackout\u201d jersey in October, Dallas picked up another new uniform on Monday...",
-            "content": "Another new look for the Dallas Stars is coming in 2021.\nAfter debuting its \u201cBlackout\u201d jersey in October, Dallas picked up another new uniform on Monday after adidas and the National Hockey League unveiled the Reverse Retro ADIZERO Authentic jerseys ... [1757 chars]",
-            "url": "https://www.dallasnews.com/sports/stars/2020/11/16/nhl-adidas-release-dallas-stars-new-all-white-reverse-retro-uniforms/",
-            "image": "https://dmn-dallas-news-prod.cdn.arcpublishing.com/resizer/Qbb2Greg4MvClV6DGSyqmWooXw4=/1200x630/smart/filters:no_upscale()/cloudfront-us-east-1.images.arcpublishing.com/dmn/WOZFIJEUPNBD3EU6ADGMEJOELM.jpg",
-            "publishedAt": "2020-11-16T15:24:38Z",
-            "source": {
-                "name": "The Dallas Morning News",
-                "url": "https://www.dallasnews.com/"
-            }
-        },
-        {
-            "title": "Reverse Retro: NHL looks back for league's future with new jersey program",
-            "description": "TORONTO \u2014 Dan Near and his team at Adidas saw the numbers and were brainstorming about how to proceed. The NHL had just released a survey on fans' favourite all-time jersey designs, and 22 of the top-25 were either retro or now-defunct looks.",
-            "content": "TORONTO \u2014 Dan Near and his team at Adidas saw the numbers and were brainstorming about how to proceed. The NHL had just released a survey on fans' favourite all-time jersey designs, and 22 of the top-25 were either retro or now-defunct looks.\nTORONTO... [4828 chars]",
-            "url": "https://www.vancouverisawesome.com/national-sports/reverse-retro-nhl-looks-back-for-leagues-future-with-new-jersey-program-2881687",
-            "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2020/11/2020111610110-c4623c225838b1c99aa959e74c16e3fda5f3d97ca063cb886c5c7309646ea929.jpg;w=650;h=433;mode=crop",
-            "publishedAt": "2020-11-16T15:09:42Z",
-            "source": {
-                "name": "Vancouver Is Awesome",
-                "url": "https://www.vancouverisawesome.com/"
             }
         }
     ]

@@ -312,9 +312,9 @@ class AppTestCases(unittest.TestCase):
             with mock.patch("flask.render_template", self.mocked_flask_render):
                 app.home()
             with mock.patch("flask.render_template", self.mocked_flask_render):
-                app.commuter()
+                app.commuter_tab()
             with mock.patch("flask.render_template", self.mocked_flask_render):
-                app.politics()
+                app.politics_tab()
 
     def test_app_new_comment(self):
         """Test successful new comments"""

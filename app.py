@@ -16,7 +16,7 @@ from tables import BASE
 import hourly_weather
 import tweets
 import news
-import bills
+import politics
 
 load_dotenv()
 
@@ -43,13 +43,13 @@ def home():
 
 
 @APP.route("/Commuter")
-def commuter():
+def commuter_tab():
     """When someone opens the commuter tab, send them the page"""
     return flask.render_template("index.html")
 
 
 @APP.route("/Politics")
-def politics():
+def politics_tab():
     """When someone opens the politics tab, send them the page"""
     return flask.render_template("index.html")
 
@@ -143,7 +143,7 @@ def on_news_request():
 @SOCKETIO.on("get bills")
 def on_bills_request():
     """Returns bills for New Jersey"""
-    bills_object = bills.get_recent_bills()
+    bills_object = politics.get_recent_bills()
     flask_socketio.emit("send bills", bills_object)
 
 
