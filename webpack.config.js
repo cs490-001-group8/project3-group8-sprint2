@@ -1,10 +1,10 @@
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-    entry: "./scripts/Main.jsx",
+    entry: './scripts/Main.jsx',
     output: {
         path: __dirname,
-        filename: "./static/script.js"
+        filename: './static/script.js',
     },
     module: {
         rules: [
@@ -23,19 +23,19 @@ module.exports = {
                             '@babel/preset-env',
                             {
                                 targets: {
-                                    esmodules: false
-                                }
-                            }
-                        ]
-                    ]
-                }
-            }
-        ]
+                                    esmodules: false,
+                                },
+                            },
+                        ],
+                    ],
+                },
+            },
+        ],
     },
     resolve: {
         extensions: ['.js', '.jsx'],
     },
     plugins: [
-        new Dotenv()
-    ]
+        new Dotenv(),
+    ],
 };
