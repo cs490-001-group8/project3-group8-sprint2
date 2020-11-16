@@ -548,12 +548,15 @@ body {
       
       .tweet-head {
         display: flex;
+        margin-bottom: 3%;
       }
         
         .tweet-head-user {
           margin: auto;
+          font-size: 15pt;
+          line-height: 1.15;
           
-          flex:1;
+          flex:6;
         }
         
         .tweet-head-user-name {
@@ -564,18 +567,24 @@ body {
           color: #657786;
         }
         
-        .tweet-head img {
-          border-radius: 50%;
+        .tweet-head-pic {
           margin: 5px;
-          width: 20px;
-          height: 20px;
           
           flex:1;
         }
+        
+          .tweet-head-pic img{
+            border-radius: 50%;
+          }
+      
+      .tweet-text {
+        font-size: 13pt;
+      }
       
       .tweet-foot {
         color: #657786;
-        margin-top: 14px;
+        margin-top: 3%;
+        font-size: 11pt;
       }
       
       .tweets-title {
