@@ -1,6 +1,42 @@
 {
-    "timestamp": 1605552796.717582,
+    "timestamp": 1605561533.882944,
     "articles": [
+        {
+            "title": "New Jersey limits indoor, outdoor gatherings ahead of Thanksgiving as COVID surges",
+            "description": "New Jersey will limit the number of people allowed to gather indoors and outdoors in an effort to bring down skyrocketing COVID-19 infections and hospitalizations, Gov. Phil Murphy (D) announced Monday.",
+            "content": "New Jersey will limit the number of people allowed to gather indoors and outdoors in an effort to bring down skyrocketing COVID-19 infections and hospitalizations, Gov. Phil Murphy (D) announced Monday.\nThe limits on indoor gatherings will be dropped... [1771 chars]",
+            "url": "https://thehill.com/homenews/state-watch/526170-new-jersey-limits-indoor-outdoor-gatherings-ahead-of-thanksgiving-as",
+            "image": "https://thehill.com/sites/default/files/murphyphil_newjerseyofficeofthegovernor10212020.png",
+            "publishedAt": "2020-11-16T19:31:01Z",
+            "source": {
+                "name": "The Hill",
+                "url": "https://thehill.com/"
+            }
+        },
+        {
+            "title": "Philadelphia bans all indoor gatherings as COVID-19 surges across the United States",
+            "description": "The city of Philadelphia will ban indoor gatherings altogether and the nearby state of New Jersey will strictly limit their size as U.S. officials struggle to slow a COVID-19 surge that could overwhelm hospitals and kill thousands.",
+            "content": "WASHINGTON (Reuters) - The city of Philadelphia will ban indoor gatherings altogether and the nearby state of New Jersey will strictly limit their size as U.S. officials struggle to slow a COVID-19 surge that could overwhelm hospitals and kill thousa... [3877 chars]",
+            "url": "https://www.reuters.com/article/us-health-coronavirus-usa/philadelphia-bans-all-indoor-gatherings-as-covid-19-surges-across-the-united-states-idUSKBN27W1X1",
+            "image": "https://static.reuters.com/resources/r/?m=02&d=20201116&t=2&i=1541403931&r=LYNXMPEGAF1GY&w=800",
+            "publishedAt": "2020-11-16T19:28:33Z",
+            "source": {
+                "name": "Reuters",
+                "url": "https://www.reuters.com/"
+            }
+        },
+        {
+            "title": "Ranking the NHL's line of 'Retro Reverse' sweaters",
+            "description": "Every NHL team released a new jersey in one fell swoop for the first time in history. So let's rank 'em from great, to good, to Canucks.",
+            "content": "Never before has the NHL\u2019s full slate of teams collaborated for a league-wide launch of fresh jersey re-designs. That means after the NHL and Adidas combined for its Retro Reverse line for official release in stores and online on Dec. 1, we have an u... [3897 chars]",
+            "url": "https://ca.sports.yahoo.com/news/ranking-the-nhl-line-of-retro-reverse-sweaters-191422797.html",
+            "image": "https://s.yimg.com/uu/api/res/1.2/lI_6QIYQbuoGcs4OEupS1g--~B/aD01MTg7dz05MjA7c209MTthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2020-11/91dafa30-283f-11eb-9e6b-f614db867f7d",
+            "publishedAt": "2020-11-16T19:14:22Z",
+            "source": {
+                "name": "Yahoo Canada Sports",
+                "url": "https://ca.sports.yahoo.com/"
+            }
+        },
         {
             "title": "Bleachers \u2018Chinatown\u2019 With Bruce Springsteen",
             "description": "Bleachers released a new single, \u201cchinatown,\u201d featuring Bruce Springsteen and a New Jersey\u2013set music video. It\u2019s the band\u2019s first offering from a new album out in 2021, along with another new song, \u201c45.\u201d",
@@ -23,42 +59,6 @@
             "source": {
                 "name": "SB Nation",
                 "url": "https://www.sbnation.com/"
-            }
-        },
-        {
-            "title": "New Red Wings \u2018Reverse Retro\u2019 jersey: Is this trash?",
-            "description": "It's a simple yes or no question.",
-            "content": "The Detroit Red Wings have released their version of the NHL\u2019s new Adidas \u201cReverse Retro\u201d jerseys.\nNow we are faced with a simple yes or no question:\nMy opinion: Yes, these are trash.\nIn fact, I think it\u2019s clear Adidas had no idea what to do with the... [440 chars]",
-            "url": "https://www.clickondetroit.com/sports/2020/11/16/new-red-wings-reverse-retro-jersey-is-this-trash/",
-            "image": "https://www.clickondetroit.com/resizer/jxkySRTnuM-Blkwa95XwUpGYUCY=/1600x900/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65)/cloudfront-us-east-1.images.arcpublishing.com/gmg/56DP42P7ERFKDI7BGM2YB6UIYM.jpeg",
-            "publishedAt": "2020-11-16T17:14:53Z",
-            "source": {
-                "name": "WDIV ClickOnDetroit",
-                "url": "https://www.clickondetroit.com/"
-            }
-        },
-        {
-            "title": "New Jersey tightens restrictions as COVID-19 surges across the United States",
-            "description": "New Jersey Governor Phil Murphy on Monday announced stricter capacity restrictions for both indoor and outdoor gatherings as more U.S. states took steps to combat the latest coronavirus surge.",
-            "content": "New Jersey Governor Phil Murphy on Monday announced stricter capacity restrictions for both indoor and outdoor gatherings as more U.S. states took steps to combat the latest coronavirus surge. Starting on Tuesday, a maximum of 10 people will be allow... [3157 chars]",
-            "url": "https://www.devdiscourse.com/article/health/1309832-new-jersey-tightens-restrictions-as-covid-19-surges-across-the-united-states",
-            "image": "https://www.devdiscourse.com/remote.axd?https://devdiscourse.blob.core.windows.net/imagegallery/25_07_2020_17_29_26_1403612.png?width=920&format=jpeg",
-            "publishedAt": "2020-11-16T16:44:09Z",
-            "source": {
-                "name": "Devdiscourse",
-                "url": "https://www.devdiscourse.com/"
-            }
-        },
-        {
-            "title": "San Jose Sharks unveil new \u2018reverse retro\u2019 alternate jersey",
-            "description": "The San Jose Sharks will wear new alternate jerseys that take inspiration from the team's 1998 uniforms.",
-            "content": "The San Jose Sharks joined the rest of the National Hockey League in unveiling a new alternate jersey Monday that will be worn next season.\nThe Sharks\u2019 new \u201cReverse Retro ADIZERO Authentic jersey\u201d from Adidas is part of the NHL\u2019s first league-wide al... [1458 chars]",
-            "url": "https://www.mercurynews.com/2020/11/16/san-jose-sharks-unveil-new-reverse-retro-alternate-jersey/",
-            "image": "https://www.mercurynews.com/wp-content/uploads/2020/11/image017.jpg?w=331&h=221",
-            "publishedAt": "2020-11-16T16:15:52Z",
-            "source": {
-                "name": "The Mercury News",
-                "url": "https://www.mercurynews.com/"
             }
         }
     ]
