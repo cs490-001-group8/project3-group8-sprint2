@@ -451,7 +451,7 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
-    
+
     def test_zip_code_weather_sending(self):
         """test a zip code as the input"""
         test_weather = {"city_name": "07871"}
@@ -460,12 +460,12 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
-    
+
     def test_invalid_code_weather_sending(self):
         """test an invalid, non NJ city"""
         test_weather = {"city_name": "Los Angeles"}
         import app
-        
+
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
