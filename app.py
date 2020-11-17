@@ -16,7 +16,7 @@ from tables import BASE
 import hourly_weather
 import tweets
 import news
-import bills
+import politics
 
 load_dotenv()
 
@@ -43,13 +43,13 @@ def home():
 
 
 @APP.route("/Commuter")
-def commuter():
+def commuter_tab():
     """When someone opens the commuter tab, send them the page"""
     return flask.render_template("index.html")
 
 
 @APP.route("/Politics")
-def politics():
+def politics_tab():
     """When someone opens the politics tab, send them the page"""
     return flask.render_template("index.html")
 
@@ -85,9 +85,11 @@ def on_get_comments(data):
                 "name": comment.name,
                 "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S"),
             }
-            for comment in SESSION.query(tables.Comment)
-                .filter(tables.Comment.tab == which_tab)
-                .all()
+            for comment in SESSION.query(
+                tables.Comment
+                ).filter(
+                    tables.Comment.tab == which_tab
+                ).all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
@@ -141,8 +143,15 @@ def on_news_request():
 @SOCKETIO.on("get bills")
 def on_bills_request():
     """Returns bills for New Jersey"""
-    bills_object = bills.get_recent_bills()
+    bills_object = politics.get_recent_bills()
     flask_socketio.emit("send bills", bills_object)
+
+
+@SOCKETIO.on("get politicians")
+def on_politicians_request():
+    """Returns politicians for New Jersey"""
+    pols_object = politics.get_politicians()
+    flask_socketio.emit("send politicians", pols_object)
 
 
 if __name__ == "__main__":

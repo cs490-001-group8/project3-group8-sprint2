@@ -548,12 +548,15 @@ body {
       
       .tweet-head {
         display: flex;
+        margin-bottom: 3%;
       }
         
         .tweet-head-user {
           margin: auto;
+          font-size: 15pt;
+          line-height: 1.15;
           
-          flex:1;
+          flex:6;
         }
         
         .tweet-head-user-name {
@@ -564,18 +567,24 @@ body {
           color: #657786;
         }
         
-        .tweet-head img {
-          border-radius: 50%;
+        .tweet-head-pic {
           margin: 5px;
-          width: 20px;
-          height: 20px;
           
           flex:1;
         }
+        
+          .tweet-head-pic img{
+            border-radius: 50%;
+          }
+      
+      .tweet-text {
+        font-size: 13pt;
+      }
       
       .tweet-foot {
         color: #657786;
-        margin-top: 14px;
+        margin-top: 3%;
+        font-size: 11pt;
       }
       
       .tweets-title {
@@ -622,6 +631,65 @@ body {
       line-height: 1.25;
       color: #666666;
     }
+  
+.politician-list {
+  border: 1px black solid;
+  width: 100%;
+  height: 95%;
+  text-align: left;
+  list-style-type: none;
+  overflow: auto;
+  padding-top: 10px;
+  padding-left: 0px;
+  padding-bottom: 50px;
+  margin-bottom: 5%;
+  margin-right: 3%;
+}
+
+  .politician {
+    font-family: Helvetica;
+    text-align: left;
+    color: #14171A;
+    border: 1px black solid;
+    
+    width: 100%;
+    margin: auto;
+    display: flex;
+    overflow-wrap: break-word;
+  }
+
+    .politician-photo {
+      flex: 1;
+      width: 151px;
+      height: 220px;
+      text-align: center;
+      font-size: 10pt;
+      margin: 5px;
+    }
+    
+    .politician-body {
+      padding: 20px;
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+      .politician-name {
+        flex: 2;
+        font-weight: bold;
+        font-size: 20pt;
+      }
+
+      .politician-description {
+        flex: 1;
+        font-size: 15pt;
+      }
+
+      .politician-site {
+        flex: 1;
+        font-size: 12pt;
+      }
 
 .traffic-map {
   height: 95%;
@@ -655,34 +723,34 @@ body {
   overflow: auto; 
   background-color: rgba(0,0,0,0.4); 
 }
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  background-color: white;
-  margin: auto;
-  width: 24rem;
-  border-radius: 0.5rem;
-}
-.modal-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: inherit;
-  height: auto;
-  padding: 1rem;
-  margin: auto;
-  border-bottom: 1px solid #000;
-}
-.modal-header h2 {
-  font-weight: bold;
-  font-size: 2rem;
-  margin: 0;
-}
-.modal-body {
-  display: flex;
-  flex-direction: column;
-}
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    margin: auto;
+    width: 24rem;
+    border-radius: 0.5rem;
+  }
+    .modal-header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: inherit;
+      height: auto;
+      padding: 1rem;
+      margin: auto;
+      border-bottom: 1px solid #000;
+    }
+    .modal-header h2 {
+      font-weight: bold;
+      font-size: 2rem;
+      margin: 0;
+    }
+    .modal-body {
+      display: flex;
+      flex-direction: column;
+    }
 .close {
   align-self: flex-end;
   color: #aaaaaa;
