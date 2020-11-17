@@ -120,18 +120,18 @@ def on_new_comment(data):
 def on_weather_request(data):
     """Recieve city, return back weather for the day"""
     request_name = data["city_name"]
-    
+
     zip_codes = {}
-    with open('weather_resources/zip_dict.json') as f:
-        zip_codes = json.load(f)
-    cities = set([line.strip() for line in open("weather_resources/city_list.txt", 'r')])
-    
+    with open('weather_resources/zip_dict.json') as zip_dict:
+        zip_codes = json.load(zip_dict)
+    cities = {line.strip() for line in open("weather_resources/city_list.txt", 'r')}
+
     if (request_name.isdigit() and request_name in zip_codes):
         request_name = zip_codes[request_name]
         weather_object = hourly_weather.fetch_weather(request_name)
         weather_object["city_name"] = request_name
         flask_socketio.emit("send weather", weather_object)
-    elif (request_name in cities):
+    elif request_name in cities:
         weather_object = hourly_weather.fetch_weather(request_name)
         weather_object["city_name"] = request_name
         flask_socketio.emit("send weather", weather_object)

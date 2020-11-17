@@ -26,11 +26,11 @@ export default function WeatherModule() {
             // eslint-disable-next-line no-shadow
             setCurrWeather((currWeather) => [...currWeather, iterWeather]);
         });
-        
-        Socket.on('weather error', (data) => {
-           setCurrCity("Hourly")
-           setCurrWeather([]);
-           setCurrWeather((currWeather) => [...currWeather, "Please enter a valid NJ zipcode or city name!"])
+
+        Socket.on('weather error', () => {
+            setCurrCity('Hourly');
+            setCurrWeather([]);
+            setCurrWeather((currWeather) => [...currWeather, 'Please enter a valid NJ zipcode or city name!']);
         });
     }, []);
 
