@@ -16,6 +16,7 @@ sys.path.append(join(dirname(__file__), "../"))
 # pylint: disable=C0415
 # pylint: disable=W0612
 # pylint: disable=E0401
+# pylint: disable=C0330
 
 
 def weather_do_nothing(one, two, three):
@@ -93,6 +94,7 @@ class MockedSQLBase:
 # pylint: disable=R0904
 class AppTestCases(unittest.TestCase):
     """Make all the test cases"""
+
     # pylint: disable=W0622
     # pylint: disable=R0913
 
@@ -144,7 +146,6 @@ class AppTestCases(unittest.TestCase):
             ],
         }
 
-
     def mock_get_latest_news(self):
         """Mock getting the latest news"""
         return [
@@ -155,10 +156,7 @@ class AppTestCases(unittest.TestCase):
                 "url": "A",
                 "image": "A",
                 "publishedAt": "A",
-                "source": {
-                    "name": "A",
-                    "url": "A"
-                }
+                "source": {"name": "A", "url": "A"},
             },
             {
                 "title": "A",
@@ -167,15 +165,12 @@ class AppTestCases(unittest.TestCase):
                 "url": "A",
                 "image": "A",
                 "publishedAt": "A",
-                "source": {
-                    "name": "A",
-                    "url": "A"
-                }
+                "source": {"name": "A", "url": "A"},
             },
         ]
 
     def mock_search_bills(
-            self, sort, type, chamber, state, search_window, updated_since
+        self, sort, type, chamber, state, search_window, updated_since
     ):
         """Mock searching bills through openstates"""
         return [
@@ -232,15 +227,15 @@ class AppTestCases(unittest.TestCase):
         elif channel == "news":
             for news in data:
                 if (
-                        "title" not in news
-                        or "description" not in news
-                        or "content" not in news
-                        or "url" not in news
-                        or "image" not in news
-                        or "publishedAt" not in news
-                        or "source" not in news
-                        or "name" not in news["source"]
-                        or "url" not in news["source"]
+                    "title" not in news
+                    or "description" not in news
+                    or "content" not in news
+                    or "url" not in news
+                    or "image" not in news
+                    or "publishedAt" not in news
+                    or "source" not in news
+                    or "name" not in news["source"]
+                    or "url" not in news["source"]
                 ):
                     raise ValueError
         elif channel == "political tweets":
@@ -248,33 +243,33 @@ class AppTestCases(unittest.TestCase):
                 raise ValueError("NO GOVENOR")
             for tweet in data["gov"]:
                 if (
-                        "text" not in tweet
-                        or "sname" not in tweet
-                        or "ppic" not in tweet
-                        or "uname" not in tweet
-                        or "time" not in tweet
-                        or "date" not in tweet
+                    "text" not in tweet
+                    or "sname" not in tweet
+                    or "ppic" not in tweet
+                    or "uname" not in tweet
+                    or "time" not in tweet
+                    or "date" not in tweet
                 ):
                     raise ValueError
             if "sen" not in data:
                 raise ValueError("NO SENATORS")
             for tweet in data["sen"]:
                 if (
-                        "text" not in tweet
-                        or "sname" not in tweet
-                        or "ppic" not in tweet
-                        or "uname" not in tweet
-                        or "time" not in tweet
-                        or "date" not in tweet
+                    "text" not in tweet
+                    or "sname" not in tweet
+                    or "ppic" not in tweet
+                    or "uname" not in tweet
+                    or "time" not in tweet
+                    or "date" not in tweet
                 ):
                     raise ValueError
         elif channel == "send bills":
             for bill in data["bills"]:
                 if (
-                        "title" not in bill
-                        or "updated_at" not in bill
-                        or "sponsors" not in bill
-                        or "last_action" not in bill
+                    "title" not in bill
+                    or "updated_at" not in bill
+                    or "sponsors" not in bill
+                    or "last_action" not in bill
                 ):
                     raise ValueError("VALUE MISSING IN BILL")
                 for sponsor in bill["sponsors"]:
@@ -303,7 +298,7 @@ class AppTestCases(unittest.TestCase):
     def test_app_runs_success(self):
         """Test successful test cases"""
         with mock.patch(
-                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
         ), mock.patch(
             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ):
@@ -315,7 +310,7 @@ class AppTestCases(unittest.TestCase):
     def test_app_new_comment(self):
         """Test successful new comments"""
         with mock.patch(
-                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
         ), mock.patch(
             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ), mock.patch(
@@ -328,7 +323,7 @@ class AppTestCases(unittest.TestCase):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
             with mock.patch("app.flask.request", mocker), mock.patch(
-                    "sqlalchemy.ext.declarative.declarative_base", mocker
+                "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
 
@@ -348,7 +343,7 @@ class AppTestCases(unittest.TestCase):
     def test_app_get_comments_success(self):
         """Test successful new comments"""
         with mock.patch(
-                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
         ), mock.patch(
             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ), mock.patch(
@@ -365,7 +360,7 @@ class AppTestCases(unittest.TestCase):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
             with mock.patch("app.flask.request", mocker), mock.patch(
-                    "sqlalchemy.ext.declarative.declarative_base", mocker
+                "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
 
@@ -374,7 +369,7 @@ class AppTestCases(unittest.TestCase):
     def test_app_get_comments_failure(self):
         """Test successful new comments"""
         with mock.patch(
-                "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
         ), mock.patch(
             "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
         ), mock.patch(
@@ -392,13 +387,12 @@ class AppTestCases(unittest.TestCase):
             mocker.values("AAAA")
             session_mocker = mock.MagicMock()
             with mock.patch("app.flask.request", mocker), mock.patch(
-                    "sqlalchemy.orm.sessionmaker", session_mocker
+                "sqlalchemy.orm.sessionmaker", session_mocker
             ):
                 import app
 
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
-
 
     def test_weather_sending(self):
         """test the on_weather_request function"""
@@ -408,18 +402,25 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
+
     def test_render_landing_page(self):
         """Test landing_page rendering"""
         import app
-        with mock.patch(
-                "flask.render_template", self.mocked_flask_render
-        ):
+
+        with mock.patch("flask.render_template", self.mocked_flask_render):
             app.landing_page()
+
+    def test_weekend_page(self):
+        """Test rendering index.html when client requests on /weekend path"""
+        import app
+
+        with mock.patch("flask.render_template", self.mocked_flask_render):
+            app.weekend_page()
 
     def test_on_pol_tweet_request(self):
         """test the on_pol_tweet_request function"""
         with mock.patch(
-                "tweets.get_politicians_latest_tweets", self.mock_get_latest_tweet
+            "tweets.get_politicians_latest_tweets", self.mock_get_latest_tweet
         ):
             import app
 
@@ -428,9 +429,7 @@ class AppTestCases(unittest.TestCase):
 
     def test_on_news_request(self):
         """test the on_news_request"""
-        with mock.patch(
-                "news.get_latest_news", self.mock_get_latest_news
-        ):
+        with mock.patch("news.get_latest_news", self.mock_get_latest_news):
             import app
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
@@ -439,12 +438,27 @@ class AppTestCases(unittest.TestCase):
     def test_on_bill_request(self):
         """Test the on_bills_request method"""
         with mock.patch("json.load", self.mock_json_load_oldcache_bills), mock.patch(
-                "pyopenstates.search_bills", self.mock_search_bills
+            "pyopenstates.search_bills", self.mock_search_bills
         ), mock.patch("builtins.open", mock.mock_open()):
             import app
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_bills_request()
+
+    def test_on_national_park(self):
+        """Test the on_nationl_parks method that emits back all the parks to requested client"""
+        import app
+
+        with mock.patch(
+            "app.flask_socketio.emit"
+        ) as mocked_flask_socketio_emit, mock.patch(
+            "app.national_parks"
+        ) as mocked_national_parks:
+            mocked_national_parks.return_value = ["array of parks"]
+            response = app.on_national_parks()
+            expected = ["array of parks"]
+            assert mocked_flask_socketio_emit.called_once
+            assert mocked_flask_socketio_emit.called_with(["array of parks"])
 
 
 if __name__ == "__main__":

@@ -3,6 +3,7 @@
     that it holds the logic defined
 """
 import sys
+from datetime import datetime
 import unittest
 import unittest.mock as mock
 from os.path import dirname, join
@@ -30,6 +31,9 @@ from national_parks import (
     KEY_IMAGE_ALT_TEXT,
     KEY_IMAGE_CAPTION,
     KEY_IMAGE_URL,
+    KEY_TIMESTAMP,
+    CACHE_LIFE,
+    KEY_ID,
 )
 
 KEY_EXPECTED = "expected"
@@ -56,8 +60,10 @@ class MockedRequestResponseSuccess:
         Mock JSON Decoding
         """
         return {
+            KEY_TIMESTAMP: datetime.now().timestamp() - 100,
             KEY_DATA: [
                 {
+                    KEY_ID: '12345',
                     KEY_FULLNAME: "washington park",
                     KEY_URL: "https://washingtonPark.com",
                     KEY_DESCRIPTION: "this is a nice park for childer of all age",
@@ -86,12 +92,14 @@ class MockedRequestResponseSuccess:
                         }
                     ],
                 }
-            ]
+            ],
         }
+
+
 class MockedRequestResponseFailure:
     """
     Mock Failure NPS API
-    Response in case of 
+    Response in case of
     reaching API call limit
     and nothing return as response
     """
@@ -108,41 +116,61 @@ class MockedRequestResponseFailure:
         Mock JSON Decoding
         """
         return {
-                KEY_ERROR: " reach your api call limit ",
+            KEY_ERROR: " reach your api call limit ",
         }
+
 
 class TestingNationlParksModule(unittest.TestCase):
     """
     All test for the module goes here
     """
 
+    # pylint: disable=R0201
+    def mock_json_load_newcache(self):
+        """Mock an up to date cache"""
+        new_time = datetime.now().timestamp()
+        return {KEY_TIMESTAMP: new_time, KEY_DATA: []}
+
+    def mock_json_load_oldcache(self):
+        """Mock an outdated cache"""
+        old_time = datetime.now().timestamp() - (CACHE_LIFE + 100)
+        return {KEY_TIMESTAMP: old_time}
+
+    @mock.patch("national_parks.json.load")
     @mock.patch("national_parks.requests.get")
-    def test_national_parks_success(self, mocked_requests_get):
+    def test_national_parks_old_cache_data(self, mocked_requests_get, mocked_json_load):
         """Testing some return values of function national_parks in national_parks"""
+        mocked_json_load.return_value = self.mock_json_load_oldcache()
         mocked_requests_get.return_value = MockedRequestResponseSuccess()
         response = national_parks()[0]
         expected = {
             KEY_PARK_NAME: "washington park",
             KEY_URL: "https://washingtonPark.com",
-            KEY_ACTIVITIES: [
-                "fishing"
-            ]
+            KEY_ACTIVITIES: ["fishing"],
         }
         self.assertEqual(response[KEY_PARK_NAME], expected[KEY_PARK_NAME])
         self.assertListEqual(response[KEY_ACTIVITIES], expected[KEY_ACTIVITIES])
         self.assertEqual(response[KEY_URL], expected[KEY_URL])
-        
+
+    @mock.patch("national_parks.json.load")
+    def test_national_parks_lastest_cache_data(self, mocked_json_load):
+        """Testing some return values of function national_parks in national_parks"""
+        mocked_json_load.return_value = self.mock_json_load_newcache()
+        response = national_parks()
+        expected = {KEY_TIMESTAMP: datetime.now().timestamp(), KEY_DATA: []}
+        self.assertListEqual(response, expected[KEY_DATA])
+
+    @mock.patch("national_parks.json.load")
     @mock.patch("national_parks.requests.get")
-    def test_national_parks_failure(self, mocked_requests_get):
+    def test_national_parks_failure(self, mocked_requests_get, mocked_json_load):
         """Testing the function when API call returns an errror or nothing"""
+        mocked_json_load.return_value = self.mock_json_load_oldcache()
         mocked_requests_get.return_value = MockedRequestResponseFailure()
         response = national_parks()
         expected = {
             KEY_PARK_NAME: "washington park",
             KEY_URL: "https://washingtonPark.com",
-            KEY_ACTIVITIES: [
-                "fishing"
-            ]
+            KEY_ACTIVITIES: ["fishing"],
         }
         self.assertNotEqual(response, expected)
         self.assertEqual(response, [])

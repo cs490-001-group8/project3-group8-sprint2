@@ -5,6 +5,7 @@ import NewsList from './NewsList';
 import WeatherModule from './WeatherModule';
 import TweetWidget from './TweetWidget';
 import BillsWidget from './BillsWidget';
+import NationalParks from './National_Parks/NationalParks';
 
 export default function TabWidgets({ currTab }) {
     if (currTab === 'Commuter') {
@@ -21,6 +22,13 @@ export default function TabWidgets({ currTab }) {
             <div className="tab-widgets-section">
                 <TweetWidget />
                 <BillsWidget />
+            </div>
+        );
+    }
+    if (currTab === 'Weekend') {
+        return (
+            <div className="tab-widgets-section">
+                <NationalParks />
             </div>
         );
     }

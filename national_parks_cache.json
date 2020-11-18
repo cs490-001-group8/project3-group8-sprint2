@@ -1,0 +1,41 @@
+{
+    "timestamp": 1605718887.164927,
+    "data": [
+        {
+            "id": "12345",
+            "name": "washington park",
+            "url": "https://washingtonPark.com",
+            "description": "this is a nice park for childer of all age",
+            "geocoding_coordinates": {
+                "latitude": "-39.0",
+                "longitude": "-40.0"
+            },
+            "activities": [
+                "fishing"
+            ],
+            "fees": [
+                {
+                    "cost": "0.0",
+                    "description": "There is no fees at all"
+                }
+            ],
+            "directionsInfo": "This trail can be access by bike and walking",
+            "directionsUrl": "http://www.nps.gov/appa/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "Open entire day",
+                    "standardHours": {
+                        "sunday": "all day"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/                                structured_data/3C8397D6-1DD8-B71B-0BEF4C54462A1EB3.jpg",
+                    "caption": "Nice image",
+                    "altText": "Sunlight reflects on water"
+                }
+            ]
+        }
+    ]
+}

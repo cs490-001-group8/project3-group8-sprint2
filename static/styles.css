@@ -706,3 +706,43 @@ body {
   font-family: Helvetica,sans-serif;
   font-size: 2rem;
 }
+/* National Park Module Styling */
+.park-container{
+  width: inherit;
+  height: inherit;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.park-container .header{
+  text-align: center;
+}
+.parks{
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: auto;
+}
+.park {
+  font-size: 2rem;
+  margin: 0.3rem;
+  padding: 1rem;
+  background: darkseagreen;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  transition: all 0.5s ease;
+}
+.park:hover{
+  transform: scale(1.01);
+}
+.park img{
+  float: left;
+  width: 10vw;
+  height: 10rem;
+  object-fit: cover;
+  margin: 0.2rem 1rem;
+  border-radius: 10%;
+}
+.park h2{
+  text-align: center;
+}
+.park-modal{
+  background: cadetblue;
+}

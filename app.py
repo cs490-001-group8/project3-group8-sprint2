@@ -17,6 +17,7 @@ import hourly_weather
 import tweets
 import news
 import bills
+from national_parks import national_parks
 
 load_dotenv()
 
@@ -41,10 +42,17 @@ def hello():
     """When someone opens the app, send them the page"""
     return flask.render_template("index.html")
 
+
 @APP.route("/landing_page")
 def landing_page():
     """When someone click About link, render landing page"""
     return flask.render_template("landing_page.html")
+
+
+@APP.route("/Weekend")
+def weekend_page():
+    """When someone click Weekend Out Tab, then refreshes the page"""
+    return flask.render_template("index.html")
 
 
 @SOCKETIO.on("log in")
@@ -81,6 +89,7 @@ def on_get_comments(data):
     except KeyError:
         return
 
+
 @SOCKETIO.on("new comment")
 def on_new_comment(data):
     """Process a new comment"""
@@ -101,6 +110,7 @@ def on_new_comment(data):
     except KeyError:
         return
 
+
 @SOCKETIO.on("weather request")
 def on_weather_request(data):
     """Recieve city, return back weather for the day"""
@@ -108,11 +118,13 @@ def on_weather_request(data):
     weather_object["city_name"] = data["city_name"]
     flask_socketio.emit("send weather", weather_object)
 
+
 @SOCKETIO.on("get political tweets")
 def on_pol_tweet_request():
     """Return tweets from politicians"""
     pol_tweets = tweets.get_politicians_latest_tweets()
     flask_socketio.emit("political tweets", pol_tweets)
+
 
 @SOCKETIO.on("get news")
 def on_news_request():
@@ -120,11 +132,20 @@ def on_news_request():
     news_object = news.get_latest_news()
     flask_socketio.emit("news", news_object)
 
+
 @SOCKETIO.on("get bills")
 def on_bills_request():
     """Returns bills for New Jersey"""
     bills_object = bills.get_recent_bills()
     flask_socketio.emit("send bills", bills_object)
+
+
+@SOCKETIO.on("get national parks")
+def on_national_parks():
+    """Returns all NJ National Parks"""
+    parks = national_parks()
+    flask_socketio.emit("national parks", {"parks": parks})
+
 
 if __name__ == "__main__":
     SOCKETIO.run(
