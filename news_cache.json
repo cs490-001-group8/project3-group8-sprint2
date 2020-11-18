@@ -1,64 +1,64 @@
 {
-    "timestamp": 1605570430.235206,
+    "timestamp": 1605713661.472836,
     "articles": [
         {
-            "title": "COVID-19 surges across the United States",
-            "description": "Philadelphia will ban indoor gatherings altogether and the New Jersey will strictly limit their size as US officials struggle to slow a COVID-19 surge that co...",
-            "content": "news, latest-news\nPhiladelphia will ban indoor gatherings altogether and the New Jersey will strictly limit their size as US officials struggle to slow a COVID-19 surge that could overwhelm hospitals and kill thousands. Philadelphia, the nation's six... [3273 chars]",
-            "url": "https://www.canberratimes.com.au/story/7015487/covid-19-surges-across-the-united-states/",
-            "image": "https://www.canberratimes.com.au/images/transform/v1/crop/frm/silverstone-feed-data/ee3c6bfe-e439-41e8-8866-6d116ded7c7e.jpg/r0_74_800_526_w1200_h678_fmax.jpg",
-            "publishedAt": "2020-11-16T22:23:44Z",
+            "title": "NJ woman arrested after selling sick puppy, illegal meds",
+            "description": "A New Jersey woman pretending to be a member of an animal rescue group has been charged with illegally prescribing medication to treat a sick puppy she sold to a customer, authorities said.",
+            "content": "A New Jersey woman pretending to be a member of an animal rescue group has been charged with illegally prescribing medication to treat a sick puppy she sold to a customer, authorities said.\nDawn Abrams, of Shamong, was arrested Friday after the custo... [913 chars]",
+            "url": "https://nypost.com/2020/11/17/nj-woman-arrested-after-selling-sick-puppy-illegal-meds/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/PuppyNJ.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-11-18T01:49:17Z",
             "source": {
-                "name": "The Canberra Times",
-                "url": "https://www.canberratimes.com.au/"
+                "name": "New York Post",
+                "url": "https://nypost.com/"
             }
         },
         {
-            "title": "Across party lines, Americans embrace marijuana legalization in 2020 election",
-            "description": "Recreational marijuana initiatives passed in four states this year, from liberal New Jersey to conservative Montana and South Dakota. The results prove how broadly accepted marijuana has become.",
-            "content": "article\nBill Stocker could be considered the archetype of a conservative voter: He's a retired Marine and former police officer who voted for President Donald Trump. But he's also among the majority of South Dakota voters who broadly legalized mariju... [5723 chars]",
-            "url": "https://www.fox4news.com/news/across-party-lines-americans-embrace-marijuana-legalization-in-2020-election",
-            "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/11/1280/720/GettyImages-1227698974.jpg?ve=1&tl=1",
-            "publishedAt": "2020-11-16T22:05:59Z",
+            "title": "Driver crashes through storefront window in road-rage attack",
+            "description": "The events unfolded around 2 p.m. in Flushing when two men driving a BMW had a dispute with the driver and passenger of a white Audi with New Jersey plates that was double parked there, cops said.",
+            "content": "An enraged motorist plowed into a rival \u2014 and straight through the front window of a Queens bakery \u2014 in a road-rage attack on Monday, video obtained by the Post shows.\nThe events unfolded around 2 p.m. at 41-21 Kissena Boulevard in Flushing when two ... [798 chars]",
+            "url": "https://nypost.com/2020/11/17/driver-crashes-through-storefront-window-in-road-rage-attack/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/queens-crash.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-11-17T22:53:32Z",
             "source": {
-                "name": "FOX 4 News",
-                "url": "https://www.fox4news.com/"
+                "name": "New York Post",
+                "url": "https://nypost.com/"
             }
         },
         {
-            "title": "New Jersey limits indoor, outdoor gatherings ahead of Thanksgiving as COVID surges",
-            "description": "New Jersey will limit the number of people allowed to gather indoors and outdoors in an effort to bring down skyrocketing COVID-19 infections and hospitalizations, Gov. Phil Murphy (D) announced Monday.",
-            "content": "New Jersey will limit the number of people allowed to gather indoors and outdoors in an effort to bring down skyrocketing COVID-19 infections and hospitalizations, Gov. Phil Murphy (D) announced Monday.\nThe limits on indoor gatherings will be dropped... [1771 chars]",
-            "url": "https://thehill.com/homenews/state-watch/526170-new-jersey-limits-indoor-outdoor-gatherings-ahead-of-thanksgiving-as",
-            "image": "https://thehill.com/sites/default/files/murphyphil_newjerseyofficeofthegovernor10212020.png",
-            "publishedAt": "2020-11-16T19:31:01Z",
+            "title": "Democratic lawmaker calls for DOJ investigation of entire Trump administration",
+            "description": "A New Jersey Democrat is calling for the Justice Department to investigate the entire Trump administration\u00a0upon President-elect Joe Biden's inauguration in January.",
+            "content": "A New Jersey Democrat is calling for the Justice Department to investigate the entire Trump administration upon President-elect Joe Biden Joe BidenTucker Carlson assures viewers his show 'not going anywhere' following presidential election Trump seni... [3065 chars]",
+            "url": "https://thehill.com/homenews/house/526418-dem-lawmaker-calls-for-doj-investigation-of-entire-trump-administration",
+            "image": "https://thehill.com/sites/default/files/pascrellbill_010920gn_lead.jpg",
+            "publishedAt": "2020-11-17T22:51:00Z",
             "source": {
                 "name": "The Hill",
                 "url": "https://thehill.com/"
             }
         },
         {
-            "title": "Philadelphia bans all indoor gatherings as COVID-19 surges across the United States",
-            "description": "The city of Philadelphia will ban indoor gatherings altogether and the nearby state of New Jersey will strictly limit their size as U.S. officials struggle to slow a COVID-19 surge that could overwhelm hospitals and kill thousands.",
-            "content": "WASHINGTON (Reuters) - The city of Philadelphia will ban indoor gatherings altogether and the nearby state of New Jersey will strictly limit their size as U.S. officials struggle to slow a COVID-19 surge that could overwhelm hospitals and kill thousa... [3877 chars]",
-            "url": "https://www.reuters.com/article/us-health-coronavirus-usa/philadelphia-bans-all-indoor-gatherings-as-covid-19-surges-across-the-united-states-idUSKBN27W1X1",
-            "image": "https://static.reuters.com/resources/r/?m=02&d=20201116&t=2&i=1541403931&r=LYNXMPEGAF1GY&w=800",
-            "publishedAt": "2020-11-16T19:28:33Z",
+            "title": "More Than a Third of New Jersey Residents Reluctant to Get Safe Covid-19 Vaccine",
+            "description": "Some 36% of New Jersey residents said they wouldn\u2019t be vaccinated for Covid-19 when a safe vaccine is available, according to a survey, despite a second surge of new cases in the state.",
+            "content": "More than one in three New Jersey residents said they wouldn\u2019t be vaccinated for Covid-19 when a safe vaccine is available, according to a survey, despite a second surge of new cases in the state.\nMoreover, some 47% of respondents said they \u201cprobably... [281 chars]",
+            "url": "https://www.wsj.com/articles/more-than-a-third-of-new-jersey-residents-reluctant-to-get-safe-covid-19-vaccine-11605648917",
+            "image": "https://images.wsj.net/im-261132/social",
+            "publishedAt": "2020-11-17T21:35:00Z",
             "source": {
-                "name": "Reuters",
-                "url": "https://www.reuters.com/"
+                "name": "The Wall Street Journal",
+                "url": "https://www.wsj.com/"
             }
         },
         {
-            "title": "Ranking the NHL's line of 'Retro Reverse' sweaters",
-            "description": "Every NHL team released a new jersey in one fell swoop for the first time in history. So let's rank 'em from great, to good, to Canucks.",
-            "content": "Never before has the NHL\u2019s full slate of teams collaborated for a league-wide launch of fresh jersey re-designs. That means after the NHL and Adidas combined for its Retro Reverse line for official release in stores and online on Dec. 1, we have an u... [3897 chars]",
-            "url": "https://ca.sports.yahoo.com/news/ranking-the-nhl-line-of-retro-reverse-sweaters-191422797.html",
-            "image": "https://s.yimg.com/uu/api/res/1.2/lI_6QIYQbuoGcs4OEupS1g--~B/aD01MTg7dz05MjA7c209MTthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2020-11/91dafa30-283f-11eb-9e6b-f614db867f7d",
-            "publishedAt": "2020-11-16T19:14:22Z",
+            "title": "Detroit Red Wings Reverse Retro Jerseys Acknowledge Past, Present",
+            "description": "The Detroit Red Wings' new Reverse Retro jersey takes elements from teams old and new, but has been met with mixed reviews thus far.",
+            "content": "There has been plenty of buzz about the release of Adidas\u2019 NHL Reverse Retro hockey jerseys yesterday. A quick look highlights flashy colors, alternate logos, and nods to the ghosts of teams past. The Detroit Red Wings, though, presented designers wi... [3897 chars]",
+            "url": "https://thehockeywriters.com/red-wings-reverse-retro-jersey/",
+            "image": "https://s3951.pcdn.co/wp-content/uploads/2015/09/Red-Wings-Reverse-Retro-1-scaled.jpg",
+            "publishedAt": "2020-11-17T20:50:59Z",
             "source": {
-                "name": "Yahoo Canada Sports",
-                "url": "https://ca.sports.yahoo.com/"
+                "name": "The Hockey Writers",
+                "url": "https://thehockeywriters.com/"
             }
         }
     ]

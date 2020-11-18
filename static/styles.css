@@ -171,7 +171,7 @@ body {
 .head {
   height: 10%;
   padding: 5px;
-  margin: 10px;
+  margin: 2px;
   display: grid;
   grid-template-columns: 25% auto 25%;
 }
@@ -202,7 +202,11 @@ body {
     grid-column-start: 2;
     grid-column-end: 3;
     margin: auto;
+    height: 100%;
   }
+.head-title img{
+  height: 100%;
+}
 
 .news-group {
   height: 90%;
