@@ -1,25 +1,13 @@
 {
-    "timestamp": 1605713661.472836,
+    "timestamp": 1605567584.24586,
     "articles": [
         {
-            "title": "NJ woman arrested after selling sick puppy, illegal meds",
-            "description": "A New Jersey woman pretending to be a member of an animal rescue group has been charged with illegally prescribing medication to treat a sick puppy she sold to a customer, authorities said.",
-            "content": "A New Jersey woman pretending to be a member of an animal rescue group has been charged with illegally prescribing medication to treat a sick puppy she sold to a customer, authorities said.\nDawn Abrams, of Shamong, was arrested Friday after the custo... [913 chars]",
-            "url": "https://nypost.com/2020/11/17/nj-woman-arrested-after-selling-sick-puppy-illegal-meds/",
-            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/PuppyNJ.jpg?quality=90&strip=all&w=1200",
-            "publishedAt": "2020-11-18T01:49:17Z",
-            "source": {
-                "name": "New York Post",
-                "url": "https://nypost.com/"
-            }
-        },
-        {
-            "title": "Driver crashes through storefront window in road-rage attack",
-            "description": "The events unfolded around 2 p.m. in Flushing when two men driving a BMW had a dispute with the driver and passenger of a white Audi with New Jersey plates that was double parked there, cops said.",
-            "content": "An enraged motorist plowed into a rival \u2014 and straight through the front window of a Queens bakery \u2014 in a road-rage attack on Monday, video obtained by the Post shows.\nThe events unfolded around 2 p.m. at 41-21 Kissena Boulevard in Flushing when two ... [798 chars]",
-            "url": "https://nypost.com/2020/11/17/driver-crashes-through-storefront-window-in-road-rage-attack/",
-            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/queens-crash.jpg?quality=90&strip=all&w=1200",
-            "publishedAt": "2020-11-17T22:53:32Z",
+            "title": "Across party lines, Americans embrace marijuana legalization in 2020 election",
+            "description": "Recreational marijuana initiatives passed in four states this year, from liberal New Jersey to conservative Montana and South Dakota. The results prove how broadly accepted marijuana has become.",
+            "content": "article\nBill Stocker could be considered the archetype of a conservative voter: He's a retired Marine and former police officer who voted for President Donald Trump. But he's also among the majority of South Dakota voters who broadly legalized mariju... [5723 chars]",
+            "url": "https://www.fox4news.com/news/across-party-lines-americans-embrace-marijuana-legalization-in-2020-election",
+            "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/11/1280/720/GettyImages-1227698974.jpg?ve=1&tl=1",
+            "publishedAt": "2020-11-16T22:05:59Z",
             "source": {
                 "name": "New York Post",
                 "url": "https://nypost.com/"
@@ -59,6 +47,18 @@
             "source": {
                 "name": "The Hockey Writers",
                 "url": "https://thehockeywriters.com/"
+            }
+        },
+        {
+            "title": "Gov. Murphy: 60 Percent Don't Respond To NJ COVID Contact Tracing",
+            "description": "Gov. Murphy: 60 Percent Don't Respond To NJ COVID Contact Tracing - Woodbridge, NJ - Gov. Phil Murphy said the state has seen a lot of noncompliance with contact tracers, particularly in New Jersey youth hockey.",
+            "content": "NEW JERSEY \u2013 Gov. Phil Murphy, speaking during a Monday news conference, implored New Jersey residents to do better with contact tracing as the second wave of coronavirus appears to be getting worse, and officials are seeing a failure to cooperate wi... [2345 chars]",
+            "url": "https://patch.com/new-jersey/woodbridge/gov-murphy-60-percent-dont-respond-nj-covid-contact-tracing",
+            "image": "https://patch.com/img/cdn20/users/65079/20201116/024535/styles/patch_image/public/49988266383-e98a05d0d6-o-1___16144524794.jpg",
+            "publishedAt": "2020-11-16T18:45:15Z",
+            "source": {
+                "name": "Joliet, IL Patch",
+                "url": "https://patch.com/"
             }
         }
     ]
