@@ -115,6 +115,8 @@ If you wish to check the linting on this project, execute the following commands
 2. Joseph Fiore
 	1. Create the Comment section and have it be different for every tab.
 	2. Create the widget displaying tweets from political figures.
+	3. Create widget displaying info on political figures.
+	4. Create widget displaying bills up for vote.
 3. Akash Patel
 	1. Create the Traffic Widget so it shows a map of NJ and the traffic within.
 	2. Create the page's landing page and set up that page's CSS.
