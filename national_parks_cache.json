@@ -1,39 +1,877 @@
 {
-    "timestamp": 1605718887.164927,
+    "timestamp": 1605805280.187473,
     "data": [
         {
-            "id": "12345",
-            "name": "washington park",
-            "url": "https://washingtonPark.com",
-            "description": "this is a nice park for childer of all age",
+            "id": "FAEF5684-83A4-4CF2-A701-60CF8D4014BD",
+            "name": "Appalachian National Scenic Trail",
+            "url": "https://www.nps.gov/appa/index.htm",
+            "description": "The Appalachian Trail is a 2,180+ mile long public footpath that traverses the scenic, wooded, pastoral, wild, and culturally resonant lands of the Appalachian Mountains. Conceived in 1921, built by private citizens, and completed in 1937, today the trail is managed by the National Park Service, US Forest Service, Appalachian Trail Conservancy, numerous state agencies and thousands of volunteers.",
             "geocoding_coordinates": {
-                "latitude": "-39.0",
-                "longitude": "-40.0"
+                "latitude": "40.41029575",
+                "longitude": "-76.4337548"
             },
             "activities": [
-                "fishing"
+                "Astronomy",
+                "Stargazing",
+                "Camping",
+                "Backcountry Camping",
+                "Compass and GPS",
+                "Orienteering",
+                "Guided Tours",
+                "Self-Guided Tours - Walking",
+                "Hands-On",
+                "Citizen Science",
+                "Volunteer Vacation",
+                "Hiking",
+                "Backcountry Hiking",
+                "Front-Country Hiking",
+                "Junior Ranger Program",
+                "Snowshoeing",
+                "Wildlife Watching",
+                "Birdwatching"
             ],
             "fees": [
                 {
-                    "cost": "0.0",
-                    "description": "There is no fees at all"
+                    "cost": "0.00",
+                    "description": "The Appalachian National Scenic Trail (NST) does not charge an entrance fee for use of the trail on Appalachian NST land."
                 }
             ],
-            "directionsInfo": "This trail can be access by bike and walking",
+            "directionsInfo": "There are many points of access along the Appalachian Trail, whether it is by car, train, bus or plane. For more detailed directions, please refer to the \"Directions\" section of our park webpage.",
             "directionsUrl": "http://www.nps.gov/appa/planyourvisit/directions.htm",
             "operatingHours": [
                 {
-                    "description": "Open entire day",
+                    "description": "In general, the Appalachian Trail is open year-round. The northern terminus at Mount Katahdin in Maine is within Baxter State Park, which may be closed in winter months, depending on weather conditions. \nParticular sections of the Trail, and less-developed roads accessing the Trail, may be closed temporarily for a number of reasons, but otherwise the trail is open.",
                     "standardHours": {
-                        "sunday": "all day"
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
                     }
                 }
             ],
             "images": [
                 {
-                    "url": "https://www.nps.gov/common/uploads/                                structured_data/3C8397D6-1DD8-B71B-0BEF4C54462A1EB3.jpg",
-                    "caption": "Nice image",
-                    "altText": "Sunlight reflects on water"
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C8397D6-1DD8-B71B-0BEF4C54462A1EB3.jpg",
+                    "caption": "McAfee Knob is one of the most popular locations along the A.T. to take photographs.",
+                    "altText": "Silhouette of a man with backpack standing on McAfee Knob at sunset with mountains in the distance."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C83A128-1DD8-B71B-0B02DED286AFD8C6.jpg",
+                    "caption": "Crossing into thirteen states, hikers experience a variety of scenery along the way.",
+                    "altText": "The Appalachian Trail runs across a mountain ridge line with views to the horizon of mountain range."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C83A2B0-1DD8-B71B-0B4589220F4D60D9.jpg",
+                    "caption": "The white blaze marks the Appalachian Trail as a way for hikers to identify the route.",
+                    "altText": "A white blaze marks a tree in the foreground, with a man and child walking away on the wooded trail."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C83A442-1DD8-B71B-0BD0A5F2BD69B9F6.jpg",
+                    "caption": "The Appalachian Trail is maintained largely by volunteers.",
+                    "altText": "A volunteer is carrying a split log while walking across a wooden footbridge in the woods."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C83A59A-1DD8-B71B-0BBFB87BBDDAABD6.jpg",
+                    "caption": "Hikers can experience many seasons along the A.T. all year round. It is important to be prepared.",
+                    "altText": "A snowy winter view from the A.T. overlooking snowy mountains and clouds in the distance."
+                }
+            ]
+        },
+        {
+            "id": "90496999-F497-408F-BB2E-6E58FA511CDB",
+            "name": "Crossroads of the American Revolution National Heritage Area",
+            "url": "https://www.nps.gov/xrds/index.htm",
+            "description": "From the heights of the Palisades at Fort Lee to the shores of the Delaware River at Red Bank Battlefield, the Crossroads of the American Revolution offers an unprecedented opportunity to understand and celebrate New Jersey\u2019s rich history. Historic sites, preservation groups, schools, libraries, and museum work together to tell these unique stories.",
+            "geocoding_coordinates": {
+                "latitude": "40.4621353149414",
+                "longitude": "-74.5613021850586"
+            },
+            "activities": [],
+            "fees": [],
+            "directionsInfo": "",
+            "directionsUrl": "",
+            "operatingHours": [],
+            "images": []
+        },
+        {
+            "id": "ECCA243E-109D-4D73-8546-B0A2553DD9E5",
+            "name": "Delaware Water Gap National Recreation Area",
+            "url": "https://www.nps.gov/dewa/index.htm",
+            "description": "Paddlers slip down the river between low forested mountains; anglers wade the trout streams; hikers scan the valley from the ridge or peer into the 1000-foot-deep Water Gap. The valley has known human hand and voice for 10,000 years. Floodplains nourished the Native farmer; waterfalls drew the Victorian vacationer. Today, a 70,000-acre park welcomes those who seek the outdoors close to home.",
+            "geocoding_coordinates": {
+                "latitude": "41.12793491",
+                "longitude": "-74.94751173"
+            },
+            "activities": [
+                "Arts and Culture",
+                "Scenic Driving",
+                "Biking",
+                "Boating",
+                "Backcountry Camping",
+                "Canoe or Kayak Camping",
+                "Car or Front Country Camping",
+                "Group Camping",
+                "RV Camping",
+                "Climbing",
+                "Fishing",
+                "Picnicking",
+                "Guided Tours",
+                "Hiking",
+                "Horseback Riding",
+                "Hunting",
+                "Canoeing",
+                "Canoe or Kayak Camping",
+                "Kayaking",
+                "Junior Ranger Program",
+                "Cross-Country Skiing",
+                "Snowshoeing",
+                "Freshwater Swimming",
+                "Birdwatching",
+                "Museum Exhibits",
+                "Bookstore and Park Store"
+            ],
+            "fees": [
+                {
+                    "cost": "0.00",
+                    "description": "The Park does does not charge an entrance fee but does have expanded amenity fees."
+                },
+                {
+                    "cost": "45.00",
+                    "description": "We have season passes for $45.00 that are good for one vehicle only in this park only (DEWA); a 2nd pass for vehicles registered to same address is $25.00; a 3rd pass for vehicles registered to same address is $12.50, and 4th pass for vehicles registered to same address is $6.25. Senior and Accessible fees are 1/2 price of season passes."
+                },
+                {
+                    "cost": "10.00",
+                    "description": "Expanded amenity fees are collected at Smithfield Beach, Milford Beach, Bushkill Access, in Dingmans Access in PA and Turtle Beach and Watergate in NJ.\n\nDaily fees are per vehicle for up to 7 adult occupants. Any additional adults are $2.00 per person. We do not charge for children 15 and younger."
+                },
+                {
+                    "cost": "2.00",
+                    "description": "Expanded amenity fees are collected at Smithfield Beach, Milford Beach, Bushkill Access, in Dingmans Access in PA and Turtle Beach and Watergate in NJ.\n\nThose who walk or bicycle in to use the beaches are charged a fee."
+                },
+                {
+                    "cost": "2.00",
+                    "description": "Expanded amenity fees are collected at Smithfield Beach, Milford Beach, Bushkill Access, in Dingmans Access in PA and Turtle Beach and Watergate in NJ.\n\nThose who walk in to use the beaches are charged a fee."
+                }
+            ],
+            "directionsInfo": "Delaware Water Gap National Recreation Area is a long, narrow park that sits between two major interstates, I-80 at the south and I-84 at the north. US 209 is the main north/south road through the park on the Pennsylvania side and Old Mine Road is the main north/south road though the park on the New Jersey side.",
+            "directionsUrl": "http://www.nps.gov/dewa/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "Most of the park is open 24-hours a day. Most day-use ares within the park are open sunrise to sunset (such as trailhead parking lots and picnic areas).",
+                    "standardHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C79C4E3-1DD8-B71B-0B9EC12DFCA00E1C.jpg",
+                    "caption": "The Delaware Water Gap is the best known feature of the park, a distinct notch cut into the Kittatinny Ridge by the Delaware River.",
+                    "altText": "View of the Delaware Water Gap from river level"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C79C5ED-1DD8-B71B-0BFDBB0313C6B8A7.jpg",
+                    "caption": "Fulmer Falls is the second of three waterfalls in George W. Childs Park",
+                    "altText": "A waterfall in the background moves towards the viewer through a rocky riverbed"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C79C725-1DD8-B71B-0BF77E79A3DBB0E3.jpg",
+                    "caption": "A woman braids rye straw for hatmaking",
+                    "altText": "A woman braids rye straw for hatmaking"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C79C832-1DD8-B71B-0BAACF8A16A81B90.jpg",
+                    "caption": "High view of the Delaware River from atop Mount Tammany",
+                    "altText": "a snaking river view from a mountain top"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C79CA13-1DD8-B71B-0B31EF4B06834D81.jpg",
+                    "caption": "Great Blue Herons attend their nests in a tree",
+                    "altText": "Great Blue Herons attending their nests in a tree"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/47B1994C-1DD8-B71B-0BC5F687A7941034.jpg",
+                    "caption": "Dingmans Falls as seen from the wheel chair and stroller accessible boardwalk",
+                    "altText": "Dingmans Falls on May 20, 2016"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/48A04A6F-1DD8-B71B-0B8CFD4841E55718.jpg",
+                    "caption": "Silver Thread Falls, as seen from the Dingmans Falls Boardwalk",
+                    "altText": "Silver Thread Falls, at Dingmans Falls Visitor Center"
+                }
+            ]
+        },
+        {
+            "id": "73A512A3-807A-457C-8A3B-5862C9C28BBD",
+            "name": "Ellis Island Part of Statue of Liberty National Monument",
+            "url": "https://www.nps.gov/elis/index.htm",
+            "description": "How far would you travel to find a better life? What if the journey took weeks under difficult conditions? If you answered \"Whatever it takes,\" you echo the feelings of the 12 million immigrants who passed through these now quiet halls from 1892 to 1954. Ellis Island afforded them the opportunity to attain the American dream for themselves and their descendants. Come hear their stories.",
+            "geocoding_coordinates": {
+                "latitude": "40.69946",
+                "longitude": "-74.0401"
+            },
+            "activities": [
+                "Food",
+                "Dining",
+                "Picnicking",
+                "Guided Tours",
+                "Self-Guided Tours - Walking",
+                "Boat Tour",
+                "Junior Ranger Program",
+                "Park Film",
+                "Museum Exhibits",
+                "Shopping",
+                "Bookstore and Park Store",
+                "Gift Shop and Souvenirs"
+            ],
+            "fees": [
+                {
+                    "cost": "0.00",
+                    "description": "There is no entrance fee. All visitors must purchase ferry tickets through Statue Cruises (1-877-LADYTIX (877-523-9849) or at statuecruises.com). Please note that the Hard Hat Tour requires advanced reservations also through Statue Cruises. Please visit our 'Plan Your Visit' page for additional information."
+                }
+            ],
+            "directionsInfo": "Ellis Island is located in New York Harbor, and can only be reached by boat. Ferries are operated by Statue Cruises, and depart from Battery Park in Lower Manhattan in New York City. Ferries are also available from Liberty State Park in Jersey City, New Jersey.",
+            "directionsUrl": "http://www.nps.gov/elis/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "Access to Liberty and Ellis Islands is by Statue Cruises ferry only. For ferry departure times and ticketing information visit <a href=\"http://www.statuecruises.com\">statuecruises.com</a> or call 1-877-LADY-TIX. \n\nThe Statue of Liberty interior, including the pedestal and crown, remain closed.",
+                    "standardHours": {
+                        "wednesday": "9:30AM - 4:45PM",
+                        "monday": "9:30AM - 4:45PM",
+                        "thursday": "9:30AM - 4:45PM",
+                        "sunday": "9:30AM - 4:45PM",
+                        "tuesday": "9:30AM - 4:45PM",
+                        "friday": "9:30AM - 4:45PM",
+                        "saturday": "9:30AM - 4:45PM"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C856FAB-1DD8-B71B-0B0DD7A0B6955955.jpg",
+                    "caption": "Over 12 million immigrants were processed at Ellis Island during the peak years of 1892-1924, most through this building which opened in 1900.",
+                    "altText": "Beaux-Arts brick and limestone building with large arched windows and cupola-topped towers."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C85712F-1DD8-B71B-0B34087F99512E73.jpg",
+                    "caption": "The Registry Room, also known as the Great Hall, is where millions of immigrants were inspected. They were required to pass both a medical and legal inspection before being allowed to enter the United States.",
+                    "altText": "Great Hall has terra cotta-colored tile floor, a balcony, large arched windows, and vaulted ceiling"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C8572BD-1DD8-B71B-0B81C6A8E9D0420C.jpg",
+                    "caption": "Visitors to the museum today arrive by ferry, just like immigrants did a century ago.",
+                    "altText": "Brick and limestone building with maroon canopy leading to entrance."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C8573F0-1DD8-B71B-0B81984644CB246E.jpg",
+                    "caption": "Inspectors at Ellis Island would conduct the legal examination from behind desks like these a century ago.",
+                    "altText": "Honey oak colored tall desk on tiled floor in Great Hall with arched windows and vaulted ceiling."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C857565-1DD8-B71B-0B2A86EE555A1F4D.jpg",
+                    "caption": "Ellis Island was expanded from just a couple acres to over 30 to make room for a large immigration processing station, that included a state of the art hospital complex.",
+                    "altText": "Artificially-expanded largely rectangular island with straight seawalls and large buildings."
+                }
+            ]
+        },
+        {
+            "id": "BBC5BE3F-E921-40B5-A850-F259D9FAF88C",
+            "name": "Gateway National Recreation Area",
+            "url": "https://www.nps.gov/gate/index.htm",
+            "description": "Spanning 27,000 acres from Sandy Hook in New Jersey to Breezy Point in New York City, the park is both the gateway from the ocean into New York Harbor, and the gateway to the National Park Service for millions of visitors every year. Gateway offers green spaces and beaches alongside historic structures and cultural landscapes. Every day, Gateway is open for you to explore, envision, and enjoy!",
+            "geocoding_coordinates": {
+                "latitude": "40.56536246",
+                "longitude": "-73.9171087"
+            },
+            "activities": [
+                "Biking",
+                "Boating",
+                "Camping",
+                "Fishing",
+                "Guided Tours",
+                "Paddling",
+                "Kayaking",
+                "Swimming",
+                "Saltwater Swimming"
+            ],
+            "fees": [
+                {
+                    "cost": "15.00",
+                    "description": "Gateway has no entrance fees, but charges parking fees from the Saturday before Memorial Day through Labor Day.  Access Pass holders and Senior Pass holders will receive a 50% discount off of parking fees.\nIA Military Pass holders along with their family and IA EKIP (Every Kid in a Park) Fourth Grade Pass holders along with their families   will receive free beach parking."
+                },
+                {
+                    "cost": "75.00",
+                    "description": "Gateway has no entrance fees, but charges parking fees at Sandy Hook from the Saturday before Memorial Day through Labor Day.  Access Pass holders and Senior Pass holders will receive a 50% discount off of beach parking.\nIA Military Pass holders along with their families and IA EKIP (Every Kid in a Park) Fourth Grade Pass holders along with their families will receive free beach parking."
+                },
+                {
+                    "cost": "10.00",
+                    "description": "Gateway has no entrance fees, but charges parking fees for Jacob Riis park from the Saturday before Memorial Day through Labor Day.  Access Pass holders and Senior Pass holders will receive a 50% discount off of beach parking.\nIA Military Pass holders along with their families and IA EKIP (Every Kid in a Park) Fourth Grade Pass holders along with their families will receive free beach parking."
+                },
+                {
+                    "cost": "65.00",
+                    "description": "Gateway has no entrance fees, but charges for parking at Jacob Riis Park from the Saturday before Memorial Day through Labor Day.  Access Pass holders and Senior Pass holders will receive a 50% discount off of beach parking.\nIA Military Pass holders along with their families and IA EKIP (Every Kid in a Park) Fourth Grade pass holders along with their families will receive free beach parking."
+                }
+            ],
+            "directionsInfo": "Gateway is located in two states; NJ and NY, and has three units: Jamaica Bay, Sandy Hook and Staten Island. You can access most of our park by car and public transportation. Please visit our website for specific directions to all of our units",
+            "directionsUrl": "http://www.nps.gov/gate/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "Includes Bergen Beach, Floyd Bennett Field, Fort Tilden, Frank Charles Park, Hamilton Beach, Jamaica Bay Wildlife Refuge and Plumb Beach.\nHours for Canarsie Pier are from 5:00 am until 9:00 p.m. daily.\n\nAll of our buildings are currently closed in response to New York and New Jersey\u2019s Executive Orders to close all non-life sustaining operations to curb the spread of COVID-19.",
+                    "standardHours": {
+                        "wednesday": "Sunrise to Sunset",
+                        "monday": "Sunrise to Sunset",
+                        "thursday": "Sunrise to Sunset",
+                        "sunday": "Sunrise to Sunset",
+                        "tuesday": "Sunrise to Sunset",
+                        "friday": "Sunrise to Sunset",
+                        "saturday": "Sunrise to Sunset"
+                    }
+                },
+                {
+                    "description": "Sandy Hook is open from 5 am to 8 pm. All of our buildings are currently closed in response to New York and New Jersey\u2019s Executive Orders to close all non-life sustaining operations to curb the spread of COVID-19.",
+                    "standardHours": {
+                        "wednesday": "5:00AM - 8:00PM",
+                        "monday": "5:00AM - 8:00PM",
+                        "thursday": "5:00AM - 8:00PM",
+                        "sunday": "5:00AM - 8:00PM",
+                        "tuesday": "5:00AM - 8:00PM",
+                        "friday": "5:00AM - 8:00PM",
+                        "saturday": "5:00AM - 8:00PM"
+                    }
+                },
+                {
+                    "description": "The Staten Island unit includes Fort Wadsworth, Great Kills and Miller Field.\n\nThe Fort Wadsworth visitor center is typically open Friday through Sunday noon am to 4 pm.\n\nAll units of Staten Island are open between 7 a.m. and 9 p.m.\n\nAll of our buildings are currently closed in response to New York and New Jersey\u2019s Executive Orders to close all non-life sustaining operations to curb the spread of COVID-19.",
+                    "standardHours": {
+                        "wednesday": "7:00AM - 9:00PM",
+                        "monday": "7:00AM - 9:00PM",
+                        "thursday": "7:00AM - 9:00PM",
+                        "sunday": "7:00AM - 9:00PM",
+                        "tuesday": "7:00AM - 9:00PM",
+                        "friday": "7:00AM - 9:00PM",
+                        "saturday": "7:00AM - 9:00PM"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C85156E-1DD8-B71B-0BBB764337412E34.jpg",
+                    "caption": "You can camp at all three units of Gateway, in the shadow of NYC.",
+                    "altText": "Tent at  Floyd Bennett Field campsite in Gateway's Jamaica Bay unit."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C8518CD-1DD8-B71B-0B6CEBA11C295B38.jpg",
+                    "caption": "Millions of visitors visit Gateway's beaches every summer.",
+                    "altText": "Visitors enjoying the sun and sand at Jacob Riis Park"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C851E18-1DD8-B71B-0BBD48DFDC6DB80D.jpg",
+                    "caption": "The Jamaica Bay Wildlife Refuge is the only wildlife refuge in the National Park Service",
+                    "altText": "The Jamaica Bay Wildlife Refuge Visitor Center"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C852120-1DD8-B71B-0B85070979DC9284.jpg",
+                    "caption": "The Sandy Hook Lighthouse is the oldest continuously operating lighthouse in the United States.",
+                    "altText": "The Sandy Hook lighthouse and keepers quarters"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C852619-1DD8-B71B-0B6D168C73AFBBA8.jpg",
+                    "caption": "Battery Weeds guards the entrance to the New York harbor.",
+                    "altText": "Battery Weed is the fort under the Verrazano Narrows Bridge in Staten Island."
+                }
+            ]
+        },
+        {
+            "id": "5B1021C9-5F48-4747-B0E4-6F508FDF96AE",
+            "name": "Great Egg Harbor River",
+            "url": "https://www.nps.gov/greg/index.htm",
+            "description": "The River gradually widens as it picks up the waters of 17 tributaries on its way to Great Egg Harbor and the Atlantic Ocean. Established by Congress in 1992, nearly all of this 129-mile river system rests within the Pinelands National Reserve. This National Park Service unit is unusual in that local jurisdictions continue to administer the lands.",
+            "geocoding_coordinates": {
+                "latitude": "39.30421499",
+                "longitude": "-74.64969521"
+            },
+            "activities": [
+                "Astronomy",
+                "Stargazing",
+                "Biking",
+                "Boating",
+                "Camping",
+                "Fishing",
+                "Freshwater Fishing",
+                "Saltwater Fishing",
+                "Food",
+                "Picnicking",
+                "Guided Tours",
+                "Self-Guided Tours - Walking",
+                "Hiking",
+                "Hunting and Gathering",
+                "Hunting",
+                "Paddling",
+                "Canoeing",
+                "Canoe or Kayak Camping",
+                "Kayaking",
+                "Stand Up Paddleboarding",
+                "Tubing",
+                "River Tubing",
+                "Wildlife Watching",
+                "Birdwatching"
+            ],
+            "fees": [
+                {
+                    "cost": "0.00",
+                    "description": "The Great Egg Harbor River is fee free. For details and information, visit, http://www.rivers.gov/rivers/great-egg-harbor.php."
+                }
+            ],
+            "directionsInfo": "Estell Manor Park, where visitors can see the Great Egg Harbor National Scenic and Recreational River, is located 3.5 miles South of Mays Landing, New Jersey, off of Route 50. It is approximately 17 miles west of Atlantic City. There is a stamper for Passport Stamp Books at the Fox Nature Center, and a stamp can be obtained at the mailing address provided below.",
+            "directionsUrl": "http://www.aclink.org/PARKS/mainpages/estell.asp",
+            "operatingHours": [
+                {
+                    "description": "The Great Egg Harbor River is a 55.0-mile-long (88.5 km) river in southern New Jersey in the United States. It is one of the major rivers that traverse the largely pristine Pinelands, draining 308 square miles (800 km2) of wetlands into the Atlantic Ocean at Great Egg Harbor, from which it takes its name. At river location in Estell Manor Park - please check (609) 625-1897 for hours.",
+                    "standardHours": {
+                        "wednesday": "Sunrise to Sunset",
+                        "monday": "Sunrise to Sunset",
+                        "thursday": "Sunrise to Sunset",
+                        "sunday": "Sunrise to Sunset",
+                        "tuesday": "Sunrise to Sunset",
+                        "friday": "Sunrise to Sunset",
+                        "saturday": "Sunrise to Sunset"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/69830EAB-1DD8-B71B-0B2995AFD827B8FB.jpg",
+                    "caption": "Great Egg Harbor River downstream from Mill Street (New Jersey Route 559) in Mays Landing, New Jersey",
+                    "altText": "Still river in the winter with leafless trees on either side"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/425BFE7C-1DD8-B71B-0BEAD91965AC7890.jpg",
+                    "caption": "Gibson Creek",
+                    "altText": "Sun setting over the river."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/4264700A-1DD8-B71B-0BE6A35701B10E72.jpg",
+                    "caption": "Students learn about river resources on a floating classroom.",
+                    "altText": "School group examines a fish held by the instructor."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/4276EC67-1DD8-B71B-0B3D7FCEDB5CFD39.jpg",
+                    "caption": "Haley's Comet over the Great Egg Harbor River",
+                    "altText": "Bright white comet in the early night sky reflects over the river."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/4289A3A9-1DD8-B71B-0BFCF884DB700B09.jpg",
+                    "caption": "The Great Egg Harbor River",
+                    "altText": "Winding river surrounded by grasslands on a cloudy day."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/42912E18-1DD8-B71B-0BB2C9B86833D9CF.jpg",
+                    "caption": "Tuckahoe Osprey",
+                    "altText": "Medium sized Osprey in a next along the river"
+                }
+            ]
+        },
+        {
+            "id": "64FF65B7-0847-4495-9464-667CAFBF4D16",
+            "name": "Lower Delaware National Wild and Scenic River",
+            "url": "https://www.nps.gov/lode/index.htm",
+            "description": "The largest free-flowing river in the eastern United States, the Delaware River runs past forests, farmlands, and villages, and it also links some of the most densely populated regions in America. In 2000, the National Wild and Scenic River System incorporated key segments of the lower Delaware River to form this unit of the National Park System.",
+            "geocoding_coordinates": {
+                "latitude": "40.4000389",
+                "longitude": "-74.983737"
+            },
+            "activities": [
+                "Auto and ATV",
+                "Scenic Driving",
+                "Boating",
+                "Camping",
+                "Fishing",
+                "Food",
+                "Picnicking",
+                "Hiking",
+                "Paddling",
+                "Junior Ranger Program"
+            ],
+            "fees": [
+                {
+                    "cost": "0.00",
+                    "description": "There are no fees associated with the Lower Delaware National Wild & Scenic River. However, there are private organizations operating near the river that may charge for their services."
+                }
+            ],
+            "directionsInfo": "The Lower Delaware National Wild and Scenic River is located between Interstate 80 (at Portland, Pennsylvania and Columbia, New Jersey) and Interstate 95 (at exit 51 in Washington Crossing, Pennsylvania and exit 1 in Washington Crossing, New Jersey). In Pennsylvania, follow PA-611 and PA-32 to drive along the river. In New Jersey, follow NJ-29 south of Frenchtown for a drive along the river.",
+            "directionsUrl": "http://www.nps.gov/lode/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "The largest free-flowing river in the eastern United States, the Delaware River runs past forests, farmlands, and villages, and it also links some of the most densely populated regions in America. In 2000, the National Wild and Scenic River System incorporated key segments of the lower Delaware River to form this unit of the National Park System.",
+                    "standardHours": {
+                        "wednesday": "Sunrise to Sunset",
+                        "monday": "Sunrise to Sunset",
+                        "thursday": "Sunrise to Sunset",
+                        "sunday": "Sunrise to Sunset",
+                        "tuesday": "Sunrise to Sunset",
+                        "friday": "Sunrise to Sunset",
+                        "saturday": "Sunrise to Sunset"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C7A403C-1DD8-B71B-0B48D4D57314EA3D.jpg",
+                    "caption": "Locks were used to move boats overland via canals",
+                    "altText": "A rural boat lock with a gate"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C7A4199-1DD8-B71B-0BBB639114F35E91.jpg",
+                    "caption": "The Bridge from Lumberville, PA to Bulls Island Recreation Area, NJ",
+                    "altText": "An old stone-pier bridge over a river"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C7A42DB-1DD8-B71B-0BD49DA7BCB7957C.jpg",
+                    "caption": "Sojourners enter the river at Martins Creek, PA",
+                    "altText": "Kayakers enter the river from a riverside beach"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C7A4445-1DD8-B71B-0B3381881EA2DFAC.jpg",
+                    "caption": "Butterfly at Delaware Canal State Park near Upper Black Eddy, PA",
+                    "altText": "butterfly lands on a maple leaf"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C7A45C5-1DD8-B71B-0BFD51D64F58C9A9.jpg",
+                    "caption": "Visitors overlook the waterfall",
+                    "altText": "water falls over a layered stone cliff face"
+                }
+            ]
+        },
+        {
+            "id": "D68D9424-CD32-434F-88BF-3069ADFB2744",
+            "name": "Morristown National Historical Park",
+            "url": "https://www.nps.gov/morr/index.htm",
+            "description": "Morristown National Historical Park commemorates the sites of General Washington and the Continental army\u2019s winter encampment of December 1779 to June 1780, where they survived through what would be the coldest winter on record. The park also maintains a museum & library collection related to the encampments & George Washington, as well as items relating to pre- and post-Revolutionary America.",
+            "geocoding_coordinates": {
+                "latitude": "40.7650755",
+                "longitude": "-74.53455122"
+            },
+            "activities": [
+                "Arts and Culture",
+                "Craft Demonstrations",
+                "Biking",
+                "Guided Tours",
+                "Self-Guided Tours - Walking",
+                "Hiking",
+                "Front-Country Hiking",
+                "Horse Trekking",
+                "Horseback Riding",
+                "Living History",
+                "Reenactments",
+                "Historic Weapons Demonstration",
+                "First Person Interpretation",
+                "Junior Ranger Program",
+                "Wildlife Watching",
+                "Birdwatching",
+                "Park Film",
+                "Museum Exhibits",
+                "Shopping",
+                "Bookstore and Park Store",
+                "Gift Shop and Souvenirs"
+            ],
+            "fees": [
+                {
+                    "cost": "0.00",
+                    "description": "Morristown National Historical Park does not charge admission. All park grounds and facilities are free."
+                }
+            ],
+            "directionsInfo": "Morristown National Historical Park is the easiest to see by car. We have 4 different locations throughout the greater Morristown area. Washington's Headquarters Museum and Ford Mansion as well as Jockey Hollow Visitor Center and Wick House are the two main areas of the Park. The other two locations include Fort Nonsense and the New Jersey Brigade area. Detailed directions are on the park website.",
+            "directionsUrl": "http://www.nps.gov/morr/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "Currently all public buildings are closed.  Park grounds  are currently open 8am - 5pm daily. Visitor Contact stations at Washington's Headquarters and the Visitor Center open Friday, Saturday and Sunday 11-4.  \u202fPortable toilets are available at the Jockey Hollow Visitor Center parking lot, NY Brigade parking lot and Headquarters Museum parking lot.  We are working to increase access to the park in a phased approach, check http://www.nps.gov/morr/planyourvisit/hours.htm for the most up to date information.",
+                    "standardHours": {
+                        "wednesday": "8:00AM - 5:00PM",
+                        "monday": "8:00AM - 5:00PM",
+                        "thursday": "8:00AM - 5:00PM",
+                        "sunday": "8:00AM - 5:00PM",
+                        "tuesday": "8:00AM - 5:00PM",
+                        "friday": "8:00AM - 5:00PM",
+                        "saturday": "8:00AM - 5:00PM"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C8048A9-1DD8-B71B-0BD77A25090375BD.jpg",
+                    "caption": "The front facade of the Ford Mansion in summer.",
+                    "altText": "The front facade of the Ford Mansion in summer."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C804A08-1DD8-B71B-0B73C1F0A0ACAD7A.jpg",
+                    "caption": "The Wick House in the fall.",
+                    "altText": "The Wick House surrounded by colorful fall leaves"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C804BB2-1DD8-B71B-0BD3719BE49A0FDD.jpg",
+                    "caption": "The front facade of the Washington's Headquarters Museum, which was designed in 1933 to look similar to Washington's Mt Vernon home.",
+                    "altText": "The front facade of the Washington's Headquarters Museum"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C804D28-1DD8-B71B-0B577BE90E49B5E8.jpg",
+                    "caption": "These replica soldier huts represent the location of the Pennsylvania Brigade encampment site in Jockey Hollow",
+                    "altText": "Four replica wooden soldier huts on a hillside in winter"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C804E96-1DD8-B71B-0B9824672DCF8A75.jpg",
+                    "caption": "The Cross Estate property was the site of the New Jersey Brigade winter encampement in 1779-1780. Today the encampment site is preserved while the estate is host to several beautiful gardens.",
+                    "altText": "The Cross Estate mansion in the springtime"
+                }
+            ]
+        },
+        {
+            "id": "D0F897A0-9545-4901-A1B8-7128E11A51FA",
+            "name": "New Jersey Pinelands National Reserve",
+            "url": "https://www.nps.gov/pine/index.htm",
+            "description": "This is truly a special place. It's classified as a United States Biosphere Reserve and in 1978 was established by Congress as the country\u2019s first National Reserve. It includes portions of seven southern New Jersey counties, and encompasses over one-million acres of farms, forests and wetlands. It contains 56 communities, from hamlets to suburbs, with over 700,000 permanent residents.",
+            "geocoding_coordinates": {
+                "latitude": "39.93835287",
+                "longitude": "-74.62499857"
+            },
+            "activities": [],
+            "fees": [
+                {
+                    "cost": "0.00",
+                    "description": "Visiting the Pinelands National Reserve is fee free."
+                }
+            ],
+            "directionsInfo": "The Pinelands National Reserve includes portions of seven southern New Jersey counties, and encompasses over one-million acres of farms, forests and wetlands. It contains 56 communities, from hamlets to suburbs, with over 700,000 permanent residents.",
+            "directionsUrl": "http://www.nj.gov/pinelands/about/direct/",
+            "operatingHours": [
+                {
+                    "description": "The Pinelands National Reserve stretches across portions of seven counties in southern New Jersey, covering about 22% of the state. The area is comprised of both public and private lands. Public lands include parks, forests, wildlife refuges, and military bases. Private lands include 56 communities that range in size from small from villages to large towns. More than 700,000 permanent residents live the Pinelands National Reserve. The public lands are open 24 hours.",
+                    "standardHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/6A36EF6A-1DD8-B71B-0B6EF527BB26F6F0.jpg",
+                    "caption": "Batona Trail in the Brendan T. Byrne State Forest part of the NJ Pinelands",
+                    "altText": "Tall pine trees surround a thin unpaved trail"
+                }
+            ]
+        },
+        {
+            "id": "9604169F-6A23-4E70-937B-3BE7315590F2",
+            "name": "Paterson Great Falls National Historical Park",
+            "url": "https://www.nps.gov/pagr/index.htm",
+            "description": "Cotton and silk fabrics; steam locomotives; continuous rolls of paper; airplane engines. What do these things have in common? They were all manufactured in the same place - Paterson, NJ. In 1792, Paterson was established, America's first planned industrial city, centered around the Great Falls of the Passaic River. From humble mills rose industries that changed the face of the United States.",
+            "geocoding_coordinates": {
+                "latitude": "40.91584645",
+                "longitude": "-74.18021494"
+            },
+            "activities": [
+                "Arts and Culture",
+                "Cultural Demonstrations",
+                "Food",
+                "Dining",
+                "Guided Tours",
+                "Junior Ranger Program"
+            ],
+            "fees": [
+                {
+                    "cost": "0.00",
+                    "description": "There is no fee to enter Paterson Great Falls National Historical Park"
+                }
+            ],
+            "directionsInfo": "From: Garden State Parkway (New Jersey) North: Take exit 155P on left to Route 19 TO WEST Route 80 Paterson. South: Take Exit 159 (Saddlebrook) on your right. After taking the exit, make your second right onto I-80 West (Paterson). From: Interstate 80 I-80 West: Take Exit 57 A-B. Taking (Exit 57- B) (Downtown Paterson) follow the Downtown Paterson sign. I-80 East: Take (Exit 57- B), take exit Route 80 west Grand St./ Del Water Gap KEEP RIGHT exit. Stay to the right for Grand Street exit ramp.",
+            "directionsUrl": "http://www.nps.gov/pagr/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "Sunrise to sunset is the recommended visiting time.",
+                    "standardHours": {
+                        "wednesday": "Sunrise to Sunset",
+                        "monday": "Sunrise to Sunset",
+                        "thursday": "Sunrise to Sunset",
+                        "sunday": "Sunrise to Sunset",
+                        "tuesday": "Sunrise to Sunset",
+                        "friday": "Sunrise to Sunset",
+                        "saturday": "Sunrise to Sunset"
+                    }
+                },
+                {
+                    "description": "Temporary Welcome Center Closure\n\nPaterson Great Falls National Historical Park will temporarily close its Welcome Center effective Tuesday, March 17, 2020.",
+                    "standardHours": {
+                        "wednesday": "Closed",
+                        "monday": "Closed",
+                        "thursday": "Closed",
+                        "sunday": "Closed",
+                        "tuesday": "Closed",
+                        "friday": "Closed",
+                        "saturday": "Closed"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3EDC4916-1DD8-B71B-0B4282C70FC365B7.jpg",
+                    "caption": "Lovely winter day at Paterson Great Falls",
+                    "altText": "snow covered hydro plant and waterfall"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3F720292-1DD8-B71B-0BBF0A529555D377.jpg",
+                    "caption": "Doesn't get more photogenic than this",
+                    "altText": "Wind blows US Flag and surrounding area"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3F7DA6E2-1DD8-B71B-0B8B16D14181A699.jpg",
+                    "caption": "Find Your Park at Paterson Great Falls National Historical Park!",
+                    "altText": "Sunny day and waterfall view"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/40ABF103-1DD8-B71B-0B381AAC1F9EAD21.jpg",
+                    "caption": "Talk about a selfie!",
+                    "altText": "Man overlooking the falls while taking a selfie"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/40B3D9B4-1DD8-B71B-0BB17EB9041E793A.jpg",
+                    "caption": "One of the best spots to overlook the falls and Garret Mountain, Paterson's largest mountain.",
+                    "altText": "Mist coming up from where the water drops into the passaic river"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/40D199BC-1DD8-B71B-0BB9D6DF983E1769.jpg",
+                    "caption": "bridge over the upper raceway to the old stoney road trail",
+                    "altText": "summer foliage surrounding a bridge"
+                }
+            ]
+        },
+        {
+            "id": "BFE248C8-40CD-4DC8-AC07-AE61A0D81FF3",
+            "name": "Thomas Edison National Historical Park",
+            "url": "https://www.nps.gov/edis/index.htm",
+            "description": "Thomas Edison\u2019s home and laboratory are a step back in time, when machines were run by belts and pulleys and music was played on phonographs. Where to the passerby, the buildings betray little evidence of the industries they once started. Discover where America\u2019s greatest inventor changed our world forever.",
+            "geocoding_coordinates": {
+                "latitude": "40.78549896",
+                "longitude": "-74.23821139"
+            },
+            "activities": [
+                "Guided Tours",
+                "Self-Guided Tours - Walking",
+                "Junior Ranger Program"
+            ],
+            "fees": [
+                {
+                    "cost": "15.00",
+                    "description": "****Entrance Fees are currently being waived while under Covid-19 restrictions****\n\nA per person entrance fee is charged for anyone 16 years of age and older. Anyone under 16 years of age is free. It is valid for seven days.  It admits the visitor to programs and buildings open to the public during their visit.  Some buildings/programs require a ticket as there is limited space.  There is no extra charge for the tickets which are distributed on a first-come, first-served basis the day of the program."
+                },
+                {
+                    "cost": "5.00",
+                    "description": "****Currently unavailable****\n\nPermits the use of the audio tour equipment for the day's visit. The tour has several options: a standard audio tour, family or children's versions, as well as numerous in-depth stops along the tour route. The standard tour is also available in German, Spanish, and Japanese, and serves to educate the visitor on the incredible history of the Thomas Edison labs."
+                }
+            ],
+            "directionsInfo": "From the Garden State Parkway take exit 145 or from the New Jersey Turnpike take Exit 15W to Route 280 West. Take Route 280 West to Exit 10. Turn right onto Northfield Avenue. At second light turn left onto Main Street. Go about 0.75 mile to parking on left and Laboratory Complex on the right. From Route 280 East take exit 9. Turn left onto Mt. Pleasant Avenue. At second traffic light turn left onto Main Street. Go about 0.50 mile to parking on left and Laboratory Complex on the right.",
+            "directionsUrl": "http://www.nps.gov/edis/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "In response to NJ Executive Order 107, the park is operating on a modified schedule with no buildings open to the public at this time.\n\nEdison's Laboratory Complex is a snapshot of late 19th century industrialization and innovation at its finest. We appreciate your understanding during this challenging time. We look forward to seeing you.\n\nThe Laboratory and Glenmont grounds are open Friday thru Sunday 11:00 am until 4:00 pm. The park is closed Thanksgiving, Christmas and New Year's Day.",
+                    "standardHours": {
+                        "wednesday": "Closed",
+                        "monday": "Closed",
+                        "thursday": "Closed",
+                        "sunday": "11:00AM - 4:00PM",
+                        "tuesday": "Closed",
+                        "friday": "11:00AM - 4:00PM",
+                        "saturday": "11:00AM - 4:00PM"
+                    }
+                },
+                {
+                    "description": "In response to NJ Executive Order 107 the park is opening in phases.  The Glenmont grounds are currently open however,  the buildings remain closed at this time.\n\nThe Glenmont grounds are currently open Friday thru Sunday from 11:00 am to 4:00 pm.   \n\nAccess to the Glenmont grounds is arranged at the Laboratory Complex located at 211 Main St., West Orange, NJ 07052.\n\nNote: Visitors must obtain a car pass from the visitor center before going to Glenmont.\n\nFor updates call 973-736-0550, extension 11.",
+                    "standardHours": {
+                        "wednesday": "Closed",
+                        "monday": "Closed",
+                        "thursday": "Closed",
+                        "sunday": "11:00AM - 4:00PM",
+                        "tuesday": "Closed",
+                        "friday": "11:00AM - 4:00PM",
+                        "saturday": "11:00AM - 4:00PM"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C81E2B0-1DD8-B71B-0B55C38EB2E224A5.jpg",
+                    "caption": "Thomas Edison purchased Glenmont as a wedding present for his wife Mina in 1886, for the cost of $125,000 USD.",
+                    "altText": "Large salmon colored Victorian mansion with green lawn and blue sky"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C81E418-1DD8-B71B-0BC491FC962D191C.jpg",
+                    "caption": "One of main machine shops, where Thomas Edison and his staff worked on research and development, prototypes, and products.",
+                    "altText": "Large work space room with machines connected to belts and pullies"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C81E5DB-1DD8-B71B-0BE0C40555D35573.jpg",
+                    "caption": "Thomas Edison's poured concrete garage houses both electric and gas powered vehicles belonging to the Edison family.",
+                    "altText": "Cream colored, two story cement building surrounded by large trees"
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C81E760-1DD8-B71B-0BDD84F26F839FA7.jpg",
+                    "caption": "Just as Thomas Edison did every morning, visitors can walk in his footsteps by entering the laboratory complex's iron main gate.",
+                    "altText": "Small red building next to large brick building with a water tower in the background."
+                },
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/3C81E919-1DD8-B71B-0B2945F0D219EBCF.jpg",
+                    "caption": "The Black Maria was the first building built for the recording of motion pictures. This exact replica of the original was built as a movie set for the film \"Edison the Man\", starring Spencer Tracy, in 1954.",
+                    "altText": "Large black building covered in tar paper surrounded by a barrier fence"
+                }
+            ]
+        },
+        {
+            "id": "3D547E73-F0BF-4FEA-9CAC-9611D024E2FF",
+            "name": "Washington-Rochambeau Revolutionary Route National Historic Trail",
+            "url": "https://www.nps.gov/waro/index.htm",
+            "description": "In 1781, General Rochambeau\u2019s French Army joined forces with General Washington\u2019s Continental Army to fight the British Army in Yorktown, Virginia. With the French Navy in support, the allied armies moved hundreds of miles to become the largest troop movement of the American Revolution. The effort and cooperation between the two sides led to a victory at Yorktown and secured American independence.",
+            "geocoding_coordinates": {
+                "latitude": "",
+                "longitude": ""
+            },
+            "activities": [],
+            "fees": [
+                {
+                    "cost": "0.00",
+                    "description": "There is no fee to explore the Washington-Rochambeau Revolutionary Route National Historic Trail, but fees may apply for sites and attractions along the trail. Visitors should contact sites individually for further information."
+                }
+            ],
+            "directionsInfo": "The Washington-Rochambeau Revolutionary Route National Historic Trail encompasses over 680 miles of land and water trails through Rhode Island, Massachusetts, Connecticut, New York, New Jersey, Pennsylvania, Delaware, Maryland, Washington D.C., and Virginia",
+            "directionsUrl": "http://www.nps.gov/waro/planyourvisit/directions.htm",
+            "operatingHours": [
+                {
+                    "description": "The Washington-Rochambeau Revolutionary Route NHT can be travelled year-round. The NHT connects national, state, and local parks as well a great number of historic sites and landmarks. Visitors should contact sites or attractions individually as operating hours vary widely by site and season.",
+                    "standardHours": {
+                        "wednesday": "All Day",
+                        "monday": "All Day",
+                        "thursday": "All Day",
+                        "sunday": "All Day",
+                        "tuesday": "All Day",
+                        "friday": "All Day",
+                        "saturday": "All Day"
+                    }
+                }
+            ],
+            "images": [
+                {
+                    "url": "https://www.nps.gov/common/uploads/structured_data/38D13B48-1DD8-B71B-0B557C5D33E45D9D.jpg",
+                    "caption": "Washington-Rochambeau NHT banner on 2nd Street in Philadelphia, Pennsylvania.",
+                    "altText": "Flag marking the trail"
                 }
             ]
         }

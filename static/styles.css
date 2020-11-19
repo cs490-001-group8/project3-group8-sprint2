@@ -713,7 +713,7 @@ body {
   overflow-y: auto;
   overflow-x: hidden;
 }
-.park-container .header{
+.park-container-header{
   text-align: center;
 }
 .parks{
@@ -722,7 +722,6 @@ body {
   grid-template-columns: auto;
 }
 .park {
-  font-size: 2rem;
   margin: 0.3rem;
   padding: 1rem;
   background: darkseagreen;
@@ -732,17 +731,81 @@ body {
 .park:hover{
   transform: scale(1.01);
 }
-.park img{
-  float: left;
-  width: 10vw;
-  height: 10rem;
+.park-header{
+  text-align: center;
+  font-weight: bold;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.park-header a{
+  font-weight: bold;
+  color: #000;
+  transition: color .3s ease;
+}
+.park-header a:hover{
+  cursor: pointer;
+}
+.park-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
+}
+.park-body img{
+  margin: 1rem;
+  width: 20%;
+  height: auto;
   object-fit: cover;
-  margin: 0.2rem 1rem;
   border-radius: 10%;
 }
-.park h2{
-  text-align: center;
+.park-detail-btn{
+  align-self: flex-end;
+}
+.park-move-btn{
+  font-size: 2rem;
+}
+.park-container .btn{
+  padding: 0.3rem;
+  border: 2px solid #343434;
+  transition: background .5s linear;
+}
+.park-container .btn:hover{
+  color: #fff;
+  background: #000;
+  cursor: pointer;
+}
+.park-container .btn:focus {
+    border: none;
+    outline: none;
 }
 .park-modal{
   background: cadetblue;
+}
+.park-modal-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 1rem;
+  width: 90%;
+  font: 2rem Arial, sans-serif;
+  border-radius: 0.5rem;
+}
+.park-modal-content h2{
+  font-size: 2rem;
+  font-weight: bold;
+}
+.park-modal-content .activities{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center
+}
+.park-modal-content ul{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
 }
