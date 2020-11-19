@@ -43,11 +43,30 @@ class PoliticsTestCases(unittest.TestCase):
 
     # pylint: disable=W0622
     # pylint: disable=R0913
+    # pylint: disable=R0801
+    def mock_search_politicians(
+            self, state, chamber, active
+    ):
+        # pylint: disable=R0801
+        """Mock searching politicians"""
+        return [
+            # pylint: disable=R0801
+            {
+                "full_name": "Jane Shmane",
+                "photo_url": "url",
+                "url": "https://www.google.com/",
+                "district": "7b",
+                "party": "Republican",
+                "chamber": "lower",
+            },
+        ]
+
     def mock_search_bills(
             self, state, updated_since, type, chamber, sort, search_window
     ):
         """Mock searching bills"""
         return [
+            # pylint: disable=R0801
             {
                 "title": "BILL1",
                 "updated_at": datetime.datetime.now(),
@@ -59,29 +78,6 @@ class PoliticsTestCases(unittest.TestCase):
                 "updated_at": datetime.datetime.now(),
                 "sponsors": [{"name": "KAT"}, {"name": "NICOLE"}],
                 "actions": [{"action": "first"}, {"action": "second"}],
-            },
-        ]
-
-    def mock_search_politicians(
-            self, state, chamber, active
-    ):
-        """Mock searching bills"""
-        return [
-            {
-                "full_name": "Joe Shmoo",
-                "photo_url": "url",
-                "url": "https://www.google.com/",
-                "district": "6A",
-                "party": "Democrat",
-                "chamber": "upper",
-            },
-            {
-                "full_name": "Jane Shmane",
-                "photo_url": "url",
-                "url": "https://www.google.com/",
-                "district": "7b",
-                "party": "Republican",
-                "chamber": "lower",
             },
         ]
 
