@@ -99,7 +99,7 @@ def get_politicians():
             imagefix = pol["photo_url"]
             if imagefix != "":
                 imagefix = "https" + imagefix[4:]
-            
+
             data["politicians"].append(
                 {
                     "name": pol["full_name"],

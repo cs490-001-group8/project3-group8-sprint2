@@ -173,11 +173,13 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
+    # pylint: disable=R0801
     def mock_search_bills(
             self, sort, type, chamber, state, search_window, updated_since
     ):
         """Mock searching bills through openstates"""
         return [
+            # pylint: disable=R0801
             {
                 "title": "Bill1",
                 "updated_at": datetime.now(),
@@ -195,8 +197,10 @@ class AppTestCases(unittest.TestCase):
     def mock_search_politicians(
             self, state, chamber, active
     ):
+        # pylint: disable=R0801
         """Mock searching bills"""
         return [
+            # pylint: disable=R0801
             {
                 "full_name": "Joe Shmoo",
                 "photo_url": "url",
