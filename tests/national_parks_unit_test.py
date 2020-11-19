@@ -137,8 +137,10 @@ class TestingNationlParksModule(unittest.TestCase):
         return {KEY_TIMESTAMP: old_time}
 
     @mock.patch("national_parks.json.load")
+    @mock.patch("builtins.open")
     @mock.patch("national_parks.requests.get")
-    def test_national_parks_old_cache_data(self, mocked_requests_get, mocked_json_load):
+    def test_national_parks_old_cache_data(self, mocked_requests_get,\
+    mocked_file_open, mocked_json_load):
         """Testing some return values of function national_parks in national_parks"""
         mocked_json_load.return_value = self.mock_json_load_oldcache()
         mocked_requests_get.return_value = MockedRequestResponseSuccess()
@@ -148,6 +150,7 @@ class TestingNationlParksModule(unittest.TestCase):
             KEY_URL: "https://washingtonPark.com",
             KEY_ACTIVITIES: ["fishing"],
         }
+        assert mocked_file_open.called_once
         self.assertEqual(response[KEY_PARK_NAME], expected[KEY_PARK_NAME])
         self.assertListEqual(response[KEY_ACTIVITIES], expected[KEY_ACTIVITIES])
         self.assertEqual(response[KEY_URL], expected[KEY_URL])
@@ -161,8 +164,9 @@ class TestingNationlParksModule(unittest.TestCase):
         self.assertListEqual(response, expected[KEY_DATA])
 
     @mock.patch("national_parks.json.load")
+    @mock.patch("builtins.open")
     @mock.patch("national_parks.requests.get")
-    def test_national_parks_failure(self, mocked_requests_get, mocked_json_load):
+    def test_national_parks_failure(self, mocked_requests_get, mocked_file_open, mocked_json_load):
         """Testing the function when API call returns an errror or nothing"""
         mocked_json_load.return_value = self.mock_json_load_oldcache()
         mocked_requests_get.return_value = MockedRequestResponseFailure()
@@ -172,6 +176,7 @@ class TestingNationlParksModule(unittest.TestCase):
             KEY_URL: "https://washingtonPark.com",
             KEY_ACTIVITIES: ["fishing"],
         }
+        assert mocked_file_open.called_once
         self.assertNotEqual(response, expected)
         self.assertEqual(response, [])
 
