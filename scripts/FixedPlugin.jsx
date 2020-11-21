@@ -9,6 +9,7 @@ import imagine1 from "assets/img/sidebar1.jpg";
 import imagine2 from "assets/img/sidebar2.jpg";
 import imagine3 from "assets/img/sidebar3.jpg";
 import imagine4 from "assets/img/sidebar4.jpg";
+import { Button } from '@material-ui/core'
 
 export default function FixedPlugin(props) {
   const [image, setImage] = useState(props.image);
@@ -43,9 +44,9 @@ export default function FixedPlugin(props) {
       })}
     >
       <div id="fixedPluginClasses" className={fixedClasses}>
-        <div onClick={handleFixedClick}>
+        <Button onClick={handleFixedClick}>
           <i className="fa fa-cog fa-2x" />
-        </div>
+        </Button>
         <ul className="dropdown-menu">
           <li className="header-title">COLORS</li>
           <li className="adjustments-line">
