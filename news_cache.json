@@ -1,6 +1,18 @@
 {
-    "timestamp": 1605982678.725085,
+    "timestamp": 1605986493.86766,
     "articles": [
+        {
+            "title": "NJ COVID Numbers Peak Again / Nurses 'Terrified' / Travel Rules",
+            "description": "NJ COVID Numbers Peak Again / Nurses 'Terrified' / Travel Rules - Point Pleasant, NJ - Check out the top news that made headlines this week across the Patch network in New Jersey.",
+            "content": "Check out the top news that made headlines this week across the Patch network in New Jersey:\nGov. Murphy says coronavirus prediction models indicate cases could double if precautions aren't taken on Thanksgiving. New cases reached a daily high again ... [1656 chars]",
+            "url": "https://patch.com/new-jersey/pointpleasant/nj-covid-numbers-peak-again-nurses-terrified-travel-rules",
+            "image": "https://patch.com/img/cdn20/users/65079/20201121/122434/styles/patch_image/public/weekinreview-12___21122412780.jpg",
+            "publishedAt": "2020-11-21T17:59:57Z",
+            "source": {
+                "name": "Joliet, IL Patch",
+                "url": "https://patch.com/"
+            }
+        },
         {
             "title": "Buzz Aldrin's New Jersey childhood home is for sale",
             "description": "Long before Buzz Aldrin walked on the moon, the legendary Apollo 11 astronaut would stroll along the roof of his boyhood home in tony Montclair, NJ., gazing at the sky.",
@@ -47,18 +59,6 @@
             "source": {
                 "name": "NBC News",
                 "url": "https://www.nbcnews.com/"
-            }
-        },
-        {
-            "title": "LI judge won't release 911 calls in Gilgo Beach case",
-            "description": "A Long Island judge rejected the request from the family of victim Shannan Gilbert, a 24-year-old New Jersey escort whose decomposed remains were found in the Oak Beach marsh area in 2010.",
-            "content": "Gilbert was last seen running from the home of a man who lived near where her body was found. Her death has not conclusively been classified as a homicide. Police have suggested she drowned in the marsh....",
-            "url": "https://www.nydailynews.com/new-york/nyc-crime/ny-gilgo-beach-murder-case-court-ruling-20201120-4vhv45upijc2rglrsaqkywmgbm-story.html",
-            "image": "https://www.nydailynews.com/resizer/vLaX5XYP7bX7y3s7H_ObeyvLYYs=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/M6FCHKQFAPCAT4ELX6AMVSAGYA.jpg",
-            "publishedAt": "2020-11-20T22:38:00Z",
-            "source": {
-                "name": "New York Daily News",
-                "url": "https://www.nydailynews.com/"
             }
         }
     ]
