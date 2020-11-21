@@ -72,8 +72,11 @@ There are a few commands you must run in order to ensure that the clientside wil
 1. `npm install`
 2. `npm i nanoid`
 3. `npm install -g webpack`
+3. `npm i @material-ui/core`
+4. `npm install webpack@next --dev`
 4. `npm install --save-dev webpack`
 5. `npm install --save google-map-react`
+
 
 
 ## Setting up testcases
@@ -139,6 +142,8 @@ The comment section was having an issue where each tab was not recognizing diffe
   simply updates on a switched tab.
 API Requests are incredibly frequent, making it likely we run out of requests often.
   This was solved by caching the results of API requests so a minimal amount of them occur.
+The background button was by default set to the left where it was overlapping on the discussion tab.
+The solution was adjusting and moving the positions in multiple css files.
   
 The comment section was having issues where they were getting the comments sent to all tabs.
   This was solved by utilizing rooms in the backend to ensure that comments were only sent 
