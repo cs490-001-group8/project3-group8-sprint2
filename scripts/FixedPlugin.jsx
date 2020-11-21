@@ -2,26 +2,27 @@
 import React, { useState, useEffect } from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// nodejs library that concatenates classes
-import classnames from "classnames";
 
 import imagine1 from "assets/img/sidebar1.jpg";
 import imagine2 from "assets/img/sidebar2.jpg";
 import imagine3 from "assets/img/sidebar3.jpg";
 import imagine4 from "assets/img/sidebar4.jpg";
-import { Button } from '@material-ui/core'
 
-export default function FixedPlugin(props) {
-  const [image, setImage] = useState(props.image);
-  const [color, setColor] = useState(props.color);
-  const [fixedClasses, setFixedClasses] = useState("dropdown show");
+export default function FixedPlugin({ changeBackground }) {
+  const [image, setImage] = useState(localStorage.getItem('image'));
+  const [color, setColor] = useState(localStorage.getItem('color'));
+  const [fixedClasses, setFixedClasses] = useState("dropdown");
 
   useEffect(() => {
-    if (image == null || color == null) {
-      setImage("");
-      setColor("blue");
+    let cacheColor = color;
+    let cacheImage = image;
+
+    if (cacheImage == null || cacheColor == null) {
+      cacheColor = 'blue';
+      cacheImage = '';
     }
 
+    saveChanges(cacheImage, cacheColor);
   }, []);
 
   const handleFixedClick = () => {
@@ -32,21 +33,37 @@ export default function FixedPlugin(props) {
     }
   };
 
+  const handleImageClick = (img) => {
+    saveChanges(img, '');
+  };
+
+  const handleColorClick = (clr) => {
+    saveChanges('', clr);
+  };
+
   const setBackground = (color, image) => {
     setColor(color);
     setImage(image);
   };
 
+  const saveChanges = (img, clr) => {
+    setColor(clr);
+    setImage(img);
+
+    localStorage.setItem('color', clr);
+    localStorage.setItem('image', img);
+
+    changeBackground(clr, img);
+  };
+
   return (
     <div
-      className={classnames("fixed-plugin", {
-        "rtl-fixed-plugin": props.rtlActive
-      })}
+      className="fixed-plugin"
     >
       <div id="fixedPluginClasses" className={fixedClasses}>
-        <Button onClick={handleFixedClick}>
-          <i className="fa fa-cog fa-2x" />
-        </Button>
+        <button onClick={handleFixedClick} className="login-button">
+          <i className="fa fa-cog" />
+        </button>
         <ul className="dropdown-menu">
           <li className="header-title">COLORS</li>
           <li className="adjustments-line">
@@ -61,7 +78,7 @@ export default function FixedPlugin(props) {
                   data-color="purple"
                   onClick={() => {
                     setBackground("purple", "");
-                    props.handleColorClick("purple");
+                    handleColorClick("purple");
                   }}
                 />
                 <span
@@ -73,7 +90,7 @@ export default function FixedPlugin(props) {
                   data-color="blue"
                   onClick={() => {
                     setBackground("blue", "");
-                    props.handleColorClick("blue");
+                    handleColorClick("blue");
                   }}
                 />
                 <span
@@ -85,7 +102,7 @@ export default function FixedPlugin(props) {
                   data-color="green"
                   onClick={() => {
                     setBackground("green", "");
-                    props.handleColorClick("green");
+                    handleColorClick("green");
                   }}
                 />
                 <span
@@ -97,7 +114,7 @@ export default function FixedPlugin(props) {
                   data-color="red"
                   onClick={() => {
                     setBackground("red", "");
-                    props.handleColorClick("red");
+                    handleColorClick("red");
                   }}
                 />
                 <span
@@ -109,7 +126,7 @@ export default function FixedPlugin(props) {
                   data-color="orange"
                   onClick={() => {
                     setBackground("orange", "");
-                    props.handleColorClick("orange");
+                    handleColorClick("orange");
                   }}
                 />
               </div>
@@ -121,7 +138,7 @@ export default function FixedPlugin(props) {
               className="img-holder switch-trigger"
               onClick={() => {
                 setBackground("", imagine1);
-                props.handleImageClick(imagine1);
+                handleImageClick(imagine1);
               }}
             >
               <img src={imagine1} alt="..." />
@@ -132,7 +149,7 @@ export default function FixedPlugin(props) {
               className="img-holder switch-trigger"
               onClick={() => {
                 setBackground("", imagine2);
-                props.handleImageClick(imagine2);
+                handleImageClick(imagine2);
               }}
             >
               <img src={imagine2} alt="..." />
@@ -143,7 +160,7 @@ export default function FixedPlugin(props) {
               className="img-holder switch-trigger"
               onClick={() => {
                 setBackground("", imagine3);
-                props.handleImageClick(imagine3);
+                handleImageClick(imagine3);
               }}
             >
               <img src={imagine3} alt="..." />
@@ -154,7 +171,7 @@ export default function FixedPlugin(props) {
               className="img-holder switch-trigger"
               onClick={() => {
                 setBackground("", imagine4);
-                props.handleImageClick(imagine4);
+                handleImageClick(imagine4);
               }}
             >
               <img src={imagine4} alt="..." />
@@ -168,9 +185,5 @@ export default function FixedPlugin(props) {
 }
 
 FixedPlugin.propTypes = {
-  image: PropTypes.string,
-  rtlActive: PropTypes.bool,
-  color: PropTypes.string,
-  handleColorClick: PropTypes.func,
-  handleImageClick: PropTypes.func
+  changeBackground: PropTypes.func.isRequired,
 };

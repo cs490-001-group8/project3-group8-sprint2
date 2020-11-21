@@ -1,6 +1,30 @@
 {
-    "timestamp": 1605968293.769699,
+    "timestamp": 1605982678.725085,
     "articles": [
+        {
+            "title": "Buzz Aldrin's New Jersey childhood home is for sale",
+            "description": "Long before Buzz Aldrin walked on the moon, the legendary Apollo 11 astronaut would stroll along the roof of his boyhood home in tony Montclair, NJ., gazing at the sky.",
+            "content": "Jessie Buttafuoco is driven to take back her life \u2014...\nBuzz Aldrin stands in front of his childhood home in Montclair, NJ, left.\nYou\u2019ll be over the moon for this house.\nLong before Buzz Aldrin walked on the moon, the legendary Apollo 11 astronaut wou... [2669 chars]",
+            "url": "https://nypost.com/2020/11/21/buzz-aldrins-new-jersey-childhood-home-is-for-sale/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/buzz-aldrin-house-moon-e1605981004611.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-11-21T17:55:48Z",
+            "source": {
+                "name": "New York Post",
+                "url": "https://nypost.com/"
+            }
+        },
+        {
+            "title": "Dallas Stars unveil 'Blackout' alternate jersey",
+            "description": "The Dallas Stars unveiled a new Blackout alternate uniform for the upcoming season.",
+            "content": "article\nAs Dallas Stars fans are still thinking about the team\u2019s run to the Stanley Cup Final, they were given a treat Wednesday, as the Stars unveiled a new Blackout alternate uniform for the upcoming season.\nThis will be the first time since 2006 t... [1101 chars]",
+            "url": "https://www.fox4news.com/sports/dallas-stars-unveil-blackout-alternate-jersey",
+            "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/10/1280/720/1028starsblackout.jpg?ve=1&tl=1",
+            "publishedAt": "2020-11-21T06:48:48Z",
+            "source": {
+                "name": "FOX 4 News",
+                "url": "https://www.fox4news.com/"
+            }
+        },
         {
             "title": "Oilersnation Radio Episode 113 - Prospect watch, Reverse Retros, and Lali Toor from APNA Hockey",
             "description": "It\u2019s Friday afternoon and that means a brand new episode of Oilersnation Radio has been recorded, edited into a masterpiece, and ready to get you set for the weekend. This week, we looked at which Oilers prospects have us most excited, Reverse Retro jersey winners and losers, spoke to Lali Toor from APNA Hockey about winning the Willie O\u2019Ree Community Hero Award, and a whole lot more.",
@@ -35,30 +59,6 @@
             "source": {
                 "name": "New York Daily News",
                 "url": "https://www.nydailynews.com/"
-            }
-        },
-        {
-            "title": "Cranford Schools To Go Remote For 2 Weeks After Thanksgiving",
-            "description": "Cranford Schools To Go Remote For 2 Weeks After Thanksgiving - Cranford, NJ - \"The New Jersey DOH recommends that school districts consider moving to remote learning when the regional status changes to high risk.\"",
-            "content": "CRANFORD, NJ \u2014 Following the lead of some other North Jersey districts, Cranford's superintendent of schools announced Friday afternoon that the district will transition to full remote learning after Thanksgiving weekend, from Nov. 30 through Friday,... [1389 chars]",
-            "url": "https://patch.com/new-jersey/cranford/cranford-schools-go-remote-2-weeks-after-thanksgiving",
-            "image": "https://patch.com/img/cdn20/users/23738927/20201120/035146/styles/patch_image/public/screen-shot-2020-10-20-at-122800-pm___20155034712.png",
-            "publishedAt": "2020-11-20T20:53:33Z",
-            "source": {
-                "name": "Joliet, IL Patch",
-                "url": "https://patch.com/"
-            }
-        },
-        {
-            "title": "Newark citizens asked to stay home starting Thanksgiving eve",
-            "description": "TRENTON, N.J. (AP) \u2014 Newark\u2019s mayor said in a radio interview that he'll ask residents of New Jersey\u2019s largest city to stay home for 10 days starting next week, right before Thanksgiving, in...",
-            "content": "FILE - In this Nov. 12, 2020, file photo, police officers remind a woman in the doorway of a Newark, N.J., restaurant of the new curfew and dining regulations in an area where coronavirus cases have recently spiked. During a Nov. 19 radio interview, ... [3899 chars]",
-            "url": "https://apnews.com/article/coronavirus-pandemic-new-jersey-7d11e850c9e9feafa8c2760e12554a32",
-            "image": "https://storage.googleapis.com/afs-prod/media/4eeedb27b15948a2b881953f80f759a2/3000.jpeg",
-            "publishedAt": "2020-11-20T18:44:56Z",
-            "source": {
-                "name": "The Associated Press",
-                "url": "https://apnews.com/"
             }
         }
     ]

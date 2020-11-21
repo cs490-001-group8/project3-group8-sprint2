@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import LoggedIn from './Auth_React/LoggedIn';
 import HeadTitle from './HeadTitle';
 import LoginModal from './Auth_React/LoginModal';
+import FixedPlugin from './FixedPlugin';
 
-export default function Head({ logIn, loggedIn }) {
+export default function Head({ logIn, loggedIn, changeBackground }) {
     const [display, setDisplay] = useState('none');
 
     const handleClick = () => {
@@ -15,6 +16,7 @@ export default function Head({ logIn, loggedIn }) {
         return (
             <div className="Head">
                 <HeadTitle />
+                <FixedPlugin changeBackground={changeBackground} />
                 <LoggedIn />
             </div>
         );
@@ -23,6 +25,7 @@ export default function Head({ logIn, loggedIn }) {
     return (
         <div className="Head">
             <HeadTitle />
+            <FixedPlugin changeBackground={changeBackground} />
             <button onClick={handleClick} type="button" className="login-button">Log In</button>
             <LoginModal logIn={logIn} display={display} setDisplay={setDisplay} />
         </div>
@@ -32,4 +35,5 @@ export default function Head({ logIn, loggedIn }) {
 Head.propTypes = {
     logIn: PropTypes.func.isRequired,
     loggedIn: PropTypes.bool.isRequired,
+    changeBackground: PropTypes.func.isRequired,
 };
