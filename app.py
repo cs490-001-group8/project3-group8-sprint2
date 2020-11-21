@@ -54,6 +54,12 @@ def politics_tab():
     return flask.render_template("index.html")
 
 
+@APP.route("/Recreation")
+def recreation_tab():
+    """When someone opens the recreation tab, send them the page"""
+    return flask.render_template("index.html")
+
+
 @APP.route("/landing_page")
 def landing_page():
     """When someone click About link, render landing page"""
@@ -147,6 +153,7 @@ def on_weather_request(data):
     else:
         flask_socketio.emit("weather error", {})
 
+
 @SOCKETIO.on("get political tweets")
 def on_pol_tweet_request():
     """Return tweets from politicians"""
@@ -173,6 +180,20 @@ def on_politicians_request():
     """Returns politicians for New Jersey"""
     pols_object = politics.get_politicians()
     flask_socketio.emit("send politicians", pols_object)
+
+
+@SOCKETIO.on("get sport")
+def get_sport_data():
+    """Returns sports link for New Jersey Teams"""
+    teams = [{'name': 'Devils Hockey', 'link': 'https://www.nhl.com/devils/'},
+             {'name': 'Giants Football', 'link': 'https://www.giants.com/'},
+             {'name': 'Jets Football', 'link': 'https://www.newyorkjets.com/'},
+             {'name': 'Red Bulls', 'link': 'https://www.newyorkredbulls.com/'},
+             {'name': 'NJ Jackals', 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
+             {'name': 'Somerset Patriots', 'link': 'https://www.somersetpatriots.com/'},
+             {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
+             {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]
+    flask_socketio.emit("send sport", {'teams': teams})
 
 
 if __name__ == "__main__":

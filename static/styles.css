@@ -597,7 +597,27 @@ body {
         font-size: 25pt;
         font-weight: normal;
       }
-  
+
+.sports{
+  font-family: Helvetica;
+  text-align: center;
+  color: #14171A;
+  border: 1px black solid;
+
+  width: 100%;
+  margin: auto;
+  padding: 1em;
+
+}
+  .sports-photo {
+      flex: 1;
+      width: 150px;
+      height: 150px;
+      text-align: center;
+      font-size: 10pt;
+      margin: 5px;
+    }
+
 .bill-list {
   border: 1px black solid;
   width: 100%;

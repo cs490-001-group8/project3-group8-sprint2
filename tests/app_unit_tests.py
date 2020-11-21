@@ -322,6 +322,8 @@ class AppTestCases(unittest.TestCase):
                         or "chamber" not in pol
                 ):
                     raise ValueError("VALUE MISSING IN POLITICIAN")
+        elif channel == "send sport":
+            pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -359,6 +361,8 @@ class AppTestCases(unittest.TestCase):
                 app.commuter_tab()
             with mock.patch("flask.render_template", self.mocked_flask_render):
                 app.politics_tab()
+            with mock.patch("flask.render_template", self.mocked_flask_render):
+                app.recreation_tab()
 
     def test_app_new_comment(self):
         """Test successful new comments"""
@@ -501,6 +505,11 @@ class AppTestCases(unittest.TestCase):
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_news_request()
+
+    def test_get_sport_data(self):
+        import app
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+            app.get_sport_data()
 
     def test_on_bill_request(self):
         """Test the on_bills_request method"""
