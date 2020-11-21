@@ -4,7 +4,7 @@ body {
 }
 
 .App {
-  background-color: #f2f3f3;
+  background-color: #FFFFFF;
 }
 
 .body {
@@ -14,8 +14,7 @@ body {
 }
 
 .tab-content {
-  background-color: #FFFFFF;
-  border: 3px #555555 solid;
+  border: 3px black solid;
   width: 100%;
   height: 95%;
   display: flex;
@@ -23,35 +22,35 @@ body {
   margin: 2px;
 }
 
-  .tab-widgets-section {
-    width: 100%;
-    height: 95%;
-    flex: 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin: 2px;
-  }
+.tab-widgets-section {
+  width: 100%;
+  height: 95%;
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 2px;
+}
 
-  .tab {
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
-    padding: 10px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-  }
+.tab {
+  background-color: white;
+  color: black;
+  border: 2px solid #555555;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
 
-  .tab:hover {
-    background-color: #555555;
-    color: white;
-  }
+.tab:hover {
+  background-color: #555555;
+  color: white;
+}
 
 .widget {
   background-color: #FFFFFF;
@@ -64,13 +63,13 @@ body {
   overflow: hidden;
 }
 
-  .widget-title {
-    height: 5%;
-    text-align: center;
-    margin: 20px;
-    font-size: 25pt;
-    font-weight: bold;
-  }
+.widget-title {
+  height: 5%;
+  text-align: center;
+  margin: 20px;
+  font-size: 25pt;
+  font-weight: bold;
+}
 
 .comment-block {
   background-color: #FFFFFF;
@@ -84,94 +83,93 @@ body {
   margin: 0px;
 }
 
-  .comment-title {
-    width: 100%;
-    height: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30pt;
-    font-weight: bold;
-    padding: 0px;
-    margin: 0px;
-  }
+.comment-title {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30pt;
+  font-weight: bold;
+  padding: 0px;
+  margin: 0px;
+}
 
-  .comment-list {
-    border: 2px black solid;
-    width: 98%;
-    height: 80%;
-    text-align: left;
-    overflow: auto;
-    padding: 0px;
-    margin: 0px;
-  }
+.comment-list {
+  border: 2px black solid;
+  width: 98%;
+  height: 80%;
+  text-align: left;
+  overflow: auto;
+  padding: 0px;
+  margin: 0px;
+}
 
-  .comment-list-loggedout {
-    border: 2px black solid;
-    width: 100%;
-    height: 95%;
-    text-align: left;
-    overflow: auto;
-    padding: 0px;
-    margin: 0px;
-  }
+.comment-list-loggedout {
+  border: 2px black solid;
+  width: 100%;
+  height: 95%;
+  text-align: left;
+  overflow: auto;
+  padding: 0px;
+  margin: 0px;
+}
 
-    .comment {
-      border: 1px #CCCCCC solid;
-      width: 100%;
-      font-size: 16pt;
-      list-style-type: none;
-      margin-bottom: 4px;
-    }
-  
-      .comment-info {
-        width: 99%;
-        word-break: break-word;
-        padding: 1px;
-        margin-bottom: 5px;
-        margin-top: 2px;
-        color: #525252;
-      }
-  
-        .comment-info-name {
-          float: left;
-        }
-  
-        .comment-info-time {
-          float: right;
-        }
-  
-      .comment-body {
-        clear: both;
-        width: 99%;
-        word-break: break-word;
-        padding: 1px;
-        margin-bottom: 2px;
-        color: #6D6D6D;
-      }
+.comment {
+  border: 1px #CCCCCC solid;
+  width: 100%;
+  font-size: 16pt;
+  list-style-type: none;
+  margin-bottom: 4px;
+}
 
-  .comment-input {
-    width: 100%;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: row;
-  }
+.comment-info {
+  width: 99%;
+  word-break: break-word;
+  padding: 1px;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  color: #525252;
+}
 
-    .comment-input-button {
-      flex: 1;
-    }
+.comment-info-name {
+  float: left;
+}
 
-    .comment-input-text {
-      font-size: 14pt;
-      color: #464646;
-      flex: 4;
-      resize: none;
-    }
+.comment-info-time {
+  float: right;
+}
+
+.comment-body {
+  clear: both;
+  width: 99%;
+  word-break: break-word;
+  padding: 1px;
+  margin-bottom: 2px;
+  color: #6D6D6D;
+}
+
+.comment-input {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-input-button {
+  flex: 1;
+}
+
+.comment-input-text {
+  font-size: 14pt;
+  color: #464646;
+  flex: 4;
+  resize: none;
+}
 
 .head {
   height: 10%;
-  padding: 5px;
-  margin: 2px;
+  padding: 15px;
   display: grid;
   grid-template-columns: 25% auto 25%;
 }
@@ -184,28 +182,25 @@ body {
   margin-top: 1rem;
   width: 100%;
 }
-.footer a{
+
+.footer a {
   text-decoration: none;
   font-size: 1.5rem;
   color: #000;
 }
 
-  .login {
-    font-size: 14pt;
-    grid-column-start: 3;
-    margin: auto;
-  }
+.login {
+  font-size: 14pt;
+  grid-column-start: 3;
+  margin: auto;
+}
 
-  .head-title {
-    font-size: 50pt;
-    font-weight: bold;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    margin: auto;
-    height: 100%;
-  }
-.head-title img{
-  height: 100%;
+.head-title {
+  font-size: 50pt;
+  font-weight: bold;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  margin: auto;
 }
 
 .news-group {
@@ -214,21 +209,21 @@ body {
   overflow-y: scroll;
 }
 
-  .news-wrapper {
-    box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15) !important;
-    padding: 16 !important;
-  }
+.news-wrapper {
+  box-shadow: 0 2px 4px 0 rgba(34, 36, 38, .12), 0 2px 10px 0 rgba(34, 36, 38, .15) !important;
+  padding: 16 !important;
+}
 
-    .news-image {
-      height: 96 !important;
-      width: 96 !important;
-    }
+.news-image {
+  height: 96 !important;
+  width: 96 !important;
+}
 
-    .news-description {
-      white-space: pre-line;
-    }
+.news-description {
+  white-space: pre-line;
+}
 
-.hourlyWeather{
+.hourlyWeather {
   text-align: center;
   text-transform: capitalize;
   padding: auto;
@@ -236,17 +231,18 @@ body {
   display: inline-block;
 }
 
-.weather_widget{
+.weather_widget {
   text-align: center;
   overflow: scroll;
 }
 
-.weather_widget::-webkit-scrollbar{
-    width: 0px;
-    background: transparent;
+.weather_widget::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }
 
 /* Landing Page style start here */
+
 .landing-page {
   margin: 0;
   padding: 0;
@@ -257,11 +253,13 @@ body {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
+
 .landing-page-logo {
   width: auto;
   height: auto;
 }
-.landing-page header{
+
+.landing-page header {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -269,6 +267,7 @@ body {
   height: 10vh;
   background: #F0FFFF;
 }
+
 .first-page .button {
   padding: 0.5rem;
   background: #000;
@@ -280,20 +279,24 @@ body {
   color: #fff;
   transition: background 1s ease-in-out;
 }
+
 .first-page .button:hover {
   cursor: pointer;
   background: #FFB6C1;
   color: #000;
 }
-.first-page .button a{
+
+.first-page .button a {
   text-decoration: none;
   color: inherit;
   transition: color 1s ease-in-out;
 }
-.first-page .button a:hover{
+
+.first-page .button a:hover {
   color: inherit;
 }
-.first-page{
+
+.first-page {
   width: 100vw;
   height: 100vh;
   color: #fff;
@@ -301,6 +304,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .first-page .headings {
   font-family: monospace, arial;
   display: flex;
@@ -318,14 +322,17 @@ body {
   background: #FFBD33;
   overflow: hidden;
 }
+
 .first-page .headings .main-heading {
   text-align: center;
   font-size: 3vw;
 }
+
 .first-page .headings .sub-heading {
   font-size: 2vw;
 }
-.second-page{
+
+.second-page {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -336,6 +343,7 @@ body {
   color: #fff;
   background: url("images/second_page.jpg") center/cover no-repeat fixed;
 }
+
 .team-intro {
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -343,7 +351,8 @@ body {
   grid-gap: 50px;
   margin: 2rem;
 }
-.team-member{
+
+.team-member {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -358,26 +367,32 @@ body {
   box-shadow: 0 10px 6px -6px #777;
   transition: all .3s ease-in-out;
 }
-.team-member:hover{
+
+.team-member:hover {
   transform: scale(1.05);
 }
-.team-member h4{
+
+.team-member h4 {
   margin-top: 1rem;
   margin-bottom: 0;
 }
-.team-member a{
+
+.team-member a {
   color: white;
 }
-.team-member p{
+
+.team-member p {
   margin: 1rem;
 }
-.member-picture{
+
+.member-picture {
   width: 100px;
   height: 100px;
   border-radius: 1rem;
   border: 2px solid #12718a;
 }
-.third-page{
+
+.third-page {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -388,22 +403,24 @@ body {
   color: #fff;
   background: #000;
 }
-.third-page h3{
+
+.third-page h3 {
   font-size: 3rem;
   color: white;
 }
-.third-page .container{
+
+.third-page .container {
   display: grid;
-  grid-template-areas:
-  'box-1 box-4'
-  'box-3 box-2';
+  grid-template-areas: 'box-1 box-4' 'box-3 box-2';
   grid-template-columns: auto auto;
 }
-.box{
+
+.box {
   padding: 1rem;
   /*font-size: 2vw;*/
 }
-.box h2{
+
+.box h2 {
   text-align: center;
 }
 
@@ -411,19 +428,23 @@ body {
   grid-area: box-1;
   background: rgba(50, 115, 220, 0.3);
 }
+
 .box-2 {
   grid-area: box-2;
   background: rgba(50, 115, 220, 0.3);
 }
+
 .box-3 {
   grid-area: box-3;
   background: rgba(201, 76, 76, 0.3);
 }
-.box-4{
+
+.box-4 {
   grid-area: box-4;
   background: rgba(201, 76, 76, 0.3);
 }
-.fourth-page{
+
+.fourth-page {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -433,14 +454,16 @@ body {
   color: #fff;
   background: url("images/third_page.jpg") center/cover no-repeat fixed;
 }
+
 .technologies h3 {
-  font-size:  4rem;
+  font-size: 4rem;
   color: white;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
   text-align: center;
 }
-.technologies ul{
+
+.technologies ul {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: stretch;
@@ -448,7 +471,8 @@ body {
   list-style-type: none;
   font-size: 2vw;
 }
-.technologies-list li{
+
+.technologies-list li {
   background: rgba(120, 0, 0, 0.5);
   border: 2px solid rgb(120, 0, 0);
   border-radius: 5px;
@@ -457,14 +481,17 @@ body {
   text-align: center;
   transition: .5s ease-in-out;
 }
-.technologies-list li:hover{
+
+.technologies-list li:hover {
   transform: scale(1.05);
 }
-.technologies-list li a{
+
+.technologies-list li a {
   display: block;
   text-decoration: none;
   color: #fff;
 }
+
 @media only screen and (max-width: 600px) {
   .landing-page-logo {
     width: auto;
@@ -482,17 +509,14 @@ body {
     justify-content: space-evenly;
     grid-gap: 50px;
   }
-  .third-page .container{
-    grid-template-areas:
-    'box-1'
-    'box-3'
-    'box-2'
-    'box-4';
+  .third-page .container {
+    grid-template-areas: 'box-1' 'box-3' 'box-2' 'box-4';
     grid-template-columns: auto auto;
   }
 }
+
 @media only screen and (max-width: 400px) {
-  .landing-page-logo{
+  .landing-page-logo {
     display: none;
   }
   .first-page .headings .main-heading {
@@ -507,14 +531,14 @@ body {
     justify-content: space-evenly;
     grid-gap: 50px;
   }
-  .box{
+  .box {
     padding: 1rem;
     font-size: 4vw;
   }
-  .technologies ul{
+  .technologies ul {
     font-size: 4vw;
   }
-  .technologies ul{
+  .technologies ul {
     grid-template-columns: auto;
     font-size: 4vw;
     padding: inherit;
@@ -529,75 +553,71 @@ body {
   border: 1px black solid;
   overflow: auto;
 }
-  
-  .tweet-list {
-    width: 100%;
-    text-align: left;
-    padding: 0px;
-    margin-bottom: 5%;
-  }
-  
-    .tweet {
-      font-family: Helvetica;
-      text-align: left;
-      color: #14171A;
-      border: 2px black solid;
-      
-      width: 100%;
-      margin: auto;
-      padding: 1em;
-      
-      flex: 1;
-    }
-      
-      .tweet-head {
-        display: flex;
-        margin-bottom: 3%;
-      }
-        
-        .tweet-head-user {
-          margin: auto;
-          font-size: 15pt;
-          line-height: 1.15;
-          
-          flex:6;
-        }
-        
-        .tweet-head-user-name {
-          font-weight: bold;
-        }
-        
-        .tweet-head-user-sname {
-          color: #657786;
-        }
-        
-        .tweet-head-pic {
-          margin: 5px;
-          
-          flex:1;
-        }
-        
-          .tweet-head-pic img{
-            border-radius: 50%;
-          }
-      
-      .tweet-text {
-        font-size: 13pt;
-      }
-      
-      .tweet-foot {
-        color: #657786;
-        margin-top: 3%;
-        font-size: 11pt;
-      }
-      
-      .tweets-title {
-        height: 5%;
-        text-align: center;
-        font-size: 25pt;
-        font-weight: normal;
-      }
-  
+
+.tweet-list {
+  width: 100%;
+  text-align: left;
+  padding: 0px;
+  margin-bottom: 5%;
+}
+
+.tweet {
+  font-family: Helvetica;
+  text-align: left;
+  color: #14171A;
+  border: 2px black solid;
+  width: 100%;
+  margin: auto;
+  padding: 1em;
+  flex: 1;
+}
+
+.tweet-head {
+  display: flex;
+  margin-bottom: 3%;
+}
+
+.tweet-head-user {
+  margin: auto;
+  font-size: 15pt;
+  line-height: 1.15;
+  flex: 6;
+}
+
+.tweet-head-user-name {
+  font-weight: bold;
+}
+
+.tweet-head-user-sname {
+  color: #657786;
+}
+
+.tweet-head-pic {
+  margin: 5px;
+  flex: 1;
+}
+
+.tweet-head-pic img {
+  border-radius: 50%;
+}
+
+.tweet-text {
+  font-size: 13pt;
+}
+
+.tweet-foot {
+  color: #657786;
+  margin-top: 3%;
+  font-size: 11pt;
+}
+
+.tweets-title {
+  height: 5%;
+  text-align: center;
+  font-size: 25pt;
+  font-weight: normal;
+}
+
 .bill-list {
   border: 1px black solid;
   width: 100%;
@@ -611,31 +631,30 @@ body {
   margin-bottom: 5%;
 }
 
-  .bill {
-    font-family: Helvetica;
-    text-align: left;
-    color: #14171A;
-    border: 1px black solid;
-    
-    width: 100%;
-    margin: auto;
-    padding: 1em;
-  }
-  
-    .bill-title {
-      font-size: 20pt;
-      font-weight: bold;
-      margin-bottom: 8px;
-      line-height: 1.25;
-    }
-  
-    .bill-update {
-      font-size: 12pt;
-      font-weight: normal;
-      line-height: 1.25;
-      color: #666666;
-    }
-  
+.bill {
+  font-family: Helvetica;
+  text-align: left;
+  color: #14171A;
+  border: 1px black solid;
+  width: 100%;
+  margin: auto;
+  padding: 1em;
+}
+
+.bill-title {
+  font-size: 20pt;
+  font-weight: bold;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.bill-update {
+  font-size: 12pt;
+  font-weight: normal;
+  line-height: 1.25;
+  color: #666666;
+}
+
 .politician-list {
   border: 1px black solid;
   width: 100%;
@@ -650,73 +669,72 @@ body {
   margin-right: 3%;
 }
 
-  .politician {
-    font-family: Helvetica;
-    text-align: left;
-    color: #14171A;
-    border: 1px black solid;
-    
-    width: 100%;
-    margin: auto;
-    display: flex;
-    overflow-wrap: break-word;
-  }
+.politician {
+  font-family: Helvetica;
+  text-align: left;
+  color: #14171A;
+  border: 1px black solid;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  overflow-wrap: break-word;
+}
 
-    .politician-photo {
-      flex: 1;
-      width: 151px;
-      height: 220px;
-      text-align: center;
-      font-size: 10pt;
-      margin: 5px;
-    }
-    
-    .politician-body {
-      padding: 20px;
-      flex: 5;
-      display: flex;
-      flex-direction: column;
-      line-height: 1.25;
-    }
+.politician-photo {
+  flex: 1;
+  width: 151px;
+  height: 220px;
+  text-align: center;
+  font-size: 10pt;
+  margin: 5px;
+}
 
-      .politician-name {
-        flex: 2;
-        font-weight: bold;
-        font-size: 20pt;
-      }
+.politician-body {
+  padding: 20px;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
 
-      .politician-description {
-        flex: 1;
-        font-size: 15pt;
-      }
+.politician-name {
+  flex: 2;
+  font-weight: bold;
+  font-size: 20pt;
+}
 
-      .politician-site {
-        flex: 1;
-        font-size: 12pt;
-      }
+.politician-description {
+  flex: 1;
+  font-size: 15pt;
+}
+
+.politician-site {
+  flex: 1;
+  font-size: 12pt;
+}
 
 .traffic-map {
   height: 95%;
 }
 
-.login-button{
+.login-button {
   justify-self: center;
   align-self: center;
   font-size: 2rem;
-  background: #2a4a4a;
-  color: #FFFFFF;
+  background: #80ced6;
   padding: 1rem;
   width: fit-content;
   height: fit-content;
-  box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease-in-out;
 }
-.login-button:hover,
-.login-button:focus{
+
+.login-button:hover, .login-button:focus {
   outline: none;
   cursor: pointer;
-  box-shadow: 0 0px 0px rgba(0,0,0,0.5);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 }
+
 .modal {
   position: fixed;
   z-index: 1;
@@ -725,37 +743,42 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.4); 
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: white;
-    margin: auto;
-    width: 24rem;
-    border-radius: 0.5rem;
-  }
-    .modal-header{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: inherit;
-      height: auto;
-      padding: 1rem;
-      margin: auto;
-      border-bottom: 1px solid #000;
-    }
-    .modal-header h2 {
-      font-weight: bold;
-      font-size: 2rem;
-      margin: 0;
-    }
-    .modal-body {
-      display: flex;
-      flex-direction: column;
-    }
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: white;
+  margin: auto;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: inherit;
+  height: auto;
+  padding: 1rem;
+  margin: auto;
+  border-bottom: 1px solid #000;
+}
+
+.modal-header h2 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
 .close {
   align-self: flex-end;
   color: #aaaaaa;
@@ -763,19 +786,22 @@ body {
   font-size: 28px;
   font-weight: bold;
 }
-.close:hover,
-.close:focus {
+
+.close:hover, .close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
-.facebook-button{
+
+.facebook-button {
   margin: 1rem;
 }
-.google-button{
+
+.google-button {
   margin: 1rem;
 }
-.google-button .login button span{
-  font-family: Helvetica,sans-serif;
+
+.google-button .login button span {
+  font-family: Helvetica, sans-serif;
   font-size: 2rem;
 }
