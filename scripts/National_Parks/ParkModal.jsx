@@ -33,16 +33,16 @@ const ParkModal = ({ park, setParkModal }) => {
                 </div>
                 )}
                 { park.fees.length > 0 && (
-                    <div className="fees">
+                    <div>
                         <h2>Fees Information</h2>
-                        <ul>
-                            {park.fees.map((each, index) => (
-                                <li key={index}>
-                                    <p>{each.cost}</p>
-                                    <p>{each.description}</p>
-                                </li>
-))}
-                        </ul>
+                            <div className="fees">
+                                {park.fees.map((each, index) => (
+                                    <div key={index}>
+                                        <p>${each.cost}</p>
+                                        <p>{each.description}</p>
+                                    </div>
+    ))}
+                            </div>
                     </div>
                 )}
                 { (park.directionsInfo.length > 1 && park.directionsUrl.length > 1) && (
@@ -51,9 +51,7 @@ const ParkModal = ({ park, setParkModal }) => {
                         <p>
                             {park.directionsInfo}
                         </p>
-                        <p>
-                            {park.directionsUrl}
-                        </p>
+                        <a href={park.directionsUrl} target="_blank" className="anchor btn">Get Important Alerts</a>
                     </div>
                 )}
                 { park.operatingHours.length > 0 && (
@@ -65,9 +63,9 @@ const ParkModal = ({ park, setParkModal }) => {
                                     <p>{each.description}</p>
                                     {Object.entries(each.standardHours).map(
                                     ([key, value], index2) => (
-                                        <div key={index2}>
-                                            <span>{key}</span>
-                                            <span>{value}</span>
+                                        <div key={index2} className="weekdays">
+                                            <span className="days">{key}</span>
+                                            <span className="time">{value}</span>
                                         </div>
 ),
                                 )}
@@ -76,17 +74,19 @@ const ParkModal = ({ park, setParkModal }) => {
 )}
                     </div>
                 )}
-                { park.fees.length > 0 && (
-                    <div className="images">
+                { park.images.length > 0 && (
+                    <div className="images-section">
                         <h2>Images</h2>
-                        <ul>
+                        <div className="images">
                             {park.images.map((each, index) => (
-                                <div key={index}>
-                                    <img src={each.url} alt={each.altText} />
-                                    <p>{each.caption}</p>
+                                <div key={index} className="image">
+                                    <img src={each.url} alt={each.altText} width="600" height="400"/>
+                                    <div className="image-description">
+                                       {each.caption}
+                                    </div>
                                 </div>
 ))}
-                        </ul>
+                        </div>
                     </div>
                 )}
             </div>

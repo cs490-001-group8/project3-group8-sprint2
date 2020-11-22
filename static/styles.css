@@ -726,7 +726,11 @@ body {
   padding: 1rem;
   background: darkseagreen;
   box-shadow: 3px 3px 5px 6px #ccc;
-  transition: all 0.5s ease;
+  transition: all 1s ease-in-out;
+  animation-duration: 0.3s;
+  transition-timing-function: ease-in;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
 }
 .park:hover{
   transform: scale(1.01);
@@ -790,22 +794,63 @@ body {
   margin: auto;
   margin-top: 1rem;
   width: 90%;
-  font: 2rem Arial, sans-serif;
-  border-radius: 0.5rem;
+}
+.park-modal-content > div{
+  margin: 1rem;
 }
 .park-modal-content h2{
   font-size: 2rem;
   font-weight: bold;
 }
-.park-modal-content .activities{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center
+.park-modal-content p {
+  font-size: 1.3rem;
+}
+.park-modal-content .anchor{
+  padding: 1rem;
+  color: #000;
+  background: #fff;
 }
 .park-modal-content ul{
   list-style-type: none;
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 2rem;
+  font-size: 1.7rem;
+}
+.park-modal-content .fees{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+.operation-hours .weekdays{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0px;
+  font-size: 1.5rem;
+}
+.images-section .images{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+.images-section .image {
+  border: 1px solid #ccc;
+  transition: all .5s ease-in-out;
+}
+
+.images-section .image:hover {
+  transform: scale(1.02);
+  border: 1px solid #777;
+}
+
+.images-section .image img {
+  width: 100%;
+  max-height: 30rem;
+  object-fit: fill;
+}
+
+.images-section .image .image-description {
+  padding: 15px;
+  text-align: center;
 }
