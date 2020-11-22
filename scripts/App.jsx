@@ -20,7 +20,7 @@ export default function App() {
     const changeBackground = (clr, img) => {
         if (clr !== '') setStyle({ backgroundColor: `${colorTable[clr]}` });
         else setStyle({ backgroundImage: `url(${img})` });
-    }
+    };
 
     function logIn(newName) {
         setName(() => newName);
@@ -30,7 +30,7 @@ export default function App() {
 
     return (
         <div className="App" style={style}>
-            <Head loggedIn={loggedIn} logIn={logIn} changeBackground={changeBackground}/>
+            <Head loggedIn={loggedIn} logIn={logIn} changeBackground={changeBackground} />
             <Body loggedIn={loggedIn} myName={name} />
             <Footer />
         </div>
