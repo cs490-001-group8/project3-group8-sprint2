@@ -169,11 +169,13 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
+    # pylint: disable=R0801
     def mock_search_bills(
         self, sort, type, chamber, state, search_window, updated_since
     ):
         """Mock searching bills through openstates"""
         return [
+            # pylint: disable=R0801
             {
                 "title": "Bill1",
                 "updated_at": datetime.now(),
@@ -188,9 +190,39 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
+    def mock_search_politicians(
+            self, state, chamber, active
+    ):
+        # pylint: disable=R0801
+        """Mock searching bills"""
+        return [
+            # pylint: disable=R0801
+            {
+                "full_name": "Joe Shmoo",
+                "photo_url": "url",
+                "url": "https://www.google.com/",
+                "district": "6A",
+                "party": "Democrat",
+                "chamber": "upper",
+            },
+            {
+                "full_name": "Jane Shmane",
+                "photo_url": "url",
+                "url": "https://www.google.com/",
+                "district": "7b",
+                "party": "Republican",
+                "chamber": "lower",
+            },
+        ]
+
     def mock_json_load_oldcache_bills(self, file):
         """Mock an outdated cache"""
         old_time = datetime.now().timestamp() - (5000 + 100)
+        return {"timestamp": old_time}
+
+    def mock_json_load_oldcache_politicians(self, file):
+        """Mock an outdated cache"""
+        old_time = datetime.now().timestamp() - (90000 + 100)
         return {"timestamp": old_time}
 
     def mock_session_query(self, model):
@@ -275,6 +307,19 @@ class AppTestCases(unittest.TestCase):
                 for sponsor in bill["sponsors"]:
                     if not isinstance(sponsor, str):
                         raise ValueError("NAME BAD")
+        elif channel == "send politicians":
+            for pol in data["politicians"]:
+                if (
+                        "name" not in pol
+                        or "photo" not in pol
+                        or "website" not in pol
+                        or "district" not in pol
+                        or "party" not in pol
+                        or "chamber" not in pol
+                ):
+                    raise ValueError("VALUE MISSING IN POLITICIAN")
+        elif channel == "send sport":
+            pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -284,6 +329,8 @@ class AppTestCases(unittest.TestCase):
         if channel == "send weather":
             if len(data) == 0:
                 raise ValueError("DATA IS EMPTY")
+        elif channel == "weather error":
+            pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -305,7 +352,13 @@ class AppTestCases(unittest.TestCase):
             import app
 
             with mock.patch("flask.render_template", self.mocked_flask_render):
-                app.hello()
+                app.home()
+            with mock.patch("flask.render_template", self.mocked_flask_render):
+                app.commuter_tab()
+            with mock.patch("flask.render_template", self.mocked_flask_render):
+                app.politics_tab()
+            with mock.patch("flask.render_template", self.mocked_flask_render):
+                app.recreation_tab()
 
     def test_app_new_comment(self):
         """Test successful new comments"""
@@ -394,9 +447,27 @@ class AppTestCases(unittest.TestCase):
                 app.on_get_comments({})
                 app.on_get_comments({"t": "Home"})
 
-    def test_weather_sending(self):
+    def test_city_name_weather_sending(self):
         """test the on_weather_request function"""
         test_weather = {"city_name": "Newark"}
+        import app
+
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
+            app.on_weather_request(test_weather)
+            self.assertIsInstance(test_weather, dict)
+
+    def test_zip_code_weather_sending(self):
+        """test a zip code as the input"""
+        test_weather = {"city_name": "07871"}
+        import app
+
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
+            app.on_weather_request(test_weather)
+            self.assertIsInstance(test_weather, dict)
+
+    def test_invalid_code_weather_sending(self):
+        """test an invalid, non NJ city"""
+        test_weather = {"city_name": "Los Angeles"}
         import app
 
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
@@ -409,13 +480,6 @@ class AppTestCases(unittest.TestCase):
 
         with mock.patch("flask.render_template", self.mocked_flask_render):
             app.landing_page()
-
-    def test_weekend_page(self):
-        """Test rendering index.html when client requests on /weekend path"""
-        import app
-
-        with mock.patch("flask.render_template", self.mocked_flask_render):
-            app.weekend_page()
 
     def test_on_pol_tweet_request(self):
         """test the on_pol_tweet_request function"""
@@ -435,6 +499,11 @@ class AppTestCases(unittest.TestCase):
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_news_request()
 
+    def test_get_sport_data(self):
+        import app
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+            app.get_sport_data()
+
     def test_on_bill_request(self):
         """Test the on_bills_request method"""
         with mock.patch("json.load", self.mock_json_load_oldcache_bills), mock.patch(
@@ -445,6 +514,15 @@ class AppTestCases(unittest.TestCase):
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_bills_request()
 
+    def test_on_politicians_request(self):
+        """Test the on_politicians_request method"""
+        with mock.patch("json.load", self.mock_json_load_oldcache_politicians), mock.patch(
+                "pyopenstates.search_legislators", self.mock_search_politicians
+        ), mock.patch("builtins.open", mock.mock_open()):
+            import app
+
+            with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
+                app.on_politicians_request()
     def test_on_national_park(self):
         """Test the on_nationl_parks method that emits back all the parks to requested client"""
         import app

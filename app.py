@@ -5,6 +5,7 @@
 # pylint: disable=E1101
 # E1101 disabled, false positive when working with database.
 import os
+import json
 from datetime import datetime
 import flask
 import flask_socketio
@@ -16,7 +17,7 @@ from tables import BASE
 import hourly_weather
 import tweets
 import news
-import bills
+import politics
 from national_parks import national_parks
 
 load_dotenv()
@@ -36,10 +37,27 @@ LOGGEDIN_CLIENTS = []
 
 EST = timezone("EST")
 
-
 @APP.route("/")
-def hello():
-    """When someone opens the app, send them the page"""
+def home():
+    """When someone opens the home tab, send them the page"""
+    return flask.render_template("index.html")
+
+
+@APP.route("/Commuter")
+def commuter_tab():
+    """When someone opens the commuter tab, send them the page"""
+    return flask.render_template("index.html")
+
+
+@APP.route("/Politics")
+def politics_tab():
+    """When someone opens the politics tab, send them the page"""
+    return flask.render_template("index.html")
+
+
+@APP.route("/Recreation")
+def recreation_tab():
+    """When someone opens the recreation tab, send them the page"""
     return flask.render_template("index.html")
 
 
@@ -47,12 +65,6 @@ def hello():
 def landing_page():
     """When someone click About link, render landing page"""
     return flask.render_template("landing_page.html")
-
-
-@APP.route("/Recreation")
-def weekend_page():
-    """When someone click Weekend Out Tab, then refreshes the page"""
-    return flask.render_template("index.html")
 
 
 @SOCKETIO.on("log in")
@@ -80,9 +92,11 @@ def on_get_comments(data):
                 "name": comment.name,
                 "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S"),
             }
-            for comment in SESSION.query(tables.Comment)
-            .filter(tables.Comment.tab == which_tab)
-            .all()
+            for comment in SESSION.query(
+                tables.Comment
+                ).filter(
+                    tables.Comment.tab == which_tab
+                ).all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
@@ -114,9 +128,32 @@ def on_new_comment(data):
 @SOCKETIO.on("weather request")
 def on_weather_request(data):
     """Recieve city, return back weather for the day"""
-    weather_object = hourly_weather.fetch_weather(data["city_name"])
-    weather_object["city_name"] = data["city_name"]
-    flask_socketio.emit("send weather", weather_object)
+    request_name = data["city_name"]
+    if not request_name.isdigit():
+        request_name = request_name.lower()
+
+    zip_codes = {}
+    with open('weather_resources/zip_dict.json') as zip_dict:
+        zip_codes = json.load(zip_dict)
+    zip_dict.close()
+
+    cities = {}
+    with open("weather_resources/city_list.txt", 'r') as city_file:
+        cities = {line.strip() for line in city_file}
+    city_file.close()
+
+    if (request_name.isdigit() and request_name in zip_codes):
+        request_name = zip_codes[request_name]
+        weather_object = hourly_weather.fetch_weather(request_name)
+        weather_object["city_name"] = request_name.title()
+        flask_socketio.emit("send weather", weather_object)
+    elif request_name in cities:
+        weather_object = hourly_weather.fetch_weather(request_name)
+        weather_object["city_name"] = request_name.title()
+        flask_socketio.emit("send weather", weather_object)
+    else:
+        flask_socketio.emit("weather error", {})
+
 
 
 @SOCKETIO.on("get political tweets")
@@ -136,9 +173,29 @@ def on_news_request():
 @SOCKETIO.on("get bills")
 def on_bills_request():
     """Returns bills for New Jersey"""
-    bills_object = bills.get_recent_bills()
+    bills_object = politics.get_recent_bills()
     flask_socketio.emit("send bills", bills_object)
 
+
+@SOCKETIO.on("get politicians")
+def on_politicians_request():
+    """Returns politicians for New Jersey"""
+    pols_object = politics.get_politicians()
+    flask_socketio.emit("send politicians", pols_object)
+
+
+@SOCKETIO.on("get sport")
+def get_sport_data():
+    """Returns sports link for New Jersey Teams"""
+    teams = [{'name': 'Devils Hockey', 'link': 'https://www.nhl.com/devils/'},
+             {'name': 'Giants Football', 'link': 'https://www.giants.com/'},
+             {'name': 'Jets Football', 'link': 'https://www.newyorkjets.com/'},
+             {'name': 'Red Bulls', 'link': 'https://www.newyorkredbulls.com/'},
+             {'name': 'NJ Jackals', 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
+             {'name': 'Somerset Patriots', 'link': 'https://www.somersetpatriots.com/'},
+             {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
+             {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]
+    flask_socketio.emit("send sport", {'teams': teams})
 
 @SOCKETIO.on("get national parks")
 def on_national_parks():
