@@ -21,7 +21,7 @@ export default function SportsModule() {
             <ul className="bill-list">
                 {teams.map((team) => (
                     <Team
-                      Teams={team}
+                      team={team}
                     />
                 ))}
             </ul>

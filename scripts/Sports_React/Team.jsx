@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Team({ Teams }) {
+export default function Team({ team }) {
     return (
         <li className="sports">
-            <img className="sports-photo" src={`../static/images/sport/${Teams.name}.png`} alt="Team Logo" />
-            <a href={Teams.link}>{Teams.name}</a>
+            <img className="sports-photo" src={`../static/images/sport/${team.name}.png`} alt="Team Logo" />
+            <a href={team.link}>{team.name}</a>
         </li>
     );
 }
 
 Team.propTypes = {
-    Teams: PropTypes.arrayOf(PropTypes.shape({
+    team: PropTypes.shape({
         name: PropTypes.string,
         link: PropTypes.string,
-    })).isRequired,
+    }).isRequired,
 };

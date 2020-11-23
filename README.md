@@ -112,6 +112,18 @@ If you wish to check the linting on this project, execute the following commands
 	1.  Run `eslint --fix scripts/[FILE]` in order to automatically fix some of the linting errors
 6. Run `pylint [FILE]` on any of the python files.
 
+## Setting up Heroku
+        
+If you wish to deploy to heroku, log into heroku on your command line and run the 
+  following commands to move your database over:
+    0. If you do not already have a heroku project: `heroku create` and add your 
+      API keys to the config variables.  Additionally, make a Procfile with the 
+      line 'web: python app.py' and put all your requirements in requirements.txt.
+    1. `heroku addons:create heroku-postgresql:hobby-dev`
+    2. `heroku pg:wait`
+    3. `heroku pg:push postgres DATABASE_URL`
+    4. `git push heroku master`
+
 ## Work Completed by Each Group Member
 1. Ameer Hassan
 	1. Create the weather widget and its functionality.

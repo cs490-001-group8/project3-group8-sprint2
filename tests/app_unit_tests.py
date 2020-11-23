@@ -193,25 +193,23 @@ class AppTestCases(unittest.TestCase):
     def mock_search_politicians(
             self, state, chamber, active
     ):
-        # pylint: disable=R0801
-        """Mock searching bills"""
+        """Pretend to search for politicians"""
         return [
-            # pylint: disable=R0801
             {
-                "full_name": "Joe Shmoo",
-                "photo_url": "url",
-                "url": "https://www.google.com/",
-                "district": "6A",
-                "party": "Democrat",
-                "chamber": "upper",
+                "full_name": "Jake Blake",
+                "photo_url": "aurlforjake",
+                "url": "https://www.google.com/googling",
+                "district": "76B",
+                "party": "Libertarian",
+                "chamber": "executive",
             },
             {
-                "full_name": "Jane Shmane",
-                "photo_url": "url",
-                "url": "https://www.google.com/",
-                "district": "7b",
+                "full_name": "Sam Schmidt",
+                "photo_url": "samurl",
+                "url": "https://www.google.com/saaaaaaammmmee",
+                "district": "99",
                 "party": "Republican",
-                "chamber": "lower",
+                "chamber": "upper",
             },
         ]
 
