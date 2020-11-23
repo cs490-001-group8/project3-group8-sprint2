@@ -679,7 +679,7 @@ body {
     width: 100%;
     margin: auto;
     display: flex;
-    overflow-wrap: break-word;
+    overflow: auto;
   }
 
     .politician-photo {
