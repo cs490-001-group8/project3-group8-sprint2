@@ -49,6 +49,10 @@ In order to get the modules to work correctly, you will need to register and obt
 6. [OpenStates API](https://v3.openstates.org/docs) - This is used for the modules for politician information and bill information.
 	1. Go to the link above and click on "Register for an account".
 	2. Follow the steps and click "Activate API Key"
+7. [National Park Service API](https://www.nps.gov/subjects/developer/get-started.htm) - This API helps fetch all the national parks 
+that falls into NJ or has NJ in the list of states.
+	1. Follow the link to Signup for the NPS API.
+	2. Now check your email to find your API key and keep this email for later use.
 
 Create a file named `.env` and set it up as the following:
 ```
@@ -62,6 +66,7 @@ TWITTER_ACCESS_TOKEN = "<Twitter access token>"
 TWITTER_ACCESS_TOKEN_SECRET = "<Twitter access token secret>"
 GOOGLE_MAP_API_KEY=<Google map API Key Here>
 POLITICS_API_KEY=<OpenStates API key Here>
+NPS_API_KEY=<NPS API Key Here>
 ```
 
 Note: Do not include quotes or the `<>` characters in the `.env` file.\
