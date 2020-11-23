@@ -21,10 +21,9 @@ const NationalPark = ({ park, buttonType, moveAction }) => {
                     <button type="button" onClick={handleMovePark} className="park-move-btn btn">{buttonType}</button>
                 </div>
                 <div className="park-body">
-                    { park.images.length !== 0 ? 
-                        <img src={park.images[0].url} alt="Nice Park Image" /> 
-                        :
-                        <img src="../../static/images/no-image-icon.png" alt="Image Not Found Icon" />}
+                    { park.images.length !== 0
+                        ? <img src={park.images[0].url} alt="Failed to load img" />
+                        : <img src="../../static/images/no-image-icon.png" alt="Static no img icon" />}
                     <p>
                         {park.description}
                     </p>

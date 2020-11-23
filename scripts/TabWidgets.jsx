@@ -32,8 +32,8 @@ export default function TabWidgets({ currTab }) {
     if (currTab === 'Recreation') {
         return (
             <div className="tab-widgets-section">
-                <NationalParks />
                 <SportsModule />
+                <NationalParks />
             </div>
         );
     }

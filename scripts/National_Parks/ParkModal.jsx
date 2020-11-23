@@ -35,14 +35,17 @@ const ParkModal = ({ park, setParkModal }) => {
                 { park.fees.length > 0 && (
                     <div>
                         <h2>Fees Information</h2>
-                            <div className="fees">
-                                {park.fees.map((each, index) => (
-                                    <div key={index}>
-                                        <p>${each.cost}</p>
-                                        <p>{each.description}</p>
-                                    </div>
+                        <div className="fees">
+                            {park.fees.map((each, index) => (
+                                <div key={index}>
+                                    <p>
+                                        $
+                                        {each.cost}
+                                    </p>
+                                    <p>{each.description}</p>
+                                </div>
     ))}
-                            </div>
+                        </div>
                     </div>
                 )}
                 { (park.directionsInfo.length > 1 && park.directionsUrl.length > 1) && (
@@ -51,7 +54,7 @@ const ParkModal = ({ park, setParkModal }) => {
                         <p>
                             {park.directionsInfo}
                         </p>
-                        <a href={park.directionsUrl} target="_blank" className="anchor btn">Get Important Alerts</a>
+                        <a href={park.directionsUrl} target="_blank" rel="noreferrer" className="anchor btn">Get Important Alerts</a>
                     </div>
                 )}
                 { park.operatingHours.length > 0 && (
@@ -80,9 +83,9 @@ const ParkModal = ({ park, setParkModal }) => {
                         <div className="images">
                             {park.images.map((each, index) => (
                                 <div key={index} className="image">
-                                    <img src={each.url} alt={each.altText} width="600" height="400"/>
+                                    <img src={each.url} alt={each.altText} width="600" height="400" />
                                     <div className="image-description">
-                                       {each.caption}
+                                        {each.caption}
                                     </div>
                                 </div>
 ))}

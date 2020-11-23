@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Socket } from '../Socket';
 import NationalPark from './NationalPark';
+import WidgetTitle from '../WidgetTitle';
 
 const NationalParks = () => {
     const [favoriteParks, setFavoriteParks] = useState([]);
@@ -28,36 +29,34 @@ const NationalParks = () => {
     };
 
     return (
-        <div className="park-container">
-            <div className="park-container-header">
-                <h1>
-                    NationalParks
-                </h1>
-            </div>
-            <div className="favorite-parks">
-                <h3>Favorite Parks</h3>
-                <div className="parks">
-                    {favoriteParks.map((park) => (
-                        <NationalPark
-                          park={park}
-                          buttonType="&#8681;"
-                          moveAction={moveFromFavorite}
-                          key={park.id}
-                        />
-                        ))}
+        <div className="widget scroll">
+            <WidgetTitle title="National Parks" />
+            <div className="park-container">
+                <div className="favorite-parks">
+                    <h2>Favorite Parks</h2>
+                    <div className="parks">
+                        {favoriteParks.map((park) => (
+                            <NationalPark
+                              park={park}
+                              buttonType="&#8681;"
+                              moveAction={moveFromFavorite}
+                              key={park.id}
+                            />
+                            ))}
+                    </div>
                 </div>
-            </div>
-            <div className="other-parks">
-                <h3>Other Parks</h3>
-                <div className="parks">
-                    {otherParks.map((park) => (
-                        <NationalPark
-                          park={park}
-                          buttonType="&#8679;"
-                          moveAction={moveFromOther}
-                          key={park.id}
-                        />
-                        ))}
+                <div className="other-parks">
+                    <h2>Other Parks</h2>
+                    <div className="parks">
+                        {otherParks.map((park) => (
+                            <NationalPark
+                              park={park}
+                              buttonType="&#8679;"
+                              moveAction={moveFromOther}
+                              key={park.id}
+                            />
+                            ))}
+                    </div>
                 </div>
             </div>
         </div>

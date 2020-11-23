@@ -500,6 +500,7 @@ class AppTestCases(unittest.TestCase):
                 app.on_news_request()
 
     def test_get_sport_data(self):
+        """Test the logic of get_sport_data function"""
         import app
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
             app.get_sport_data()
