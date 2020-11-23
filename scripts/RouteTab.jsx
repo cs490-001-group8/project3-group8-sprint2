@@ -13,7 +13,7 @@ export default function RouteTab({ myName, loggedIn }) {
                     <NavLink className="tab" to="/">Home</NavLink>
                     <NavLink className="tab" to="/Commuter">Commuter</NavLink>
                     <NavLink className="tab" to="/Politics">Politics</NavLink>
-                    <NavLink className="tab" to="/Weekend">Weekend Out</NavLink>
+                    <NavLink className="tab" to="/Recreation">Recreation</NavLink>
                 </div>
                 <Switch>
                     <Route
@@ -39,9 +39,9 @@ export default function RouteTab({ myName, loggedIn }) {
                     />
                     <Route
                       exact
-                      path="/Weekend"
+                      path="/Recreation"
                       render={() => (
-                          <TabContent currTab="Weekend" myName={myName} loggedIn={loggedIn} />
+                          <TabContent currTab="Recreation" myName={myName} loggedIn={loggedIn} />
                         )}
                     />
                 </Switch>

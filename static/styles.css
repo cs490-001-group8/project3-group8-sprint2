@@ -727,10 +727,9 @@ body {
   background: darkseagreen;
   box-shadow: 3px 3px 5px 6px #ccc;
   transition: all 1s ease-in-out;
-  animation-duration: 0.3s;
-  transition-timing-function: ease-in;
+  animation-duration: 1s;
   animation-fill-mode: both;
-  animation-name: fadeInUp;
+  animation-name: fadeInRight;
 }
 .park:hover{
   transform: scale(1.01);
@@ -753,13 +752,14 @@ body {
 }
 .park-body{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 1.5vw;
 }
 .park-body img{
   margin: 1rem;
-  width: 20%;
+  width: 20vw;
   height: auto;
   object-fit: cover;
   border-radius: 10%;

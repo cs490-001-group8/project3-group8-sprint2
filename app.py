@@ -49,7 +49,7 @@ def landing_page():
     return flask.render_template("landing_page.html")
 
 
-@APP.route("/Weekend")
+@APP.route("/Recreation")
 def weekend_page():
     """When someone click Weekend Out Tab, then refreshes the page"""
     return flask.render_template("index.html")

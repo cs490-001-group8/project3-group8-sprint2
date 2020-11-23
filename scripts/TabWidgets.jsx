@@ -25,10 +25,11 @@ export default function TabWidgets({ currTab }) {
             </div>
         );
     }
-    if (currTab === 'Weekend') {
+    if (currTab === 'Recreation') {
         return (
             <div className="tab-widgets-section">
                 <NationalParks />
+                
             </div>
         );
     }
