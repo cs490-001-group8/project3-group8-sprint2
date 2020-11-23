@@ -34,7 +34,7 @@ from forward_geocoding import KEY_LATITUDE, KEY_LONGITUDE_RETURN
 KEY_INPUT = "input"
 KEY_EXPECTED = "expected"
 
-class MockedRequestResposneSuccess:
+class MockedRequestResponseSuccess:
     """
         Mock Success weather API
         Response that returns Data
@@ -296,7 +296,7 @@ class HourlyWeatherTests(unittest.TestCase):
                 KEY_LATITUDE: 40.00,
                 KEY_LONGITUDE_RETURN: -34.34,
             }
-            mocked_requests_get.return_value = MockedRequestResposneSuccess()
+            mocked_requests_get.return_value = MockedRequestResponseSuccess()
             resposne = fetch_weather(test_case[KEY_INPUT])
             expected = test_case[KEY_EXPECTED]
 

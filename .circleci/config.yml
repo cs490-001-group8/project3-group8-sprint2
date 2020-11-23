@@ -27,6 +27,9 @@ jobs:
       - run:
           command: python ./tests/news_unit_tests.py
           name: news_unit_tests.py Tests
+      - run:
+          command: python ./tests/national_parks_unit_test.py
+          name: national_parks_unit_test.py Tests
   heroku-deploy:
     executor: python/default
     steps:

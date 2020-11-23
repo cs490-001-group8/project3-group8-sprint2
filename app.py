@@ -18,6 +18,7 @@ import hourly_weather
 import tweets
 import news
 import politics
+from national_parks import national_parks
 
 load_dotenv()
 
@@ -154,6 +155,7 @@ def on_weather_request(data):
         flask_socketio.emit("weather error", {})
 
 
+
 @SOCKETIO.on("get political tweets")
 def on_pol_tweet_request():
     """Return tweets from politicians"""
@@ -194,6 +196,12 @@ def get_sport_data():
              {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
              {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]
     flask_socketio.emit("send sport", {'teams': teams})
+
+@SOCKETIO.on("get national parks")
+def on_national_parks():
+    """Returns all NJ National Parks"""
+    parks = national_parks()
+    flask_socketio.emit("national parks", {"parks": parks})
 
 
 if __name__ == "__main__":
