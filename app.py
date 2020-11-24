@@ -91,6 +91,7 @@ def on_get_comments(data):
                 "text": comment.text,
                 "name": comment.name,
                 "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S"),
+                "id": comment.id,
             }
             for comment in SESSION.query(
                 tables.Comment
@@ -114,12 +115,13 @@ def on_new_comment(data):
         which_tab = data["tab"]
         who_sent = data["name"]
         time = datetime.now()
-        SESSION.add(tables.Comment(new_text, who_sent, which_tab, time))
+        comment = tables.Comment(new_text, who_sent, which_tab, time)
+        SESSION.add(comment)
         SESSION.commit()
         time_str = time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")
         SOCKETIO.emit(
             "new comment",
-            {"text": new_text, "name": who_sent, "tab": which_tab, "time": time_str},
+            {"text": new_text, "name": who_sent, "tab": which_tab, "time": time_str, "id": comment.id},
         )
     except KeyError:
         return
