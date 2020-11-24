@@ -5,7 +5,9 @@ import NewsList from './News_React/NewsList';
 import WeatherModule from './Weather_React/WeatherModule';
 import TweetWidget from './Tweet_React/TweetWidget';
 import BillsWidget from './Bills_React/BillsWidget';
+import SportsModule from './Sports_React/SportsModule';
 import PoliticiansWidget from './Politicians_React/PoliticiansWidget';
+import NationalParks from './National_Parks/NationalParks';
 
 export default function TabWidgets({ currTab }) {
     if (currTab === 'Commuter') {
@@ -23,6 +25,15 @@ export default function TabWidgets({ currTab }) {
                 <TweetWidget />
                 <PoliticiansWidget />
                 <BillsWidget />
+            </div>
+        );
+    }
+
+    if (currTab === 'Recreation') {
+        return (
+            <div className="tab-widgets-section">
+                <SportsModule />
+                <NationalParks />
             </div>
         );
     }

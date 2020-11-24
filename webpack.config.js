@@ -6,7 +6,7 @@ module.exports = {
     output: {
         path: __dirname,
         filename: './static/script.js',
-        assetModuleFilename: 'static/[hash][ext][query]'
+        assetModuleFilename: 'static/[hash][ext][query]',
     },
     module: {
         rules: [

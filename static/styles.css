@@ -556,70 +556,94 @@ body {
   border: 1px black solid;
   overflow: auto;
 }
+  
+  .tweet-list {
+    width: 100%;
+    text-align: left;
+    padding: 0px;
+    margin-bottom: 5%;
+  }
+  
+    .tweet {
+      font-family: Helvetica;
+      text-align: left;
+      color: #14171A;
+      border: 2px black solid;
+      
+      width: 100%;
+      margin: auto;
+      padding: 1em;
+      
+      flex: 1;
+    }
+      
+      .tweet-head {
+        display: flex;
+        margin-bottom: 3%;
+      }
+        
+        .tweet-head-user {
+          margin: auto;
+          font-size: 15pt;
+          line-height: 1.15;
+          
+          flex:6;
+        }
+        
+        .tweet-head-user-name {
+          font-weight: bold;
+        }
+        
+        .tweet-head-user-sname {
+          color: #657786;
+        }
+        
+        .tweet-head-pic {
+          margin: 5px;
+          
+          flex:1;
+        }
+        
+          .tweet-head-pic img{
+            border-radius: 50%;
+          }
+      
+      .tweet-text {
+        font-size: 13pt;
+      }
+      
+      .tweet-foot {
+        color: #657786;
+        margin-top: 3%;
+        font-size: 11pt;
+      }
+      
+      .tweets-title {
+        height: 5%;
+        text-align: center;
+        font-size: 25pt;
+        font-weight: normal;
+      }
 
-.tweet-list {
-  width: 100%;
-  text-align: left;
-  padding: 0px;
-  margin-bottom: 5%;
-}
-
-.tweet {
+.sports{
   font-family: Helvetica;
-  text-align: left;
+  text-align: center;
   color: #14171A;
-  border: 2px black solid;
+  border: 1px black solid;
+
   width: 100%;
   margin: auto;
   padding: 1em;
-  flex: 1;
-}
 
-.tweet-head {
-  display: flex;
-  margin-bottom: 3%;
 }
-
-.tweet-head-user {
-  margin: auto;
-  font-size: 15pt;
-  line-height: 1.15;
-  flex: 6;
-}
-
-.tweet-head-user-name {
-  font-weight: bold;
-}
-
-.tweet-head-user-sname {
-  color: #657786;
-}
-
-.tweet-head-pic {
-  margin: 5px;
-  flex: 1;
-}
-
-.tweet-head-pic img {
-  border-radius: 50%;
-}
-
-.tweet-text {
-  font-size: 13pt;
-}
-
-.tweet-foot {
-  color: #657786;
-  margin-top: 3%;
-  font-size: 11pt;
-}
-
-.tweets-title {
-  height: 5%;
-  text-align: center;
-  font-size: 25pt;
-  font-weight: normal;
-}
+  .sports-photo {
+      flex: 1;
+      width: 150px;
+      height: 150px;
+      text-align: center;
+      font-size: 10pt;
+      margin: 5px;
+    }
 
 .bill-list {
   border: 1px black solid;
@@ -672,16 +696,18 @@ body {
   margin-right: 3%;
 }
 
-.politician {
-  font-family: Helvetica;
-  text-align: left;
-  color: #14171A;
-  border: 1px black solid;
-  width: 100%;
-  margin: auto;
-  display: flex;
-  overflow-wrap: break-word;
-}
+
+  .politician {
+    font-family: Helvetica;
+    text-align: left;
+    color: #14171A;
+    border: 1px black solid;
+    
+    width: 100%;
+    margin: auto;
+    display: flex;
+    overflow: auto;
+  }
 
 .politician-photo {
   flex: 1;
@@ -810,255 +836,144 @@ body {
   font-size: 2rem;
 }
 
-.fixed-plugin {
-  align-self: center;
-  text-align: center;
-  justify-self: right;
+/* National Park Module Styling */
+.parks{
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: auto;
 }
-
-.fixed-plugin .SocialMediaShareButton, .fixed-plugin .github-btn {
-  display: inline-block;
-}
-
-.fixed-plugin li>a, .fixed-plugin .badge {
-  transition: all 0.34s;
-  -webkit-transition: all 0.34s;
-  -moz-transition: all 0.34s;
-  text-decoration: none;
-}
-
-.fixed-plugin .fa-cog {
-  color: #ffffff;
-  padding: 2px;
-  border-radius: 0 0 6px 6px;
-  width: auto;
-}
-
-.fixed-plugin .dropdown-menu {
-  width: 250px;
-  border-radius: 0.1875rem;
-  padding: 0 10px;
-  position: absolute;
-  color: rgba(0, 0, 0, 0.87);
-  display: inline-block;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+.park{
+  margin: 0.3rem;
+  padding: 1rem;
   background: #fff;
-  border-radius: 3px;
+  box-shadow: 3px 3px 5px 6px #ccc;
+  transition: all 1s ease-in-out;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeInRight;
 }
-
-.fixed-plugin .fa-circle-thin {
-  color: #ffffff;
-}
-
-.fixed-plugin .active .fa-circle-thin {
-  color: #00bbff;
-}
-
-.fixed-plugin .dropdown-menu>.active>a, .fixed-plugin .dropdown-menu>.active>a:hover, .fixed-plugin .dropdown-menu>.active>a:focus {
-  color: #777777;
+.park-header{
   text-align: center;
+  font-weight: bold;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.fixed-plugin img {
-  border-radius: 0;
-  width: 100%;
-  height: 100px;
-  margin: 0 auto;
+.park-header a{
+  font-weight: bold;
+  color: #000;
+  transition: color .3s ease;
 }
-
-.fixed-plugin .dropdown-menu li>a:hover, .fixed-plugin .dropdown-menu li>a:focus {
-  box-shadow: none;
-}
-
-.fixed-plugin .badge {
-  border: 3px solid #ffffff;
-  border-radius: 50%;
+.park-header a:hover{
   cursor: pointer;
-  display: inline-block;
-  height: 23px;
-  margin-right: 5px;
-  position: relative;
-  width: 23px;
-  background-color: rgba(30, 30, 30, 0.97);
 }
-
-.fixed-plugin .badge.active, .fixed-plugin .badge:hover {
-  border-color: #00bbff;
+.park-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5vw;
 }
-
-.fixed-plugin .badge-purple {
-  background-color: #9c27b0;
+.park-body img{
+  margin: 1rem;
+  width: 20vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10%;
 }
-
-.fixed-plugin .badge-blue {
-  background-color: #00bcd4;
+.park-detail-btn{
+  align-self: flex-end;
 }
-
-.fixed-plugin .badge-green {
-  background-color: #4caf50;
+.park-move-btn{
+  font-size: 2rem;
 }
-
-.fixed-plugin .badge-orange {
-  background-color: #ff9800;
+.park-container .btn{
+  padding: 0.3rem;
+  border: 2px solid #343434;
+  transition: background .5s linear;
 }
-
-.fixed-plugin .badge-red {
-  background-color: #f44336;
-}
-
-.fixed-plugin h5 {
-  font-size: 14px;
-  margin: 10px;
-}
-
-.fixed-plugin .dropdown-menu li {
-  display: block;
-  padding: 4px 0px;
-  margin: 4px;
-  width: 45%;
-  float: left;
-}
-
-.fixed-plugin li.adjustments-line, .fixed-plugin li.header-title, .fixed-plugin li.button-container {
-  width: 100%;
-  height: 50px;
-  min-height: inherit;
-  padding: 0px;
-  text-align: center;
-}
-
-.fixed-plugin li.adjustments-line p {
-  margin: 0;
-}
-
-.fixed-plugin li.adjustments-line div, .fixed-plugin li.header-title div, .fixed-plugin li.button-container div {
-  margin-bottom: 5px;
-}
-
-.fixed-plugin li.header-title {
-  height: 30px;
-  line-height: 25px;
-  font-size: 12px;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.fixed-plugin .adjustments-line p {
-  float: left;
-  display: inline-block;
-  margin-bottom: 0;
-  font-size: 1em;
-  color: #3c4858;
-}
-
-.fixed-plugin .adjustments-line a {
-  color: transparent;
-}
-
-.fixed-plugin .adjustments-line a .badge-colors {
-  position: relative;
-  top: -2px;
-}
-
-.fixed-plugin .adjustments-line a a:hover, .fixed-plugin .adjustments-line a a:focus {
-  color: transparent;
-}
-
-.fixed-plugin .adjustments-line .dropdown-menu>li.adjustments-line>a {
-  padding-right: 0;
-  padding-left: 0;
-  border-bottom: 1px solid #ddd;
-  border-radius: 0;
-  margin: 0;
-}
-
-.fixed-plugin .dropdown-menu>li>a.img-holder {
-  font-size: 16px;
-  text-align: center;
-  border-radius: 10px;
-  background-color: #fff;
-  border: 3px solid #fff;
-  padding-left: 0;
-  padding-right: 0;
-  opacity: 1;
+.park-container .btn:hover{
+  color: #fff;
+  background: #000;
   cursor: pointer;
-  display: block;
-  max-height: 100px;
-  overflow: hidden;
-  padding: 0;
+}
+.park-container .btn:focus {
+    border: none;
+    outline: none;
+}
+.park-modal{
+  background: cadetblue;
+}
+.park-modal-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 1rem;
+  width: 90%;
+}
+.park-modal-content > div{
+  margin: 1rem;
+}
+.park-modal-content h2{
+  font-size: 2rem;
+  font-weight: bold;
+}
+.park-modal-content p {
+  font-size: 1.3rem;
+}
+.park-modal-content .anchor{
+  padding: 1rem;
+  color: #000;
+  background: #fff;
+}
+.park-modal-content ul{
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
+  font-size: 1.7rem;
+}
+.park-modal-content .fees{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+.operation-hours .weekdays{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0px;
+  font-size: 1.5rem;
+}
+.images-section .images{
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+.images-section .image {
+  border: 1px solid #ccc;
+  transition: all .5s ease-in-out;
 }
 
-.fixed-plugin .dropdown-menu>li>a.img-holder img {
-  margin-top: auto;
+.images-section .image:hover {
+  transform: scale(1.02);
+  border: 1px solid #777;
 }
-
-.fixed-plugin .dropdown-menu>li:hover>a.img-holder, .fixed-plugin .dropdown-menu>li:focus>a.img-holder {
-  border-color: rgba(0, 187, 255, 0.53);
+.images-section .image img {
+  width: 100%;
+  max-height: 30rem;
+  object-fit: fill;
 }
-
-.fixed-plugin .dropdown-menu>.active>a.img-holder, .fixed-plugin .dropdown-menu>.active>a.img-holder {
-  border-color: #00bbff;
-  background-color: #ffffff;
+.images-section .image .image-description {
+  padding: 15px;
+  text-align: center;
 }
-
-.fixed-plugin .dropdown .dropdown-menu {
-  -webkit-transform: translateY(-15%);
-  -moz-transform: translateY(-15%);
-  -o-transform: translateY(-15%);
-  -ms-transform: translateY(-15%);
-  transform: translateY(-15%);
-  top: 120px;
-  opacity: 0;
-  transform-origin: 0 0;
-  display: none;
+.scroll{
+  overflow: auto !important;
 }
-
-.fixed-plugin .dropdown .dropdown-menu:before {
-  border-bottom: 0.4em solid transparent;
-  border-left: 0.4em solid rgba(0, 0, 0, 0.2);
-  border-top: 0.4em solid transparent;
-  right: -16px;
-  top: 46px;
-}
-
-.fixed-plugin .dropdown .dropdown-menu:after {
-  border-bottom: 0.4em solid transparent;
-  border-left: 0.4em solid #ffffff;
-  border-top: 0.4em solid transparent;
-  right: -16px;
-}
-
-.fixed-plugin .dropdown .dropdown-menu:before, .fixed-plugin .dropdown .dropdown-menu:after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 46px;
-  width: 16px;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-}
-
-.fixed-plugin .dropdown.show .dropdown-menu {
-  display: block;
-  visibility: visible;
-  opacity: 1;
-  -webkit-transform: translateY(-13%);
-  -moz-transform: translateY(-13%);
-  -o-transform: translateY(-13%);
-  -ms-transform: translateY(-13%);
-  transform: translateY(-13%);
-  transform-origin: 0 0;
-}
-
-.fixed-plugin.rtl-fixed-plugin {
-  right: auto;
-  left: 0px;
-  border-radius: 0 8px 8px 0;
-}
-
-.fixed-plugin.rtl-fixed-plugin .dropdown-menu {
-  right: auto;
-  left: 80px;
+.scroll::-webkit-scrollbar{
+  width: 0px;
+  background: transparent;
 }
