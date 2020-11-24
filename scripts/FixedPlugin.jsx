@@ -65,7 +65,7 @@ export default function FixedPlugin({ changeBackground }) {
           <i className="fa fa-cog" />
         </button>
         <ul className="dropdown-menu">
-          <li className="header-title">COLORS</li>
+          
           <li className="adjustments-line">
             <a className="switch-trigger">
               <div>

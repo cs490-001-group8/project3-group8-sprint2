@@ -4,7 +4,7 @@ body {
 }
 
 .App {
-  background-color: #FFFFFF;
+  background-color: #F8F8FF;
 }
 
 .body {
@@ -53,7 +53,7 @@ body {
 }
 
 .widget {
-  background-color: #FFFFFF;
+  background-color: #F8F8FF;
   height: 95%;
   border: 3px black solid;
   border-radius: 25px;
@@ -72,7 +72,7 @@ body {
 }
 
 .comment-block {
-  background-color: #FFFFFF;
+  background-color: #F8F8FF ;
   border: 3px black solid;
   width: 25%;
   height: 100%;
@@ -116,7 +116,7 @@ body {
 }
 
 .comment {
-  border: 1px #CCCCCC solid;
+  border: 1px #F8F8FF solid;
   width: 100%;
   font-size: 16pt;
   list-style-type: none;
@@ -816,7 +816,7 @@ body {
   justify-self: right;
 }
 
-.fixed-plugin .SocialMediaShareButton, .fixed-plugin .github-btn {
+.fixed-plugin .SocialMediaShareButton, .fixed-plugin  {
   display: inline-block;
 }
 
