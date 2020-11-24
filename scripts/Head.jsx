@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import LoggedIn from './Auth_React/LoggedIn';
 import HeadTitle from './HeadTitle';
 import LoginModal from './Auth_React/LoginModal';
+import FixedPlugin from './FixedPlugin';
 
 export default function Head({ logIn, loggedIn }) {
     const [display, setDisplay] = useState('none');
@@ -15,6 +16,7 @@ export default function Head({ logIn, loggedIn }) {
         return (
             <div className="Head">
                 <HeadTitle />
+                <FixedPlugin />
                 <LoggedIn />
             </div>
         );
@@ -23,6 +25,7 @@ export default function Head({ logIn, loggedIn }) {
     return (
         <div className="Head">
             <HeadTitle />
+            <FixedPlugin />
             <button onClick={handleClick} type="button" className="login-button">Log In</button>
             <LoginModal logIn={logIn} display={display} setDisplay={setDisplay} />
         </div>
