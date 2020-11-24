@@ -26,7 +26,7 @@ KEY_EXPECTED = "expected"
 KEY_ERROR = "error"
 
 
-class MockedRequestResposneSuccess:
+class MockedRequestResponseSuccess:
     """
         Mock Succesful Geocodio API
         Resposne and json method
@@ -60,7 +60,7 @@ class MockedRequestResposneSuccess:
         }
 
 
-class MockedRequestResposneFailure:
+class MockedRequestResponseFailure:
     """
         Mock Geocodio failure API response
     """
@@ -105,7 +105,7 @@ class ForwardGeocodingTests(unittest.TestCase):
             Test when API is returns an successful response
         """
         for test_case in self.test_get_latlon_success:
-            mocked_requests_get.return_value = MockedRequestResposneSuccess(
+            mocked_requests_get.return_value = MockedRequestResponseSuccess(
                 40.728157, -74.077644
             )
             response = get_latlon(test_case[KEY_INPUT])
@@ -119,7 +119,7 @@ class ForwardGeocodingTests(unittest.TestCase):
             Test when Geocodio API returns an error
         """
         for test_case in self.test_edge_case_get_latlon:
-            mocked_requests_get.return_value = MockedRequestResposneFailure()
+            mocked_requests_get.return_value = MockedRequestResponseFailure()
             response = get_latlon(test_case[KEY_INPUT])
             expected = test_case[KEY_EXPECTED]
 

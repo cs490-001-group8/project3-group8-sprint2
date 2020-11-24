@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "timestamp": 1606251156.207246,
     "articles": [
         {
@@ -35,6 +36,44 @@
             "source": {
                 "name": "Devdiscourse",
                 "url": "https://www.devdiscourse.com/"
+=======
+    "timestamp": 1606145714.528682,
+    "articles": [
+        {
+            "title": "Teen, 15, shot in eye by paintball gun outside New Jersey mall: police",
+            "description": "A 15-year-old New Jersey teen was shot in the eye with by a paintball gun while strolling down the sidewalk, cops said.",
+            "content": "He was walking with three other teens near the food court on Nov. 8 just before 6 p.m., authorities said. That\u2019s when a sedan, which cops described as being either silver or grey, drove by and someone from inside the vehicle fired off a paintball gun...",
+            "url": "https://www.nydailynews.com/news/crime/ny-paintball-eye-new-jersey-20201123-k7gxhy4ribh47iqayzz3ccfyf4-story.html",
+            "image": "https://www.nydailynews.com/resizer/xZWSqF4XWEKFVAR16c9yZT35MNg=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/HYHGMDR5NNE45NSDYAFMXR4ZOM.jpg",
+            "publishedAt": "2020-11-23T15:03:10Z",
+            "source": {
+                "name": "New York Daily News",
+                "url": "https://www.nydailynews.com/"
+            }
+        },
+        {
+            "title": "Every day is Christmas in this New Jersey home",
+            "description": "A home listed for $2.19 million in Colts Neck, NJ, has a stock of Christmas trees, wreaths and nutcrackers that stay up year-round \u2014 and the owners may be willing to part with them.",
+            "content": "Is this North Jersey \u2014 or the North Pole?\nIn Colts Neck, NJ, a stately stone-clad home that hit the market in October for $2.19 million stands out for more than its two-story foyer, roomy kitchen and 2,000-square-foot outdoor patio surrounding a larg... [1944 chars]",
+            "url": "https://nypost.com/2020/11/23/every-day-is-christmas-in-this-new-jersey-home/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/christmas-house.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-11-23T13:17:14Z",
+            "source": {
+                "name": "New York Post",
+                "url": "https://nypost.com/"
+            }
+        },
+        {
+            "title": "Big Ten takeaways: Officiating has been an eyesore",
+            "description": "From a bad call against Purdue on Friday night in Minnesota through a triple-overtime win for Michigan early Sunday in New Jersey, the Big Ten schedule was packed with significant games.",
+            "content": "Then on third-and-goal from the 5, Badgers cornerback Rachad Wildgoose Jr. was called for interference on a contested ball to Raine in the corner of the end zone. Given a fresh set of downs, Ramsey found tight end Charlie Mangieri open in the back of... [37 chars]",
+            "url": "https://www.chicagotribune.com/sports/college/ct-cb-big-ten-football-brandon-peters-justin-fields-20201123-goz5fhj7rfexngptnc7jgjtwli-story.html",
+            "image": "https://www.chicagotribune.com/resizer/A8sveHm5nrqWRElREUnFq8TLHwM=/1200x0/center/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/UIJMA2ZSQBCG5H75EGJIKJ5MDI.jpg",
+            "publishedAt": "2020-11-23T12:15:00Z",
+            "source": {
+                "name": "Chicago Tribune",
+                "url": "https://www.chicagotribune.com/"
+>>>>>>> 9438756f852152e86cb4efce612dbe2ae27e5883
             }
         },
         {
@@ -43,13 +82,18 @@
             "content": "article\nAs Dallas Stars fans are still thinking about the team\u2019s run to the Stanley Cup Final, they were given a treat Wednesday, as the Stars unveiled a new Blackout alternate uniform for the upcoming season.\nThis will be the first time since 2006 t... [1101 chars]",
             "url": "https://www.fox4news.com/sports/dallas-stars-unveil-blackout-alternate-jersey",
             "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/10/1280/720/1028starsblackout.jpg?ve=1&tl=1",
+<<<<<<< HEAD
             "publishedAt": "2020-11-24T13:44:45Z",
+=======
+            "publishedAt": "2020-11-23T03:23:14Z",
+>>>>>>> 9438756f852152e86cb4efce612dbe2ae27e5883
             "source": {
                 "name": "FOX 4 News",
                 "url": "https://www.fox4news.com/"
             }
         },
         {
+<<<<<<< HEAD
             "title": "Surprise: Comcast will complete rollout of data caps everywhere in 2021",
             "description": "The 1.2TB data caps will hit the following markets, ensuring all of Comcast's 39-state US territory is covered: Connecticut, Delaware, Massachusetts, Maryland, Maine, New Hampshire, New Jersey,...",
             "content": "For shame During the midst of an unprecedented pandemic that has many consumers stranded at home, with internet usage soaring as families work and learn from home, Comcast has made the decision to continue its unpopular plan to impose monthly data ca... [2490 chars]",
@@ -59,6 +103,17 @@
             "source": {
                 "name": "TechSpot",
                 "url": "https://www.techspot.com/"
+=======
+            "title": "New Jersey Lawmaker Pushes To Disbar Rudy Giuliani For Deceitful, 'Absurd' Election Cases",
+            "description": "Giuliani has caused \"irreversible damage to the public trust in the fair administration of our elections,\" Rep. Bill Pascrell wrote to officials policing...",
+            "content": "New Jersey Democratic Rep. Bill Pascrell has filed a complaint with New York\u2019s attorney disciplinary officials, calling for the disbarment of Rudy Giuliani for \u201cfraud\u201d and \u201cdeceit\u201d in his actions attempting to overturn the presidential election witho... [2140 chars]",
+            "url": "https://www.huffpost.com/entry/bill-pascrell-disbarment-rudy-giuliani-trump-election_n_5fbaf260c5b6e4b1ea4399a5",
+            "image": "https://img.huffingtonpost.com/asset/5fbaf9991f0000a804769a7e.jpeg?cache=ougs1loyhh&ops=1778_1000",
+            "publishedAt": "2020-11-23T02:55:11Z",
+            "source": {
+                "name": "The Huffington Post",
+                "url": "https://www.huffpost.com/"
+>>>>>>> 9438756f852152e86cb4efce612dbe2ae27e5883
             }
         }
     ]
