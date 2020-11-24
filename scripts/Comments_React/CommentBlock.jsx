@@ -11,7 +11,9 @@ export default function CommentBlock({ currTab, myName, loggedIn }) {
     useEffect(() => {
         Socket.on('new comment', (data) => {
             updateComments((oldComments) => [
-                { text: data.text, name: data.name, time: data.time }].concat(oldComments));
+                {
+                    text: data.text, name: data.name, time: data.time, comment_id: data.id,
+                }].concat(oldComments));
         });
 
         Socket.on('old comments', (data) => {

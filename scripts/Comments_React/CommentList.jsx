@@ -8,6 +8,7 @@ export default function CommentList({ comments, loggedIn }) {
             <ul className="comment-list">
                 {comments.map((comment) => (
                     <Comment
+                      commentId={comment.id}
                       commentBody={comment.text}
                       commentName={comment.name}
                       commentTime={comment.time}
@@ -21,6 +22,7 @@ export default function CommentList({ comments, loggedIn }) {
         <ul className="comment-list-loggedout">
             {comments.map((comment) => (
                 <Comment
+                  commentId={comment.id}
                   commentBody={comment.text}
                   commentName={comment.name}
                   commentTime={comment.time}
@@ -32,6 +34,7 @@ export default function CommentList({ comments, loggedIn }) {
 
 CommentList.propTypes = {
     comments: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.int,
         text: PropTypes.string,
         name: PropTypes.string,
         time: PropTypes.time,

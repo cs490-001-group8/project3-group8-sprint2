@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Comment({ commentBody, commentName, commentTime }) {
+export default function Comment({
+    commentBody, commentName, commentTime, commentId,
+}) {
     return (
         <li className="comment">
             <div className="comment-info">
@@ -14,6 +16,7 @@ export default function Comment({ commentBody, commentName, commentTime }) {
 }
 
 Comment.propTypes = {
+    commentId: PropTypes.number.isRequired,
     commentBody: PropTypes.string.isRequired,
     commentName: PropTypes.string.isRequired,
     commentTime: PropTypes.string.isRequired,
