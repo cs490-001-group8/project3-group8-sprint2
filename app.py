@@ -121,7 +121,13 @@ def on_new_comment(data):
         time_str = time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")
         SOCKETIO.emit(
             "new comment",
-            {"text": new_text, "name": who_sent, "tab": which_tab, "time": time_str, "id": comment.id},
+            {
+                "text": new_text,
+                "name": who_sent,
+                "tab": which_tab,
+                "time": time_str,
+                "id": comment.id
+            },
         )
     except KeyError:
         return
