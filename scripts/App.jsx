@@ -3,24 +3,14 @@ import { Socket } from './Socket';
 import Body from './Body';
 import Head from './Head';
 import Footer from './Footer';
+import ThemeContext from './ThemeContext';
 
 export default function App() {
-    const colorTable = {
-        purple: '#9c27b0',
-        blue: '#00bbff',
-        green: '#4caf50',
-        red: '#f44336',
-        orange: '#ff9800',
-    };
-
     const [name, setName] = useState(() => '');
     const [loggedIn, setLoggedIn] = useState(() => false);
-    const [style, setStyle] = useState();
-
-    const changeBackground = (clr, img) => {
-        if (clr !== '') setStyle({ backgroundColor: `${colorTable[clr]}` });
-        else setStyle({ backgroundImage: `url(${img})` });
-    };
+    const [image, setImage] = useState(localStorage.getItem('image'));
+    const [color, setColor] = useState(localStorage.getItem('color'));
+    const contextValue = { contextImage: [image, setImage], contextColor: [color, setColor] };
 
     function logIn(newName) {
         setName(() => newName);
@@ -29,10 +19,12 @@ export default function App() {
     }
 
     return (
-        <div className="App" style={style}>
-            <Head loggedIn={loggedIn} logIn={logIn} changeBackground={changeBackground} />
-            <Body loggedIn={loggedIn} myName={name} />
-            <Footer />
-        </div>
+        <ThemeContext.Provider value={contextValue}>
+            <div className="App">
+                <Head loggedIn={loggedIn} logIn={logIn} />
+                <Body loggedIn={loggedIn} myName={name} />
+                <Footer />
+            </div>
+        </ThemeContext.Provider>
     );
 }

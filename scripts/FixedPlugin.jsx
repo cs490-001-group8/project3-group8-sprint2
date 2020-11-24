@@ -2,15 +2,17 @@
 import React, { useState, useEffect } from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+import ThemeContext from './ThemeContext';
 
 import imagine1 from "assets/img/sidebar1.jpg";
 import imagine2 from "assets/img/sidebar2.jpg";
 import imagine3 from "assets/img/sidebar3.jpg";
 import imagine4 from "assets/img/sidebar4.jpg";
 
-export default function FixedPlugin({ changeBackground }) {
-  const [image, setImage] = useState(localStorage.getItem('image'));
-  const [color, setColor] = useState(localStorage.getItem('color'));
+export default function FixedPlugin() {
+  const { contextImage, contextColor } = React.useContext(ThemeContext);
+  const [image, setImage] = contextImage;
+  const [color, setColor] = contextColor;
   const [fixedClasses, setFixedClasses] = useState("dropdown");
 
   useEffect(() => {
@@ -52,8 +54,6 @@ export default function FixedPlugin({ changeBackground }) {
 
     localStorage.setItem('color', clr);
     localStorage.setItem('image', img);
-
-    changeBackground(clr, img);
   };
 
   return (
@@ -65,7 +65,7 @@ export default function FixedPlugin({ changeBackground }) {
           <i className="fa fa-cog" />
         </button>
         <ul className="dropdown-menu">
-          
+          <li className="header-title">COLORS</li>
           <li className="adjustments-line">
             <a className="switch-trigger">
               <div>
@@ -183,7 +183,3 @@ export default function FixedPlugin({ changeBackground }) {
     </div>
   );
 }
-
-FixedPlugin.propTypes = {
-  changeBackground: PropTypes.func.isRequired,
-};

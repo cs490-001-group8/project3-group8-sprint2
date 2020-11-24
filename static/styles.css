@@ -168,7 +168,7 @@ body {
 }
 
 .head {
-  height: 10%;
+  height: 12%;
   padding: 15px;
   display: grid;
   grid-template-columns: 25% auto 10% 15%;
