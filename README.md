@@ -49,10 +49,6 @@ In order to get the modules to work correctly, you will need to register and obt
 6. [OpenStates API](https://v3.openstates.org/docs) - This is used for the modules for politician information and bill information.
 	1. Go to the link above and click on "Register for an account".
 	2. Follow the steps and click "Activate API Key"
-7. [National Park Service API](https://www.nps.gov/subjects/developer/get-started.htm) - This API helps fetch all the national parks 
-that falls into NJ or has NJ in the list of states.
-	1. Follow the link to Signup for the NPS API.
-	2. Now check your email to find your API key and keep this email for later use.
 
 Create a file named `.env` and set it up as the following:
 ```
@@ -66,7 +62,6 @@ TWITTER_ACCESS_TOKEN = "<Twitter access token>"
 TWITTER_ACCESS_TOKEN_SECRET = "<Twitter access token secret>"
 GOOGLE_MAP_API_KEY=<Google map API Key Here>
 POLITICS_API_KEY=<OpenStates API key Here>
-NPS_API_KEY=<NPS API Key Here>
 ```
 
 Note: Do not include quotes or the `<>` characters in the `.env` file.\
@@ -77,8 +72,11 @@ There are a few commands you must run in order to ensure that the clientside wil
 1. `npm install`
 2. `npm i nanoid`
 3. `npm install -g webpack`
+3. `npm i @material-ui/core`
+4. `npm install webpack@next --dev`
 4. `npm install --save-dev webpack`
 5. `npm install --save google-map-react`
+
 
 
 ## Setting up testcases
@@ -112,18 +110,6 @@ If you wish to check the linting on this project, execute the following commands
 	1.  Run `eslint --fix scripts/[FILE]` in order to automatically fix some of the linting errors
 6. Run `pylint [FILE]` on any of the python files.
 
-## Setting up Heroku
-        
-If you wish to deploy to heroku, log into heroku on your command line and run the 
-  following commands to move your database over:
-    0. If you do not already have a heroku project: `heroku create` and add your 
-      API keys to the config variables.  Additionally, make a Procfile with the 
-      line 'web: python app.py' and put all your requirements in requirements.txt.
-    1. `heroku addons:create heroku-postgresql:hobby-dev`
-    2. `heroku pg:wait`
-    3. `heroku pg:push postgres DATABASE_URL`
-    4. `git push heroku master`
-
 ## Work Completed by Each Group Member
 1. Ameer Hassan
 	1. Create the weather widget and its functionality.
@@ -156,6 +142,8 @@ The comment section was having an issue where each tab was not recognizing diffe
   simply updates on a switched tab.
 API Requests are incredibly frequent, making it likely we run out of requests often.
   This was solved by caching the results of API requests so a minimal amount of them occur.
+The background button was by default set to the left where it was overlapping on the discussion tab.
+The solution was adjusting and moving the positions in multiple css files.
   
 The comment section was having issues where they were getting the comments sent to all tabs.
   This was solved by utilizing rooms in the backend to ensure that comments were only sent 
