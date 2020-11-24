@@ -36,41 +36,40 @@
             "source": {
                 "name": "Devdiscourse",
                 "url": "https://www.devdiscourse.com/"
-=======
-    "timestamp": 1606145714.528682,
     "articles": [
         {
-            "title": "Teen, 15, shot in eye by paintball gun outside New Jersey mall: police",
-            "description": "A 15-year-old New Jersey teen was shot in the eye with by a paintball gun while strolling down the sidewalk, cops said.",
-            "content": "He was walking with three other teens near the food court on Nov. 8 just before 6 p.m., authorities said. That\u2019s when a sedan, which cops described as being either silver or grey, drove by and someone from inside the vehicle fired off a paintball gun...",
-            "url": "https://www.nydailynews.com/news/crime/ny-paintball-eye-new-jersey-20201123-k7gxhy4ribh47iqayzz3ccfyf4-story.html",
-            "image": "https://www.nydailynews.com/resizer/xZWSqF4XWEKFVAR16c9yZT35MNg=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/HYHGMDR5NNE45NSDYAFMXR4ZOM.jpg",
-            "publishedAt": "2020-11-23T15:03:10Z",
+            "title": "WORLD: OxyContin maker Purdue Pharma pleads guilty in criminal case",
+            "description": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis",
+            "content": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis\nPurdue Pharma pleaded guilty Tuesday to three criminal charges, f... [5002 chars]",
+            "url": "https://www.sootoday.com/around-ontario/world-oxycontin-maker-purdue-pharma-pleads-guilty-in-criminal-case-2906420",
+            "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2020/11/nyr101-1021_2020_040106.jpg;w=650;h=433;mode=crop",
+            "publishedAt": "2020-11-24T20:50:00Z",
             "source": {
-                "name": "New York Daily News",
-                "url": "https://www.nydailynews.com/"
+                "name": "SooToday",
+                "url": "https://www.sootoday.com/"
             }
         },
         {
-            "title": "Every day is Christmas in this New Jersey home",
-            "description": "A home listed for $2.19 million in Colts Neck, NJ, has a stock of Christmas trees, wreaths and nutcrackers that stay up year-round \u2014 and the owners may be willing to part with them.",
-            "content": "Is this North Jersey \u2014 or the North Pole?\nIn Colts Neck, NJ, a stately stone-clad home that hit the market in October for $2.19 million stands out for more than its two-story foyer, roomy kitchen and 2,000-square-foot outdoor patio surrounding a larg... [1944 chars]",
-            "url": "https://nypost.com/2020/11/23/every-day-is-christmas-in-this-new-jersey-home/",
-            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/christmas-house.jpg?quality=90&strip=all&w=1200",
-            "publishedAt": "2020-11-23T13:17:14Z",
+            "title": "WORLD: OxyContin maker Purdue Pharma pleads guilty in criminal case",
+            "description": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis",
+            "content": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis\nPurdue Pharma pleaded guilty Tuesday to three criminal charges, f... [5002 chars]",
+            "url": "https://www.guelphtoday.com/around-ontario/world-oxycontin-maker-purdue-pharma-pleads-guilty-in-criminal-case-2906420",
+            "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2020/11/nyr101-1021_2020_040106.jpg;w=650;h=433;mode=crop",
+            "publishedAt": "2020-11-24T20:50:00Z",
             "source": {
-                "name": "New York Post",
-                "url": "https://nypost.com/"
+                "name": "GuelphToday",
+                "url": "https://www.guelphtoday.com/"
             }
         },
         {
-            "title": "Big Ten takeaways: Officiating has been an eyesore",
-            "description": "From a bad call against Purdue on Friday night in Minnesota through a triple-overtime win for Michigan early Sunday in New Jersey, the Big Ten schedule was packed with significant games.",
-            "content": "Then on third-and-goal from the 5, Badgers cornerback Rachad Wildgoose Jr. was called for interference on a contested ball to Raine in the corner of the end zone. Given a fresh set of downs, Ramsey found tight end Charlie Mangieri open in the back of... [37 chars]",
-            "url": "https://www.chicagotribune.com/sports/college/ct-cb-big-ten-football-brandon-peters-justin-fields-20201123-goz5fhj7rfexngptnc7jgjtwli-story.html",
-            "image": "https://www.chicagotribune.com/resizer/A8sveHm5nrqWRElREUnFq8TLHwM=/1200x0/center/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/UIJMA2ZSQBCG5H75EGJIKJ5MDI.jpg",
-            "publishedAt": "2020-11-23T12:15:00Z",
+            "title": "WORLD: OxyContin maker Purdue Pharma pleads guilty in criminal case",
+            "description": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis",
+            "content": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis\nPurdue Pharma pleaded guilty Tuesday to three criminal charges, f... [5002 chars]",
+            "url": "https://www.bradfordtoday.ca/around-ontario/world-oxycontin-maker-purdue-pharma-pleads-guilty-in-criminal-case-2906420",
+            "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2020/11/nyr101-1021_2020_040106.jpg;w=650;h=433;mode=crop",
+            "publishedAt": "2020-11-24T20:50:00Z",
             "source": {
+<<<<<<< HEAD
                 "name": "Chicago Tribune",
                 "url": "https://www.chicagotribune.com/"
 >>>>>>> 9438756f852152e86cb4efce612dbe2ae27e5883
@@ -87,12 +86,26 @@
 =======
             "publishedAt": "2020-11-23T03:23:14Z",
 >>>>>>> 9438756f852152e86cb4efce612dbe2ae27e5883
-            "source": {
-                "name": "FOX 4 News",
-                "url": "https://www.fox4news.com/"
+=======
+                "name": "BradfordToday",
+                "url": "https://www.bradfordtoday.ca/"
             }
         },
         {
+            "title": "WORLD: OxyContin maker Purdue Pharma pleads guilty in criminal case",
+            "description": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis",
+            "content": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis\nPurdue Pharma pleaded guilty Tuesday to three criminal charges, f... [5002 chars]",
+            "url": "https://www.elliotlaketoday.com/around-ontario/world-oxycontin-maker-purdue-pharma-pleads-guilty-in-criminal-case-2906420",
+            "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2020/11/nyr101-1021_2020_040106.jpg;w=650;h=433;mode=crop",
+            "publishedAt": "2020-11-24T20:50:00Z",
+>>>>>>> 45104409dae452b300b3ccda18311e3eb54dc5fc
+            "source": {
+                "name": "ElliotLakeToday.com",
+                "url": "https://www.elliotlaketoday.com/"
+            }
+        },
+        {
+<<<<<<< HEAD
 <<<<<<< HEAD
             "title": "Surprise: Comcast will complete rollout of data caps everywhere in 2021",
             "description": "The 1.2TB data caps will hit the following markets, ensuring all of Comcast's 39-state US territory is covered: Connecticut, Delaware, Massachusetts, Maryland, Maine, New Hampshire, New Jersey,...",
@@ -114,6 +127,17 @@
                 "name": "The Huffington Post",
                 "url": "https://www.huffpost.com/"
 >>>>>>> 9438756f852152e86cb4efce612dbe2ae27e5883
+=======
+            "title": "WORLD: OxyContin maker Purdue Pharma pleads guilty in criminal case",
+            "description": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis",
+            "content": "In a virtual hearing with a federal judge in Newark, New Jersey, the OxyContin maker admitted impeding the U.S. Drug Enforcement Administration's efforts to combat the addiction crisis\nPurdue Pharma pleaded guilty Tuesday to three criminal charges, f... [5002 chars]",
+            "url": "https://www.baytoday.ca/around-ontario/world-oxycontin-maker-purdue-pharma-pleads-guilty-in-criminal-case-2906420",
+            "image": "https://www.vmcdn.ca/f/files/shared/feeds/cp/2020/11/nyr101-1021_2020_040106.jpg;w=650;h=433;mode=crop",
+            "publishedAt": "2020-11-24T20:50:00Z",
+            "source": {
+                "name": "BayToday",
+                "url": "https://www.baytoday.ca/"
+>>>>>>> 45104409dae452b300b3ccda18311e3eb54dc5fc
             }
         }
     ]
