@@ -28,6 +28,7 @@ class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
     def __init__(self, text, name, time):
+        self.id = 7
         self.text = text
         self.name = name
         self.time = time
