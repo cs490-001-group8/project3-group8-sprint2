@@ -33,7 +33,7 @@ BASE.metadata.create_all(ENGINE, checkfirst=True)
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
 
-LOGGEDIN_CLIENTS = []
+LOGGEDIN_CLIENTS = {}
 
 EST = timezone("EST")
 
@@ -68,17 +68,20 @@ def landing_page():
 
 
 @SOCKETIO.on("log in")
-def on_user_login():
+def on_user_login(data):
     """Recieve OAuth information when sent by the client"""
+    print (data)
     if flask.request.sid not in LOGGEDIN_CLIENTS:
-        LOGGEDIN_CLIENTS.append(flask.request.sid)
+        LOGGEDIN_CLIENTS[flask.request.sid] = data
+        print (f"ADDING CLIENT:\n {LOGGEDIN_CLIENTS}")
 
 
 @SOCKETIO.on("disconnect")
 def on_user_disconnect():
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid in LOGGEDIN_CLIENTS:
-        LOGGEDIN_CLIENTS.remove(flask.request.sid)
+        LOGGEDIN_CLIENTS.pop(flask.request.sid)
+        print (f"REMOVING CLIENT:\n {LOGGEDIN_CLIENTS}")
 
 
 @SOCKETIO.on("get comments")

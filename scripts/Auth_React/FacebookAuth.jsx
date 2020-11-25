@@ -4,12 +4,15 @@ import FacebookLogin from 'react-facebook-login';
 
 export default function FacebookAuth({ logIn }) {
     function responseFacebook(response) {
-        logIn(response.name);
+        logIn({
+            newName: response.name,
+            newEmail: response.email,
+        });
     }
 
     function failureFacebook() {
         // eslint-disable-next-line no-alert
-        alert('Failed to login with Facebook !!');
+        alert('Failed to login with Facebook!');
     }
 
     return (

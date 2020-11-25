@@ -6,7 +6,15 @@ export default function OAuthButton({ logIn }) {
     const clientID = '881732433179-i733jq65m0j09pio425p40hosd8r2klf.apps.googleusercontent.com';
 
     function successGoogle(response) {
-        logIn(response.profileObj.name);
+        logIn({
+            newName: response.profileObj.name,
+            newEmail: response.profileObj.email,
+        });
+    }
+
+    function failureGoogle() {
+        // eslint-disable-next-line no-alert
+        alert('Failed to login with Google!');
     }
 
     return (
@@ -15,6 +23,7 @@ export default function OAuthButton({ logIn }) {
               clientId={clientID}
               buttonText="Login"
               onSuccess={successGoogle}
+              onFailure={failureGoogle}
               id="googleButton"
             />
         </div>
