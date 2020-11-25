@@ -599,25 +599,7 @@ body {
         font-weight: normal;
       }
 
-.sports{
-  font-family: Helvetica;
-  text-align: center;
-  color: #14171A;
-  border: 1px black solid;
 
-  width: 100%;
-  margin: auto;
-  padding: 1em;
-
-}
-  .sports-photo {
-      flex: 1;
-      width: 150px;
-      height: 150px;
-      text-align: center;
-      font-size: 10pt;
-      margin: 5px;
-    }
 
 .bill-list {
   border: 1px black solid;
@@ -1853,28 +1835,6 @@ body {
   font-weight: normal;
 }
 
-.bill-list {
-  border: 1px black solid;
-  width: 100%;
-  height: 95%;
-  text-align: left;
-  list-style-type: none;
-  overflow: auto;
-  padding-top: 10px;
-  padding-left: 0px;
-  padding-bottom: 50px;
-  margin-bottom: 5%;
-}
-
-.bill {
-  font-family: Helvetica;
-  text-align: left;
-  color: #14171A;
-  border: 1px black solid;
-  width: 100%;
-  margin: auto;
-  padding: 1em;
-}
 
 .bill-title {
   font-size: 20pt;
@@ -1888,20 +1848,6 @@ body {
   font-weight: normal;
   line-height: 1.25;
   color: #666666;
-}
-
-.politician-list {
-  border: 1px black solid;
-  width: 100%;
-  height: 95%;
-  text-align: left;
-  list-style-type: none;
-  overflow: auto;
-  padding-top: 10px;
-  padding-left: 0px;
-  padding-bottom: 50px;
-  margin-bottom: 5%;
-  margin-right: 3%;
 }
 
 .politician {
@@ -1948,9 +1894,6 @@ body {
   font-size: 12pt;
 }
 
-.traffic-map {
-  height: 95%;
-}
 
 .login-button {
   justify-self: left;
@@ -2015,13 +1958,6 @@ body {
   flex-direction: column;
 }
 
-.close {
-  align-self: flex-end;
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
 
 .close:hover, .close:focus {
   color: #000;
