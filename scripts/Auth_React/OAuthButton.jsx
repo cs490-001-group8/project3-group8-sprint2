@@ -9,6 +9,7 @@ export default function OAuthButton({ logIn }) {
         logIn({
             newName: response.profileObj.name,
             newEmail: response.profileObj.email,
+            loginType: 'Google',
         });
     }
 

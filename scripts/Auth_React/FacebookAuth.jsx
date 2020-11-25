@@ -7,6 +7,7 @@ export default function FacebookAuth({ logIn }) {
         logIn({
             newName: response.name,
             newEmail: response.email,
+            loginType: 'Facebook',
         });
     }
 
@@ -20,7 +21,7 @@ export default function FacebookAuth({ logIn }) {
             <FacebookLogin
               appId="856995921505171"
               autoLoad={false}
-              fields="name"
+              fields="name, email"
               callback={responseFacebook}
               onFailure={failureFacebook}
               cookie={false}

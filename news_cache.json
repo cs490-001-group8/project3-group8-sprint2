@@ -1,6 +1,18 @@
 {
-    "timestamp": 1606342274.865317,
+    "timestamp": 1606346125.428823,
     "articles": [
+        {
+            "title": "Joe Biden Should Investigate Trump, Dem Rep Argues: 'We Cannot Dismiss Accountability'",
+            "description": "\"If you do not have accountability,\" New Jersey Democratic Congressman Bill Pascrell said Wednesday, that's the wrong message to send to our children.\"",
+            "content": "Democrat New Jersey Congressman Bill Pascrell encouraged President-elect Joe Biden on Wednesday to launch an investigation into alleged unlawful activities committed by President Donald Trump.\nTrump has been accused of exerting undue influence over t... [3478 chars]",
+            "url": "https://www.newsweek.com/joe-biden-should-investigate-trump-dem-rep-argues-we-cannot-dismiss-accountability-1550377",
+            "image": "https://d.newsweek.com/en/full/1677198/donald-trump.jpg",
+            "publishedAt": "2020-11-25T22:17:20Z",
+            "source": {
+                "name": "Newsweek",
+                "url": "https://www.newsweek.com/"
+            }
+        },
         {
             "title": "Luka Doncic Posts Incredible Throwback After Dallas Mavericks Reveal New Jersey",
             "description": "Luka Doncic has made a nice observation about Dallas Mavericks' new jersey and its resemblance to his jersey from his Real Madrid days.",
@@ -47,18 +59,6 @@
             "source": {
                 "name": "FOX 4 News",
                 "url": "https://www.fox4news.com/"
-            }
-        },
-        {
-            "title": "Cannabis Stocks Surge As US Election Opens New Markets",
-            "description": "Cannabis stocks are flying high after voters in New Jersey, Arizona and three other states cleared the way for expanding legal sales of marijuana.",
-            "content": "LOS ANGELES: Cannabis stocks are flying high after voters in New Jersey, Arizona and three other states cleared the way for expanding legal sales of marijuana.\nShares in some of the biggest cannabis companies, including Aurora Cannabis, Canopy Growth... [3855 chars]",
-            "url": "https://www.news18.com/news/business/cannabis-stocks-surge-as-us-election-opens-new-markets-3116810.html",
-            "image": "https://images.news18.com/ibnlive/uploads/2020/07/1595612658_news18_business_default_image.jpg",
-            "publishedAt": "2020-11-25T17:27:04Z",
-            "source": {
-                "name": "News18",
-                "url": "https://www.news18.com/"
             }
         }
     ]
