@@ -8,6 +8,7 @@ import BillsWidget from './Bills_React/BillsWidget';
 import SportsModule from './Sports_React/SportsModule';
 import PoliticiansWidget from './Politicians_React/PoliticiansWidget';
 import NationalParks from './National_Parks/NationalParks';
+import TabChooser from './TabChooser'
 
 export default function TabWidgets({ currTab }) {
     if (currTab === 'Commuter') {
@@ -41,7 +42,7 @@ export default function TabWidgets({ currTab }) {
     if (currTab === 'Personal') {
         return (
             <div className="tab-widgets-section">
-                <h1>Hope this works!</h1>
+                <TabChooser />
             </div>
         );
     }
