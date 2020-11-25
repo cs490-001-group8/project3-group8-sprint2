@@ -59,7 +59,11 @@ def politics_tab():
 def recreation_tab():
     """When someone opens the recreation tab, send them the page"""
     return flask.render_template("index.html")
-
+    
+@APP.route("/Personal")
+def personal_tab():
+    """When someone opens the recreation tab, send them the page"""
+    return flask.render_template("index.html")
 
 @APP.route("/landing_page")
 def landing_page():

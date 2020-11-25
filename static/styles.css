@@ -2230,3 +2230,14 @@ body {
   right: auto;
   left: 80px;
 }
+
+.icon_bar {
+  text-align: center;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.icon_bar i {
+  padding: 10px;
+  top: 110px;
+}
