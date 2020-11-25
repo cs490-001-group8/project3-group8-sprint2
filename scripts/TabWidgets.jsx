@@ -37,6 +37,14 @@ export default function TabWidgets({ currTab }) {
             </div>
         );
     }
+    
+    if (currTab === 'Personal') {
+        return (
+            <div className="tab-widgets-section">
+                <h1>Hope this works!</h1>
+            </div>
+        );
+    }
 
     return (
         <div className="tab-widgets-section">
