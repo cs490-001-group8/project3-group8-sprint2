@@ -849,7 +849,7 @@ body {
     outline: none;
 }
 .park-modal{
-  background: cadetblue;
+  background: #5f9ea0 !important;
 }
 .park-modal-content{
   display: flex;
