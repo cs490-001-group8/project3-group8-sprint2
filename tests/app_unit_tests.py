@@ -377,8 +377,11 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
-
-                app.on_user_login()
+                data = {
+                    "newName": "Albert Einstein",
+                    "newEmail": "einstein@mit.edu"
+                }
+                app.on_user_login(data)
                 app.on_new_comment(
                     {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
                 )

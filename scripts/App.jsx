@@ -12,10 +12,14 @@ export default function App() {
     const [color, setColor] = useState(localStorage.getItem('color'));
     const contextValue = { contextImage: [image, setImage], contextColor: [color, setColor] };
 
-    function logIn(newName) {
+    function logIn({ newName, newEmail, loginType }) {
         setName(() => newName);
         setLoggedIn(() => true);
-        Socket.emit('log in');
+        Socket.emit('log in', {
+            newName,
+            newEmail,
+            loginType,
+        });
     }
 
     return (
@@ -28,5 +32,3 @@ export default function App() {
         </ThemeContext.Provider>
     );
 }
-
-
