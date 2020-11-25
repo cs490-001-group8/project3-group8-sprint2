@@ -92,12 +92,13 @@ def on_get_comments(data):
                 "name": comment.name,
                 "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S"),
                 "id": comment.id,
+                "likes": comment.likes,
             }
             for comment in SESSION.query(
                 tables.Comment
                 ).filter(
                     tables.Comment.tab == which_tab
-                ).all()
+                ).order_by(sqlalchemy.asc(tables.Comment.time)).all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
@@ -126,9 +127,29 @@ def on_new_comment(data):
                 "name": who_sent,
                 "tab": which_tab,
                 "time": time_str,
-                "id": comment.id
+                "id": comment.id,
+                "likes": 0,
             },
         )
+    except KeyError:
+        return
+
+
+@SOCKETIO.on("like comment")
+def on_like_comment(data):
+    """Process a new comment"""
+    if flask.request.sid not in LOGGEDIN_CLIENTS:
+        return
+    try:
+        comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
+        print("LIKE COMMENT ")
+        print(data)
+        print(comment)
+        if data["like"]:
+            comment.likes += 1
+        else:
+            comment.likes -= 1
+        SESSION.commit()
     except KeyError:
         return
 

@@ -12,6 +12,7 @@ export default function CommentList({ comments, loggedIn }) {
                       commentBody={comment.text}
                       commentName={comment.name}
                       commentTime={comment.time}
+                      commentLikes={comment.likes}
                     />
         ))}
             </ul>
@@ -26,6 +27,7 @@ export default function CommentList({ comments, loggedIn }) {
                   commentBody={comment.text}
                   commentName={comment.name}
                   commentTime={comment.time}
+                  commentLikes={comment.likes}
                 />
       ))}
         </ul>
@@ -34,10 +36,11 @@ export default function CommentList({ comments, loggedIn }) {
 
 CommentList.propTypes = {
     comments: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.int,
+        id: PropTypes.number,
         text: PropTypes.string,
         name: PropTypes.string,
         time: PropTypes.time,
+        likes: PropTypes.number,
     })).isRequired,
     loggedIn: PropTypes.bool.isRequired,
 };

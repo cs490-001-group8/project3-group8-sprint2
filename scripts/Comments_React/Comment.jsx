@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CommentLikes from './CommentLikes';
 
 export default function Comment({
-    commentBody, commentName, commentTime, commentId,
+    commentBody, commentName, commentTime, commentId, commentLikes,
 }) {
     return (
         <li className="comment">
@@ -12,7 +12,7 @@ export default function Comment({
                 <span className="comment-info-time">{commentTime}</span>
             </div>
             <div className="comment-body">{commentBody}</div>
-            <CommentLikes commentId={commentId} />
+            <CommentLikes commentId={commentId} commentLikes={commentLikes} />
         </li>
     );
 }
@@ -22,4 +22,5 @@ Comment.propTypes = {
     commentBody: PropTypes.string.isRequired,
     commentName: PropTypes.string.isRequired,
     commentTime: PropTypes.string.isRequired,
+    commentLikes: PropTypes.number.isRequired,
 };

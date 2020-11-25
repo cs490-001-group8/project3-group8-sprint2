@@ -12,7 +12,7 @@ export default function CommentBlock({ currTab, myName, loggedIn }) {
         Socket.on('new comment', (data) => {
             updateComments((oldComments) => [
                 {
-                    text: data.text, name: data.name, time: data.time, comment_id: data.id,
+                    text: data.text, name: data.name, time: data.time, id: data.id, likes: data.likes,
                 }].concat(oldComments));
         });
 

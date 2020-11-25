@@ -17,12 +17,14 @@ class Comment(BASE):
     tab = Column(String(50))
     name = Column(String(100))
     text = Column(String(1000))
+    likes = Column(Integer)
     time = Column(DateTime(timezone=False))
 
     def __init__(self, text, name, tab, time):
         self.text = text
         self.name = name
         self.tab = tab
+        self.likes = 0
         self.time = time
 
     def __repr__(self):

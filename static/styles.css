@@ -223,6 +223,20 @@ body {
       padding: 1px;
       margin-bottom: 2px;
       color: #6D6D6D;
+      position: relative;
+      top: 5;
+    }
+
+    .comment-foot {
+      text-align: right;
+      clear: both;
+      padding: 1px;
+      padding-right: 5%;
+      padding-bottom: 3px;
+      margin-bottom: 2px;
+      color: #6D6D6D;
+      position: relative;
+      top: 5;
     }
 
   .comment-input {
