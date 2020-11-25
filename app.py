@@ -142,9 +142,6 @@ def on_like_comment(data):
         return
     try:
         comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
-        print("LIKE COMMENT ")
-        print(data)
-        print(comment)
         if data["like"]:
             comment.likes += 1
         else:

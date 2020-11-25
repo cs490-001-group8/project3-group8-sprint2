@@ -32,10 +32,11 @@ class MockedQueryResponseObj:
         self.text = text
         self.name = name
         self.time = time
+        self.likes = 0
 
 
-class MockedFilterResponse:
-    """Pretend to be an query response"""
+class MockedOrderResponse:
+    """Pretend to be an order response"""
 
     def __init__(self, texts):
         self.texts = texts
@@ -45,6 +46,26 @@ class MockedFilterResponse:
         return self.texts
 
 
+class MockedFilterResponse:
+    """Pretend to be an query response"""
+
+    def __init__(self, texts):
+        self.texts = texts
+        self.order = MockedOrderResponse(texts)
+
+    def all(self):
+        """Mock an all() call from a query response"""
+        return self.texts
+
+    def first(self):
+        """Mock an first() call from a query response"""
+        return self.texts[0]
+
+    def order_by(self, arg):
+        """Mock an order_by() call from a query response"""
+        return self.order
+
+
 class MockedQueryResponse:
     """Pretend to be an query response"""
 
@@ -52,6 +73,10 @@ class MockedQueryResponse:
         self.texts = [MockedQueryResponseObj(text["text"], text["name"], text["time"])]
 
     def filter(self, text):
+        """Pretend to be an query filter"""
+        return MockedFilterResponse(self.texts)
+
+    def filter_by(self, id):
         """Pretend to be an query filter"""
         return MockedFilterResponse(self.texts)
 
@@ -418,6 +443,38 @@ class AppTestCases(unittest.TestCase):
 
                 app.on_get_comments({"tab": "Home"})
 
+    def test_app_like_comments(self):
+        """Test successful like comments"""
+        with mock.patch(
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.emit", self.mock_flask_emit_one
+        ):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                "sqlalchemy.ext.declarative.declarative_base", mocker
+            ):
+                import app
+
+                app.on_like_comment({"comment_id": 7, "like": False})
+
+                app.on_user_login()
+                app.on_like_comment({"comment_id": 7, "like": False})
+                app.on_like_comment({"comment_id": 7, "like": True})
+                app.on_like_comment({"comment_tid": 7, "likes": True})
+                app.on_user_disconnect()
+
     def test_app_get_comments_failure(self):
         """Test successful new comments"""
         with mock.patch(
@@ -523,6 +580,7 @@ class AppTestCases(unittest.TestCase):
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_politicians_request()
+
     def test_on_national_park(self):
         """Test the on_nationl_parks method that emits back all the parks to requested client"""
         import app
