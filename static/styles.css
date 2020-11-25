@@ -122,6 +122,8 @@ body {
       font-size: 16pt;
       list-style-type: none;
       margin-bottom: 4px;
+      padding-top: 3px;
+      padding-bottom: 3px;
     }
   
       .comment-info {
@@ -131,6 +133,7 @@ body {
         margin-bottom: 5px;
         margin-top: 2px;
         color: #525252;
+        display: block;
       }
   
         .comment-info-name {
@@ -148,6 +151,17 @@ body {
         padding: 1px;
         margin-bottom: 2px;
         color: #6D6D6D;
+        display: block;
+        position: relative;
+        top: 3px;
+      }
+      
+      .comment-foot {
+        width: 99%;
+        height: 20px;
+        display: block;
+        position: relative;
+        top: 3px;
       }
 
   .comment-input {

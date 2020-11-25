@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CommentLikes from './CommentLikes';
 
 export default function Comment({
     commentBody, commentName, commentTime, commentId,
@@ -11,6 +12,7 @@ export default function Comment({
                 <span className="comment-info-time">{commentTime}</span>
             </div>
             <div className="comment-body">{commentBody}</div>
+            <CommentLikes commentId={commentId} />
         </li>
     );
 }
