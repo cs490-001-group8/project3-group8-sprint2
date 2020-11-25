@@ -379,7 +379,7 @@ class AppTestCases(unittest.TestCase):
                 import app
                 data = {
                     "newName": "Albert Einstein",
-                    "newEmail": "einsten@MIT.edu"
+                    "newId": "A4F56ASDF7A77SDSA"
                 }
                 app.on_user_login(data)
                 app.on_new_comment(
