@@ -1,6 +1,18 @@
 {
-    "timestamp": 1606406399.924058,
+    "timestamp": 1606411249.152462,
     "articles": [
+        {
+            "title": "Ivanka Trump und Jared Kushner planen Reichen-Kommune in New Jersey",
+            "description": "Vier Jahre lang haben Pr\u00e4sidententochter Ivanka Trump und ihr Ehemann Jared Kushner Donald Trump beraten. Jetzt planen die beiden ihre Zeit nach dem Ende der Trump-\u00c4ra.",
+            "content": "Nach der Pr\u00e4sidentschaft\nvon Marvin Ziegele schlie\u00dfen\nVier Jahre lang haben Pr\u00e4sidententochter Ivanka Trump und ihr Ehemann Jared Kushner Donald Trump beraten. Jetzt planen die beiden ihre Zeit nach dem Ende der Trump-\u00c4ra.\nIvanka Trump und Jared Kush... [2761 chars]",
+            "url": "https://www.fr.de/politik/ivanka-trump-jared-kushner-donald-trump-usa-wahl-new-york-new-jersey-90113290.html",
+            "image": "https://www.fr.de/bilder/2020/11/26/90113290/24386323-ivanka-trump-tiffany-trump-jared-kushner-washington-weisses-haus-3Aef.jpg",
+            "publishedAt": "2020-11-26T16:57:00Z",
+            "source": {
+                "name": "fr.de",
+                "url": "https://www.fr.de"
+            }
+        },
         {
             "title": "Springsteen, Bon Jovi to NJ: 'Wear a friggin' mask!'",
             "description": "New Jersey rockers Bruce Springsteen and Jon Bon Jovi, and comedian Jon Stewart, wear face masks on a new billboard intended to promote safety in their home state amid the coronavirus pandemic.",
@@ -10,7 +22,7 @@
             "publishedAt": "2020-11-26T13:13:00Z",
             "source": {
                 "name": "UPI News",
-                "url": "https://www.upi.com/"
+                "url": "https://www.upi.com"
             }
         },
         {
@@ -22,7 +34,7 @@
             "publishedAt": "2020-11-26T12:01:51Z",
             "source": {
                 "name": "20 Minuten",
-                "url": "https://www.20min.ch/"
+                "url": "https://www.20min.ch"
             }
         },
         {
@@ -34,7 +46,7 @@
             "publishedAt": "2020-11-26T10:00:25Z",
             "source": {
                 "name": "The New York Times",
-                "url": "https://www.nytimes.com/"
+                "url": "https://www.nytimes.com"
             }
         },
         {
@@ -46,19 +58,7 @@
             "publishedAt": "2020-11-26T05:32:00Z",
             "source": {
                 "name": "NEWS.com.au",
-                "url": "https://www.news.com.au/"
-            }
-        },
-        {
-            "title": "Jared e Ivanka \u201cvolgari e parvenu\u201d. New York snobba i pupilli di Trump",
-            "description": "I salotti buoni di Manhattan ripudiano la coppia appena sfrattata da Washington: c\u2019\u00e8 chi consiglia di seguire il suocero in Florida, chi propone il New Jersey",
-            "content": "NEW YORK. Ai party bene di Manhattan bastavano, nell\u2019era dorata pre Covid, poche domande per capire lo status sociale dell\u2019ospite sconosciuto, in piedi tra una tartina al brie e un calice di Prosecco: \u00abDove lavora?\u00bb, \u00abDove abita?\u00bb, \u00abDove vanno a scuo... [4083 chars]",
-            "url": "https://www.lastampa.it/topnews/primo-piano/2020/11/26/news/jared-e-ivanka-volgari-e-parvenu-new-york-snobba-i-pupilli-di-trump-1.39583236",
-            "image": "https://www.lastampa.it/image/contentid/policy:1.39583232:1606340861/obj112619632_1.jpg?f=detail_558&h=720&w=1280&$p$f$h$w=38a8513",
-            "publishedAt": "2020-11-26T05:00:00Z",
-            "source": {
-                "name": "La Stampa",
-                "url": "https://www.lastampa.it/"
+                "url": "https://www.news.com.au"
             }
         }
     ]

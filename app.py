@@ -91,7 +91,7 @@ def on_user_login(data):
             "pattern": theme.pattern,
             "value": theme.value
         }
-    flask_socketio.emit("theme", result)
+    SOCKETIO.emit("theme", result)
 
 
 @SOCKETIO.on("update theme")
