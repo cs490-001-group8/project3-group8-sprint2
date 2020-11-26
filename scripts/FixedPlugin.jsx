@@ -87,7 +87,7 @@ export default function FixedPlugin() {
       className="fixed-plugin"
     >
       <div id="fixedPluginClasses" className={fixedClasses}>
-        <button onClick={handleFixedClick} className="gear-button" title="this button is change the background">
+        <button onClick={handleFixedClick} className="gear-button" title="Choose Backgrounf Color">
           <i className="fa fa-cog" />
         </button>
         <ul className="dropdown-menu">
