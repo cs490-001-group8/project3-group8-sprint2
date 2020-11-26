@@ -24,6 +24,13 @@ def weather_do_nothing(one, two, three):
     return
 
 
+class MockedThemeObj:
+
+    def __init__(self, pattern, value):
+        self.pattern = pattern
+        self.value = value
+
+
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
@@ -229,6 +236,9 @@ class AppTestCases(unittest.TestCase):
             {"text": "TEST", "name": "USER", "time": datetime.now()}
         )
 
+    def mock_session_first(self):
+        return MockedThemeObj("color", "white")
+
     def mock_session_add_comment(self, comment):
         """Mock Session add for comments"""
         if not isinstance(comment.tab, str):
@@ -238,7 +248,12 @@ class AppTestCases(unittest.TestCase):
 
     def mock_flask_emit_all(self, channel, data=""):
         """Mock Session add for comments"""
-        if channel == "new comment":
+        if channel == "theme":
+            if "pattern" not in data or not isinstance(data["pattern"], str):
+                raise ValueError("NO PATTERN")
+            if "value" not in data or not isinstance(data["value"], str):
+                raise ValueError("NO VALUE")            
+        elif channel == "new comment":
             if "text" not in data or not isinstance(data["text"], str):
                 raise ValueError("NO TEXT")
             if "tab" not in data or not isinstance(data["tab"], str):
@@ -369,6 +384,8 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
         ), mock.patch(
+            "sqlalchemy.orm.Query.first", self.mock_session_first
+        ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ):
             mocker = mock.MagicMock()
@@ -377,8 +394,12 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
-
-                app.on_user_login()
+                data = {
+                    "newName": "Albert Einstein",
+                    "newEmail": "einstein@mit.edu",
+                    "loginType": "Google"
+                }
+                app.on_user_login(data)
                 app.on_new_comment(
                     {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
                 )

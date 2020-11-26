@@ -10,6 +10,7 @@ export default function TabContent({
     const colorTable = {
         purple: '#9c27b0',
         blue: '#00bbff',
+        white: '#f5f5f5',
         green: '#4caf50',
         red: '#f44336',
         orange: '#ff9800',

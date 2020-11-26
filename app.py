@@ -13,7 +13,7 @@ import sqlalchemy
 from dotenv import load_dotenv
 from pytz import timezone
 import tables
-from tables import BASE
+from tables import BASE, Theme
 import hourly_weather
 import tweets
 import news
@@ -29,13 +29,15 @@ SOCKETIO.init_app(APP, cors_allowed_origins="*")
 # ENGINE = sqlalchemy.create_engine(database_url)
 ENGINE = sqlalchemy.create_engine(os.environ["DATABASE_URL"])
 BASE.metadata.create_all(ENGINE, checkfirst=True)
+# BASE.metadata.drop_all(ENGINE)
 
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
 
-LOGGEDIN_CLIENTS = []
+LOGGEDIN_CLIENTS = {}
 
 EST = timezone("EST")
+
 
 @APP.route("/")
 def home():
@@ -59,10 +61,10 @@ def politics_tab():
 def recreation_tab():
     """When someone opens the recreation tab, send them the page"""
     return flask.render_template("index.html")
-    
-@APP.route("/Personal")
-def personal_tab():
-    """When someone opens the recreation tab, send them the page"""
+
+@APP.route("/Personal")	
+def personal_tab():	
+    """When someone opens the recreation tab, send them the page"""	
     return flask.render_template("index.html")
 
 @APP.route("/landing_page")
@@ -72,17 +74,46 @@ def landing_page():
 
 
 @SOCKETIO.on("log in")
-def on_user_login():
+def on_user_login(data):
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid not in LOGGEDIN_CLIENTS:
-        LOGGEDIN_CLIENTS.append(flask.request.sid)
+        LOGGEDIN_CLIENTS[flask.request.sid] = data
+    theme = SESSION.query(Theme).filter(
+        Theme.name == data["newName"],
+        Theme.email == data["newEmail"],
+        Theme.login_type == data["loginType"]).first()
+    if not theme:
+        result = {
+            "pattern": "color",
+            "value": "white"
+        }
+        SESSION.add(Theme(data["newName"], data["newEmail"],
+                            data["loginType"], result["pattern"], result["value"]))
+        SESSION.commit()
+    else:
+        result = {
+            "pattern": theme.pattern,
+            "value": theme.value
+        }
+    SOCKETIO.emit("theme", result)
+
+
+@SOCKETIO.on("update theme")
+def on_update_theme(data):
+    """Update theme table"""
+    SESSION.query(Theme).filter(
+        Theme.name == data["name"],
+        Theme.email == data["email"],
+        Theme.login_type == data["loginType"]).update(
+            {'pattern': data["pattern"], 'value': data['value']})
+    SESSION.commit()
 
 
 @SOCKETIO.on("disconnect")
 def on_user_disconnect():
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid in LOGGEDIN_CLIENTS:
-        LOGGEDIN_CLIENTS.remove(flask.request.sid)
+        LOGGEDIN_CLIENTS.pop(flask.request.sid)
 
 
 @SOCKETIO.on("get comments")
@@ -98,9 +129,9 @@ def on_get_comments(data):
             }
             for comment in SESSION.query(
                 tables.Comment
-                ).filter(
-                    tables.Comment.tab == which_tab
-                ).all()
+            ).filter(
+                tables.Comment.tab == which_tab
+            ).all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
@@ -123,7 +154,8 @@ def on_new_comment(data):
         time_str = time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")
         SOCKETIO.emit(
             "new comment",
-            {"text": new_text, "name": who_sent, "tab": which_tab, "time": time_str},
+            {"text": new_text, "name": who_sent,
+                "tab": which_tab, "time": time_str},
         )
     except KeyError:
         return
@@ -157,7 +189,6 @@ def on_weather_request(data):
         flask_socketio.emit("send weather", weather_object)
     else:
         flask_socketio.emit("weather error", {})
-
 
 
 @SOCKETIO.on("get political tweets")
@@ -195,11 +226,13 @@ def get_sport_data():
              {'name': 'Giants Football', 'link': 'https://www.giants.com/'},
              {'name': 'Jets Football', 'link': 'https://www.newyorkjets.com/'},
              {'name': 'Red Bulls', 'link': 'https://www.newyorkredbulls.com/'},
-             {'name': 'NJ Jackals', 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
+             {'name': 'NJ Jackals',
+                 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
              {'name': 'Somerset Patriots', 'link': 'https://www.somersetpatriots.com/'},
              {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
              {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]
     flask_socketio.emit("send sport", {'teams': teams})
+
 
 @SOCKETIO.on("get national parks")
 def on_national_parks():
