@@ -43,6 +43,7 @@ export default function TabWidgets({ currTab }) {
         return (
             <div className="tab-widgets-section">
                 <TabChooser />
+                <NewsList />
             </div>
         );
     }
