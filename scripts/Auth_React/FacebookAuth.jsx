@@ -7,7 +7,7 @@ export default function FacebookAuth({ logIn }) {
         logIn({
             newName: response.name,
             newEmail: response.email,
-            loginType: 'Facebook',
+            newType: 'Facebook',
         });
     }
 

@@ -1,8 +1,8 @@
 /*eslint-disable*/
 import React, { useState, useEffect } from "react";
 // nodejs library to set properties for components
-import PropTypes from "prop-types";
 import ThemeContext from './ThemeContext';
+import { Socket } from './Socket';
 
 import imagine1 from "assets/img/sidebar1.jpg";
 import imagine2 from "assets/img/sidebar2.jpg";
@@ -10,9 +10,18 @@ import imagine3 from "assets/img/sidebar3.jpg";
 import imagine4 from "assets/img/sidebar4.jpg";
 
 export default function FixedPlugin() {
-  const { contextImage, contextColor } = React.useContext(ThemeContext);
+  const {
+    contextImage,
+    contextColor,
+    contextName,
+    contextEmail,
+    contextLoginType,
+  } = React.useContext(ThemeContext);
   const [image, setImage] = contextImage;
   const [color, setColor] = contextColor;
+  const [name] = contextName;
+  const [email] = contextEmail;
+  const [loginType] = contextLoginType;
   const [fixedClasses, setFixedClasses] = useState("dropdown");
 
   useEffect(() => {
@@ -20,7 +29,7 @@ export default function FixedPlugin() {
     let cacheImage = image;
 
     if (cacheImage == null || cacheColor == null) {
-      cacheColor = 'blue';
+      cacheColor = 'white';
       cacheImage = '';
     }
 
@@ -37,10 +46,28 @@ export default function FixedPlugin() {
 
   const handleImageClick = (img) => {
     saveChanges(img, '');
+    if (name !== '') {
+      Socket.emit('update theme', {
+        name: name,
+        email: email,
+        loginType: loginType,
+        pattern: "image",
+        value: img,
+      });
+    }
   };
 
   const handleColorClick = (clr) => {
     saveChanges('', clr);
+    if (name !== '') {
+      Socket.emit('update theme', {
+        name: name,
+        email: email,
+        loginType: loginType,
+        pattern: "color",
+        value: clr,
+      });
+    }
   };
 
   const setBackground = (color, image) => {
@@ -51,7 +78,6 @@ export default function FixedPlugin() {
   const saveChanges = (img, clr) => {
     setColor(clr);
     setImage(img);
-
     localStorage.setItem('color', clr);
     localStorage.setItem('image', img);
   };
@@ -61,7 +87,7 @@ export default function FixedPlugin() {
       className="fixed-plugin"
     >
       <div id="fixedPluginClasses" className={fixedClasses}>
-        <button onClick={handleFixedClick} className="login-button">
+        <button onClick={handleFixedClick} className="gear-button" title="this button is change the background">
           <i className="fa fa-cog" />
         </button>
         <ul className="dropdown-menu">
@@ -91,6 +117,18 @@ export default function FixedPlugin() {
                   onClick={() => {
                     setBackground("blue", "");
                     handleColorClick("blue");
+                  }}
+                />
+                <span
+                  className={
+                    color === "white"
+                      ? "badge filter badge-white active"
+                      : "badge filter badge-white"
+                  }
+                  data-color="white"
+                  onClick={() => {
+                    setBackground("white", "");
+                    handleColorClick("white");
                   }}
                 />
                 <span
