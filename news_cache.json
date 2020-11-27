@@ -1,6 +1,30 @@
 {
-    "timestamp": 1606425544.725164,
+    "timestamp": 1606435706.064451,
     "articles": [
+        {
+            "title": "Dallas Stars unveil 'Blackout' alternate jersey",
+            "description": "The Dallas Stars unveiled a new Blackout alternate uniform for the upcoming season.",
+            "content": "article\nAs Dallas Stars fans are still thinking about the team\u2019s run to the Stanley Cup Final, they were given a treat Wednesday, as the Stars unveiled a new Blackout alternate uniform for the upcoming season.\nThis will be the first time since 2006 t... [1101 chars]",
+            "url": "https://www.fox4news.com/sports/dallas-stars-unveil-blackout-alternate-jersey",
+            "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/10/1280/720/1028starsblackout.jpg?ve=1&tl=1",
+            "publishedAt": "2020-11-26T22:45:17Z",
+            "source": {
+                "name": "FOX 4 News",
+                "url": "https://www.fox4news.com"
+            }
+        },
+        {
+            "title": "Supreme Court\u2019s Ruling Blocking Cuomo\u2019s Covid-19 Order Could Influence Other Cases",
+            "description": "Up to 20 lawsuits involving houses of worship in states including Nevada, New Jersey, California and Oregon could be influenced by the high-court decision, legal experts say.",
+            "content": "The Supreme Court ruling that blocked New York from imposing strict limits on attendance at religious services could influence lawsuits in other states seeking to overturn similar rules on houses of worship.\nUp to 20 cases involving houses of worship... [886 chars]",
+            "url": "https://www.wsj.com/articles/supreme-courts-ruling-blocking-cuomos-covid-19-order-could-influence-other-cases-11606428800",
+            "image": "https://images.wsj.net/im-265185/social",
+            "publishedAt": "2020-11-26T22:13:00Z",
+            "source": {
+                "name": "The Wall Street Journal",
+                "url": "https://www.wsj.com"
+            }
+        },
         {
             "title": "Woman resigns after Zoom fail",
             "description": "Almost 140 people watched during a meeting as a New Jersey woman mistakenly publicly broadcast a private moment. She\u2019s now resigned.",
@@ -35,30 +59,6 @@
             "source": {
                 "name": "Warwick Daily News",
                 "url": "https://www.warwickdailynews.com.au"
-            }
-        },
-        {
-            "title": "Woman resigns after Zoom fail",
-            "description": "Almost 140 people watched during a meeting as a New Jersey woman mistakenly publicly broadcast a private moment. She\u2019s now resigned.",
-            "content": "A New Jersey woman who once said she was \"disgusted\" by LGBT curriculum flushed her career on a local school board down the toilet this week by accidentally broadcasting her bathroom break on Zoom during a public meeting.\nFrances Cogelja resigned as ... [1871 chars]",
-            "url": "https://www.frasercoastchronicle.com.au/news/woman-resigns-after-zoom-fail/4147260/",
-            "image": "https://media.apnarm.net.au/media/images/2020/11/26/v3imagesbinefc6e164f66b035d1dfc94117f751ee2-hefqktcatg1e6bx9fv2_ct1880x930.jpg",
-            "publishedAt": "2020-11-26T18:12:00Z",
-            "source": {
-                "name": "Fraser Coast Chronicle",
-                "url": "https://www.frasercoastchronicle.com.au"
-            }
-        },
-        {
-            "title": "Ivanka Trump und Jared Kushner planen Reichen-Kommune in New Jersey",
-            "description": "Vier Jahre lang haben Pr\u00e4sidententochter Ivanka Trump und ihr Ehemann Jared Kushner Donald Trump beraten. Jetzt planen die beiden ihre Zeit nach dem Ende der Trump-\u00c4ra.",
-            "content": "Nach der Pr\u00e4sidentschaft\nvon Marvin Ziegele schlie\u00dfen\nVier Jahre lang haben Pr\u00e4sidententochter Ivanka Trump und ihr Ehemann Jared Kushner Donald Trump beraten. Jetzt planen die beiden ihre Zeit nach dem Ende der Trump-\u00c4ra.\nIvanka Trump und Jared Kush... [2761 chars]",
-            "url": "https://www.fr.de/politik/ivanka-trump-jared-kushner-donald-trump-usa-wahl-new-york-new-jersey-90113290.html",
-            "image": "https://www.fr.de/bilder/2020/11/26/90113290/24386323-ivanka-trump-tiffany-trump-jared-kushner-washington-weisses-haus-3Aef.jpg",
-            "publishedAt": "2020-11-26T16:57:00Z",
-            "source": {
-                "name": "fr.de",
-                "url": "https://www.fr.de"
             }
         }
     ]

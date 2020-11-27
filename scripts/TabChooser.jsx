@@ -1,23 +1,34 @@
 /* eslint react/prop-types: 0 */
 // Proptype enforcement breaks the module.
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Socket } from './Socket';
 
-const unselected = "unselected"
-const selected = "selected"
+let selectedDict = {
+    News: false,
+    Weather: false,
+    Traffic: false,
+    Bills: false,
+    Politician_Twitter: false,
+    Hiking_Destinations: false,
+    Sports: false
+}
 
 function handleClick(data){
-    console.log(data)
+    selectedDict[data] = selectedDict[data] ? false : true;
+    Socket.emit('personal tab change', selectedDict);
 }
 
 export default function TabChooser(props) {
     return (
         <div className="icon-bar">
-            <i
-                id="News"
-                title="News" 
-                className="far fa-newspaper fa-2x"
-                onClick={() => handleClick('News')}>
-            </i>
+            <div className={selectedDict.News ? "selected" : "unselected"}>
+                <i
+                    id="News"
+                    title="News" 
+                    className="far fa-newspaper fa-2x"
+                    onClick={() => handleClick('News')}>
+                </i>
+            </div>
             <i 
                 id="Weather" 
                 title="Weather" 
