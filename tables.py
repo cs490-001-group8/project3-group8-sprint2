@@ -29,3 +29,26 @@ class Comment(BASE):
 
     def __repr__(self):
         return 'Comment: %s, On Tab: %s' % (self.text, self.tab)
+
+# pylint: disable=E1101
+# pylint: disable=R0903
+class Theme(BASE):
+    '''Defines the Themes table'''
+    __tablename__ = 'theme'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50))
+    email = Column(String(50))
+    login_type = Column(String(50))
+    pattern = Column(String(50))
+    value = Column(String(255))
+
+    # pylint: disable=R0913
+    def __init__(self, name, email, login_type, pattern, value):
+        self.name = name
+        self.email = email
+        self.login_type = login_type
+        self.pattern = pattern
+        self.value = value
+
+    def __repr__(self):
+        return 'Name: %s, Pattern: %s, Value: %s' % (self.name, self.pattern, self.value)

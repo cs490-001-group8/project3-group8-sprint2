@@ -13,7 +13,7 @@ import sqlalchemy
 from dotenv import load_dotenv
 from pytz import timezone
 import tables
-from tables import BASE
+from tables import BASE, Theme
 import hourly_weather
 import tweets
 import news
@@ -33,7 +33,7 @@ BASE.metadata.create_all(ENGINE, checkfirst=True)
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
 
-LOGGEDIN_CLIENTS = []
+LOGGEDIN_CLIENTS = {}
 
 EST = timezone("EST")
 
@@ -68,17 +68,46 @@ def landing_page():
 
 
 @SOCKETIO.on("log in")
-def on_user_login():
+def on_user_login(data):
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid not in LOGGEDIN_CLIENTS:
-        LOGGEDIN_CLIENTS.append(flask.request.sid)
+        LOGGEDIN_CLIENTS[flask.request.sid] = data
+    theme = SESSION.query(Theme).filter(
+        Theme.name == data["newName"],
+        Theme.email == data["newEmail"],
+        Theme.login_type == data["loginType"]).first()
+    if not theme:
+        result = {
+            "pattern": "color",
+            "value": "white"
+        }
+        SESSION.add(Theme(data["newName"], data["newEmail"],
+                            data["loginType"], result["pattern"], result["value"]))
+        SESSION.commit()
+    else:
+        result = {
+            "pattern": theme.pattern,
+            "value": theme.value
+        }
+    SOCKETIO.emit("theme", result)
+
+
+@SOCKETIO.on("update theme")
+def on_update_theme(data):
+    """Update theme table"""
+    SESSION.query(Theme).filter(
+        Theme.name == data["name"],
+        Theme.email == data["email"],
+        Theme.login_type == data["loginType"]).update(
+            {'pattern': data["pattern"], 'value': data['value']})
+    SESSION.commit()
 
 
 @SOCKETIO.on("disconnect")
 def on_user_disconnect():
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid in LOGGEDIN_CLIENTS:
-        LOGGEDIN_CLIENTS.remove(flask.request.sid)
+        LOGGEDIN_CLIENTS.pop(flask.request.sid)
 
 
 @SOCKETIO.on("get comments")
@@ -217,7 +246,8 @@ def get_sport_data():
              {'name': 'Giants Football', 'link': 'https://www.giants.com/'},
              {'name': 'Jets Football', 'link': 'https://www.newyorkjets.com/'},
              {'name': 'Red Bulls', 'link': 'https://www.newyorkredbulls.com/'},
-             {'name': 'NJ Jackals', 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
+             {'name': 'NJ Jackals',
+                 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
              {'name': 'Somerset Patriots', 'link': 'https://www.somersetpatriots.com/'},
              {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
              {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]

@@ -40,7 +40,7 @@ body {
 
   .login {
     font-size: 14pt;
-    grid-column-start: 3;
+    grid-column-start: 4s;
     margin: auto;
   }
 
@@ -540,6 +540,25 @@ body {
     box-shadow: 0 0px 0px rgba(0,0,0,0.5);
   }
 
+.gear-button {
+  justify-self: left;
+  align-self: center;
+  font-size: 2rem;
+  background: #2a4a4a;
+  color: #FFFFFF;
+  padding: 1rem;
+  width: fit-content;
+  height: fit-content;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease-in-out;
+  max-height: 64px;
+}
+
+  .gear-button:hover, .gear-button:focus {
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+  }
 
 
 
@@ -551,6 +570,7 @@ body {
   grid-gap: 1rem;
   grid-template-columns: auto;
 }
+
   .park {
     margin: 0.3rem;
     padding: 1rem;
@@ -562,55 +582,55 @@ body {
     animation-name: fadeInRight;
   }
   
-    .park-header {
-      text-align: center;
+  .park-header {
+    text-align: center;
+    font-weight: bold;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+    .park-header a {
       font-weight: bold;
       color: #000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      transition: color .3s ease;
     }
-  
-      .park-header a {
-        font-weight: bold;
-        color: #000;
-        transition: color .3s ease;
-      }
     
       .park-header a:hover {
         cursor: pointer;
       }
+    
+  .park-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+  }
   
-    .park-body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 15pt;
-    }
-    
-      .park-body img {
-        margin: 1rem;
-        width: 20vw;
-        height: auto;
-        object-fit: cover;
-        border-radius: 10%;
-      }
-    
-      .park-detail-btn {
-        align-self: flex-end;
-      }
-    
-      .park-move-btn {
-        font-size: 2rem;
-      }
-  
-    .park-container .btn {
-      padding: 0.3rem;
-      border: 2px solid #343434;
-      transition: background .5s linear;
+    .park-body img {
+      margin: 1rem;
+      width: 20vw;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10%;
     }
   
+  .park-detail-btn {
+    align-self: flex-end;
+  }
+  
+  .park-move-btn {
+    font-size: 2rem;
+  }
+  
+  .park-container .btn {
+    padding: 0.3rem;
+    border: 2px solid #343434;
+    transition: background .5s linear;
+  }
+    
     .park-container .btn:hover {
       color: #fff;
       background: #000;
@@ -621,68 +641,67 @@ body {
         border: none;
         outline: none;
     }
-  
-  .park-modal {
-    background: #5f9ea0 !important;
-  }
 
-    .park-modal-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: auto;
-      margin-top: 1rem;
-      width: 90%;
-    }
-  
-      .park-modal-content > div {
-        margin: 1rem;
-      }
-    
-      .park-modal-content h2 {
-        font-size: 2rem;
-        font-weight: bold;
-      }
-    
-      .park-modal-content p {
-        font-size: 1.3rem;
-      }
-    
-      .park-modal-content .anchor {
-        padding: 1rem;
-        color: #000;
-        background: #fff;
-      }
-    
-      .park-modal-content ul {
-        list-style-type: none;
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-gap: 2rem;
-        font-size: 1.7rem;
-      }
-    
-      .park-modal-content .fees {
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-gap: 1rem;
-      }
-    
-      .operation-hours .weekdays {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 1rem 0px;
-        font-size: 1.5rem;
-      }
+.park-modal {
+  background: #5f9ea0 !important;
+}
 
+.park-modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 1rem;
+  width: 90%;
+}
 
+.park-modal-content > div {
+  margin: 1rem;
+}
 
-.images-section .images{
+.park-modal-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.park-modal-content p {
+  font-size: 1.3rem;
+}
+
+.park-modal-content .anchor {
+  padding: 1rem;
+  color: #000;
+  background: #fff;
+}
+
+.park-modal-content ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
+  font-size: 1.7rem;
+}
+
+.park-modal-content .fees {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1rem;
 }
+
+.operation-hours .weekdays {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0px;
+  font-size: 1.5rem;
+}
+
+.images-section .images {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+}
+
 .images-section .image {
   border: 1px solid #ccc;
   transition: all .5s ease-in-out;
@@ -692,19 +711,23 @@ body {
   transform: scale(1.02);
   border: 1px solid #777;
 }
+
 .images-section .image img {
   width: 100%;
   max-height: 30rem;
   object-fit: fill;
 }
+
 .images-section .image .image-description {
   padding: 15px;
   text-align: center;
 }
-.scroll{
+
+.scroll {
   overflow: auto !important;
 }
-.scroll::-webkit-scrollbar{
+
+.scroll::-webkit-scrollbar {
   width: 0px;
   background: transparent;
 }
@@ -1038,14 +1061,7 @@ body {
 
 
 
-.login-button {
-}
 
-.login-button:hover, .login-button:focus {
-  outline: none;
-  cursor: pointer;
-  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
-}
 
 .modal {
   position: fixed;
@@ -1110,6 +1126,13 @@ body {
         font-family: Helvetica, sans-serif;
         font-size: 2rem;
       }
+
+
+
+
+
+
+
 
 .fixed-plugin {
   align-self: center;
@@ -1189,6 +1212,10 @@ body {
 
 .fixed-plugin .badge-purple {
   background-color: #9c27b0;
+}
+
+.fixed-plugin .badge-white {
+  background-color: #f5f5f5;
 }
 
 .fixed-plugin .badge-blue {
