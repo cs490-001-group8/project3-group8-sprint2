@@ -2278,7 +2278,7 @@ body {
 
 .icon-bar i:hover {
   color: green;
-  transition: 1s ease-out;
+  transition: 0.5s ease-out;
 }
 
 .selected {

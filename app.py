@@ -240,6 +240,10 @@ def on_national_parks():
     parks = national_parks()
     flask_socketio.emit("national parks", {"parks": parks})
 
+@SOCKETIO.on("personal tab change")
+def on_personal_tab_change(data):
+    """Updates the personal tab"""
+    flask_socketio.emit("update personal tab", data)
 
 if __name__ == "__main__":
     SOCKETIO.run(

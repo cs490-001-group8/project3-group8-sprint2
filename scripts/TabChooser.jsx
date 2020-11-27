@@ -29,42 +29,54 @@ export default function TabChooser(props) {
                     onClick={() => handleClick('News')}>
                 </i>
             </div>
-            <i 
-                id="Weather" 
-                title="Weather" 
-                className="fas fa-sun fa-2x"
-                onClick={() => handleClick('Weather')}>
-            </i>
-            <i
-                id="Traffic"
-                title="Traffic" 
-                className="fas fa-traffic-light fa-2x"
-                onClick={() => handleClick('Traffic')}>
-            </i>
-            <i
-                id="Bills"
-                title="Bills" 
-                className="fas fa-vote-yea fa-2x"
-                onClick={() => handleClick('Bills')}>
-            </i>
-            <i
-                id="Politician_Twitter"
-                title="Politican Twitter" 
-                className="fab fa-twitter fa-2x"
-                onClick={() => handleClick('Politician_Twitter')}>
-            </i>
-            <i
-                id="Hiking_Destinations"
-                title="Hiking Destinations" 
-                className="fas fa-mountain fa-2x"
-                onClick={() => handleClick('Hiking_Destinations')}>
-            </i>
-            <i
-                id="Sports"
-                title="Sports" 
-                className="fas fa-football-ball fa-2x"
-                onClick={() => handleClick('Sports')}>
-            </i>
+            <div className={selectedDict.Weather ? "selected" : "unselected"}>
+                <i 
+                    id="Weather" 
+                    title="Weather" 
+                    className="fas fa-sun fa-2x"
+                    onClick={() => handleClick('Weather')}>
+                </i>
+            </div>
+            <div className={selectedDict.Traffic ? "selected" : "unselected"}>
+                <i
+                    id="Traffic"
+                    title="Traffic" 
+                    className="fas fa-traffic-light fa-2x"
+                    onClick={() => handleClick('Traffic')}>
+                </i>
+            </div>
+            <div className={selectedDict.Bills ? "selected" : "unselected"}>
+                <i
+                    id="Bills"
+                    title="Bills" 
+                    className="fas fa-vote-yea fa-2x"
+                    onClick={() => handleClick('Bills')}>
+                </i>
+            </div>
+            <div className={selectedDict.Politician_Twitter ? "selected" : "unselected"}>
+                <i
+                    id="Politician_Twitter"
+                    title="Politican Twitter" 
+                    className="fab fa-twitter fa-2x"
+                    onClick={() => handleClick('Politician_Twitter')}>
+                </i>
+            </div>
+            <div className={selectedDict.Hiking_Destinations ? "selected" : "unselected"}>
+                <i
+                    id="Hiking_Destinations"
+                    title="Hiking Destinations" 
+                    className="fas fa-mountain fa-2x"
+                    onClick={() => handleClick('Hiking_Destinations')}>
+                </i>
+            </div>
+            <div className={selectedDict.Sports ? "selected" : "unselected"}>
+                <i
+                    id="Sports"
+                    title="Sports" 
+                    className="fas fa-football-ball fa-2x"
+                    onClick={() => handleClick('Sports')}>
+                </i>
+            </div>
         </div>
     );
 }
