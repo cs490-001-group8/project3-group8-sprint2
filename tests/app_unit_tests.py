@@ -342,7 +342,7 @@ class AppTestCases(unittest.TestCase):
         if channel == "send weather":
             if len(data) == 0:
                 raise ValueError("DATA IS EMPTY")
-        elif channel == "weather error":
+        elif channel == "weather error" or channel == "update personal tab":
             pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -543,6 +543,7 @@ class AppTestCases(unittest.TestCase):
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_politicians_request()
+
     def test_on_national_park(self):
         """Test the on_nationl_parks method that emits back all the parks to requested client"""
         import app
@@ -557,7 +558,16 @@ class AppTestCases(unittest.TestCase):
             expected = ["array of parks"]
             assert mocked_flask_socketio_emit.called_once
             assert mocked_flask_socketio_emit.called_with(["array of parks"])
-
+    
+    def test_on_personal_tab_change(self):
+        """Test the personal tab socket"""
+        test_tabs = {"tab": "tested"}
+        import app
+        
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
+            app.on_personal_tab_change(test_tabs)
+            self.assertIsInstance(test_tabs, dict)
+        
 
 if __name__ == "__main__":
     unittest.main()

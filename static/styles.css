@@ -1390,3 +1390,38 @@ body {
   right: auto;
   left: 80px;
 }
+
+.icon-bar {
+  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  background-color: #F8F8FF;
+  text-align: center;
+  border: 1px #d4d5d6 solid;
+  border-radius: 5px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+  transition: all 0.5s ease-in-out;
+  margin-left: 10px;
+}
+
+.icon-bar:hover{
+  box-shadow: 0 0px 0px rgba(0,0,0,0.5);
+}
+
+.icon-bar i{
+  margin: 3px;
+}
+
+.icon-bar i:hover {
+  color: green;
+  transition: 0.5s ease-out;
+}
+
+.selected {
+  color: green;
+}
+
+.unselected {
+  color: gray;
+}
