@@ -1,6 +1,18 @@
 {
-    "timestamp": 1606495873.521714,
+    "timestamp": 1606499770.638405,
     "articles": [
+        {
+            "title": "PHOTOS: NEW MagicBand, Spirit Jersey, Cookie Stroll Jar, and More Merch for the Taste of EPCOT International Festival of the Holidays 2020",
+            "description": "Chip and Dale are all over the Taste of EPCOT International Festival of the Holidays 2020 merchandise, including a new Magicband.",
+            "content": "The mascots of this year\u2019s Taste of EPCOT International Festival of the Holidays are Chip and Dale, which means you can find them all over the brand-new festival merchandise. We already picked up our pins, but now we\u2019re shopping for MagicBands, Spiri... [741 chars]",
+            "url": "https://wdwnt.com/2020/11/photos-new-magicband-spirit-jersey-and-more-merch-for-the-taste-of-epcot-international-festival-of-the-holidays-2020/",
+            "image": "https://wdwnt.com/wp-content/uploads/2020/11/foh-merchandise-collage-9284269.png",
+            "publishedAt": "2020-11-27T17:29:59Z",
+            "source": {
+                "name": "wdwnt.com",
+                "url": "https://wdwnt.com"
+            }
+        },
         {
             "title": "P.K. Subban perd son agent",
             "description": "L\u2019ancien d\u00e9fenseur du Canadien de Montr\u00e9al P.K. Subban, qui \u00e9volue d\u00e9sormais avec les Devils du New Jersey, doit se trouver un nouveau repr\u00e9sentant.",
@@ -47,18 +59,6 @@
             "source": {
                 "name": "FOX 4 News",
                 "url": "https://www.fox4news.com"
-            }
-        },
-        {
-            "title": "Supreme Court\u2019s Ruling Blocking Cuomo\u2019s Covid-19 Order Could Influence Other Cases",
-            "description": "Up to 20 lawsuits involving houses of worship in states including Nevada, New Jersey, California and Oregon could be influenced by the high-court decision, legal experts say.",
-            "content": "The Supreme Court ruling that blocked New York from imposing strict limits on attendance at religious services could influence lawsuits in other states seeking to overturn similar rules on houses of worship.\nUp to 20 cases involving houses of worship... [886 chars]",
-            "url": "https://www.wsj.com/articles/supreme-courts-ruling-blocking-cuomos-covid-19-order-could-influence-other-cases-11606428800",
-            "image": "https://images.wsj.net/im-265185/social",
-            "publishedAt": "2020-11-26T22:13:00Z",
-            "source": {
-                "name": "The Wall Street Journal",
-                "url": "https://www.wsj.com"
             }
         }
     ]

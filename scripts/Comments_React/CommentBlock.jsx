@@ -18,7 +18,7 @@ export default function CommentBlock({
     function removeFromLikes(cid) {
         likedComments.forEach((value, i) => {
             if (value === cid) {
-                changeLikes((prev) => prev.splice(i, 1));
+                likedComments.splice(i, 1);
             }
         });
     }

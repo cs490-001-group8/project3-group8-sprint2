@@ -170,11 +170,17 @@ def on_like_comment(data):
     if flask.request.sid not in LOGGEDIN_CLIENTS:
         return
     try:
+        user_info = LOGGEDIN_CLIENTS[flask.request.sid]
         comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
         if data["like"]:
-            comment.likes += 1
+            if SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]) == None:
+                comment.likes += 1
+                like = tables.Like(user_info["newEmail"], user_info["loginType"], data["comment_id"])
+                SESSION.add(like)
         else:
-            comment.likes -= 1
+            if SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]) != None:
+                comment.likes -= 1
+                SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]).delete()
         SESSION.commit()
     except KeyError:
         return
