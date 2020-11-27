@@ -1,6 +1,18 @@
 {
-    "timestamp": 1606439411.71418,
+    "timestamp": 1606462219.710473,
     "articles": [
+        {
+            "title": "Ivanka Trump to move to New Jersey, rejected from New York High Society",
+            "description": "Having once enjoyed the best of New York High Society, Ivanka Trump no doubt expected she\u2019d slot right back into the city\u2019s social scene when her father\u2019s administration came to an end.",
+            "content": "Ivanka Trump may have been born into one of the world\u2019s most powerful dynasties, but her own power and influence is on the rise.\nHaving once enjoyed the best of New York High Society, Ivanka Trump no doubt expected she\u2019d slot right back into the city... [4508 chars]",
+            "url": "https://www.news.com.au/world/north-america/us-politics/ivanka-trump-to-move-to-new-jersey-rejected-from-new-york-high-society/news-story/d3d5df641597fb4e609569f316362182",
+            "image": "https://cdn.newsapi.com.au/image/v1/d8e03646d7e8c0110d0c473ae2f0d83a?width=1280",
+            "publishedAt": "2020-11-27T03:59:00Z",
+            "source": {
+                "name": "NEWS.com.au",
+                "url": "https://www.news.com.au"
+            }
+        },
         {
             "title": "Dallas Stars unveil 'Blackout' alternate jersey",
             "description": "The Dallas Stars unveiled a new Blackout alternate uniform for the upcoming season.",
@@ -47,18 +59,6 @@
             "source": {
                 "name": "Observer",
                 "url": "https://www.gladstoneobserver.com.au"
-            }
-        },
-        {
-            "title": "Woman resigns after Zoom fail",
-            "description": "Almost 140 people watched during a meeting as a New Jersey woman mistakenly publicly broadcast a private moment. She\u2019s now resigned.",
-            "content": "A New Jersey woman who once said she was \"disgusted\" by LGBT curriculum flushed her career on a local school board down the toilet this week by accidentally broadcasting her bathroom break on Zoom during a public meeting.\nFrances Cogelja resigned as ... [1871 chars]",
-            "url": "https://www.warwickdailynews.com.au/news/woman-resigns-after-zoom-fail/4147260/",
-            "image": "https://media.apnarm.net.au/media/images/2020/11/26/v3imagesbinefc6e164f66b035d1dfc94117f751ee2-hefqktcatg1e6bx9fv2_ct1880x930.jpg",
-            "publishedAt": "2020-11-26T18:12:00Z",
-            "source": {
-                "name": "Warwick Daily News",
-                "url": "https://www.warwickdailynews.com.au"
             }
         }
     ]
