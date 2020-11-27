@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import CommentLikes from './CommentLikes';
 
 export default function Comment({
-    commentBody, commentName, commentTime, commentId, commentLikes,
+    commentBody, commentName, commentTime, commentId,
+    commentLikes, loggedIn, likedComments, addToLikes, removeFromLikes,
 }) {
     return (
         <li className="comment">
@@ -12,7 +13,14 @@ export default function Comment({
                 <span className="comment-info-time">{commentTime}</span>
             </div>
             <div className="comment-body">{commentBody}</div>
-            <CommentLikes commentId={commentId} commentLikes={commentLikes} />
+            <CommentLikes
+              commentId={commentId}
+              commentLikes={commentLikes}
+              loggedIn={loggedIn}
+              likedComments={likedComments}
+              addToLikes={addToLikes}
+              removeFromLikes={removeFromLikes}
+            />
         </li>
     );
 }
@@ -23,4 +31,8 @@ Comment.propTypes = {
     commentName: PropTypes.string.isRequired,
     commentTime: PropTypes.string.isRequired,
     commentLikes: PropTypes.number.isRequired,
+    loggedIn: PropTypes.bool.isRequired,
+    likedComments: PropTypes.arrayOf(PropTypes.number).isRequired,
+    addToLikes: PropTypes.func.isRequired,
+    removeFromLikes: PropTypes.func.isRequired,
 };

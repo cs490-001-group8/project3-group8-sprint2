@@ -6,9 +6,22 @@ import CommentInput from './CommentInput';
 import CommentTitle from './CommentTitle';
 
 export default function CommentBlock({
-    currTab, myName, myEmail, myLoginType, loggedIn,
+    currTab, myName, loggedIn,
 }) {
     const [comments, updateComments] = useState(() => []);
+    const [likedComments, changeLikes] = useState(() => []);
+
+    function addToLikes(cid) {
+        changeLikes((prev) => prev.concat(cid));
+    }
+
+    function removeFromLikes(cid) {
+        likedComments.forEach((value, i) => {
+            if (value === cid) {
+                changeLikes((prev) => prev.splice(i, 1));
+            }
+        });
+    }
 
     useEffect(() => {
         Socket.on('new comment', (data) => {
@@ -37,7 +50,13 @@ export default function CommentBlock({
         return (
             <div className="Comment-Block">
                 <CommentTitle />
-                <CommentList comments={comments} loggedIn={loggedIn} />
+                <CommentList
+                  comments={comments}
+                  loggedIn={loggedIn}
+                  likedComments={likedComments}
+                  addToLikes={addToLikes}
+                  removeFromLikes={removeFromLikes}
+                />
                 <CommentInput currTab={currTab} myName={myName} />
             </div>
         );
@@ -46,7 +65,13 @@ export default function CommentBlock({
     return (
         <div className="Comment-Block">
             <CommentTitle />
-            <CommentList comments={comments} loggedIn={loggedIn} />
+            <CommentList
+              comments={comments}
+              loggedIn={loggedIn}
+              likedComments={likedComments}
+              addToLikes={addToLikes}
+              removeFromLikes={removeFromLikes}
+            />
         </div>
     );
 }
@@ -54,7 +79,5 @@ export default function CommentBlock({
 CommentBlock.propTypes = {
     currTab: PropTypes.string.isRequired,
     myName: PropTypes.string.isRequired,
-    myEmail: PropTypes.string.isRequired,
-    myLoginType: PropTypes.string.isRequired,
     loggedIn: PropTypes.bool.isRequired,
 };
