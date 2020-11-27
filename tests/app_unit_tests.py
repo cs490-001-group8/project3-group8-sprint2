@@ -68,12 +68,27 @@ class MockedFilterResponse:
         return self.texts
 
     def first(self):
-        """Mock an first() call from a query response"""
+        """Mock a first() call from a query response"""
         return self.texts[0]
+
+    def delete(self):
+        """Mock a delete() call from a query response"""
+        return None
 
     def order_by(self, arg):
         """Mock an order_by() call from a query response"""
         return self.order
+
+
+class MockedFilterNoneResponse:
+    """Pretend to be an query response"""
+
+    def __init__(self, texts):
+        self.texts = texts
+
+    def first(self):
+        """Mock a first() call from a query response"""
+        return None
 
 
 class MockedQueryResponse:
@@ -88,8 +103,10 @@ class MockedQueryResponse:
 
     # pylint: disable=C0103
     # pylint: disable=W0622
-    def filter_by(self, id):
+    def filter_by(self, id="", email="", login_type="", comment_id=0):
         """Pretend to be an query filter"""
+        if comment_id == 8:
+            return MockedFilterNoneResponse(self.texts)
         return MockedFilterResponse(self.texts)
 
     def all(self):
@@ -275,6 +292,15 @@ class AppTestCases(unittest.TestCase):
             raise ValueError("Tab not string")
         if not isinstance(comment.text, str):
             raise ValueError("Text not string")
+
+    def mock_session_add_like(self, like):
+        """Mock Session add for comments"""
+        if not isinstance(like.email, str):
+            raise ValueError("Email not string")
+        if not isinstance(like.login_type, str):
+            raise ValueError("Login type not string")
+        if not isinstance(like.comment_id, int):
+            raise ValueError("Comment ID not int")
 
     def mock_flask_emit_all(self, channel, data=""):
         """Mock Session add for comments"""
@@ -478,7 +504,7 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
         ), mock.patch(
-            "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_like
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
         ), mock.patch(
@@ -501,9 +527,9 @@ class AppTestCases(unittest.TestCase):
                     "loginType": "Facebook",
                 }
                 app.on_user_login(data)
+                app.on_like_comment({"comment_id": 8, "like": True})
                 app.on_like_comment({"comment_id": 7, "like": False})
-                app.on_like_comment({"comment_id": 7, "like": True})
-                app.on_like_comment({"comment_tid": 7, "likes": True})
+                app.on_like_comment({"comment_id": 8, "likes": True})
                 app.on_user_disconnect()
 
     def test_app_get_comments_failure(self):

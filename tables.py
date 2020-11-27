@@ -56,7 +56,7 @@ class Theme(BASE):
 
 class Like(BASE):
     '''Defines the table for liking comments'''
-    __tablename__ = 'like'
+    __tablename__ = 'likes'
     email = Column(String(50), primary_key=True)
     login_type = Column(String(50), primary_key=True)
     comment_id = Column(Integer, ForeignKey('comment.id'), primary_key=True)

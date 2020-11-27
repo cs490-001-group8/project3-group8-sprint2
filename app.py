@@ -173,12 +173,12 @@ def on_like_comment(data):
         user_info = LOGGEDIN_CLIENTS[flask.request.sid]
         comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
         if data["like"]:
-            if SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]) == None:
+            if SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]).first() == None:
                 comment.likes += 1
                 like = tables.Like(user_info["newEmail"], user_info["loginType"], data["comment_id"])
                 SESSION.add(like)
         else:
-            if SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]) != None:
+            if SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]).first() != None:
                 comment.likes -= 1
                 SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]).delete()
         SESSION.commit()
