@@ -65,7 +65,7 @@ class PoliticsTestCases(unittest.TestCase):
         ]
 
     def mock_search_bills(
-        self, state, updated_since, type, chamber, sort, search_window
+            self, state, updated_since, type, chamber, sort, search_window
     ):
         """Mock searching bills"""
         return [
@@ -107,7 +107,7 @@ class PoliticsTestCases(unittest.TestCase):
     def test_get_recent_bills_new(self):
         """Make get_recent_bills test"""
         with mock.patch("json.load", self.mock_json_load_oldcache_bills), mock.patch(
-            "pyopenstates.search_bills", self.mock_search_bills
+                "pyopenstates.search_bills", self.mock_search_bills
         ), mock.patch("builtins.open", mock.mock_open()):
             res = politics.get_recent_bills()
             self.assertIsInstance(res, dict)
@@ -133,7 +133,7 @@ class PoliticsTestCases(unittest.TestCase):
     def test_get_politicians_new(self):
         """Make get_recent_bills test"""
         with mock.patch(
-            "json.load", self.mock_json_load_oldcache_politicians
+                "json.load", self.mock_json_load_oldcache_politicians
         ), mock.patch(
             "pyopenstates.search_legislators", self.mock_search_politicians
         ), mock.patch(

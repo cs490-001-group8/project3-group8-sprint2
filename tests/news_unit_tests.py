@@ -46,20 +46,20 @@ class NewsTestCases(unittest.TestCase):
                 "articles": [
                     {
                         "title": "Former \u2018Jersey Shore\u2019 Star Sammi Giancola Shows Off " +
-                        "Long Legs In Short White Dress",
+                                 "Long Legs In Short White Dress",
                         "description": "Former Jersey Shore star Sammi \u201cSweetheart\u201d " +
-                        "Giancola showed off her long legs in a short white dress in a new " +
-                        "Instagram share. The former reality show star, who was seen in " +
-                        "the original ...",
+                                       "Giancola showed off her long legs in a short white dress " +
+                                       "in a new Instagram share. The former reality show " +
+                                       "star, who was seen in the original ...",
                         "content": "Former Jersey Shore star Sammi \u201cSweetheart\u201d " +
-                        "Giancola showed off her long legs in a short white dress in a " +
-                        "new Instagram share. The former reality show star, who was seen " +
-                        "in the original six seasons of the series, stunned her followers " +
-                        "in the snap. He... [2288 chars]",
+                                   "Giancola showed off her long legs in a short white dress " +
+                                   "in a new Instagram share. The former reality show star, " +
+                                   "who was seen in the original six seasons of the " +
+                                   "series, stunned her followers in the snap. He... [2288 chars]",
                         "url": "https://www.inquisitr.com/6379236/" +
-                        "jersey-shore-sammi-giancola-long-legs/",
+                               "jersey-shore-sammi-giancola-long-legs/",
                         "image": "https://cdn.inquisitr.com/wp-content/uploads/2020/11/" +
-                        "sammi-giancola.jpg",
+                                 "sammi-giancola.jpg",
                         "publishedAt": "2020-11-11T17:13:59Z",
                         "source": {
                             "name": "The Inquisitr",
@@ -71,20 +71,20 @@ class NewsTestCases(unittest.TestCase):
             KEY_EXPECTED: [
                 {
                     "title": "Former \u2018Jersey Shore\u2019 Star Sammi Giancola Shows Off "
-                    + "Long Legs In Short White Dress",
+                             + "Long Legs In Short White Dress",
                     "description": "Former Jersey Shore star Sammi \u201cSweetheart\u201d "
-                    + "Giancola showed off her long legs in a short white dress in a new "
-                    + "Instagram share. The former reality show star, who was seen in "
-                    + "the original ...",
+                                   + "Giancola showed off her long legs in a short white dress "
+                                   + "in a new Instagram share. The former reality show star, "
+                                   + "who was seen in the original ...",
                     "content": "Former Jersey Shore star Sammi \u201cSweetheart\u201d "
-                    + "Giancola showed off her long legs in a short white dress in a "
-                    + "new Instagram share. The former reality show star, who was "
-                    + "seen in the original six seasons of the series, stunned her "
-                    + "followers in the snap. He... [2288 chars]",
+                               + "Giancola showed off her long legs in a short white dress in a "
+                               + "new Instagram share. The former reality show star, who was "
+                               + "seen in the original six seasons of the series, stunned her "
+                               + "followers in the snap. He... [2288 chars]",
                     "url": "https://www.inquisitr.com/6379236/jersey-shore-sammi-giancola-"
-                    + "long-legs/",
+                           + "long-legs/",
                     "image": "https://cdn.inquisitr.com/wp-content/uploads/2020/11/"
-                    + "sammi-giancola.jpg",
+                             + "sammi-giancola.jpg",
                     "publishedAt": "2020-11-11T17:13:59Z",
                     "source": {
                         "name": "The Inquisitr",
@@ -159,7 +159,7 @@ class NewsTestCases(unittest.TestCase):
         mocker = mock.MagicMock(side_effect=[self.test_fetch_cache_success[KEY_INPUT]])
 
         with mock.patch("builtins.open", mock.MagicMock()), mock.patch(
-            "json.load", mocker
+                "json.load", mocker
         ):
             result = get_cache_news()
 
@@ -172,7 +172,7 @@ class NewsTestCases(unittest.TestCase):
         mocker = mock.MagicMock(side_effect=[None])
 
         with mock.patch("requests.get", self.mocked_requests), mock.patch(
-            "news.get_cache_news", mocker
+                "news.get_cache_news", mocker
         ), mock.patch("builtins.open", mock.MagicMock()):
             result = get_latest_news()
 

@@ -20,18 +20,18 @@ class TweetTestCases(unittest.TestCase):
         """Test get_tweets"""
         mocker = mock.MagicMock()
         with mock.patch("tweepy.API", mocker), mock.patch(
-            "tweepy.OAuthHandler", mocker
+                "tweepy.OAuthHandler", mocker
         ):
             import tweets
 
             result = tweets.get_tweet("AAAA")
             if (
-                "text" not in result
-                or "sname" not in result
-                or "ppic" not in result
-                or "uname" not in result
-                or "time" not in result
-                or "date" not in result
+                    "text" not in result
+                    or "sname" not in result
+                    or "ppic" not in result
+                    or "uname" not in result
+                    or "time" not in result
+                    or "date" not in result
             ):
                 raise ValueError
 
@@ -41,16 +41,16 @@ class TweetTestCases(unittest.TestCase):
         """Test get_politicians_latest_tweets"""
         mocker = mock.MagicMock()
         with mock.patch("tweepy.API", mocker), mock.patch(
-            "tweepy.OAuthHandler", mocker
+                "tweepy.OAuthHandler", mocker
         ):
             import tweets
 
             result = tweets.get_politicians_latest_tweets()
             if (
-                "gov" not in result
-                or "sen" not in result
-                or not isinstance(result["sen"], list)
-                or len(result["sen"]) != 2
+                    "gov" not in result
+                    or "sen" not in result
+                    or not isinstance(result["sen"], list)
+                    or len(result["sen"]) != 2
             ):
                 raise ValueError
 
