@@ -27,7 +27,7 @@ export default function CommentLikes({
         if (likedComments.includes(commentId)) {
             return (
                 <div className="comment-foot">
-                    {commentLikes + 1}
+                    {commentLikes}
                     <input type="button" className="comment-like-button liked" onClick={likeComment} />
                 </div>
             );

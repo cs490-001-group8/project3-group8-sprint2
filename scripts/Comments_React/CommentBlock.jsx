@@ -39,6 +39,10 @@ export default function CommentBlock({
             updateComments(() => data.comments);
         });
 
+        Socket.on('liked comments', (data) => {
+            changeLikes(() => data.comments);
+        });
+
         Socket.emit('get comments', { tab: currTab });
     }, []);
 

@@ -41,6 +41,7 @@ class MockedQueryResponseObj:
         self.name = name
         self.time = time
         self.likes = 0
+        self.comment_id = 7
         self.pattern = "w"
         self.value = "78"
 
@@ -58,6 +59,7 @@ class MockedOrderResponse:
 
 class MockedFilterResponse:
     """Pretend to be an query response"""
+    # pylint: disable=R0201
 
     def __init__(self, texts):
         self.texts = texts
@@ -82,6 +84,7 @@ class MockedFilterResponse:
 
 class MockedFilterNoneResponse:
     """Pretend to be an query response"""
+    # pylint: disable=R0201
 
     def __init__(self, texts):
         self.texts = texts
@@ -387,6 +390,10 @@ class AppTestCases(unittest.TestCase):
                     or "chamber" not in pol
                 ):
                     raise ValueError("VALUE MISSING IN POLITICIAN")
+        elif channel == "liked comments":
+            for comment in data["comments"]:
+                if not isinstance(comment, int):
+                    raise ValueError("COMMENT ID IS NOT INT")
         elif channel == "send sport":
             pass
         else:
@@ -443,6 +450,10 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.orm.Query.first", self.mock_session_first
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.emit", self.mock_flask_emit_one
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
@@ -493,6 +504,14 @@ class AppTestCases(unittest.TestCase):
             ):
                 import app
 
+                app.on_get_comments({"tab": "Home"})
+
+                data = {
+                    "newName": "Albert Einstein",
+                    "newEmail": "einstein@mit.edu",
+                    "loginType": "Google",
+                }
+                app.on_user_login(data)
                 app.on_get_comments({"tab": "Home"})
 
     def test_app_like_comments(self):

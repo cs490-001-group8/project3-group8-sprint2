@@ -60,7 +60,7 @@ class Like(BASE):
     email = Column(String(50), primary_key=True)
     login_type = Column(String(50), primary_key=True)
     comment_id = Column(Integer, ForeignKey('comment.id'), primary_key=True)
-    
+
     def __init__(self, user_email, user_login_type, cid):
         self.email = user_email
         self.login_type = user_login_type
@@ -68,5 +68,3 @@ class Like(BASE):
 
     def __repr__(self):
         return '%s:%s Liked Comment %i' % (self.login_type, self.email, self.comment_id)
-    
-    

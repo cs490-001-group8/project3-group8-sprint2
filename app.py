@@ -90,6 +90,16 @@ def on_user_login(data):
             "value": theme.value
         }
     SOCKETIO.emit("theme", result)
+    liked_comments = [
+        comment.comment_id
+        for comment in SESSION.query(
+            tables.Like
+        ).filter_by(
+            email=data["newEmail"],
+            login_type=data["loginType"],
+        ).all()
+    ]
+    flask_socketio.emit("liked comments", {"comments": liked_comments})
 
 
 @SOCKETIO.on("update theme")
@@ -131,6 +141,19 @@ def on_get_comments(data):
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
+
+        if flask.request.sid in LOGGEDIN_CLIENTS:
+            user_info = LOGGEDIN_CLIENTS[flask.request.sid]
+            liked_comments = [
+                comment.comment_id
+                for comment in SESSION.query(
+                    tables.Like
+                ).filter_by(
+                    email=user_info["newEmail"],
+                    login_type=user_info["loginType"],
+                ).all()
+            ]
+            flask_socketio.emit("liked comments", {"comments": liked_comments})
     except KeyError:
         return
 
@@ -173,14 +196,35 @@ def on_like_comment(data):
         user_info = LOGGEDIN_CLIENTS[flask.request.sid]
         comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
         if data["like"]:
-            if SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]).first() == None:
+            if SESSION.query(
+                    tables.Like
+                ).filter_by(
+                    email=user_info["newEmail"],
+                    login_type=user_info["loginType"],
+                    comment_id=data["comment_id"]
+                ).first() is None:
                 comment.likes += 1
-                like = tables.Like(user_info["newEmail"], user_info["loginType"], data["comment_id"])
+                like = tables.Like(
+                    user_info["newEmail"],
+                    user_info["loginType"],
+                    data["comment_id"])
                 SESSION.add(like)
         else:
-            if SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]).first() != None:
+            if SESSION.query(
+                    tables.Like
+                ).filter_by(
+                    email=user_info["newEmail"],
+                    login_type=user_info["loginType"],
+                    comment_id=data["comment_id"]
+                ).first() is not None:
                 comment.likes -= 1
-                SESSION.query(tables.Like).filter_by(email=user_info["newEmail"], login_type=user_info["loginType"], comment_id=data["comment_id"]).delete()
+                SESSION.query(
+                    tables.Like
+                ).filter_by(
+                    email=user_info["newEmail"],
+                    login_type=user_info["loginType"],
+                    comment_id=data["comment_id"]
+                ).delete()
         SESSION.commit()
     except KeyError:
         return
