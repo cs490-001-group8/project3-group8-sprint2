@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { Socket } from './Socket';
 
+let widgetCount = 1;
+
 let selectedDict = {
     News: false,
     Weather: false,
@@ -14,8 +16,20 @@ let selectedDict = {
 }
 
 function handleClick(data){
-    selectedDict[data] = selectedDict[data] ? false : true;
-    Socket.emit('personal tab change', selectedDict);
+    console.log(widgetCount)
+    if (selectedDict[data]) {
+        selectedDict[data] = false;
+        widgetCount -= 1
+        Socket.emit('personal tab change', selectedDict);
+    } else {
+        if (widgetCount <= 3) {
+            selectedDict[data] = true;
+            widgetCount += 1
+            Socket.emit('personal tab change', selectedDict);
+        } else {
+            alert ("Only select three widgets!")
+        }
+    }
 }
 
 export default function TabChooser(props) {
