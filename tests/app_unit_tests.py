@@ -271,7 +271,7 @@ class AppTestCases(unittest.TestCase):
 
     def mock_json_load_oldcache_bills(self, file):
         """Mock an outdated cache"""
-        old_time = datetime.now().timestamp() - (5000 + 100)
+        old_time = datetime.now().timestamp() - (50000 + 100)
         return {"timestamp": old_time}
 
     def mock_json_load_oldcache_politicians(self, file):

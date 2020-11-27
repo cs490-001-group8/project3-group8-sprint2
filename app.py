@@ -195,7 +195,6 @@ def on_like_comment(data):
     try:
         user_info = LOGGEDIN_CLIENTS[flask.request.sid]
         comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
-        print(data)
         if data["like"]:
             if SESSION.query(
                     tables.Like

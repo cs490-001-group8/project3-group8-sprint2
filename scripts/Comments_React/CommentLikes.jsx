@@ -21,7 +21,8 @@ export default function CommentLikes({
                 like: true,
             });
         }
-        changeSelected((last) => !last);
+        if (selected) changeSelected(() => false);
+        else changeSelected(() => true);
     }
 
     useEffect(() => {
