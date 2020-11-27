@@ -195,6 +195,7 @@ def on_like_comment(data):
     try:
         user_info = LOGGEDIN_CLIENTS[flask.request.sid]
         comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
+        print(data)
         if data["like"]:
             if SESSION.query(
                     tables.Like
@@ -217,14 +218,14 @@ def on_like_comment(data):
                     login_type=user_info["loginType"],
                     comment_id=data["comment_id"]
                 ).first() is not None:
-                comment.likes -= 1
-                SESSION.query(
-                    tables.Like
-                ).filter_by(
-                    email=user_info["newEmail"],
-                    login_type=user_info["loginType"],
-                    comment_id=data["comment_id"]
-                ).delete()
+                    comment.likes -= 1
+                    SESSION.query(
+                        tables.Like
+                    ).filter_by(
+                        email=user_info["newEmail"],
+                        login_type=user_info["loginType"],
+                        comment_id=data["comment_id"]
+                    ).delete()
         SESSION.commit()
     except KeyError:
         return

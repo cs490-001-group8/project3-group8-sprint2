@@ -10,14 +10,18 @@ export default function CommentLikes({
     function likeComment() {
         if (likedComments.includes(commentId)) {
             removeFromLikes(commentId);
+            Socket.emit('like comment', {
+                comment_id: commentId,
+                like: false,
+            });
         } else {
             addToLikes(commentId);
+            Socket.emit('like comment', {
+                comment_id: commentId,
+                like: true,
+            });
         }
         changeSelected((last) => !last);
-        Socket.emit('like comment', {
-            comment_id: commentId,
-            like: !selected,
-        });
     }
 
     useEffect(() => {
@@ -41,7 +45,7 @@ export default function CommentLikes({
     }
     return (
         <div className="comment-foot">
-            {commentLikes + selected}
+            {commentLikes}
             <input type="button" className="comment-like-button" onClick={likeComment} disabled />
         </div>
     );
