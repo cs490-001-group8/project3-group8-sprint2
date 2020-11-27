@@ -82,7 +82,7 @@ def on_user_login(data):
             "value": "white"
         }
         SESSION.add(Theme(data["newName"], data["newEmail"],
-                            data["loginType"], result["pattern"], result["value"]))
+                          data["loginType"], result["pattern"], result["value"]))
         SESSION.commit()
     else:
         result = {
@@ -247,7 +247,7 @@ def get_sport_data():
              {'name': 'Jets Football', 'link': 'https://www.newyorkjets.com/'},
              {'name': 'Red Bulls', 'link': 'https://www.newyorkredbulls.com/'},
              {'name': 'NJ Jackals',
-                 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
+              'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
              {'name': 'Somerset Patriots', 'link': 'https://www.somersetpatriots.com/'},
              {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
              {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]

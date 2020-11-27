@@ -25,7 +25,7 @@ def weather_do_nothing(one, two, three):
 
 
 class MockedThemeObj:
-
+    """Pretend to be a theme object"""
     def __init__(self, pattern, value):
         self.pattern = pattern
         self.value = value
@@ -35,11 +35,14 @@ class MockedQueryResponseObj:
     """Pretend to be a query response object"""
 
     def __init__(self, text, name, time):
+        # pylint: disable=C0103
         self.id = 7
         self.text = text
         self.name = name
         self.time = time
         self.likes = 0
+        self.pattern = "w"
+        self.value = "78"
 
 
 class MockedOrderResponse:
@@ -79,10 +82,12 @@ class MockedQueryResponse:
     def __init__(self, text):
         self.texts = [MockedQueryResponseObj(text["text"], text["name"], text["time"])]
 
-    def filter(self, text):
+    def filter(self, text, text2="", text3=""):
         """Pretend to be an query filter"""
         return MockedFilterResponse(self.texts)
 
+    # pylint: disable=C0103
+    # pylint: disable=W0622
     def filter_by(self, id):
         """Pretend to be an query filter"""
         return MockedFilterResponse(self.texts)
@@ -223,9 +228,7 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
-    def mock_search_politicians(
-            self, state, chamber, active
-    ):
+    def mock_search_politicians(self, state, chamber, active):
         """Pretend to search for politicians"""
         return [
             {
@@ -263,6 +266,7 @@ class AppTestCases(unittest.TestCase):
         )
 
     def mock_session_first(self):
+        """Mock getting a theme object"""
         return MockedThemeObj("color", "white")
 
     def mock_session_add_comment(self, comment):
@@ -278,7 +282,7 @@ class AppTestCases(unittest.TestCase):
             if "pattern" not in data or not isinstance(data["pattern"], str):
                 raise ValueError("NO PATTERN")
             if "value" not in data or not isinstance(data["value"], str):
-                raise ValueError("NO VALUE")            
+                raise ValueError("NO VALUE")
         elif channel == "new comment":
             if "text" not in data or not isinstance(data["text"], str):
                 raise ValueError("NO TEXT")
@@ -349,12 +353,12 @@ class AppTestCases(unittest.TestCase):
         elif channel == "send politicians":
             for pol in data["politicians"]:
                 if (
-                        "name" not in pol
-                        or "photo" not in pol
-                        or "website" not in pol
-                        or "district" not in pol
-                        or "party" not in pol
-                        or "chamber" not in pol
+                    "name" not in pol
+                    or "photo" not in pol
+                    or "website" not in pol
+                    or "district" not in pol
+                    or "party" not in pol
+                    or "chamber" not in pol
                 ):
                     raise ValueError("VALUE MISSING IN POLITICIAN")
         elif channel == "send sport":
@@ -420,10 +424,11 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
+
                 data = {
                     "newName": "Albert Einstein",
                     "newEmail": "einstein@mit.edu",
-                    "loginType": "Google"
+                    "loginType": "Google",
                 }
                 app.on_user_login(data)
                 app.on_new_comment(
@@ -490,7 +495,12 @@ class AppTestCases(unittest.TestCase):
 
                 app.on_like_comment({"comment_id": 7, "like": False})
 
-                app.on_user_login()
+                data = {
+                    "newName": "Joe",
+                    "newEmail": "joseph@mit.edu",
+                    "loginType": "Facebook",
+                }
+                app.on_user_login(data)
                 app.on_like_comment({"comment_id": 7, "like": False})
                 app.on_like_comment({"comment_id": 7, "like": True})
                 app.on_like_comment({"comment_tid": 7, "likes": True})
@@ -579,6 +589,7 @@ class AppTestCases(unittest.TestCase):
     def test_get_sport_data(self):
         """Test the logic of get_sport_data function"""
         import app
+
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
             app.get_sport_data()
 
@@ -594,9 +605,13 @@ class AppTestCases(unittest.TestCase):
 
     def test_on_politicians_request(self):
         """Test the on_politicians_request method"""
-        with mock.patch("json.load", self.mock_json_load_oldcache_politicians), mock.patch(
-                "pyopenstates.search_legislators", self.mock_search_politicians
-        ), mock.patch("builtins.open", mock.mock_open()):
+        with mock.patch(
+            "json.load", self.mock_json_load_oldcache_politicians
+        ), mock.patch(
+            "pyopenstates.search_legislators", self.mock_search_politicians
+        ), mock.patch(
+            "builtins.open", mock.mock_open()
+        ):
             import app
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
