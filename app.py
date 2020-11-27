@@ -19,6 +19,7 @@ import tweets
 import news
 import politics
 from national_parks import national_parks
+import forward_geocoding
 
 load_dotenv()
 
@@ -178,17 +179,25 @@ def on_weather_request(data):
         cities = {line.strip() for line in city_file}
     city_file.close()
 
-    if (request_name.isdigit() and request_name in zip_codes):
+    if request_name.isdigit() and request_name in zip_codes:
         request_name = zip_codes[request_name]
+        send_update_location(request_name)
         weather_object = hourly_weather.fetch_weather(request_name)
         weather_object["city_name"] = request_name.title()
         flask_socketio.emit("send weather", weather_object)
     elif request_name in cities:
+        send_update_location(request_name)
         weather_object = hourly_weather.fetch_weather(request_name)
         weather_object["city_name"] = request_name.title()
         flask_socketio.emit("send weather", weather_object)
     else:
         flask_socketio.emit("weather error", {})
+
+
+def send_update_location(city):
+    """send updated location to map module"""
+    coordinates = forward_geocoding.get_latlon(city)
+    flask_socketio.emit("location_update", coordinates)
 
 
 @SOCKETIO.on("get political tweets")
