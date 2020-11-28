@@ -25,7 +25,7 @@ def weather_do_nothing(one, two, three):
 
 
 class MockedThemeObj:
-
+    """Mocking Theme Object"""
     def __init__(self, pattern, value):
         self.pattern = pattern
         self.value = value
@@ -197,9 +197,7 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
-    def mock_search_politicians(
-            self, state, chamber, active
-    ):
+    def mock_search_politicians(self, state, chamber, active):
         """Pretend to search for politicians"""
         return [
             {
@@ -237,6 +235,7 @@ class AppTestCases(unittest.TestCase):
         )
 
     def mock_session_first(self):
+        """ Mocking checking session first"""
         return MockedThemeObj("color", "white")
 
     def mock_session_add_comment(self, comment):
@@ -252,7 +251,7 @@ class AppTestCases(unittest.TestCase):
             if "pattern" not in data or not isinstance(data["pattern"], str):
                 raise ValueError("NO PATTERN")
             if "value" not in data or not isinstance(data["value"], str):
-                raise ValueError("NO VALUE")            
+                raise ValueError("NO VALUE")
         elif channel == "new comment":
             if "text" not in data or not isinstance(data["text"], str):
                 raise ValueError("NO TEXT")
@@ -323,12 +322,12 @@ class AppTestCases(unittest.TestCase):
         elif channel == "send politicians":
             for pol in data["politicians"]:
                 if (
-                        "name" not in pol
-                        or "photo" not in pol
-                        or "website" not in pol
-                        or "district" not in pol
-                        or "party" not in pol
-                        or "chamber" not in pol
+                    "name" not in pol
+                    or "photo" not in pol
+                    or "website" not in pol
+                    or "district" not in pol
+                    or "party" not in pol
+                    or "chamber" not in pol
                 ):
                     raise ValueError("VALUE MISSING IN POLITICIAN")
         elif channel == "send sport":
@@ -387,6 +386,8 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.orm.Query.first", self.mock_session_first
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "flask_socketio.emit"
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
@@ -394,10 +395,11 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
+
                 data = {
                     "newName": "Albert Einstein",
                     "newEmail": "einstein@mit.edu",
-                    "loginType": "Google"
+                    "loginType": "Google",
                 }
                 app.on_user_login(data)
                 app.on_new_comment(
@@ -521,6 +523,7 @@ class AppTestCases(unittest.TestCase):
     def test_get_sport_data(self):
         """Test the logic of get_sport_data function"""
         import app
+
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
             app.get_sport_data()
 
@@ -536,13 +539,18 @@ class AppTestCases(unittest.TestCase):
 
     def test_on_politicians_request(self):
         """Test the on_politicians_request method"""
-        with mock.patch("json.load", self.mock_json_load_oldcache_politicians), mock.patch(
-                "pyopenstates.search_legislators", self.mock_search_politicians
-        ), mock.patch("builtins.open", mock.mock_open()):
+        with mock.patch(
+            "json.load", self.mock_json_load_oldcache_politicians
+        ), mock.patch(
+            "pyopenstates.search_legislators", self.mock_search_politicians
+        ), mock.patch(
+            "builtins.open", mock.mock_open()
+        ):
             import app
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_politicians_request()
+
     def test_on_national_park(self):
         """Test the on_nationl_parks method that emits back all the parks to requested client"""
         import app
@@ -551,8 +559,12 @@ class AppTestCases(unittest.TestCase):
             "app.flask_socketio.emit"
         ) as mocked_flask_socketio_emit, mock.patch(
             "app.national_parks"
-        ) as mocked_national_parks:
+        ) as mocked_national_parks, mock.patch(
+            "app.flask.request"
+        ) as mocked_flask_socket_sid:
             mocked_national_parks.return_value = ["array of parks"]
+            app.LOGGEDIN_CLIENTS = {"12345": "data"}
+            mocked_flask_socket_sid.sid = "12345"
             response = app.on_national_parks()
             expected = ["array of parks"]
             assert mocked_flask_socketio_emit.called_once

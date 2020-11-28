@@ -18,7 +18,7 @@ const NationalPark = ({ park, buttonType, moveAction }) => {
             <div className="park">
                 <div className="park-header">
                     <h2><a href={park.url} target="_blank" rel="noreferrer">{park.name}</a></h2>
-                    <button type="button" onClick={handleMovePark} className="park-move-btn btn">{buttonType}</button>
+                    { buttonType && <button type="button" onClick={handleMovePark} className="park-move-btn btn">{buttonType}</button>}
                 </div>
                 <div className="park-body">
                     { park.images.length !== 0

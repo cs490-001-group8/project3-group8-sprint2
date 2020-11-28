@@ -6,14 +6,19 @@ import WidgetTitle from '../WidgetTitle';
 const NationalParks = () => {
     const [favoriteParks, setFavoriteParks] = useState([]);
     const [otherParks, setOtherParks] = useState([]);
+    const [displayArrows, setDisplayArrows] = useState(false);
 
     useEffect(() => {
         Socket.emit('get national parks');
         Socket.on('national parks', (data) => {
             setOtherParks(data.parks);
         });
+        Socket.on('national parks update', (data) => {
+            setDisplayArrows(data.display_move_park_arrow);
+        });
         return () => {
             Socket.off('national parks');
+            Socket.off('national parks update');
         };
     }, []);
 
@@ -32,6 +37,7 @@ const NationalParks = () => {
         <div className="widget scroll">
             <WidgetTitle title="National Parks" />
             <div className="park-container">
+                { displayArrows && (
                 <div className="favorite-parks">
                     <h2>Favorite Parks</h2>
                     <div className="parks">
@@ -45,16 +51,27 @@ const NationalParks = () => {
                             ))}
                     </div>
                 </div>
+)}
                 <div className="other-parks">
-                    <h2>Other Parks</h2>
+                    { displayArrows && <h2>Other Parks</h2> }
                     <div className="parks">
-                        {otherParks.map((park) => (
-                            <NationalPark
-                              park={park}
-                              buttonType="&#8679;"
-                              moveAction={moveFromOther}
-                              key={park.id}
-                            />
+                        {otherParks.map((park) => (displayArrows
+                                ? (
+                                    <NationalPark
+                                      park={park}
+                                      buttonType="&#8679;"
+                                      moveAction={moveFromOther}
+                                      key={park.id}
+                                    />
+)
+                                : (
+                                    <NationalPark
+                                      park={park}
+                                      buttonType=""
+                                      moveAction={moveFromOther}
+                                      key={park.id}
+                                    />
+)
                             ))}
                     </div>
                 </div>
