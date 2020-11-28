@@ -222,9 +222,9 @@ def on_like_comment(data):
                     login_type=user_info["loginType"],
                     comment_id=data["comment_id"]
                 ).first() is not None:
-                    comment.likes -= 1
-                    SESSION.query(
-                        tables.Like
+                comment.likes -= 1
+                SESSION.query(
+                    tables.Like
                     ).filter_by(
                         email=user_info["newEmail"],
                         login_type=user_info["loginType"],
@@ -302,7 +302,7 @@ def get_sport_data():
              {'name': 'Jets Football', 'link': 'https://www.newyorkjets.com/'},
              {'name': 'Red Bulls', 'link': 'https://www.newyorkredbulls.com/'},
              {'name': 'NJ Jackals',
-                 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
+              'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
              {'name': 'Somerset Patriots', 'link': 'https://www.somersetpatriots.com/'},
              {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
              {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]

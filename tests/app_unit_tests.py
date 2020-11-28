@@ -33,7 +33,7 @@ class MockedThemeObj:
 
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
-
+    # pylint: disable=R0902
     def __init__(self, text, name, time):
         # pylint: disable=C0103
         self.id = 7
@@ -227,13 +227,12 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
-    # pylint: disable=R0801
+
     def mock_search_bills(
         self, sort, type, chamber, state, search_window, updated_since
     ):
         """Mock searching bills through openstates"""
         return [
-            # pylint: disable=R0801
             {
                 "title": "Bill1",
                 "updated_at": datetime.now(),
@@ -405,7 +404,7 @@ class AppTestCases(unittest.TestCase):
         if channel == "send weather":
             if len(data) == 0:
                 raise ValueError("DATA IS EMPTY")
-        elif channel == "weather error" or channel == "update personal tab":
+        elif channel in ("weather error", "update personal tab"):
             pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -435,6 +434,8 @@ class AppTestCases(unittest.TestCase):
                 app.politics_tab()
             with mock.patch("flask.render_template", self.mocked_flask_render):
                 app.recreation_tab()
+            with mock.patch("flask.render_template", self.mocked_flask_render):
+                app.personal_tab()
 
     def test_app_new_comment(self):
         """Test successful new comments"""
@@ -676,12 +677,12 @@ class AppTestCases(unittest.TestCase):
             expected = ["array of parks"]
             assert mocked_flask_socketio_emit.called_once
             assert mocked_flask_socketio_emit.called_with(["array of parks"])
-    
+
     def test_on_personal_tab_change(self):
         """Test the personal tab socket"""
         test_tabs = {"tab": "tested"}
         import app
-        
+
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_personal_tab_change(test_tabs)
             self.assertIsInstance(test_tabs, dict)
@@ -705,7 +706,7 @@ class AppTestCases(unittest.TestCase):
                 "pattern": "color",
                 "value": "blue"
             }
-            app.on_update_theme(data)        
+            app.on_update_theme(data)
 
 if __name__ == "__main__":
     unittest.main()

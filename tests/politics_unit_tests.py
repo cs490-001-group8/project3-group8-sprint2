@@ -135,9 +135,9 @@ class PoliticsTestCases(unittest.TestCase):
         with mock.patch(
                 "json.load", self.mock_json_load_oldcache_politicians
         ), mock.patch(
-            "pyopenstates.search_legislators", self.mock_search_politicians
-        ), mock.patch(
             "builtins.open", mock.mock_open()
+        ), mock.patch(
+            "pyopenstates.search_legislators", self.mock_search_politicians
         ):
             res = politics.get_politicians()
             self.assertIsInstance(res, dict)

@@ -54,6 +54,7 @@ class MockedRequestResponseSuccess:
         """
         Mock JSON Decoding
         """
+
         return {
             KEY_TIMEZONE: "America/New York",
             KEY_CURRENT: {

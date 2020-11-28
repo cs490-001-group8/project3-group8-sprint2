@@ -59,6 +59,7 @@ class MockedRequestResponseSuccess:
         """
         Mock JSON Decoding
         """
+        # pylint: disable=R0801
         return {
             KEY_TIMESTAMP: datetime.now().timestamp() - 100,
             KEY_DATA: [
@@ -91,6 +92,7 @@ class MockedRequestResponseSuccess:
                             KEY_IMAGE_ALT_TEXT: "Sunlight reflects on water",
                         }
                     ],
+
                 }
             ],
         }
