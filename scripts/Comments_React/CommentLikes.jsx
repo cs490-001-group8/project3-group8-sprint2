@@ -31,7 +31,7 @@ export default function CommentLikes({
             if (plusOnes.includes(commentId)) {
                 return (
                     <div className="comment-foot">
-                        {commentLikes + 1}
+                        <span>{commentLikes + 1}</span>
                         <input type="button" className="comment-like-button liked" onClick={likeComment} />
                     </div>
                 );
@@ -39,7 +39,7 @@ export default function CommentLikes({
 
             return (
                 <div className="comment-foot">
-                    {commentLikes}
+                    <span>{commentLikes}</span>
                     <input type="button" className="comment-like-button liked" onClick={likeComment} />
                 </div>
             );
@@ -47,7 +47,7 @@ export default function CommentLikes({
         if (minusOnes.includes(commentId)) {
             return (
                 <div className="comment-foot">
-                    {commentLikes - 1}
+                    <span>{commentLikes - 1}</span>
                     <input type="button" className="comment-like-button not-liked" onClick={likeComment} />
                 </div>
             );
@@ -55,14 +55,14 @@ export default function CommentLikes({
 
         return (
             <div className="comment-foot">
-                {commentLikes}
+                <span>{commentLikes}</span>
                 <input type="button" className="comment-like-button not-liked" onClick={likeComment} />
             </div>
         );
     }
     return (
         <div className="comment-foot">
-            {commentLikes}
+            <span>{commentLikes}</span>
             <input type="button" className="comment-like-button" onClick={likeComment} disabled />
         </div>
     );
