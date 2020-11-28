@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Socket } from '../Socket';
 
 export default function CommentLikes({
-    commentId, commentLikes, loggedIn, likedComments, addToLikes, removeFromLikes, plusOnes, plusZeros, minusOnes,
+    commentId, commentLikes, loggedIn, likedComments,
+    addToLikes, removeFromLikes, plusOnes, minusOnes,
 }) {
     const [selected, changeSelected] = useState(() => false);
 
@@ -27,8 +28,7 @@ export default function CommentLikes({
 
     if (loggedIn) {
         if (likedComments.includes(commentId)) {
-            if(plusOnes.includes(commentId))
-            {
+            if (plusOnes.includes(commentId)) {
                 return (
                     <div className="comment-foot">
                         {commentLikes + 1}
@@ -36,18 +36,15 @@ export default function CommentLikes({
                     </div>
                 );
             }
-            else
-            {
-                return (
-                    <div className="comment-foot">
-                        {commentLikes}
-                        <input type="button" className="comment-like-button liked" onClick={likeComment} />
-                    </div>
-                );
-            }
+
+            return (
+                <div className="comment-foot">
+                    {commentLikes}
+                    <input type="button" className="comment-like-button liked" onClick={likeComment} />
+                </div>
+            );
         }
-        if(minusOnes.includes(commentId))
-        {
+        if (minusOnes.includes(commentId)) {
             return (
                 <div className="comment-foot">
                     {commentLikes - 1}
@@ -55,15 +52,13 @@ export default function CommentLikes({
                 </div>
             );
         }
-        else
-        {
-            return (
-                <div className="comment-foot">
-                    {commentLikes}
-                    <input type="button" className="comment-like-button not-liked" onClick={likeComment} />
-                </div>
-            );
-        }
+
+        return (
+            <div className="comment-foot">
+                {commentLikes}
+                <input type="button" className="comment-like-button not-liked" onClick={likeComment} />
+            </div>
+        );
     }
     return (
         <div className="comment-foot">
@@ -81,6 +76,5 @@ CommentLikes.propTypes = {
     addToLikes: PropTypes.func.isRequired,
     removeFromLikes: PropTypes.func.isRequired,
     plusOnes: PropTypes.arrayOf(PropTypes.number).isRequired,
-    plusZeros: PropTypes.arrayOf(PropTypes.number).isRequired,
     minusOnes: PropTypes.arrayOf(PropTypes.number).isRequired,
 };

@@ -16,26 +16,21 @@ export default function CommentBlock({
 
     function addToLikes(cid) {
         changeLikes((prev) => prev.concat(cid));
-        if(addZeros.includes(cid))
-        {
+        if (addZeros.includes(cid)) {
             addZeros.forEach((value, i) => {
                 if (value === cid) {
                     addZeros.splice(i, 1);
                 }
             });
             changeAddOnes((prev) => prev.concat(cid));
-        }
-        else if(subOnes.includes(cid))
-        {
+        } else if (subOnes.includes(cid)) {
             subOnes.forEach((value, i) => {
                 if (value === cid) {
                     subOnes.splice(i, 1);
                 }
             });
             changeAddZeros((prev) => prev.concat(cid));
-        }
-        else if(!addOnes.includes(cid))
-        {
+        } else if (!addOnes.includes(cid)) {
             changeAddOnes((prev) => prev.concat(cid));
         }
     }
@@ -46,17 +41,14 @@ export default function CommentBlock({
                 likedComments.splice(i, 1);
             }
         });
-        if(addOnes.includes(cid))
-        {
+        if (addOnes.includes(cid)) {
             addOnes.forEach((value, i) => {
                 if (value === cid) {
                     addOnes.splice(i, 1);
                 }
             });
             changeAddZeros((prev) => prev.concat(cid));
-        }
-        else if(addZeros.includes(cid))
-        {
+        } else if (addZeros.includes(cid)) {
             addZeros.forEach((value, i) => {
                 if (value === cid) {
                     addZeros.splice(i, 1);
@@ -84,8 +76,8 @@ export default function CommentBlock({
 
         Socket.on('liked comments', (data) => {
             changeLikes(() => data.comments);
-            data.comments.forEach(function(comment_id) {
-                changeAddZeros((prev) => prev.concat(comment_id));
+            data.comments.forEach((commentId) => {
+                changeAddZeros((prev) => prev.concat(commentId));
             });
         });
 
@@ -107,7 +99,6 @@ export default function CommentBlock({
                   addToLikes={addToLikes}
                   removeFromLikes={removeFromLikes}
                   plusOnes={addOnes}
-                  plusZeros={addZeros}
                   minusOnes={subOnes}
                 />
                 <CommentInput currTab={currTab} myName={myName} />
@@ -125,7 +116,6 @@ export default function CommentBlock({
               addToLikes={addToLikes}
               removeFromLikes={removeFromLikes}
               plusOnes={addOnes}
-              plusZeros={addZeros}
               minusOnes={subOnes}
             />
         </div>
