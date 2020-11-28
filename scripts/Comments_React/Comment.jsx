@@ -4,7 +4,7 @@ import CommentLikes from './CommentLikes';
 
 export default function Comment({
     commentBody, commentName, commentTime, commentId,
-    commentLikes, loggedIn, likedComments, addToLikes, removeFromLikes,
+    commentLikes, loggedIn, likedComments, addToLikes, removeFromLikes, plusOnes, plusZeros, minusOnes,
 }) {
     return (
         <li className="comment">
@@ -20,6 +20,9 @@ export default function Comment({
               likedComments={likedComments}
               addToLikes={addToLikes}
               removeFromLikes={removeFromLikes}
+              plusOnes={plusOnes}
+              plusZeros={plusZeros}
+              minusOnes={minusOnes}
             />
         </li>
     );
@@ -35,4 +38,7 @@ Comment.propTypes = {
     likedComments: PropTypes.arrayOf(PropTypes.number).isRequired,
     addToLikes: PropTypes.func.isRequired,
     removeFromLikes: PropTypes.func.isRequired,
+    plusOnes: PropTypes.arrayOf(PropTypes.number).isRequired,
+    plusZeros: PropTypes.arrayOf(PropTypes.number).isRequired,
+    minusOnes: PropTypes.arrayOf(PropTypes.number).isRequired,
 };

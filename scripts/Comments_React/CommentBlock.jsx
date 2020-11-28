@@ -10,9 +10,34 @@ export default function CommentBlock({
 }) {
     const [comments, updateComments] = useState(() => []);
     const [likedComments, changeLikes] = useState(() => []);
+    const [addOnes, changeAddOnes] = useState(() => []);
+    const [addZeros, changeAddZeros] = useState(() => []);
+    const [subOnes, changeSubOnes] = useState(() => []);
 
     function addToLikes(cid) {
         changeLikes((prev) => prev.concat(cid));
+        if(addZeros.includes(cid))
+        {
+            addZeros.forEach((value, i) => {
+                if (value === cid) {
+                    addZeros.splice(i, 1);
+                }
+            });
+            changeAddOnes((prev) => prev.concat(cid));
+        }
+        else if(subOnes.includes(cid))
+        {
+            subOnes.forEach((value, i) => {
+                if (value === cid) {
+                    subOnes.splice(i, 1);
+                }
+            });
+            changeAddZeros((prev) => prev.concat(cid));
+        }
+        else if(!addOnes.includes(cid))
+        {
+            changeAddOnes((prev) => prev.concat(cid));
+        }
     }
 
     function removeFromLikes(cid) {
@@ -21,6 +46,24 @@ export default function CommentBlock({
                 likedComments.splice(i, 1);
             }
         });
+        if(addOnes.includes(cid))
+        {
+            addOnes.forEach((value, i) => {
+                if (value === cid) {
+                    addOnes.splice(i, 1);
+                }
+            });
+            changeAddZeros((prev) => prev.concat(cid));
+        }
+        else if(addZeros.includes(cid))
+        {
+            addZeros.forEach((value, i) => {
+                if (value === cid) {
+                    addZeros.splice(i, 1);
+                }
+            });
+            changeSubOnes((prev) => prev.concat(cid));
+        }
     }
 
     useEffect(() => {
@@ -41,6 +84,9 @@ export default function CommentBlock({
 
         Socket.on('liked comments', (data) => {
             changeLikes(() => data.comments);
+            data.comments.forEach(function(comment_id) {
+                changeAddZeros((prev) => prev.concat(comment_id));
+            });
         });
 
         Socket.emit('get comments', { tab: currTab });
@@ -60,6 +106,9 @@ export default function CommentBlock({
                   likedComments={likedComments}
                   addToLikes={addToLikes}
                   removeFromLikes={removeFromLikes}
+                  plusOnes={addOnes}
+                  plusZeros={addZeros}
+                  minusOnes={subOnes}
                 />
                 <CommentInput currTab={currTab} myName={myName} />
             </div>
@@ -75,6 +124,9 @@ export default function CommentBlock({
               likedComments={likedComments}
               addToLikes={addToLikes}
               removeFromLikes={removeFromLikes}
+              plusOnes={addOnes}
+              plusZeros={addZeros}
+              minusOnes={subOnes}
             />
         </div>
     );

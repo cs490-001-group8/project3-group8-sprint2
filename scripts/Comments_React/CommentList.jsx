@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Comment from './Comment';
 
 export default function CommentList({
-    comments, loggedIn, likedComments, addToLikes, removeFromLikes,
+    comments, loggedIn, likedComments, addToLikes, removeFromLikes, plusOnes, plusZeros, minusOnes,
 }) {
     if (loggedIn) {
         return (
@@ -19,6 +19,9 @@ export default function CommentList({
                       likedComments={likedComments}
                       addToLikes={addToLikes}
                       removeFromLikes={removeFromLikes}
+                      plusOnes={plusOnes}
+                      plusZeros={plusZeros}
+                      minusOnes={minusOnes}
                     />
         ))}
             </ul>
@@ -38,6 +41,9 @@ export default function CommentList({
                   likedComments={likedComments}
                   addToLikes={addToLikes}
                   removeFromLikes={removeFromLikes}
+                  plusOnes={plusOnes}
+                  plusZeros={plusZeros}
+                  minusOnes={minusOnes}
                 />
       ))}
         </ul>
@@ -56,4 +62,7 @@ CommentList.propTypes = {
     likedComments: PropTypes.arrayOf(PropTypes.number).isRequired,
     addToLikes: PropTypes.func.isRequired,
     removeFromLikes: PropTypes.func.isRequired,
+    plusOnes: PropTypes.arrayOf(PropTypes.number).isRequired,
+    plusZeros: PropTypes.arrayOf(PropTypes.number).isRequired,
+    minusOnes: PropTypes.arrayOf(PropTypes.number).isRequired,
 };
