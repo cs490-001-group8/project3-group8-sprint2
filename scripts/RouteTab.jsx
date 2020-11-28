@@ -21,35 +21,35 @@ export default function RouteTab({ myName, loggedIn }) {
                       exact
                       path="/"
                       render={() => (
-                          <TabContent currTab="Home" myName={myName} loggedIn={loggedIn} />
+                          <TabContent currTab="Home" myName={myName} loggedIn={loggedIn} hasDiscussion={true}/>
                         )}
                     />
                     <Route
                       exact
                       path="/Commuter"
                       render={() => (
-                          <TabContent currTab="Commuter" myName={myName} loggedIn={loggedIn} />
+                          <TabContent currTab="Commuter" myName={myName} loggedIn={loggedIn} hasDiscussion={true} />
                         )}
                     />
                     <Route
                       exact
                       path="/Politics"
                       render={() => (
-                          <TabContent currTab="Politics" myName={myName} loggedIn={loggedIn} />
+                          <TabContent currTab="Politics" myName={myName} loggedIn={loggedIn} hasDiscussion={true} />
                         )}
                     />
                     <Route
                       exact
                       path="/Recreation"
                       render={() => (
-                          <TabContent currTab="Recreation" myName={myName} loggedIn={loggedIn} />
+                          <TabContent currTab="Recreation" myName={myName} loggedIn={loggedIn} hasDiscussion={true} />
                         )}
                     />
                     <Route
                       exact
                       path="/Personal"
                       render={() => (
-                          <TabContent currTab="Personal" myName={myName} loggedIn={loggedIn} />
+                          <TabContent currTab="Personal" myName={myName} loggedIn={loggedIn} hasDiscussion={false} />
                         )}
                     />
                 </Switch>
