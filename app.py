@@ -29,7 +29,6 @@ SOCKETIO.init_app(APP, cors_allowed_origins="*")
 # ENGINE = sqlalchemy.create_engine(database_url)
 ENGINE = sqlalchemy.create_engine(os.environ["DATABASE_URL"])
 BASE.metadata.create_all(ENGINE, checkfirst=True)
-# BASE.metadata.drop_all(ENGINE)
 
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
@@ -37,7 +36,6 @@ SESSION = SESSION_MAKER()
 LOGGEDIN_CLIENTS = {}
 
 EST = timezone("EST")
-
 
 @APP.route("/")
 def home():
@@ -61,6 +59,7 @@ def politics_tab():
 def recreation_tab():
     """When someone opens the recreation tab, send them the page"""
     return flask.render_template("index.html")
+
 
 @APP.route("/Personal")
 def personal_tab():
@@ -88,7 +87,7 @@ def on_user_login(data):
             "value": "white"
         }
         SESSION.add(Theme(data["newName"], data["newEmail"],
-                            data["loginType"], result["pattern"], result["value"]))
+                          data["loginType"], result["pattern"], result["value"]))
         SESSION.commit()
     else:
         result = {
@@ -96,6 +95,16 @@ def on_user_login(data):
             "value": theme.value
         }
     SOCKETIO.emit("theme", result)
+    liked_comments = [
+        comment.comment_id
+        for comment in SESSION.query(
+            tables.Like
+        ).filter_by(
+            email=data["newEmail"],
+            login_type=data["loginType"],
+        ).all()
+    ]
+    flask_socketio.emit("liked comments", {"comments": liked_comments})
 
 
 @SOCKETIO.on("update theme")
@@ -126,15 +135,30 @@ def on_get_comments(data):
                 "text": comment.text,
                 "name": comment.name,
                 "time": comment.time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S"),
+                "id": comment.id,
+                "likes": comment.likes,
             }
             for comment in SESSION.query(
                 tables.Comment
-            ).filter(
-                tables.Comment.tab == which_tab
-            ).all()
+                ).filter(
+                    tables.Comment.tab == which_tab
+                ).order_by(sqlalchemy.asc(tables.Comment.time)).all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
+
+        if flask.request.sid in LOGGEDIN_CLIENTS:
+            user_info = LOGGEDIN_CLIENTS[flask.request.sid]
+            liked_comments = [
+                comment.comment_id
+                for comment in SESSION.query(
+                    tables.Like
+                ).filter_by(
+                    email=user_info["newEmail"],
+                    login_type=user_info["loginType"],
+                ).all()
+            ]
+            flask_socketio.emit("liked comments", {"comments": liked_comments})
     except KeyError:
         return
 
@@ -149,14 +173,64 @@ def on_new_comment(data):
         which_tab = data["tab"]
         who_sent = data["name"]
         time = datetime.now()
-        SESSION.add(tables.Comment(new_text, who_sent, which_tab, time))
+        comment = tables.Comment(new_text, who_sent, which_tab, time)
+        SESSION.add(comment)
         SESSION.commit()
         time_str = time.astimezone(EST).strftime("%m/%d/%Y, %H:%M:%S")
         SOCKETIO.emit(
             "new comment",
-            {"text": new_text, "name": who_sent,
-                "tab": which_tab, "time": time_str},
+            {
+                "text": new_text,
+                "name": who_sent,
+                "tab": which_tab,
+                "time": time_str,
+                "id": comment.id,
+                "likes": 0,
+            },
         )
+    except KeyError:
+        return
+
+
+@SOCKETIO.on("like comment")
+def on_like_comment(data):
+    """Process a new comment"""
+    if flask.request.sid not in LOGGEDIN_CLIENTS:
+        return
+    try:
+        user_info = LOGGEDIN_CLIENTS[flask.request.sid]
+        comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
+        if data["like"]:
+            if SESSION.query(
+                    tables.Like
+                ).filter_by(
+                    email=user_info["newEmail"],
+                    login_type=user_info["loginType"],
+                    comment_id=data["comment_id"]
+                ).first() is None:
+                comment.likes += 1
+                like = tables.Like(
+                    user_info["newEmail"],
+                    user_info["loginType"],
+                    data["comment_id"])
+                SESSION.add(like)
+        else:
+            if SESSION.query(
+                    tables.Like
+                ).filter_by(
+                    email=user_info["newEmail"],
+                    login_type=user_info["loginType"],
+                    comment_id=data["comment_id"]
+                ).first() is not None:
+                comment.likes -= 1
+                SESSION.query(
+                    tables.Like
+                    ).filter_by(
+                        email=user_info["newEmail"],
+                        login_type=user_info["loginType"],
+                        comment_id=data["comment_id"]
+                    ).delete()
+        SESSION.commit()
     except KeyError:
         return
 
@@ -189,6 +263,7 @@ def on_weather_request(data):
         flask_socketio.emit("send weather", weather_object)
     else:
         flask_socketio.emit("weather error", {})
+
 
 
 @SOCKETIO.on("get political tweets")
@@ -227,7 +302,7 @@ def get_sport_data():
              {'name': 'Jets Football', 'link': 'https://www.newyorkjets.com/'},
              {'name': 'Red Bulls', 'link': 'https://www.newyorkredbulls.com/'},
              {'name': 'NJ Jackals',
-                 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
+              'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
              {'name': 'Somerset Patriots', 'link': 'https://www.somersetpatriots.com/'},
              {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
              {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]
@@ -239,6 +314,7 @@ def on_national_parks():
     """Returns all NJ National Parks"""
     parks = national_parks()
     flask_socketio.emit("national parks", {"parks": parks})
+
 
 @SOCKETIO.on("personal tab change")
 def on_personal_tab_change(data):
