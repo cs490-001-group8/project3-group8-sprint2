@@ -61,6 +61,11 @@ def recreation_tab():
     return flask.render_template("index.html")
 
 
+@APP.route("/Personal")
+def personal_tab():
+    """When someone opens the recreation tab, send them the page"""
+    return flask.render_template("index.html")
+
 @APP.route("/landing_page")
 def landing_page():
     """When someone click About link, render landing page"""
@@ -297,11 +302,12 @@ def get_sport_data():
              {'name': 'Jets Football', 'link': 'https://www.newyorkjets.com/'},
              {'name': 'Red Bulls', 'link': 'https://www.newyorkredbulls.com/'},
              {'name': 'NJ Jackals',
-              'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
+                 'link': 'http://njjackals.pointstreaksites.com/view/njjackals'},
              {'name': 'Somerset Patriots', 'link': 'https://www.somersetpatriots.com/'},
              {'name': 'Trenton Thunder', 'link': 'https://www.milb.com/trenton'},
              {'name': 'Lakewood Blue Claws', 'link': 'https://www.milb.com/jersey-shore'}]
     flask_socketio.emit("send sport", {'teams': teams})
+
 
 @SOCKETIO.on("get national parks")
 def on_national_parks():
@@ -309,6 +315,11 @@ def on_national_parks():
     parks = national_parks()
     flask_socketio.emit("national parks", {"parks": parks})
 
+
+@SOCKETIO.on("personal tab change")
+def on_personal_tab_change(data):
+    """Updates the personal tab"""
+    flask_socketio.emit("update personal tab", data)
 
 if __name__ == "__main__":
     SOCKETIO.run(

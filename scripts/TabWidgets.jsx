@@ -1,4 +1,8 @@
-import React from 'react';
+/* eslint no-restricted-syntax: 0 */
+/* eslint no-shadow: 0 */
+// Given error because of object traversal, nothing wrong with the traversal
+// Says there is shadow, but each variable call is essential
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TrafficWidget from './Traffic_React/TrafficWidget';
 import NewsList from './News_React/NewsList';
@@ -8,8 +12,53 @@ import BillsWidget from './Bills_React/BillsWidget';
 import SportsModule from './Sports_React/SportsModule';
 import PoliticiansWidget from './Politicians_React/PoliticiansWidget';
 import NationalParks from './National_Parks/NationalParks';
+import TabChooser from './TabChooser';
+import { Socket } from './Socket';
 
 export default function TabWidgets({ currTab }) {
+    const [personalTabs, setPersonalTabs] = useState(() => []);
+
+    useEffect(() => {
+        Socket.on('update personal tab', (data) => {
+            setPersonalTabs([]);
+            const iterWidgets = [];
+            let keyIndex = 0;
+            for (const key of Object.keys(data)) {
+                if (key === 'News') {
+                    if (data[key]) {
+                        iterWidgets.push(<NewsList key={keyIndex} />);
+                    }
+                } else if (key === 'Weather') {
+                    if (data[key]) {
+                        iterWidgets.push(<WeatherModule key={keyIndex} />);
+                    }
+                } else if (key === 'Traffic') {
+                    if (data[key]) {
+                        iterWidgets.push(<TrafficWidget key={keyIndex} />);
+                    }
+                } else if (key === 'Bills') {
+                    if (data[key]) {
+                        iterWidgets.push(<BillsWidget key={keyIndex} />);
+                    }
+                } else if (key === 'Politician_Twitter') {
+                    if (data[key]) {
+                        iterWidgets.push(<TweetWidget key={keyIndex} />);
+                    }
+                } else if (key === 'Hiking_Destinations') {
+                    if (data[key]) {
+                        iterWidgets.push(<NationalParks key={keyIndex} />);
+                    }
+                } else if (key === 'Sports') {
+                    if (data[key]) {
+                        iterWidgets.push(<SportsModule key={keyIndex} />);
+                    }
+                }
+                keyIndex += 1;
+            }
+            setPersonalTabs((personalTabs) => [...personalTabs, iterWidgets]);
+        });
+    }, []);
+
     if (currTab === 'Commuter') {
         return (
             <div className="tab-widgets-section">
@@ -34,6 +83,15 @@ export default function TabWidgets({ currTab }) {
             <div className="tab-widgets-section">
                 <SportsModule />
                 <NationalParks />
+            </div>
+        );
+    }
+
+    if (currTab === 'Personal') {
+        return (
+            <div className="tab-widgets-section">
+                <TabChooser />
+                {personalTabs}
             </div>
         );
     }
