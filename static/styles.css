@@ -246,7 +246,7 @@ body {
         height: 20px;
         width: 20px;
         border-radius: 50%;
-        box-shadow: 0 5px 7px rgba(0,0,0,0.3);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
       }
 
         .liked {
