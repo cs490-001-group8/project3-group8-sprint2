@@ -567,7 +567,27 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_personal_tab_change(test_tabs)
             self.assertIsInstance(test_tabs, dict)
-        
+    def mock_update_theme(self, data):
+        """Mock Session update for theme"""
+        if not isinstance(data['pattern'], str):
+            raise ValueError("Pattern not string")
+        if not isinstance(data['value'], str):
+            raise ValueError("Value not string")
+
+    def test_on_update_theme(self):
+        """Test successful update theme"""
+        with mock.patch(
+            "sqlalchemy.orm.Query.update", self.mock_update_theme
+        ):
+            import app
+            data = {
+                "name": "Albert Einstein",
+                "email": "einstein@mit.edu",
+                "loginType": "Google",
+                "pattern": "color",
+                "value": "blue"
+            }
+            app.on_update_theme(data)        
 
 if __name__ == "__main__":
     unittest.main()
