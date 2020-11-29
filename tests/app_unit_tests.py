@@ -26,6 +26,7 @@ def weather_do_nothing(one, two, three):
 
 class MockedThemeObj:
     """Mocking Theme Object"""
+
     def __init__(self, pattern, value):
         self.pattern = pattern
         self.value = value
@@ -556,20 +557,37 @@ class AppTestCases(unittest.TestCase):
         import app
 
         with mock.patch(
-            "app.flask_socketio.emit"
+            "flask_socketio.emit"
         ) as mocked_flask_socketio_emit, mock.patch(
             "app.national_parks"
         ) as mocked_national_parks, mock.patch(
             "app.flask.request"
         ) as mocked_flask_socket_sid:
-            mocked_national_parks.return_value = ["array of parks"]
-            app.LOGGEDIN_CLIENTS = {"12345": "data"}
+            mocked_national_parks.return_value = [{"id": "123"}]
+            app.LOGGEDIN_CLIENTS = {"12345": {"favorite_parks" : ["123"]},}
             mocked_flask_socket_sid.sid = "12345"
             response = app.on_national_parks()
-            expected = ["array of parks"]
+            expected = [{"id": "123"}]
             assert mocked_flask_socketio_emit.called_once
-            assert mocked_flask_socketio_emit.called_with(["array of parks"])
+            assert mocked_flask_socketio_emit.called_with(expected)
+    def test_on_add_favorite_parks(self):
+        """
+        Test adding and removing park id to global variable LOGGEDIN_CLIENTS that either 
+        move from others to favorites or move from favorites to others
+        """
+        import app
 
+        with mock.patch(
+            "app.flask.request"
+        ) as mocked_flask_socket_sid:
+            mocked_flask_socket_sid.sid = "12345"
+            app.LOGGEDIN_CLIENTS = {"12345" : {"favorite_parks" : []}}
+            data = {"parkID": "12"}
+            app.on_add_favorite_parks(data)
+            self.assertDictEqual(app.LOGGEDIN_CLIENTS,{"12345" : {"favorite_parks" : ['12']}})
+            data = {"parkID": "12"}
+            app.on_add_favorite_parks(data)
+            self.assertDictEqual(app.LOGGEDIN_CLIENTS,{"12345" : {"favorite_parks" : []}})
 
 if __name__ == "__main__":
     unittest.main()

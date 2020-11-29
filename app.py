@@ -74,6 +74,7 @@ def on_user_login(data):
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid not in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS[flask.request.sid] = data
+        LOGGEDIN_CLIENTS[flask.request.sid]["favorite_parks"] = []
 
     flask_socketio.emit(
         "national parks update",
@@ -248,20 +249,39 @@ def get_sport_data():
 @SOCKETIO.on("get national parks")
 def on_national_parks():
     """Returns all NJ National Parks"""
-    if flask.request.sid in LOGGEDIN_CLIENTS:
+    parks = national_parks()
+    sid = flask.request.sid
+    favorite_parks = []
+    if sid in LOGGEDIN_CLIENTS:
+        for park_id in LOGGEDIN_CLIENTS[sid]["favorite_parks"]:
+            for park in parks:
+                if park["id"] == park_id:
+                    favorite_parks.append(park)
+                    parks.remove(park)
         flask_socketio.emit(
             "national parks update",
             {
                 "display_move_park_arrow": True,
             },
         )
-    parks = national_parks()
     flask_socketio.emit(
         "national parks",
         {
-            "parks": parks,
+            "favoriteParks": favorite_parks,
+            "otherParks": parks,
         },
     )
+
+
+@SOCKETIO.on("add favorite parks")
+def on_add_favorite_parks(data):
+    """ when park component renders update the database with all favorite parks"""
+    sid = flask.request.sid
+    if sid in LOGGEDIN_CLIENTS:
+        if data["parkID"] in LOGGEDIN_CLIENTS[sid]["favorite_parks"]:
+            LOGGEDIN_CLIENTS[sid]["favorite_parks"].remove(data["parkID"])
+        else:
+            LOGGEDIN_CLIENTS[sid]["favorite_parks"].append(data["parkID"])
 
 
 if __name__ == "__main__":
