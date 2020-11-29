@@ -30,7 +30,7 @@ from hourly_weather import (
     KEY_SUNSET,
     KEY_HOURLY,
 )
-from forward_geocoding import KEY_LATITUDE, KEY_LONGITUDE_RETURN
+from forward_geocoding import KEY_LATITUDE, KEY_LONGITUDE
 
 KEY_INPUT = "input"
 KEY_EXPECTED = "expected"
@@ -302,7 +302,7 @@ class HourlyWeatherTests(unittest.TestCase):
         for test_case in self.test_fetch_weather_success:
             mocked_get_latlon.return_value = {
                 KEY_LATITUDE: 40.00,
-                KEY_LONGITUDE_RETURN: -34.34,
+                KEY_LONGITUDE: -34.34,
             }
             mocked_requests_get.return_value = MockedRequestResponseSuccess()
             resposne = fetch_weather(test_case[KEY_INPUT])

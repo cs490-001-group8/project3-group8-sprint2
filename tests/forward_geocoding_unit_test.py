@@ -18,7 +18,6 @@ from forward_geocoding import (
     KEY_LONGITUDE,
     KEY_RESULTS,
     KEY_LOCATION,
-    KEY_LONGITUDE_RETURN,
 )
 
 
@@ -100,7 +99,7 @@ class ForwardGeocodingTests(unittest.TestCase):
                 KEY_INPUT: "jersey city",
                 KEY_EXPECTED: {
                     KEY_LATITUDE: 40.728157,
-                    KEY_LONGITUDE_RETURN: -74.077644,
+                    KEY_LONGITUDE: -74.077644,
                 },
             }
         ]
