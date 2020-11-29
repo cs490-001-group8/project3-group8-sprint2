@@ -307,7 +307,7 @@ def on_politicians_request():
 def get_sport_data():
     """Returns sports link for New Jersey Teams"""
     teams = sports_info.sendInfo()
-    flask_socketio.emit("send sport", {'teams': teams})
+    flask_socketio.emit("send sport", teams)
 
 
 @SOCKETIO.on("get national parks")
@@ -321,6 +321,7 @@ def on_national_parks():
 def on_personal_tab_change(data):
     """Updates the personal tab"""
     flask_socketio.emit("update personal tab", data)
+
 
 if __name__ == "__main__":
     SOCKETIO.run(

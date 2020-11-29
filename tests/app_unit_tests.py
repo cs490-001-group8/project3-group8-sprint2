@@ -404,7 +404,7 @@ class AppTestCases(unittest.TestCase):
         if channel == "send weather":
             if len(data) == 0:
                 raise ValueError("DATA IS EMPTY")
-        elif channel in ("weather error", "update personal tab"):
+        elif channel in ("weather error", "update personal tab", "location_update"):
             pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -586,7 +586,6 @@ class AppTestCases(unittest.TestCase):
         import app
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
-            self.assertEqual(app.send_update_location(''), '')
             self.assertIsInstance(test_weather, dict)
 
     def test_zip_code_weather_sending(self):
