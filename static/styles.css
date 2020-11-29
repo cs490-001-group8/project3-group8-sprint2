@@ -239,6 +239,38 @@ body {
       top: 5;
     }
 
+      .comment-like-button {
+        background: #FFF9F9;
+        margin: 3px;
+        vertical-align: text-bottom;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      }
+
+        .liked {
+          background: #EE3434;
+        }
+        
+          .liked:hover {
+            background: #F55353;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 0px 0px rgba(0,0,0,0.5);
+          }
+        
+        .not-liked {
+          background: #FFF9F9;
+        }
+        
+          .not-liked:hover {
+            background: #F7E1E1;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 0px 0px rgba(0,0,0,0.5);
+          }
+
   .comment-input {
     width: 100%;
     flex-grow: 1;
@@ -307,17 +339,25 @@ body {
 
 
 
-
-.sports {
-  font-family: Helvetica;
-  text-align: center;
-  color: #14171A;
-  border: 1px black solid;
-
+.sport-list {
   width: 100%;
-  margin: auto;
-  padding: 1em;
+  height: 95%;
+  text-align: left;
+  margin: 0.3rem;
+  padding: 0.5rem;
+  list-style-type: none;
+  overflow: auto;
 }
+  .sports {
+    font-family: Helvetica;
+    text-align: center;
+    color: #14171A;
+    box-shadow: 3px 3px 5px #ccc;
+
+    width: 100%;
+    margin: auto;
+    padding: 1em;
+  }
 
   .sports-photo {
     flex: 1;

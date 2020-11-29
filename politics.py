@@ -15,7 +15,7 @@ pyopenstates.set_api_key(API_KEY)
 BILL_CACHE_FILE = "bill_cache.json"
 POLITICIAN_CACHE_FILE = "politician_cache.json"
 
-BILL_CACHE_LIFE = 1800
+BILL_CACHE_LIFE = 21600
 
 POLITICIAN_CACHE_LIFE = 86400
 

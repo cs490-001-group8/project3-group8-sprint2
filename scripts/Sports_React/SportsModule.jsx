@@ -18,7 +18,7 @@ export default function SportsModule() {
         <div className="widget">
             <WidgetTitle title="Sports Team" />
 
-            <ul className="bill-list">
+            <ul className="sport-list">
                 {teams.map((team) => (
                     <Team
                       team={team}
