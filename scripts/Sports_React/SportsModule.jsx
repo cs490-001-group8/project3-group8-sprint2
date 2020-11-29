@@ -8,7 +8,7 @@ export default function SportsModule() {
 
     useEffect(() => {
         Socket.on('send sport', (data) => {
-            setTeams(() => data.teams);
+            setTeams(() => data);
         });
 
         Socket.emit('get sport');
