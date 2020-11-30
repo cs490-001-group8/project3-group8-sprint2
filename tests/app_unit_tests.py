@@ -34,7 +34,6 @@ class MockedThemeObj:
         self.value = value
         
 
-
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
     # pylint: disable=R0902
@@ -710,6 +709,7 @@ class AppTestCases(unittest.TestCase):
                 "value": "blue"
             }
             app.on_update_theme(data)
+            
     def mock_session_add_theme(self, theme):
         """Mock Session add for themes"""
         if not isinstance(theme.name, str):
@@ -753,7 +753,6 @@ class AppTestCases(unittest.TestCase):
                     "loginType": "Google",
                 }
                 app.on_user_login(data)
-
 
 
 if __name__ == "__main__":
