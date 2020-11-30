@@ -319,6 +319,8 @@ class AppTestCases(unittest.TestCase):
                 raise ValueError("NO TEXT")
             if "tab" not in data or not isinstance(data["tab"], str):
                 raise ValueError("NO TAB")
+        elif channel == "liked comments":
+            pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -725,6 +727,9 @@ class AppTestCases(unittest.TestCase):
 
     def mock_session_first_failed(self):
         return None
+        
+    def mock_session_list_all(self):
+        return [MockedQueryResponseObj("TEST", "USER", datetime.now())]
 
     def test_on_user_login(self):
         """Test successful login"""
@@ -740,6 +745,8 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.orm.session.Session.add", self.mock_session_add_theme
         ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.Query.all", self.mock_session_list_all
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
