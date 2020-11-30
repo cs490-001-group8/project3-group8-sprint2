@@ -85,7 +85,7 @@ def fetch_weather(city):
         geo_coordinates = get_latlon(city)
         payload = {
             KEY_LATITUDE: geo_coordinates[KEY_LATITUDE],
-            KEY_LONGITUDE: geo_coordinates[KEY_LONGITUDE],
+            KEY_LONGITUDE: geo_coordinates["lng"],
             KEY_EXCLUDE: "minutely,alerts",
             KEY_UNITS: "imperial",
             KEY_COUNT: 3,

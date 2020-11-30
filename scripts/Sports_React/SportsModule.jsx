@@ -8,7 +8,7 @@ export default function SportsModule() {
 
     useEffect(() => {
         Socket.on('send sport', (data) => {
-            setTeams(() => data.teams);
+            setTeams(() => data);
         });
 
         Socket.emit('get sport');
@@ -18,7 +18,7 @@ export default function SportsModule() {
         <div className="widget">
             <WidgetTitle title="Sports Team" />
 
-            <ul className="bill-list">
+            <ul className="sport-list">
                 {teams.map((team) => (
                     <Team
                       team={team}

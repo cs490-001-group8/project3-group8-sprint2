@@ -9,6 +9,7 @@ import unittest
 import unittest.mock as mock
 import sys
 from os.path import dirname, join
+
 # pylint: disable=C0413
 sys.path.append(join(dirname(__file__), "../"))
 from hourly_weather import (
@@ -29,27 +30,31 @@ from hourly_weather import (
     KEY_SUNSET,
     KEY_HOURLY,
 )
-from forward_geocoding import KEY_LATITUDE, KEY_LONGITUDE_RETURN
+from forward_geocoding import KEY_LATITUDE, KEY_LONGITUDE
 
 KEY_INPUT = "input"
 KEY_EXPECTED = "expected"
 
+
 class MockedRequestResponseSuccess:
     """
-        Mock Success weather API
-        Response that returns Data
-        for given latitude & longitude
+    Mock Success weather API
+    Response that returns Data
+    for given latitude & longitude
     """
+
     def avoid_pylint_errors(self):
         """
-            This method does nothing but to avoid
-            pylint error too few public methods
+        This method does nothing but to avoid
+        pylint error too few public methods
         """
+
     # pylint: disable=R0201
     def json(self):
         """
-            Mock JSON Decoding
+        Mock JSON Decoding
         """
+
         return {
             KEY_TIMEZONE: "America/New York",
             KEY_CURRENT: {
@@ -78,14 +83,15 @@ class MockedRequestResponseSuccess:
 
 class HourlyWeatherTests(unittest.TestCase):
     """
-        Test function that fetches weather information
-        from openweathermap API and others functios that
-        format time and list of hourly weather data
+    Test function that fetches weather information
+    from openweathermap API and others functios that
+    format time and list of hourly weather data
     """
+
     def setUp(self):
         """
-            Set up test cases before running
-            the test cases and their expected response
+        Set up test cases before running
+        the test cases and their expected response
         """
         self.test_format_time_to_ny_success = [
             {
@@ -235,9 +241,9 @@ class HourlyWeatherTests(unittest.TestCase):
                         KEY_TEMP: 63,
                         KEY_FEELS_LIKE: 55,
                         KEY_DESCRIPTON: "clear sky",
-                        KEY_ICON: "https://openweathermap.org/img/wn/"
-                                  + "01d"
-                                  + "@2x.png",
+                        KEY_ICON: "https://openweathermap.org/img/wn/" +
+                                  "01d" +
+                                  "@2x.png",
                     }
                 ],
             }
@@ -263,8 +269,8 @@ class HourlyWeatherTests(unittest.TestCase):
 
     def test_format_time_to_ny(self):
         """
-            Test the functionality of format_time_to_ny
-            and check it returns expected result
+        Test the functionality of format_time_to_ny
+        and check it returns expected result
         """
         for test_case in self.test_format_time_to_ny_success:
             response = format_time_to_ny(test_case[KEY_INPUT])
@@ -274,8 +280,8 @@ class HourlyWeatherTests(unittest.TestCase):
 
     def test_format_hourly_response(self):
         """
-            Test format_hourly_response function
-            and make sure it returns expected results
+        Test format_hourly_response function
+        and make sure it returns expected results
         """
         for test_case in self.test_format_hourly_response_success:
             response = format_hourly_response(test_case[KEY_INPUT])
@@ -286,15 +292,17 @@ class HourlyWeatherTests(unittest.TestCase):
     @mock.patch("hourly_weather.get_latlon")
     @mock.patch("hourly_weather.format_hourly_response")
     @mock.patch("hourly_weather.requests.get")
-    def test_fetch_weather(self, mocked_requests_get, mocked_format_hourly, mocked_get_latlon):
+    def test_fetch_weather(
+            self, mocked_requests_get, mocked_format_hourly, mocked_get_latlon
+    ):
         """
-            Test the main function that fetches weather data
-            For a given city name and returns polished data
+        Test the main function that fetches weather data
+        For a given city name and returns polished data
         """
         for test_case in self.test_fetch_weather_success:
             mocked_get_latlon.return_value = {
                 KEY_LATITUDE: 40.00,
-                KEY_LONGITUDE_RETURN: -34.34,
+                KEY_LONGITUDE: -34.34,
             }
             mocked_requests_get.return_value = MockedRequestResponseSuccess()
             resposne = fetch_weather(test_case[KEY_INPUT])
@@ -306,8 +314,8 @@ class HourlyWeatherTests(unittest.TestCase):
     @mock.patch("hourly_weather.get_latlon")
     def test_edge_case_fetch_weather(self, mocked_get_latlon):
         """
-            Test edge case when the given city name doesn't
-            have valid coordinates and return empty dictionary
+        Test edge case when the given city name doesn't
+        have valid coordinates and return empty dictionary
         """
         for test_case in self.test_edge_case_fetch_weather_failure:
             mocked_get_latlon.return_value = {}

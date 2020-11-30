@@ -24,17 +24,33 @@ def weather_do_nothing(one, two, three):
     return
 
 
+class MockedThemeObj:
+    """Pretend to be a theme object"""
+    def __init__(self, name, email, login_type, pattern, value):
+        self.name = name
+        self.email = email
+        self.login_type = login_type
+        self.pattern = pattern
+        self.value = value
+        
+
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
-
+    # pylint: disable=R0902
     def __init__(self, text, name, time):
+        # pylint: disable=C0103
+        self.id = 7
         self.text = text
         self.name = name
         self.time = time
+        self.likes = 0
+        self.comment_id = 7
+        self.pattern = "w"
+        self.value = "78"
 
 
-class MockedFilterResponse:
-    """Pretend to be an query response"""
+class MockedOrderResponse:
+    """Pretend to be an order response"""
 
     def __init__(self, texts):
         self.texts = texts
@@ -44,14 +60,59 @@ class MockedFilterResponse:
         return self.texts
 
 
+class MockedFilterResponse:
+    """Pretend to be an query response"""
+    # pylint: disable=R0201
+
+    def __init__(self, texts):
+        self.texts = texts
+        self.order = MockedOrderResponse(texts)
+
+    def all(self):
+        """Mock an all() call from a query response"""
+        return self.texts
+
+    def first(self):
+        """Mock a first() call from a query response"""
+        return self.texts[0]
+
+    def delete(self):
+        """Mock a delete() call from a query response"""
+        return None
+
+    def order_by(self, arg):
+        """Mock an order_by() call from a query response"""
+        return self.order
+
+
+class MockedFilterNoneResponse:
+    """Pretend to be an query response"""
+    # pylint: disable=R0201
+
+    def __init__(self, texts):
+        self.texts = texts
+
+    def first(self):
+        """Mock a first() call from a query response"""
+        return None
+
+
 class MockedQueryResponse:
     """Pretend to be an query response"""
 
     def __init__(self, text):
         self.texts = [MockedQueryResponseObj(text["text"], text["name"], text["time"])]
 
-    def filter(self, text):
+    def filter(self, text, text2="", text3=""):
         """Pretend to be an query filter"""
+        return MockedFilterResponse(self.texts)
+
+    # pylint: disable=C0103
+    # pylint: disable=W0622
+    def filter_by(self, id="", email="", login_type="", comment_id=0):
+        """Pretend to be an query filter"""
+        if comment_id == 8:
+            return MockedFilterNoneResponse(self.texts)
         return MockedFilterResponse(self.texts)
 
     def all(self):
@@ -169,13 +230,12 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
-    # pylint: disable=R0801
+
     def mock_search_bills(
         self, sort, type, chamber, state, search_window, updated_since
     ):
         """Mock searching bills through openstates"""
         return [
-            # pylint: disable=R0801
             {
                 "title": "Bill1",
                 "updated_at": datetime.now(),
@@ -190,9 +250,7 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
-    def mock_search_politicians(
-            self, state, chamber, active
-    ):
+    def mock_search_politicians(self, state, chamber, active):
         """Pretend to search for politicians"""
         return [
             {
@@ -215,7 +273,7 @@ class AppTestCases(unittest.TestCase):
 
     def mock_json_load_oldcache_bills(self, file):
         """Mock an outdated cache"""
-        old_time = datetime.now().timestamp() - (5000 + 100)
+        old_time = datetime.now().timestamp() - (50000 + 100)
         return {"timestamp": old_time}
 
     def mock_json_load_oldcache_politicians(self, file):
@@ -229,6 +287,10 @@ class AppTestCases(unittest.TestCase):
             {"text": "TEST", "name": "USER", "time": datetime.now()}
         )
 
+    def mock_session_first(self):
+        """Mock getting a theme object"""
+        return MockedThemeObj("color", "white")
+
     def mock_session_add_comment(self, comment):
         """Mock Session add for comments"""
         if not isinstance(comment.tab, str):
@@ -236,13 +298,29 @@ class AppTestCases(unittest.TestCase):
         if not isinstance(comment.text, str):
             raise ValueError("Text not string")
 
+    def mock_session_add_like(self, like):
+        """Mock Session add for comments"""
+        if not isinstance(like.email, str):
+            raise ValueError("Email not string")
+        if not isinstance(like.login_type, str):
+            raise ValueError("Login type not string")
+        if not isinstance(like.comment_id, int):
+            raise ValueError("Comment ID not int")
+
     def mock_flask_emit_all(self, channel, data=""):
         """Mock Session add for comments"""
-        if channel == "new comment":
+        if channel == "theme":
+            if "pattern" not in data or not isinstance(data["pattern"], str):
+                raise ValueError("NO PATTERN")
+            if "value" not in data or not isinstance(data["value"], str):
+                raise ValueError("NO VALUE")
+        elif channel == "new comment":
             if "text" not in data or not isinstance(data["text"], str):
                 raise ValueError("NO TEXT")
             if "tab" not in data or not isinstance(data["tab"], str):
                 raise ValueError("NO TAB")
+        elif channel == "liked comments":
+            pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -308,14 +386,18 @@ class AppTestCases(unittest.TestCase):
         elif channel == "send politicians":
             for pol in data["politicians"]:
                 if (
-                        "name" not in pol
-                        or "photo" not in pol
-                        or "website" not in pol
-                        or "district" not in pol
-                        or "party" not in pol
-                        or "chamber" not in pol
+                    "name" not in pol
+                    or "photo" not in pol
+                    or "website" not in pol
+                    or "district" not in pol
+                    or "party" not in pol
+                    or "chamber" not in pol
                 ):
                     raise ValueError("VALUE MISSING IN POLITICIAN")
+        elif channel == "liked comments":
+            for comment in data["comments"]:
+                if not isinstance(comment, int):
+                    raise ValueError("COMMENT ID IS NOT INT")
         elif channel == "send sport":
             pass
         else:
@@ -327,7 +409,7 @@ class AppTestCases(unittest.TestCase):
         if channel == "send weather":
             if len(data) == 0:
                 raise ValueError("DATA IS EMPTY")
-        elif channel == "weather error":
+        elif channel in ("weather error", "update personal tab", "location_update"):
             pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -357,6 +439,8 @@ class AppTestCases(unittest.TestCase):
                 app.politics_tab()
             with mock.patch("flask.render_template", self.mocked_flask_render):
                 app.recreation_tab()
+            with mock.patch("flask.render_template", self.mocked_flask_render):
+                app.personal_tab()
 
     def test_app_new_comment(self):
         """Test successful new comments"""
@@ -369,7 +453,13 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "sqlalchemy.orm.session.Session.add", self.mock_session_add_comment
         ), mock.patch(
+            "sqlalchemy.orm.Query.first", self.mock_session_first
+        ), mock.patch(
             "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.emit", self.mock_flask_emit_one
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
@@ -378,7 +468,12 @@ class AppTestCases(unittest.TestCase):
             ):
                 import app
 
-                app.on_user_login()
+                data = {
+                    "newName": "Albert Einstein",
+                    "newEmail": "einstein@mit.edu",
+                    "loginType": "Google",
+                }
+                app.on_user_login(data)
                 app.on_new_comment(
                     {"text": "Hello, I'm Joe", "name": "Joe", "tab": "Home"}
                 )
@@ -417,6 +512,51 @@ class AppTestCases(unittest.TestCase):
 
                 app.on_get_comments({"tab": "Home"})
 
+                data = {
+                    "newName": "Albert Einstein",
+                    "newEmail": "einstein@mit.edu",
+                    "loginType": "Google",
+                }
+                app.on_user_login(data)
+                app.on_get_comments({"tab": "Home"})
+
+    def test_app_like_comments(self):
+        """Test successful like comments"""
+        with mock.patch(
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_like
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.query", self.mock_session_query
+        ), mock.patch(
+            "flask_socketio.emit", self.mock_flask_emit_one
+        ):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                "sqlalchemy.ext.declarative.declarative_base", mocker
+            ):
+                import app
+
+                app.on_like_comment({"comment_id": 7, "like": False})
+
+                data = {
+                    "newName": "Joe",
+                    "newEmail": "joseph@mit.edu",
+                    "loginType": "Facebook",
+                }
+                app.on_user_login(data)
+                app.on_like_comment({"comment_id": 8, "like": True})
+                app.on_like_comment({"comment_id": 7, "like": False})
+                app.on_like_comment({"comment_id": 8, "likes": True})
+                app.on_user_disconnect()
+
     def test_app_get_comments_failure(self):
         """Test successful new comments"""
         with mock.patch(
@@ -449,7 +589,6 @@ class AppTestCases(unittest.TestCase):
         """test the on_weather_request function"""
         test_weather = {"city_name": "Newark"}
         import app
-
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
@@ -500,6 +639,7 @@ class AppTestCases(unittest.TestCase):
     def test_get_sport_data(self):
         """Test the logic of get_sport_data function"""
         import app
+
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
             app.get_sport_data()
 
@@ -515,13 +655,18 @@ class AppTestCases(unittest.TestCase):
 
     def test_on_politicians_request(self):
         """Test the on_politicians_request method"""
-        with mock.patch("json.load", self.mock_json_load_oldcache_politicians), mock.patch(
-                "pyopenstates.search_legislators", self.mock_search_politicians
-        ), mock.patch("builtins.open", mock.mock_open()):
+        with mock.patch(
+            "json.load", self.mock_json_load_oldcache_politicians
+        ), mock.patch(
+            "pyopenstates.search_legislators", self.mock_search_politicians
+        ), mock.patch(
+            "builtins.open", mock.mock_open()
+        ):
             import app
 
             with mock.patch("flask_socketio.emit", self.mock_flask_emit_one):
                 app.on_politicians_request()
+
     def test_on_national_park(self):
         """Test the on_nationl_parks method that emits back all the parks to requested client"""
         import app
@@ -536,6 +681,85 @@ class AppTestCases(unittest.TestCase):
             expected = ["array of parks"]
             assert mocked_flask_socketio_emit.called_once
             assert mocked_flask_socketio_emit.called_with(["array of parks"])
+
+    def test_on_personal_tab_change(self):
+        """Test the personal tab socket"""
+        test_tabs = {"tab": "tested"}
+        import app
+
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
+            app.on_personal_tab_change(test_tabs)
+            self.assertIsInstance(test_tabs, dict)
+    def mock_update_theme(self, data):
+        """Mock Session update for theme"""
+        if not isinstance(data['pattern'], str):
+            raise ValueError("Pattern not string")
+        if not isinstance(data['value'], str):
+            raise ValueError("Value not string")
+
+    def test_on_update_theme(self):
+        """Test successful update theme"""
+        with mock.patch(
+            "sqlalchemy.orm.Query.update", self.mock_update_theme
+        ):
+            import app
+            data = {
+                "name": "Albert Einstein",
+                "email": "einstein@mit.edu",
+                "loginType": "Google",
+                "pattern": "color",
+                "value": "blue"
+            }
+            app.on_update_theme(data)
+            
+    def mock_session_add_theme(self, theme):
+        """Mock Session add for themes"""
+        if not isinstance(theme.name, str):
+            raise ValueError("Name not string")
+        if not isinstance(theme.email, str):
+            raise ValueError("Email not string")
+        if not isinstance(theme.login_type, str):
+            raise ValueError("LoginType not string")
+        if not isinstance(theme.pattern, str):
+            raise ValueError("Pattern not string")
+        if not isinstance(theme.value, str):
+            raise ValueError("Value not string")
+
+    def mock_session_first_failed(self):
+        return None
+        
+    def mock_session_list_all(self):
+        return [MockedQueryResponseObj("TEST", "USER", datetime.now())]
+
+    def test_on_user_login(self):
+        """Test successful login"""
+        with mock.patch(
+            "sqlalchemy.create_engine", self.mock_sqlalchemy_create_engine
+        ), mock.patch(
+            "sqlalchemy.sql.schema.MetaData.create_all", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.commit", self.mock_do_nothing
+        ), mock.patch(
+            "sqlalchemy.orm.Query.first", self.mock_session_first_failed
+        ), mock.patch(
+            "sqlalchemy.orm.session.Session.add", self.mock_session_add_theme
+        ), mock.patch(
+            "flask_socketio.SocketIO.emit", self.mock_flask_emit_all
+        ), mock.patch(
+            "sqlalchemy.orm.Query.all", self.mock_session_list_all
+        ):
+            mocker = mock.MagicMock()
+            mocker.values("AAAA")
+            with mock.patch("app.flask.request", mocker), mock.patch(
+                "sqlalchemy.ext.declarative.declarative_base", mocker
+            ):
+                import app
+                data = {
+                    "newName": "Albert Einstein",
+                    "newEmail": "einstein@mit.edu",
+                    "loginType": "Google",
+                }
+                app.on_user_login(data)
 
 
 if __name__ == "__main__":
