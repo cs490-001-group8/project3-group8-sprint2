@@ -1,6 +1,18 @@
 {
-    "timestamp": 1606765282.842442,
+    "timestamp": 1606772126.094788,
     "articles": [
+        {
+            "title": "Many In Madison 1 Emergency From 'Financial Ruin,' Report Says",
+            "description": "Many In Madison 1 Emergency From 'Financial Ruin,' Report Says - Madison, NJ - Nearly a third of Madison faced financial distress before the pandemic, according to United Way of Northern New Jersey.",
+            "content": "MADISON, NJ \u2014 Nearly a third of Madison households were one emergency away from financial ruin before the coronavirus pandemic, according to a new study. United Way of Northern New Jersey released a report Sunday that indicates many New Jerseyans ent... [1991 chars]",
+            "url": "https://patch.com/new-jersey/madison/many-madison-1-emergency-financial-ruin-report-says",
+            "image": "https://patch.com/img/cdn20/shutterstock/23182514/20201130/014013/styles/patch_image/public/shutterstock-92569951___30133637972.jpg",
+            "publishedAt": "2020-11-30T19:12:50Z",
+            "source": {
+                "name": "Joliet, IL Patch",
+                "url": "https://patch.com"
+            }
+        },
         {
             "title": "Week Of Protests Scheduled Amid Bergen County Jail Hunger Strike",
             "description": "Week Of Protests Scheduled Amid Bergen County Jail Hunger Strike - Ridgewood-Glen Rock, NJ - Activists from northern New Jersey have announced continued protests as eight ICE detainees at the jail continue a hunger strike.",
@@ -26,6 +38,18 @@
             }
         },
         {
+            "title": "Dead pig found at home of New Jersey rabbi: police",
+            "description": "Detectives in Lakewood are looking into the dead animal left at the Treetop Lane home of a rabbi on Saturday as an apparent bias crime, police told The Post early Monday.",
+            "content": "A dead pig was left on the doorstep of a New Jersey rabbi over the Jewish Sabbath \u2014 an incident that\u2019s being probed as an apparent bias crime, police told The Post on Monday.\nThe small dead pig was discovered at the rabbi\u2019s Treetop Lane home in Lakew... [1841 chars]",
+            "url": "https://nypost.com/2020/11/30/dead-pig-found-at-home-of-new-jersey-rabbi-police/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/11/pig-doorstep-62.jpeg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-11-30T17:34:11Z",
+            "source": {
+                "name": "New York Post",
+                "url": "https://nypost.com"
+            }
+        },
+        {
             "title": "NJ lowering limit on outdoor gatherings to 25 people amid COVID-19 concerns",
             "description": "New Jersey Gov. Phil Murphy is set to strengthen limits on outdoor gatherings and ban youth and high school indoor sports until next year as coronavirus cases surge.",
             "content": "Sign up for our special edition newsletter to get a daily update on the coronavirus pandemic.\nNew Jersey Gov. Phil Murphy is reportedly set to strengthen limits on outdoor gatherings and ban youth and high school indoor sports until next year as coro... [1059 chars]",
@@ -35,30 +59,6 @@
             "source": {
                 "name": "New York Post",
                 "url": "https://nypost.com"
-            }
-        },
-        {
-            "title": "Many In Bernards Twp. 1 Emergency Away From Financial Ruin: Data",
-            "description": "Many In Bernards Twp. 1 Emergency Away From Financial Ruin: Data - Basking Ridge, NJ - Twenty-three percent of township households faced financial distress before the pandemic, according to United Way of Northern New Jersey.",
-            "content": "BASKING RIDGE, NJ \u2014 Twenty-three percent of Bernards Township households were one emergency away from financial ruin before the coronavirus pandemic, according to a new study. United Way of Northern New Jersey released a report Sunday that indicates ... [1724 chars]",
-            "url": "https://patch.com/new-jersey/baskingridge/many-bernards-twp-1-emergency-away-financial-ruin-data",
-            "image": "https://patch.com/img/cdn20/shutterstock/23182514/20201130/104150/styles/patch_image/public/shutterstock-92569951___30101512716.jpg",
-            "publishedAt": "2020-11-30T15:41:51Z",
-            "source": {
-                "name": "Joliet, IL Patch",
-                "url": "https://patch.com"
-            }
-        },
-        {
-            "title": "Air Force captain killed in United Arab Emirates",
-            "description": "A 30-year-old New Jersey woman serving as a captain in the Air Force was killed Friday in a \u201cnon-combat related vehicle incident\u201d at the air base in United Arab Emirates.",
-            "content": "\u201cShe was an exceptional medic, officer, and teammate here, and her incredible presence will be deeply missed. I ask our deployed community to look after each other during this difficult time, to warmly remember the positive impact that Capt. Leli had... [71 chars]",
-            "url": "https://www.nydailynews.com/news/national/ny-air-force-leli-united-arab-emirates-20201130-ge232dmurrdpplexjfqyg5kdii-story.html",
-            "image": "https://www.nydailynews.com/resizer/VPgX7YGct7hYEZ2p6VP8THsax7A=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/67NLNR7BGNCWXGZABO327AS3GU.jpg",
-            "publishedAt": "2020-11-30T14:57:02Z",
-            "source": {
-                "name": "New York Daily News",
-                "url": "https://www.nydailynews.com"
             }
         }
     ]

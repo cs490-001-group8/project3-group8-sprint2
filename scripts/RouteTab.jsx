@@ -29,7 +29,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={hasDiscussion}
+                            hasDiscussion={true}
                           />
                         )}
                     />
@@ -43,7 +43,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={hasDiscussion}
+                            hasDiscussion={true}
                           />
                         )}
                     />
@@ -57,7 +57,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={hasDiscussion}
+                            hasDiscussion={true}
                           />
                         )}
                     />
@@ -71,7 +71,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={hasDiscussion}
+                            hasDiscussion={true}
                           />
                         )}
                     />
@@ -85,7 +85,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={hasDiscussion}
+                            hasDiscussion={false}
                           />
                         )}
                     />
