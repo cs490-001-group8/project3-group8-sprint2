@@ -7,6 +7,7 @@ import unittest
 import unittest.mock as mock
 import datetime
 from os.path import dirname, join
+
 # pylint: disable=C0413
 sys.path.append(join(dirname(__file__), "../"))
 import politics
@@ -33,20 +34,22 @@ class PoliticsTestCases(unittest.TestCase):
 
     def mock_json_load_oldcache_bills(self, file):
         """Mock an outdated cache"""
-        old_time = datetime.datetime.now().timestamp() - (politics.BILL_CACHE_LIFE + 100)
+        old_time = datetime.datetime.now().timestamp() - (
+            politics.BILL_CACHE_LIFE + 100
+        )
         return {"timestamp": old_time}
 
     def mock_json_load_oldcache_politicians(self, file):
         """Mock an outdated cache"""
-        old_time = datetime.datetime.now().timestamp() - (politics.POLITICIAN_CACHE_LIFE + 100)
+        old_time = datetime.datetime.now().timestamp() - (
+            politics.POLITICIAN_CACHE_LIFE + 100
+        )
         return {"timestamp": old_time}
 
     # pylint: disable=W0622
     # pylint: disable=R0913
     # pylint: disable=R0801
-    def mock_search_politicians(
-            self, state, chamber, active
-    ):
+    def mock_search_politicians(self, state, chamber, active):
         # pylint: disable=R0801
         """Mock searching politicians"""
         return [
@@ -129,9 +132,13 @@ class PoliticsTestCases(unittest.TestCase):
 
     def test_get_politicians_new(self):
         """Make get_recent_bills test"""
-        with mock.patch("json.load", self.mock_json_load_oldcache_politicians), mock.patch(
-                "pyopenstates.search_legislators", self.mock_search_politicians
-        ), mock.patch("builtins.open", mock.mock_open()):
+        with mock.patch(
+                "json.load", self.mock_json_load_oldcache_politicians
+        ), mock.patch(
+            "builtins.open", mock.mock_open()
+        ), mock.patch(
+            "pyopenstates.search_legislators", self.mock_search_politicians
+        ):
             res = politics.get_politicians()
             self.assertIsInstance(res, dict)
 
