@@ -5,7 +5,7 @@ import TabWidgets from './TabWidgets';
 import ThemeContext from './ThemeContext';
 
 export default function TabContent({
-    myName, loggedIn, currTab, myLoginType, myEmail,
+    myName, loggedIn, currTab, myLoginType, myEmail, hasDiscussion,
 }) {
     const colorTable = {
         purple: '#9c27b0',
@@ -29,13 +29,13 @@ export default function TabContent({
     return (
         <div className="tab-content" style={style}>
             <TabWidgets currTab={currTab} />
-            <CommentBlock
+            { hasDiscussion && <CommentBlock
               currTab={currTab}
               myName={myName}
               loggedIn={loggedIn}
               myEmail={myEmail}
               myLoginType={myLoginType}
-            />
+            /> }
         </div>
     );
 }

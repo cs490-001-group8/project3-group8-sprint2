@@ -6,7 +6,7 @@ import {
 import TabContent from './TabContent';
 
 export default function RouteTab({
-    myName, loggedIn, myLoginType, myEmail,
+    myName, loggedIn, myLoginType, myEmail, hasDiscussion,
 }) {
     return (
         <BrowserRouter>
@@ -23,35 +23,70 @@ export default function RouteTab({
                       exact
                       path="/"
                       render={() => (
-                          <TabContent currTab="Home" myName={myName} loggedIn={loggedIn} myEmail={myEmail} myLoginType={myLoginType} />
+                          <TabContent 
+                              currTab="Home" 
+                              myName={myName} 
+                              loggedIn={loggedIn} 
+                              myEmail={myEmail} 
+                              myLoginType={myLoginType} 
+                              hasDiscussion={true}
+                          />
                         )}
                     />
                     <Route
                       exact
                       path="/Commuter"
                       render={() => (
-                          <TabContent currTab="Commuter" myName={myName} loggedIn={loggedIn} myEmail={myEmail} myLoginType={myLoginType} />
+                          <TabContent 
+                              currTab="Commuter" 
+                              myName={myName} 
+                              loggedIn={loggedIn} 
+                              myEmail={myEmail} 
+                              myLoginType={myLoginType} 
+                              hasDiscussion={true}
+                          />
                         )}
                     />
                     <Route
                       exact
                       path="/Politics"
                       render={() => (
-                          <TabContent currTab="Politics" myName={myName} loggedIn={loggedIn} myEmail={myEmail} myLoginType={myLoginType} />
+                          <TabContent 
+                              currTab="Politics" 
+                              myName={myName} 
+                              loggedIn={loggedIn} 
+                              myEmail={myEmail} 
+                              myLoginType={myLoginType} 
+                              hasDiscussion={true}
+                          />
                         )}
                     />
                     <Route
                       exact
                       path="/Recreation"
                       render={() => (
-                          <TabContent currTab="Recreation" myName={myName} loggedIn={loggedIn} myEmail={myEmail} myLoginType={myLoginType} />
+                          <TabContent 
+                              currTab="Recreation" 
+                              myName={myName} 
+                              loggedIn={loggedIn} 
+                              myEmail={myEmail} 
+                              myLoginType={myLoginType} 
+                              hasDiscussion={true}
+                          />
                         )}
                     />
                     <Route
                       exact
                       path="/Personal"
                       render={() => (
-                          <TabContent currTab="Personal" myName={myName} loggedIn={loggedIn} />
+                          <TabContent 
+                              currTab="Personal" 
+                              myName={myName} 
+                              loggedIn={loggedIn} 
+                              myEmail={myEmail} 
+                              myLoginType={myLoginType} 
+                              hasDiscussion={false}
+                          />
                         )}
                     />
                 </Switch>
@@ -65,4 +100,5 @@ RouteTab.propTypes = {
     loggedIn: PropTypes.bool.isRequired,
     myEmail: PropTypes.string.isRequired,
     myLoginType: PropTypes.string.isRequired,
+    hasDiscussion: PropTypes.bool.isRequired,
 };
