@@ -8,3 +8,4 @@ postgres-data
 tests/__pycache__
 sql.env
 .DS_Store
+__pycache__/
