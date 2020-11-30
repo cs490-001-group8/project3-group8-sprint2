@@ -23,13 +23,13 @@ export default function RouteTab({
                       exact
                       path="/"
                       render={() => (
-                          <TabContent 
-                              currTab="Home" 
-                              myName={myName} 
-                              loggedIn={loggedIn} 
-                              myEmail={myEmail} 
-                              myLoginType={myLoginType} 
-                              hasDiscussion={true}
+                          <TabContent
+                            currTab="Home"
+                            myName={myName}
+                            loggedIn={loggedIn}
+                            myEmail={myEmail}
+                            myLoginType={myLoginType}
+                            hasDiscussion={hasDiscussion}
                           />
                         )}
                     />
@@ -37,13 +37,13 @@ export default function RouteTab({
                       exact
                       path="/Commuter"
                       render={() => (
-                          <TabContent 
-                              currTab="Commuter" 
-                              myName={myName} 
-                              loggedIn={loggedIn} 
-                              myEmail={myEmail} 
-                              myLoginType={myLoginType} 
-                              hasDiscussion={true}
+                          <TabContent
+                            currTab="Commuter"
+                            myName={myName}
+                            loggedIn={loggedIn}
+                            myEmail={myEmail}
+                            myLoginType={myLoginType}
+                            hasDiscussion={hasDiscussion}
                           />
                         )}
                     />
@@ -51,13 +51,13 @@ export default function RouteTab({
                       exact
                       path="/Politics"
                       render={() => (
-                          <TabContent 
-                              currTab="Politics" 
-                              myName={myName} 
-                              loggedIn={loggedIn} 
-                              myEmail={myEmail} 
-                              myLoginType={myLoginType} 
-                              hasDiscussion={true}
+                          <TabContent
+                            currTab="Politics"
+                            myName={myName}
+                            loggedIn={loggedIn}
+                            myEmail={myEmail}
+                            myLoginType={myLoginType}
+                            hasDiscussion={hasDiscussion}
                           />
                         )}
                     />
@@ -65,13 +65,13 @@ export default function RouteTab({
                       exact
                       path="/Recreation"
                       render={() => (
-                          <TabContent 
-                              currTab="Recreation" 
-                              myName={myName} 
-                              loggedIn={loggedIn} 
-                              myEmail={myEmail} 
-                              myLoginType={myLoginType} 
-                              hasDiscussion={true}
+                          <TabContent
+                            currTab="Recreation"
+                            myName={myName}
+                            loggedIn={loggedIn}
+                            myEmail={myEmail}
+                            myLoginType={myLoginType}
+                            hasDiscussion={hasDiscussion}
                           />
                         )}
                     />
@@ -79,13 +79,13 @@ export default function RouteTab({
                       exact
                       path="/Personal"
                       render={() => (
-                          <TabContent 
-                              currTab="Personal" 
-                              myName={myName} 
-                              loggedIn={loggedIn} 
-                              myEmail={myEmail} 
-                              myLoginType={myLoginType} 
-                              hasDiscussion={false}
+                          <TabContent
+                            currTab="Personal"
+                            myName={myName}
+                            loggedIn={loggedIn}
+                            myEmail={myEmail}
+                            myLoginType={myLoginType}
+                            hasDiscussion={hasDiscussion}
                           />
                         )}
                     />

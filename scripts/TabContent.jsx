@@ -29,13 +29,15 @@ export default function TabContent({
     return (
         <div className="tab-content" style={style}>
             <TabWidgets currTab={currTab} />
-            { hasDiscussion && <CommentBlock
+            { hasDiscussion && (
+            <CommentBlock
               currTab={currTab}
               myName={myName}
               loggedIn={loggedIn}
               myEmail={myEmail}
               myLoginType={myLoginType}
-            /> }
+            />
+) }
         </div>
     );
 }
@@ -46,4 +48,5 @@ TabContent.propTypes = {
     myEmail: PropTypes.string.isRequired,
     myLoginType: PropTypes.string.isRequired,
     currTab: PropTypes.string.isRequired,
+    hasDiscussion: PropTypes.bool.isRequired,
 };
