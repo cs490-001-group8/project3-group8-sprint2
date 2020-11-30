@@ -106,7 +106,7 @@ def on_user_login(data):
             login_type=data["loginType"],
         ).all()
     ]
-    flask_socketio.emit("liked comments", {"comments": liked_comments})
+    SOCKETIO.emit("liked comments", {"comments": liked_comments})
 
 
 @SOCKETIO.on("update theme")
