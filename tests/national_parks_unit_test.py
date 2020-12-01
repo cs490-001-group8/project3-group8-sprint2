@@ -59,11 +59,12 @@ class MockedRequestResponseSuccess:
         """
         Mock JSON Decoding
         """
+        # pylint: disable=R0801
         return {
             KEY_TIMESTAMP: datetime.now().timestamp() - 100,
             KEY_DATA: [
                 {
-                    KEY_ID: '12345',
+                    KEY_ID: "12345",
                     KEY_FULLNAME: "washington park",
                     KEY_URL: "https://washingtonPark.com",
                     KEY_DESCRIPTION: "this is a nice park for childer of all age",
@@ -91,6 +92,7 @@ class MockedRequestResponseSuccess:
                             KEY_IMAGE_ALT_TEXT: "Sunlight reflects on water",
                         }
                     ],
+
                 }
             ],
         }
@@ -139,8 +141,9 @@ class TestingNationlParksModule(unittest.TestCase):
     @mock.patch("national_parks.json.load")
     @mock.patch("builtins.open")
     @mock.patch("national_parks.requests.get")
-    def test_national_parks_old_cache_data(self, mocked_requests_get,\
-    mocked_file_open, mocked_json_load):
+    def test_national_parks_old_cache_data(
+            self, mocked_requests_get, mocked_file_open, mocked_json_load
+    ):
         """Testing some return values of function national_parks in national_parks"""
         mocked_json_load.return_value = self.mock_json_load_oldcache()
         mocked_requests_get.return_value = MockedRequestResponseSuccess()
@@ -166,7 +169,9 @@ class TestingNationlParksModule(unittest.TestCase):
     @mock.patch("national_parks.json.load")
     @mock.patch("builtins.open")
     @mock.patch("national_parks.requests.get")
-    def test_national_parks_failure(self, mocked_requests_get, mocked_file_open, mocked_json_load):
+    def test_national_parks_failure(
+            self, mocked_requests_get, mocked_file_open, mocked_json_load
+    ):
         """Testing the function when API call returns an errror or nothing"""
         mocked_json_load.return_value = self.mock_json_load_oldcache()
         mocked_requests_get.return_value = MockedRequestResponseFailure()

@@ -48,7 +48,7 @@ export default function App() {
         <ThemeContext.Provider value={contextValue}>
             <div className="App">
                 <Head loggedIn={loggedIn} logIn={logIn} />
-                <Body loggedIn={loggedIn} myName={name} />
+                <Body loggedIn={loggedIn} myName={name} myEmail={email} myLoginType={loginType} />
                 <Footer />
             </div>
         </ThemeContext.Provider>

@@ -18,7 +18,6 @@ KEY_RESULTS = "results"
 KEY_LOCATION = "location"
 KEY_LATITUDE = "lat"
 KEY_LONGITUDE = "lng"
-KEY_LONGITUDE_RETURN = "lon"
 
 GEOCODIA_API_BASE_URL = "https://api.geocod.io/v1.6/geocode"
 GEOCODIO_API_KEY = os.getenv("GEOCODIO_API_KEY")
@@ -39,6 +38,6 @@ def get_latlon(city):
     try:
         lat = response[KEY_RESULTS][0][KEY_LOCATION][KEY_LATITUDE]
         lon = response[KEY_RESULTS][0][KEY_LOCATION][KEY_LONGITUDE]
-        return {KEY_LATITUDE: lat, KEY_LONGITUDE_RETURN: lon}
+        return {KEY_LATITUDE: lat, KEY_LONGITUDE: lon}
     except KeyError:
         return {}
