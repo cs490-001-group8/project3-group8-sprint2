@@ -102,7 +102,7 @@ def on_user_login(data):
             "pattern": theme.pattern,
             "value": theme.value
         }
-    SOCKETIO.emit("theme", result)
+    flask_socketio.emit("theme", result)
     liked_comments = [
         comment.comment_id
         for comment in SESSION.query(
