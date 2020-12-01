@@ -6,7 +6,7 @@ import {
 import TabContent from './TabContent';
 
 export default function RouteTab({
-    myName, loggedIn, myLoginType, myEmail, hasDiscussion,
+    myName, loggedIn, myLoginType, myEmail,
 }) {
     return (
         <BrowserRouter>
@@ -29,7 +29,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={true}
+                            hasDiscussion
                           />
                         )}
                     />
@@ -43,7 +43,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={true}
+                            hasDiscussion
                           />
                         )}
                     />
@@ -57,7 +57,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={true}
+                            hasDiscussion
                           />
                         )}
                     />
@@ -71,7 +71,7 @@ export default function RouteTab({
                             loggedIn={loggedIn}
                             myEmail={myEmail}
                             myLoginType={myLoginType}
-                            hasDiscussion={true}
+                            hasDiscussion
                           />
                         )}
                     />
@@ -100,5 +100,4 @@ RouteTab.propTypes = {
     loggedIn: PropTypes.bool.isRequired,
     myEmail: PropTypes.string.isRequired,
     myLoginType: PropTypes.string.isRequired,
-    hasDiscussion: PropTypes.bool.isRequired,
 };
