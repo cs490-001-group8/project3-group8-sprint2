@@ -31,53 +31,53 @@ export default function CommentLikes({
             if (plusOnes.includes(commentId)) {
                 return (
                     <div className="comment-foot">
-                        <span>{commentLikes + 1}</span>
                         <a className="comment-like-button" onClick={likeComment} onKeyDown={likeComment} role="button" tabIndex={0}>
                             <img src="../static/images/likes/likes_like.png" className="like-icon" alt="" />
                             <img src="../static/images/likes/likes_like-to-nolike.png" className="other-icon" alt="" />
                         </a>
+                        <span className="like-count">{commentLikes + 1}</span>
                     </div>
                 );
             }
 
             return (
                 <div className="comment-foot">
-                    <span>{commentLikes}</span>
                     <a className="comment-like-button" onClick={likeComment} onKeyDown={likeComment} role="button" tabIndex={0}>
                         <img src="../static/images/likes/likes_like.png" className="like-icon" alt="" />
                         <img src="../static/images/likes/likes_like-to-nolike.png" className="other-icon" alt="" />
                     </a>
+                    <span className="like-count">{commentLikes}</span>
                 </div>
             );
         }
         if (minusOnes.includes(commentId)) {
             return (
                 <div className="comment-foot">
-                    <span>{commentLikes - 1}</span>
                     <a className="comment-like-button" onClick={likeComment} onKeyDown={likeComment} role="button" tabIndex={0}>
                         <img src="../static/images/likes/likes_nolike.png" className="like-icon" alt="" />
                         <img src="../static/images/likes/likes_nolike-to-like.png" className="other-icon" alt="" />
                     </a>
+                    <span className="like-count">{commentLikes - 1}</span>
                 </div>
             );
         }
 
         return (
             <div className="comment-foot">
-                <span>{commentLikes}</span>
                 <a className="comment-like-button" onClick={likeComment} onKeyDown={likeComment} role="button" tabIndex={0}>
                     <img src="../static/images/likes/likes_nolike.png" className="like-icon" alt="" />
                     <img src="../static/images/likes/likes_nolike-to-like.png" className="other-icon" alt="" />
                 </a>
+                <span className="like-count">{commentLikes}</span>
             </div>
         );
     }
     return (
         <div className="comment-foot">
-            <span>{commentLikes}</span>
             <span className="comment-like-button">
                 <img src="../static/images/likes/likes_nolike.png" alt="" />
             </span>
+            <span className="like-count">{commentLikes}</span>
         </div>
     );
 }

@@ -197,6 +197,7 @@ body {
       font-size: 16pt;
       list-style-type: none;
       margin-bottom: 4px;
+      padding: 3px;
     }
 
     .comment-info {
@@ -210,10 +211,14 @@ body {
 
       .comment-info-name {
         float: left;
+        font-weight: bold;
+        color: #14171A;
       }
 
       .comment-info-time {
         float: right;
+        font-size: 10pt;
+        color: #657786;
       }
 
     .comment-body {
@@ -223,21 +228,30 @@ body {
       padding: 1px;
       margin-bottom: 2px;
       color: #6D6D6D;
+      font-size: 14pt;
       position: relative;
       top: 5;
     }
 
     .comment-foot {
-      text-align: right;
+      text-align: left;
+      margin-left: 83%;
       clear: both;
       padding: 1px;
-      padding-right: 5%;
-      padding-bottom: 3px;
-      margin-bottom: 2px;
+      padding-bottom: 5px;
+      margin-bottom: 5px;
       color: #6D6D6D;
       position: relative;
       top: 5;
     }
+
+      .like-count {
+        vertical-align: text-bottom;
+        color: #657786;
+        font-size: 13pt;
+        margin-left: 5px;
+        text-align: left;
+      }
 
       .comment-foot a:focus{
         outline: none;
