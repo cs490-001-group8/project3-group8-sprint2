@@ -464,7 +464,7 @@ class AppTestCases(unittest.TestCase):
                     raise ValueError("COMMENT ID IS NOT INT")
         elif channel == "send sport":
             pass
-        elif channel in ("national parks update","national parks"):
+        elif channel == "national parks update":
             pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -738,13 +738,16 @@ class AppTestCases(unittest.TestCase):
         """Test the on_nationl_parks method that emits back all the parks to requested client"""
         import app
 
-        with mock.patch("flask_socketio.emit", self.mock_flask_emit_one), mock.patch(
+        with mock.patch(
+            "flask_socketio.emit"
+        ) as mocked_socket_emit, mock.patch(
             "app.national_parks"
         ) as mocked_national_parks, mock.patch(
             "app.flask.request"
         ) as mocked_flask_socket_sid, mock.patch(
-            "app.SESSION.query"
+            "sqlalchemy.orm.session.Session.query"
         ) as mocked_session_query:
+            
             mocked_national_parks.return_value = [{"id": "12345"}]
             mocked_session_query.return_value = MockedFavoriteParkQuery(
                 "akashpatel@gmail.com", "Google", "12345"
@@ -754,6 +757,7 @@ class AppTestCases(unittest.TestCase):
             }
             mocked_flask_socket_sid.sid = "12345"
             response = app.on_national_parks()
+            mocked_socket_emit.assert_called()
 
     def test_on_add_favorite_parks(self):
         """
@@ -763,13 +767,13 @@ class AppTestCases(unittest.TestCase):
         import app
 
         with mock.patch("app.flask.request") as mocked_flask_socket_sid, mock.patch(
-            "app.SESSION.add"
+            "sqlalchemy.orm.session.Session.add"
         ) as mocked_session_add, mock.patch(
-            "app.SESSION.delete"
+            "sqlalchemy.orm.session.Session.delete"
         ) as mocked_session_delete, mock.patch(
-            "app.SESSION.commit"
+            "sqlalchemy.orm.session.Session.commit"
         ), mock.patch(
-            "app.SESSION.query"
+            "sqlalchemy.orm.session.Session.query"
         ) as mocked_session_query:
             mocked_flask_socket_sid.sid = "12345"
             mocked_session_query.return_value = MockedFavoriteParkQuery(
