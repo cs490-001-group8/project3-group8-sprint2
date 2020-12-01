@@ -21,5 +21,6 @@ module.exports = {
     "indent" : ["error", 4, { "ignoredNodes": ["JSXElement *"] }],
     "react/jsx-indent" : ["error", 4],
     "linebreak-style": 0,
+    "jsx-a11y/anchor-is-valid": "off",
   },
 };

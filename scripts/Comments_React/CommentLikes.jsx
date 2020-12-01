@@ -32,9 +32,9 @@ export default function CommentLikes({
                 return (
                     <div className="comment-foot">
                         <span>{commentLikes + 1}</span>
-                        <a className="comment-like-button" onClick={likeComment}>
-                            <img src="../static/images/likes/likes_like.png" className="like-icon" />
-                            <img src="../static/images/likes/likes_like-to-nolike.png" className="other-icon" />
+                        <a className="comment-like-button" onClick={likeComment} onKeyDown={likeComment} role="button" tabIndex={0}>
+                            <img src="../static/images/likes/likes_like.png" className="like-icon" alt="" />
+                            <img src="../static/images/likes/likes_like-to-nolike.png" className="other-icon" alt="" />
                         </a>
                     </div>
                 );
@@ -43,9 +43,9 @@ export default function CommentLikes({
             return (
                 <div className="comment-foot">
                     <span>{commentLikes}</span>
-                    <a className="comment-like-button" onClick={likeComment}>
-                        <img src="../static/images/likes/likes_like.png" className="like-icon" />
-                        <img src="../static/images/likes/likes_like-to-nolike.png" className="other-icon" />
+                    <a className="comment-like-button" onClick={likeComment} onKeyDown={likeComment} role="button" tabIndex={0}>
+                        <img src="../static/images/likes/likes_like.png" className="like-icon" alt="" />
+                        <img src="../static/images/likes/likes_like-to-nolike.png" className="other-icon" alt="" />
                     </a>
                 </div>
             );
@@ -54,9 +54,9 @@ export default function CommentLikes({
             return (
                 <div className="comment-foot">
                     <span>{commentLikes - 1}</span>
-                    <a className="comment-like-button" onClick={likeComment}>
-                        <img src="../static/images/likes/likes_nolike.png" className="like-icon" />
-                        <img src="../static/images/likes/likes_nolike-to-like.png" className="other-icon" />
+                    <a className="comment-like-button" onClick={likeComment} onKeyDown={likeComment} role="button" tabIndex={0}>
+                        <img src="../static/images/likes/likes_nolike.png" className="like-icon" alt="" />
+                        <img src="../static/images/likes/likes_nolike-to-like.png" className="other-icon" alt="" />
                     </a>
                 </div>
             );
@@ -65,9 +65,9 @@ export default function CommentLikes({
         return (
             <div className="comment-foot">
                 <span>{commentLikes}</span>
-                <a className="comment-like-button" onClick={likeComment}>
-                    <img src="../static/images/likes/likes_nolike.png" className="like-icon" />
-                    <img src="../static/images/likes/likes_nolike-to-like.png" className="other-icon" />
+                <a className="comment-like-button" onClick={likeComment} onKeyDown={likeComment} role="button" tabIndex={0}>
+                    <img src="../static/images/likes/likes_nolike.png" className="like-icon" alt="" />
+                    <img src="../static/images/likes/likes_nolike-to-like.png" className="other-icon" alt="" />
                 </a>
             </div>
         );
@@ -75,9 +75,9 @@ export default function CommentLikes({
     return (
         <div className="comment-foot">
             <span>{commentLikes}</span>
-            <a className="comment-like-button">
-                <img src="../static/images/likes/likes_nolike.png"/>
-            </a>
+            <span className="comment-like-button">
+                <img src="../static/images/likes/likes_nolike.png" alt="" />
+            </span>
         </div>
     );
 }

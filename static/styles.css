@@ -239,6 +239,10 @@ body {
       top: 5;
     }
 
+      .comment-foot a:focus{
+        outline: none;
+      }
+
       .comment-like-button {
         margin: 3px;
         vertical-align: text-bottom;
@@ -261,28 +265,6 @@ body {
         .comment-like-button:hover .other-icon {
           display: inline;
         }
-
-        .liked {
-          background: #EE3434;
-        }
-
-          .liked:hover {
-            background: #F55353;
-            outline: none;
-            cursor: pointer;
-            box-shadow: 0 0px 0px rgba(0,0,0,0.5);
-          }
-
-        .not-liked {
-          background: #FFF9F9;
-        }
-
-          .not-liked:hover {
-            background: #F7E1E1;
-            outline: none;
-            cursor: pointer;
-            box-shadow: 0 0px 0px rgba(0,0,0,0.5);
-          }
 
   .comment-input {
     width: 100%;
