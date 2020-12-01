@@ -1,6 +1,30 @@
 {
-    "timestamp": 1606835866.685301,
+    "timestamp": 1606848485.648975,
     "articles": [
+        {
+            "title": "Why the Miami Heat are going even further with their stunning new 'Vice' uniforms",
+            "description": "The Heat's popular \"Vice\" uniforms get a colorful makeover unlike any other NBA jersey.",
+            "content": "In the fall of 2018, three Miami Heat officials gathered at Nike's headquarters in Portland, Oregon, to discuss the Heat's city edition uniforms for the 2020-21 season -- intended then as the season the Heat would move away from its popular \"Vice\" al... [380 chars]",
+            "url": "https://www.espn.com/nba/insider/story/_/id/30401179/why-miami-heat-going-even-further-their-stunning-new-vice-uniforms",
+            "image": "https://a2.espncdn.com/combiner/i?img=%2Fphoto%2F2020%2F1201%2Fr782979_1296x729_16%2D9.jpg",
+            "publishedAt": "2020-12-01T15:55:00Z",
+            "source": {
+                "name": "ESPN",
+                "url": "https://www.espn.com"
+            }
+        },
+        {
+            "title": "NJ bill to legalize marijuana includes 'social equity' tax",
+            "description": "New Jersey's push to legalize weed includes a \"social equity\" tax that would benefit communities of color disproportionately affected by drug laws.",
+            "content": "The push to legalize recreational weed in New Jersey includes a new \u201csocial equity\u201d tax that would benefit communities of color disproportionately affected by drug laws.\nBills by both the Senate and Assembly allow the Cannabis Regularly Commission to... [2198 chars]",
+            "url": "https://nypost.com/2020/12/01/nj-bill-to-legalize-marijuana-includes-social-equity-tax/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/12/201201-marijuana-legalization-new-jersey-tax.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-12-01T14:44:45Z",
+            "source": {
+                "name": "New York Post",
+                "url": "https://nypost.com"
+            }
+        },
         {
             "title": "4 Contenders for the Next New Jersey Devils Captain",
             "description": "Travis Zajac, Kyle Palmieri, Nico Hischier and P.K. Subban all have the potential to be the next New Jersey Devils captain.",
@@ -35,30 +59,6 @@
             "source": {
                 "name": "merkur.de",
                 "url": "https://www.merkur.de"
-            }
-        },
-        {
-            "title": "Dallas Stars unveil 'Blackout' alternate jersey",
-            "description": "The Dallas Stars unveiled a new Blackout alternate uniform for the upcoming season.",
-            "content": "article\nAs Dallas Stars fans are still thinking about the team\u2019s run to the Stanley Cup Final, they were given a treat Wednesday, as the Stars unveiled a new Blackout alternate uniform for the upcoming season.\nThis will be the first time since 2006 t... [1101 chars]",
-            "url": "https://www.fox4news.com/sports/dallas-stars-unveil-blackout-alternate-jersey",
-            "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/10/1280/720/1028starsblackout.jpg?ve=1&tl=1",
-            "publishedAt": "2020-12-01T04:45:07Z",
-            "source": {
-                "name": "FOX 4 News",
-                "url": "https://www.fox4news.com"
-            }
-        },
-        {
-            "title": "Researchers receive three-year grant to develop treatment for traumatic brain injury",
-            "description": "Researchers at Montclair State University and Kessler Foundation received a three-year $456,710 grant from the New Jersey Commission on Brain Injury Research to develop treatment interventions for the deficits in long-term memory that hinder recovery after traumatic brain injury (TBI).",
-            "content": "Researchers at Montclair State University and Kessler Foundation received a three-year $456,710 grant from the New Jersey Commission on Brain Injury Research to develop treatment interventions for the deficits in long-term memory that hinder recovery... [2492 chars]",
-            "url": "https://www.news-medical.net/news/20201130/Researchers-receive-three-year-grant-to-develop-treatment-for-traumatic-brain-injury.aspx",
-            "image": "https://www.news-medical.net/image.axd?picture=2016%2f3%2fArtificially_Colored_MRI_Scan_Of_Human_Brain-Daisy_Daisy_a8c5d8bbbf824bc8932308e30187510f-620x480.jpg",
-            "publishedAt": "2020-12-01T04:36:00Z",
-            "source": {
-                "name": "News-Medical.net",
-                "url": "https://www.news-medical.net"
             }
         }
     ]

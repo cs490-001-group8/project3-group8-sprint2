@@ -32,7 +32,10 @@ export default function CommentLikes({
                 return (
                     <div className="comment-foot">
                         <span>{commentLikes + 1}</span>
-                        <input type="button" className="comment-like-button liked" onClick={likeComment} />
+                        <a className="comment-like-button" onClick={likeComment}>
+                            <img src="../static/images/likes/likes_like.png" className="like-icon" />
+                            <img src="../static/images/likes/likes_like-to-nolike.png" className="other-icon" />
+                        </a>
                     </div>
                 );
             }
@@ -40,7 +43,10 @@ export default function CommentLikes({
             return (
                 <div className="comment-foot">
                     <span>{commentLikes}</span>
-                    <input type="button" className="comment-like-button liked" onClick={likeComment} />
+                    <a className="comment-like-button" onClick={likeComment}>
+                        <img src="../static/images/likes/likes_like.png" className="like-icon" />
+                        <img src="../static/images/likes/likes_like-to-nolike.png" className="other-icon" />
+                    </a>
                 </div>
             );
         }
@@ -48,7 +54,10 @@ export default function CommentLikes({
             return (
                 <div className="comment-foot">
                     <span>{commentLikes - 1}</span>
-                    <input type="button" className="comment-like-button not-liked" onClick={likeComment} />
+                    <a className="comment-like-button" onClick={likeComment}>
+                        <img src="../static/images/likes/likes_nolike.png" className="like-icon" />
+                        <img src="../static/images/likes/likes_nolike-to-like.png" className="other-icon" />
+                    </a>
                 </div>
             );
         }
@@ -56,14 +65,19 @@ export default function CommentLikes({
         return (
             <div className="comment-foot">
                 <span>{commentLikes}</span>
-                <input type="button" className="comment-like-button not-liked" onClick={likeComment} />
+                <a className="comment-like-button" onClick={likeComment}>
+                    <img src="../static/images/likes/likes_nolike.png" className="like-icon" />
+                    <img src="../static/images/likes/likes_nolike-to-like.png" className="other-icon" />
+                </a>
             </div>
         );
     }
     return (
         <div className="comment-foot">
             <span>{commentLikes}</span>
-            <input type="button" className="comment-like-button" onClick={likeComment} disabled />
+            <a className="comment-like-button">
+                <img src="../static/images/likes/likes_nolike.png"/>
+            </a>
         </div>
     );
 }
