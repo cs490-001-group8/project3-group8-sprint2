@@ -115,6 +115,7 @@ def on_user_login(data):
             "display_move_park_arrow": True,
         },
     )
+    on_national_parks()
 
 
 @SOCKETIO.on("update theme")
@@ -329,7 +330,7 @@ def on_national_parks():
         login_type = LOGGEDIN_CLIENTS[sid]["loginType"]
         all_favorite_parks_ids = [
             each_favorite.park_id
-            for each_favorite in SESSION.query(tables.FavoriteParks)
+            for each_favorite in SESSION.query(FavoriteParks)
             .filter_by(email=client_email, login_type=login_type)
             .all()
         ]

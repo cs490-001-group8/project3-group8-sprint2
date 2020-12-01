@@ -526,14 +526,16 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.orm.session.Session.query", self.mock_session_query
         ), mock.patch(
             "flask_socketio.emit", self.mock_flask_emit_one
+        ), mock.patch(
+            "app.on_national_parks"
         ):
+
             mocker = mock.MagicMock()
             mocker.values("AAAA")
             with mock.patch("app.flask.request", mocker), mock.patch(
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
-
                 data = {
                     "newName": "Albert Einstein",
                     "newEmail": "einstein@mit.edu",
@@ -568,6 +570,8 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.orm.session.Session.query", self.mock_session_query
         ), mock.patch(
             "flask_socketio.emit", self.mock_flask_emit_one
+        ), mock.patch(
+            "app.on_national_parks"
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
@@ -602,14 +606,17 @@ class AppTestCases(unittest.TestCase):
             "sqlalchemy.orm.session.Session.query", self.mock_session_query
         ), mock.patch(
             "flask_socketio.emit", self.mock_flask_emit_one
+        ), mock.patch(
+                "app.on_national_parks"
         ):
+            
             mocker = mock.MagicMock()
             mocker.values("AAAA")
             with mock.patch("app.flask.request", mocker), mock.patch(
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
-
+                
                 app.on_like_comment({"comment_id": 7, "like": False})
 
                 data = {
@@ -743,21 +750,20 @@ class AppTestCases(unittest.TestCase):
         ) as mocked_socket_emit, mock.patch(
             "app.national_parks"
         ) as mocked_national_parks, mock.patch(
-            "app.flask.request"
-        ) as mocked_flask_socket_sid, mock.patch(
-            "sqlalchemy.orm.session.Session.query"
+            "app.SESSION.query"
         ) as mocked_session_query:
-            
-            mocked_national_parks.return_value = [{"id": "12345"}]
-            mocked_session_query.return_value = MockedFavoriteParkQuery(
-                "akashpatel@gmail.com", "Google", "12345"
-            )
-            app.LOGGEDIN_CLIENTS = {
-                "12345": {"newEmail": "akashpatel@gmail.com", "loginType": "Google"},
-            }
-            mocked_flask_socket_sid.sid = "12345"
-            response = app.on_national_parks()
-            mocked_socket_emit.assert_called()
+                mocker = mock.MagicMock()
+                mocker.sid = "12345"
+                with mock.patch("app.flask.request",mocker):
+                    mocked_national_parks.return_value = [{"id": "12345"}]
+                    mocked_session_query.return_value = MockedFavoriteParkQuery(
+                        "akashpatel@gmail.com", "Google", "12345"
+                    )
+                    app.LOGGEDIN_CLIENTS = {
+                        "12345": {"newEmail": "akashpatel@gmail.com", "loginType": "Google"},
+                    }
+                    app.on_national_parks()
+                    mocked_socket_emit.assert_called()
 
     def test_on_add_favorite_parks(self):
         """
@@ -766,30 +772,32 @@ class AppTestCases(unittest.TestCase):
         """
         import app
 
-        with mock.patch("app.flask.request") as mocked_flask_socket_sid, mock.patch(
-            "sqlalchemy.orm.session.Session.add"
+        with mock.patch(
+            "app.SESSION.add"
         ) as mocked_session_add, mock.patch(
-            "sqlalchemy.orm.session.Session.delete"
+            "app.SESSION.delete"
         ) as mocked_session_delete, mock.patch(
-            "sqlalchemy.orm.session.Session.commit"
+            "app.SESSION.commit"
         ), mock.patch(
-            "sqlalchemy.orm.session.Session.query"
+            "app.SESSION.query"
         ) as mocked_session_query:
-            mocked_flask_socket_sid.sid = "12345"
-            mocked_session_query.return_value = MockedFavoriteParkQuery(
-                "akashpatel@gmail.com", "Google", "12345"
-            )
-
-            data = {"parkID": "1234"}
-            app.LOGGEDIN_CLIENTS = {
-                "12345": {"newEmail": "akashpatel@gmail.com", "loginType": "Google"}
-            }
-            app.on_add_favorite_parks(data)
-            mocked_session_add.assert_called_once()
-
-            data = {"parkID": "12345"}
-            app.on_add_favorite_parks(data)
-            mocked_session_delete.assert_called_once()
+            mocker = mock.MagicMock()
+            mocker.sid = "12345"
+            with mock.patch("app.flask.request",mocker):
+                mocked_session_query.return_value = MockedFavoriteParkQuery(
+                    "akashpatel@gmail.com", "Google", "12345"
+                )
+    
+                data = {"parkID": "1234"}
+                app.LOGGEDIN_CLIENTS = {
+                    "12345": {"newEmail": "akashpatel@gmail.com", "loginType": "Google"}
+                }
+                app.on_add_favorite_parks(data)
+                mocked_session_add.assert_called_once()
+    
+                data = {"parkID": "12345"}
+                app.on_add_favorite_parks(data)
+                mocked_session_delete.assert_called_once()
 
     def test_on_personal_tab_change(self):
         """Test the personal tab socket"""
@@ -859,7 +867,9 @@ class AppTestCases(unittest.TestCase):
         ), mock.patch(
             "sqlalchemy.orm.Query.all", self.mock_session_list_all
         ), mock.patch(
-            "flask_socketio.emit"
+            "flask_socketio.emit", self.mock_flask_emit_one
+        ), mock.patch(
+                "app.on_national_parks"
         ):
             mocker = mock.MagicMock()
             mocker.values("AAAA")
@@ -867,7 +877,7 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
-
+                
                 data = {
                     "newName": "Albert Einstein",
                     "newEmail": "einstein@mit.edu",

@@ -1080,29 +1080,6 @@ body {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .modal {
   position: fixed;
   z-index: 1;
@@ -1113,6 +1090,9 @@ body {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  animation-name: fadeIn;
 }
 
   .modal-content {
