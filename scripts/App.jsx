@@ -39,8 +39,11 @@ export default function App() {
             loginType: newType,
         });
         Socket.on('theme', (data) => {
-            if (data.pattern === 'color') saveChanges('', data.value);
-            else saveChanges(data.value, '');
+            if (data.name === newName && data.email === newEmail
+                && data.loginType === newType) {
+                if (data.pattern === 'color') saveChanges('', data.value);
+                else saveChanges(data.value, '');
+            }
         });
     }
 
