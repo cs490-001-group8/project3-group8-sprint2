@@ -95,6 +95,65 @@ class MockedSQLBase:
         return None
 
 
+class MockedDBParkRecord:
+    """
+    mocking the actual park record
+    return from DB calls
+    """
+
+    def __init__(self, park_id):
+        """
+        initialize some db columns value
+        """
+        self.park_id = park_id
+
+
+class MockedAllFunction:
+    """
+    Mocked All method of sql query
+    """
+
+    def __init__(self, park_id):
+        """
+        initialize some db columns value
+        """
+        self.park_id = park_id
+
+    def all(self):
+        """
+        Mocked all method that returns all the records
+        """
+        return [MockedDBParkRecord(self.park_id)]
+
+    def first(self):
+        """
+        mocking method first that returns park record
+        """
+        return MockedDBParkRecord(self.park_id)
+
+
+class MockedFavoriteParkQuery:
+    """
+    Mocking sql query that gets all the records from
+    favorite_parks table
+    """
+
+    def __init__(self, email, login_type, park_id):
+        """
+        initialize some db columns value
+        """
+        self.email = email
+        self.login_type = login_type
+        self.park_id = park_id
+
+    def filter_by(self, **kwarg):
+        """
+        Mocking filter_by method that
+        returns all the records form db
+        """
+        return MockedAllFunction(self.park_id)
+
+
 # pylint: disable=R0902
 # pylint: disable=R0916
 # pylint: disable=R0201
@@ -557,37 +616,57 @@ class AppTestCases(unittest.TestCase):
         import app
 
         with mock.patch(
-            "flask_socketio.emit"
+            "app.flask_socketio.emit"
         ) as mocked_flask_socketio_emit, mock.patch(
             "app.national_parks"
         ) as mocked_national_parks, mock.patch(
             "app.flask.request"
-        ) as mocked_flask_socket_sid:
-            mocked_national_parks.return_value = [{"id": "123"}]
-            app.LOGGEDIN_CLIENTS = {"12345": {"favorite_parks" : ["123"]},}
+        ) as mocked_flask_socket_sid, mock.patch(
+            "app.SESSION.query"
+        ) as mocked_session_query:
+            mocked_national_parks.return_value = [{"id": "12345"}]
+            mocked_session_query.return_value = MockedFavoriteParkQuery(
+                "akashpatel@gmail.com", "Google", "12345"
+            )
+            app.LOGGEDIN_CLIENTS = {
+                "12345": {"newEmail": "akashpatel@gmail.com", "loginType": "Google"},
+            }
             mocked_flask_socket_sid.sid = "12345"
             response = app.on_national_parks()
-            expected = [{"id": "123"}]
-            assert mocked_flask_socketio_emit.called_once
-            assert mocked_flask_socketio_emit.called_with(expected)
+            mocked_flask_socketio_emit.assert_called()
+
     def test_on_add_favorite_parks(self):
         """
-        Test adding and removing park id to global variable LOGGEDIN_CLIENTS that either 
+        Test adding and removing park id to global variable LOGGEDIN_CLIENTS that either
         move from others to favorites or move from favorites to others
         """
         import app
 
-        with mock.patch(
-            "app.flask.request"
-        ) as mocked_flask_socket_sid:
+        with mock.patch("app.flask.request") as mocked_flask_socket_sid, mock.patch(
+            "app.SESSION.add"
+        ) as mocked_session_add, mock.patch(
+            "app.SESSION.delete"
+        ) as mocked_session_delete, mock.patch(
+            "app.SESSION.commit"
+        ), mock.patch(
+            "app.SESSION.query"
+        ) as mocked_session_query:
             mocked_flask_socket_sid.sid = "12345"
-            app.LOGGEDIN_CLIENTS = {"12345" : {"favorite_parks" : []}}
-            data = {"parkID": "12"}
+            mocked_session_query.return_value = MockedFavoriteParkQuery(
+                "akashpatel@gmail.com", "Google", "12345"
+            )
+
+            data = {"parkID": "1234"}
+            app.LOGGEDIN_CLIENTS = {
+                "12345": {"newEmail": "akashpatel@gmail.com", "loginType": "Google"}
+            }
             app.on_add_favorite_parks(data)
-            self.assertDictEqual(app.LOGGEDIN_CLIENTS,{"12345" : {"favorite_parks" : ['12']}})
-            data = {"parkID": "12"}
+            mocked_session_add.assert_called_once()
+
+            data = {"parkID": "12345"}
             app.on_add_favorite_parks(data)
-            self.assertDictEqual(app.LOGGEDIN_CLIENTS,{"12345" : {"favorite_parks" : []}})
+            mocked_session_delete.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()

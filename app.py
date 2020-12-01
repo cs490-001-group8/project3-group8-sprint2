@@ -13,7 +13,7 @@ import sqlalchemy
 from dotenv import load_dotenv
 from pytz import timezone
 import tables
-from tables import BASE, Theme
+from tables import BASE, Theme, FavoriteParks
 import hourly_weather
 import tweets
 import news
@@ -74,7 +74,6 @@ def on_user_login(data):
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid not in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS[flask.request.sid] = data
-        LOGGEDIN_CLIENTS[flask.request.sid]["favorite_parks"] = []
 
     flask_socketio.emit(
         "national parks update",
@@ -253,7 +252,15 @@ def on_national_parks():
     sid = flask.request.sid
     favorite_parks = []
     if sid in LOGGEDIN_CLIENTS:
-        for park_id in LOGGEDIN_CLIENTS[sid]["favorite_parks"]:
+        client_email = LOGGEDIN_CLIENTS[sid]["newEmail"]
+        login_type = LOGGEDIN_CLIENTS[sid]["loginType"]
+        all_favorite_parks_ids = [
+            each_favorite.park_id
+            for each_favorite in SESSION.query(tables.FavoriteParks)
+            .filter_by(email=client_email, login_type=login_type)
+            .all()
+        ]
+        for park_id in all_favorite_parks_ids:
             for park in parks:
                 if park["id"] == park_id:
                     favorite_parks.append(park)
@@ -277,11 +284,31 @@ def on_national_parks():
 def on_add_favorite_parks(data):
     """ when park component renders update the database with all favorite parks"""
     sid = flask.request.sid
+    park_id = data["parkID"]
     if sid in LOGGEDIN_CLIENTS:
-        if data["parkID"] in LOGGEDIN_CLIENTS[sid]["favorite_parks"]:
-            LOGGEDIN_CLIENTS[sid]["favorite_parks"].remove(data["parkID"])
+        client_email = LOGGEDIN_CLIENTS[sid]["newEmail"]
+        login_type = LOGGEDIN_CLIENTS[sid]["loginType"]
+        favorite_parks_ids = [
+            each.park_id
+            for each in SESSION.query(FavoriteParks)
+            .filter_by(email=client_email, login_type=login_type)
+            .all()
+        ]
+        if park_id not in favorite_parks_ids:
+            SESSION.add(
+                FavoriteParks(
+                    email=client_email, login_type=login_type, park_id=park_id
+                )
+            )
+            SESSION.commit()
         else:
-            LOGGEDIN_CLIENTS[sid]["favorite_parks"].append(data["parkID"])
+            remove_favorite_park = (
+                SESSION.query(FavoriteParks)
+                .filter_by(email=client_email, login_type=login_type, park_id=park_id)
+                .first()
+            )
+            SESSION.delete(remove_favorite_park)
+            SESSION.commit()
 
 
 if __name__ == "__main__":
