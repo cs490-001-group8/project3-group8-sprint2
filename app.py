@@ -85,6 +85,9 @@ def on_user_login(data):
         Theme.login_type == data["loginType"]).first()
     if not theme:
         result = {
+            "name": data["newName"],
+            "email": data["newEmail"],
+            "loginType": data["loginType"],
             "pattern": "color",
             "value": "white"
         }
@@ -93,6 +96,9 @@ def on_user_login(data):
         SESSION.commit()
     else:
         result = {
+            "name": data["newName"],
+            "email": data["newEmail"],
+            "loginType": data["loginType"],
             "pattern": theme.pattern,
             "value": theme.value
         }
