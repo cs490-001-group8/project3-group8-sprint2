@@ -26,16 +26,18 @@ def weather_do_nothing(one, two, three):
 
 class MockedThemeObj:
     """Pretend to be a theme object"""
+
     def __init__(self, name, email, login_type, pattern, value):
         self.name = name
         self.email = email
         self.login_type = login_type
         self.pattern = pattern
         self.value = value
-        
+
 
 class MockedQueryResponseObj:
     """Pretend to be a query response object"""
+
     # pylint: disable=R0902
     def __init__(self, text, name, time):
         # pylint: disable=C0103
@@ -62,6 +64,7 @@ class MockedOrderResponse:
 
 class MockedFilterResponse:
     """Pretend to be an query response"""
+
     # pylint: disable=R0201
 
     def __init__(self, texts):
@@ -87,6 +90,7 @@ class MockedFilterResponse:
 
 class MockedFilterNoneResponse:
     """Pretend to be an query response"""
+
     # pylint: disable=R0201
 
     def __init__(self, texts):
@@ -289,7 +293,6 @@ class AppTestCases(unittest.TestCase):
             },
         ]
 
-
     def mock_search_bills(
         self, sort, type, chamber, state, search_window, updated_since
     ):
@@ -461,7 +464,7 @@ class AppTestCases(unittest.TestCase):
                     raise ValueError("COMMENT ID IS NOT INT")
         elif channel == "send sport":
             pass
-        elif channel == "national parks update":
+        elif channel in ("national parks update","national parks"):
             pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -652,6 +655,7 @@ class AppTestCases(unittest.TestCase):
         """test the on_weather_request function"""
         test_weather = {"city_name": "Newark"}
         import app
+
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_weather_request(test_weather)
             self.assertIsInstance(test_weather, dict)
@@ -734,12 +738,10 @@ class AppTestCases(unittest.TestCase):
         """Test the on_nationl_parks method that emits back all the parks to requested client"""
         import app
 
-        with mock.patch(
-            "flask_socketio.emit"
-        ) as mocked_flask_socketio_emit, mock.patch(
+        with mock.patch("flask_socketio.emit", self.mock_flask_emit_one), mock.patch(
             "app.national_parks"
         ) as mocked_national_parks, mock.patch(
-            "flask.request"
+            "app.flask.request"
         ) as mocked_flask_socket_sid, mock.patch(
             "app.SESSION.query"
         ) as mocked_session_query:
@@ -752,7 +754,6 @@ class AppTestCases(unittest.TestCase):
             }
             mocked_flask_socket_sid.sid = "12345"
             response = app.on_national_parks()
-            mocked_flask_socketio_emit.assert_called()
 
     def test_on_add_favorite_parks(self):
         """
@@ -761,9 +762,7 @@ class AppTestCases(unittest.TestCase):
         """
         import app
 
-        with mock.patch(
-            "app.flask.request"
-        ) as mocked_flask_socket_sid, mock.patch(
+        with mock.patch("app.flask.request") as mocked_flask_socket_sid, mock.patch(
             "app.SESSION.add"
         ) as mocked_session_add, mock.patch(
             "app.SESSION.delete"
@@ -796,28 +795,28 @@ class AppTestCases(unittest.TestCase):
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_personal_tab_change(test_tabs)
             self.assertIsInstance(test_tabs, dict)
+
     def mock_update_theme(self, data):
         """Mock Session update for theme"""
-        if not isinstance(data['pattern'], str):
+        if not isinstance(data["pattern"], str):
             raise ValueError("Pattern not string")
-        if not isinstance(data['value'], str):
+        if not isinstance(data["value"], str):
             raise ValueError("Value not string")
 
     def test_on_update_theme(self):
         """Test successful update theme"""
-        with mock.patch(
-            "sqlalchemy.orm.Query.update", self.mock_update_theme
-        ):
+        with mock.patch("sqlalchemy.orm.Query.update", self.mock_update_theme):
             import app
+
             data = {
                 "name": "Albert Einstein",
                 "email": "einstein@mit.edu",
                 "loginType": "Google",
                 "pattern": "color",
-                "value": "blue"
+                "value": "blue",
             }
             app.on_update_theme(data)
-            
+
     def mock_session_add_theme(self, theme):
         """Mock Session add for themes"""
         if not isinstance(theme.name, str):
@@ -832,9 +831,11 @@ class AppTestCases(unittest.TestCase):
             raise ValueError("Value not string")
 
     def mock_session_first_failed(self):
+        """Missing Doc String"""
         return None
-        
+
     def mock_session_list_all(self):
+        """Missing Doc String"""
         return [MockedQueryResponseObj("TEST", "USER", datetime.now())]
 
     def test_on_user_login(self):
@@ -862,6 +863,7 @@ class AppTestCases(unittest.TestCase):
                 "sqlalchemy.ext.declarative.declarative_base", mocker
             ):
                 import app
+
                 data = {
                     "newName": "Albert Einstein",
                     "newEmail": "einstein@mit.edu",
