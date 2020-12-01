@@ -13,7 +13,7 @@ import sqlalchemy
 from dotenv import load_dotenv
 from pytz import timezone
 import tables
-from tables import BASE, Theme
+from tables import BASE, Theme, FavoriteParks
 import hourly_weather
 import tweets
 import news
@@ -32,12 +32,14 @@ SOCKETIO.init_app(APP, cors_allowed_origins="*")
 ENGINE = sqlalchemy.create_engine(os.environ["DATABASE_URL"])
 BASE.metadata.create_all(ENGINE, checkfirst=True)
 
+
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
 
 LOGGEDIN_CLIENTS = {}
 
 EST = timezone("EST")
+
 
 @APP.route("/")
 def home():
@@ -113,6 +115,13 @@ def on_user_login(data):
         ).all()
     ]
     SOCKETIO.emit("liked comments", {"comments": liked_comments})
+    flask_socketio.emit(
+        "national parks update",
+        {
+            "display_move_park_arrow": True,
+        },
+    )
+    on_national_parks()
 
 
 @SOCKETIO.on("update theme")
@@ -320,14 +329,71 @@ def get_sport_data():
 def on_national_parks():
     """Returns all NJ National Parks"""
     parks = national_parks()
-    flask_socketio.emit("national parks", {"parks": parks})
+    sid = flask.request.sid
+    favorite_parks = []
+    if sid in LOGGEDIN_CLIENTS:
+        client_email = LOGGEDIN_CLIENTS[sid]["newEmail"]
+        login_type = LOGGEDIN_CLIENTS[sid]["loginType"]
+        all_favorite_parks_ids = [
+            each_favorite.park_id
+            for each_favorite in SESSION.query(FavoriteParks)
+            .filter_by(email=client_email, login_type=login_type)
+            .all()
+        ]
+        for park_id in all_favorite_parks_ids:
+            for park in parks:
+                if park["id"] == park_id:
+                    favorite_parks.append(park)
+                    parks.remove(park)
+        flask_socketio.emit(
+            "national parks update",
+            {
+                "display_move_park_arrow": True,
+            },
+        )
+    flask_socketio.emit(
+        "national parks",
+        {
+            "favoriteParks": favorite_parks,
+            "otherParks": parks,
+        },
+    )
 
+
+@SOCKETIO.on("add favorite parks")
+def on_add_favorite_parks(data):
+    """ when park component renders update the database with all favorite parks"""
+    sid = flask.request.sid
+    park_id = data["parkID"]
+    if sid in LOGGEDIN_CLIENTS:
+        client_email = LOGGEDIN_CLIENTS[sid]["newEmail"]
+        login_type = LOGGEDIN_CLIENTS[sid]["loginType"]
+        favorite_parks_ids = [
+            each.park_id
+            for each in SESSION.query(FavoriteParks)
+            .filter_by(email=client_email, login_type=login_type)
+            .all()
+        ]
+        if park_id not in favorite_parks_ids:
+            SESSION.add(
+                FavoriteParks(
+                    email=client_email, login_type=login_type, park_id=park_id
+                )
+            )
+            SESSION.commit()
+        else:
+            remove_favorite_park = (
+                SESSION.query(FavoriteParks)
+                .filter_by(email=client_email, login_type=login_type, park_id=park_id)
+                .first()
+            )
+            SESSION.delete(remove_favorite_park)
+            SESSION.commit()
 
 @SOCKETIO.on("personal tab change")
 def on_personal_tab_change(data):
     """Updates the personal tab"""
     flask_socketio.emit("update personal tab", data)
-
 
 if __name__ == "__main__":
     SOCKETIO.run(

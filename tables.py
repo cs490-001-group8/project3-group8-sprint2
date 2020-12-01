@@ -68,3 +68,23 @@ class Like(BASE):
 
     def __repr__(self):
         return '%s:%s Liked Comment %i' % (self.login_type, self.email, self.comment_id)
+
+class FavoriteParks(BASE):
+    """Define user email, login_type and favorite park ids"""
+
+    __tablename__ = "favorite_parks"
+    email = Column(String(100), primary_key=True)
+    login_type = Column(String(50), primary_key=True)
+    park_id = Column(String(100), primary_key=True)
+
+    def __init__(self, email, login_type, park_id):
+        self.email = email
+        self.login_type = login_type
+        self.park_id = park_id
+
+    def __repr__(self):
+        return "User email: %s, Login tpye: %s, park id: %s" % (
+            self.email,
+            self.login_type,
+            self.park_id,
+        )
