@@ -8,13 +8,15 @@ import FixedPlugin from './FixedPlugin';
 export default function Head({ logIn, loggedIn }) {
     const [display, setDisplay] = useState('none');
     const [ppic, updatePpic] = useState('');
+    const [userName, updateUserName] = useState('');
 
     const handleClick = () => {
         setDisplay('block');
     };
 
-    function setProfilePic({ url }) {
+    function setProfilePic({ url, name }) {
         updatePpic(() => url);
+        updateUserName(() => name);
     }
 
     if (loggedIn) {
@@ -22,7 +24,7 @@ export default function Head({ logIn, loggedIn }) {
             <div className="Head">
                 <HeadTitle />
                 <FixedPlugin />
-                <LoggedIn profilePic={ppic} />
+                <LoggedIn profilePic={ppic} userName={userName} />
             </div>
         );
     }

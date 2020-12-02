@@ -11,7 +11,10 @@ export default function OAuthButton({ logIn, setProfilePic }) {
             newEmail: response.profileObj.email,
             newType: 'Google',
         });
-        setProfilePic({ url: response.profileObj.imageUrl });
+        setProfilePic({
+            url: response.profileObj.imageUrl, 
+            name: response.profileObj.name
+        });
     }
 
     function failureGoogle() {

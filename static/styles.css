@@ -45,9 +45,10 @@ body {
   }
 
   .logged-in {
+    line-height: 1.01;
     justify-self: left;
     align-self: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     background: #546E6E;
     color: #FFFFFF;
     padding: 1rem;

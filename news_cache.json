@@ -1,6 +1,42 @@
 {
-    "timestamp": 1606919230.190015,
+    "timestamp": 1606926152.967389,
     "articles": [
+        {
+            "title": "Ivanka Trump: Zukunft in der Provinz? In der Heimat-Metropole ist Trumps Tochter pl\u00f6tzlich unerw\u00fcnscht",
+            "description": "F\u00fcr Ivanka Trump ist die Zeit als \u201eFirst Daughter\u201c der USA bald beendet. Doch in ihrer Heimatstadt New York k\u00f6nnte sie unerw\u00fcnscht sein. Ger\u00fcchte ranken sich um ein Anwesen in New Jersey.",
+            "content": "F\u00fcr Ivanka Trump ist die Zeit als \u201eFirst Daughter\u201c der USA bald beendet. Doch in ihrer Heimatstadt New York k\u00f6nnte sie unerw\u00fcnscht sein. Ger\u00fcchte ranken sich um ein Anwesen in New Jersey.\nDonald Trump hat die US-Wahl 2020 verloren - damit sind auch d... [4940 chars]",
+            "url": "https://www.merkur.de/politik/ivanka-donald-trump-tochter-2020-new-york-usa-familie-wohnsitz-new-jersey-jared-kushner-image-90115607.html",
+            "image": "https://www.merkur.de/bilder/2020/11/29/90115607/24418324-ivanka-trump-und-jared-kushner-laufen-haendchenhaltend-auf-einem-rasen-30FsUQXVcZef.jpg",
+            "publishedAt": "2020-12-02T14:52:00Z",
+            "source": {
+                "name": "merkur.de",
+                "url": "https://www.merkur.de"
+            }
+        },
+        {
+            "title": "3 New Jersey Devils Poised for a Breakout in 2020-21",
+            "description": "The New Jersey Devils have a lot of young talent on their roster. Who could be on the cusp of a breakout season in 2020-21?",
+            "content": "The 2020-21 NHL season, whenever it gets underway, will mark the beginning of a new era for the New Jersey Devils. They\u2019ll have a new general manager, a new head coach, and new faces on their roster. Think of it as a fresh start for a team that\u2019s bee... [6833 chars]",
+            "url": "https://thehockeywriters.com/devils-breakout-hughes-bratt-hischier/",
+            "image": "https://s3951.pcdn.co/wp-content/uploads/2015/09/Jack-Hughes-Devils-2.jpg",
+            "publishedAt": "2020-12-02T14:25:00Z",
+            "source": {
+                "name": "The Hockey Writers",
+                "url": "https://thehockeywriters.com"
+            }
+        },
+        {
+            "title": "Biden vows to be 'the most pro-union president'-Congress is preparing",
+            "description": "On Nov 13th, Pocan and Rep. Donald Norcross of New Jersey announced the creation of the Labor Caucus.",
+            "content": "Over the past several decades, union membership has steadily declined. Bureau of Labor Statistics data indicates that in 1983, 20.1% of employed Americans were members of a union. By 2019, that share had decreased by roughly half to 10.3%. But as wea... [3262 chars]",
+            "url": "https://www.cnbc.com/2020/12/01/biden-promises-to-be-the-most-pro-union-president-and-rep.html",
+            "image": "https://image.cnbcfm.com/api/v1/image/106804326-1606838444310-Biden_speaks_at_a_campaign_rally_at_Teamsters_Local_249_Union_Hall.jpg?v=1606838538",
+            "publishedAt": "2020-12-02T14:15:05Z",
+            "source": {
+                "name": "CNBC",
+                "url": "https://www.cnbc.com"
+            }
+        },
         {
             "title": "Dallas Stars unveil 'Blackout' alternate jersey",
             "description": "The Dallas Stars unveiled a new Blackout alternate uniform for the upcoming season.",
@@ -23,42 +59,6 @@
             "source": {
                 "name": "New York Daily News",
                 "url": "https://www.nydailynews.com"
-            }
-        },
-        {
-            "title": "Woman gets $325K settlement in 2018 NJ beach brawl bust",
-            "description": "A Philadelphia woman punched out by cops during a wild, 2018 caught-on-video beach brawl in New Jersey is getting the last laugh.",
-            "content": "A Philadelphia woman punched out by cops during a wild, 2018 caught-on-video beach brawl in New Jersey is getting the last laugh.\nEmily Weinman, whose violent arrest at a Wildwood beach went viral \u2014 and who was later banned from the sunny summer spot... [2228 chars]",
-            "url": "https://nypost.com/2020/12/01/woman-gets-325k-settlement-in-2018-nj-beach-brawl-bust/",
-            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/12/nj-beach-arrest.jpg?quality=90&strip=all&w=1200",
-            "publishedAt": "2020-12-02T00:16:44Z",
-            "source": {
-                "name": "New York Post",
-                "url": "https://nypost.com"
-            }
-        },
-        {
-            "title": "Bacterial Infection Spread At NJ Hospital As COVID-19 Hit: CDC",
-            "description": "Bacterial Infection Spread At NJ Hospital As COVID-19 Hit: CDC - Mendham-Chester, NJ - A new CDC report says a New Jersey hospital dealt with a potentially troubling bacterial infection just as the COVID-19 crisis hit.",
-            "content": "NEW JERSEY \u2013 A new CDC report says a New Jersey hospital dealt with a potentially troubling bacterial infection just as the COVID-19 crisis hit this year.\nOn May 28th, an unidentified New Jersey hospital reported a cluster of Carbapenem-resistant Aci... [1659 chars]",
-            "url": "https://patch.com/new-jersey/mendham-chester/bacteria-infection-spread-nj-hospital-covid-19-hit-cdc",
-            "image": "https://patch.com/img/cdn20/shutterstock/65079/20201201/043650/styles/patch_image/public/shutterstock-1680760828___01163618150.jpg",
-            "publishedAt": "2020-12-01T21:36:51Z",
-            "source": {
-                "name": "Joliet, IL Patch",
-                "url": "https://patch.com"
-            }
-        },
-        {
-            "title": "New Jersey hospital faced superbug outbreak amid Covid surge",
-            "description": "Coronavirus hospitalizations: A hospital in New Jersey faced a superbug outbreak during a Covid-19 surge.",
-            "content": "As a New Jersey hospital faced a surge of Covid-19 cases in the spring, another deadly foe was quietly spreading among its patients: a drug-resistant bacterial infection.\nThe superbug outbreak, detailed in a report published Tuesday by the Centers fo... [2579 chars]",
-            "url": "https://www.nbcnews.com/health/health-news/new-jersey-hospital-faced-superbug-outbreak-amid-covid-surge-n1249559",
-            "image": "https://media2.s-nbcnews.com/j/newscms/2020_49/3432202/201201-acinetobacter-baumannii-jm-1239_1a630df328a5870c04fccc873725d03f.nbcnews-fp-1200-630.jpg",
-            "publishedAt": "2020-12-01T18:45:00Z",
-            "source": {
-                "name": "NBC News",
-                "url": "https://www.nbcnews.com"
             }
         }
     ]
