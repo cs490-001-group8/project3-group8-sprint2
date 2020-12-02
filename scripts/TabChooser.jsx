@@ -6,7 +6,7 @@
 // There is interaction with the module
 // There is interaction with the mouse, no key event necessary.
 // Alert is used to display to the user an error, necessary.
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Socket } from './Socket';
 
 let widgetCount = 1;
@@ -36,6 +36,20 @@ function handleClick(data) {
 }
 
 export default function TabChooser() {
+    useEffect(() => {
+        Socket.on('update existing personal', (data) => {
+            console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+            console.log(data)
+            for (const property in data) {
+                console.log(property)
+                console.log(data[property])
+                if (data[property]){
+                    handleClick(property)
+                }
+            }
+        });
+    }, []);
+    
     return (
         <div className="icon-bar">
             <div className={selectedDict.News ? 'selected' : 'unselected'}>

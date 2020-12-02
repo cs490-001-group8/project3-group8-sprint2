@@ -114,7 +114,7 @@ def on_user_login(data):
     if (curr_personal_tab):
         test_str = curr_personal_tab.personal_values
         curr_obj = ast.literal_eval(test_str)
-        on_personal_tab_change(curr_obj)
+        flask_socketio.emit("update existing personal", curr_obj)
     
     liked_comments = [
         comment.comment_id
@@ -165,6 +165,7 @@ def on_personal_tab_change(data):
             SESSION.query(PersonalTab).filter(
             	PersonalTab.email == curr_email,
             	PersonalTab.login_type == curr_login).update({'personal_values': str(data)})
+            SESSION.commit()
 
 
 @SOCKETIO.on("disconnect")

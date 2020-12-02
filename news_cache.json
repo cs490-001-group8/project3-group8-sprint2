@@ -1,7 +1,18 @@
 {
-
-    "timestamp": 1606931388.806536,
+    "timestamp": 1606935065.454954,
     "articles": [
+        {
+            "title": "Immigrants At New Jersey ICE Facility On Hunger Strike To Protest Unsafe Conditions",
+            "description": "Detainees at Bergen County Jail have described rat infestations, undrinkable water and a high-risk environment for spreading COVID-19.",
+            "content": "HACKENSACK, N.J. \u2014 At least eight immigrants being held by Immigration and Customs Enforcement at Bergen County Jail in New Jersey are participating in a hunger strike to protest conditions at the facility and demand to be released.\nLocal activists s... [5304 chars]",
+            "url": "https://www.huffpost.com/entry/hunger-strike-ice-new-jersey-immigrants_n_5fc7a612c5b6b47a31ed3700",
+            "image": "https://img.huffingtonpost.com/asset/5fc7a53624000018069f9943.jpeg?cache=krl09vnaye&ops=1778_1000",
+            "publishedAt": "2020-12-02T17:31:42Z",
+            "source": {
+                "name": "The Huffington Post",
+                "url": "https://www.huffpost.com"
+            }
+        },
         {
             "title": "Start a new PC build with $60 off the Intel Core i7-10700K processor and get some free CLG swag",
             "description": "The bundle comes with a free jersey and mousepad representing the eSports org CLG, but regardless of that the processor is $60 less than it normally is. That's a lot of value in one bundle, especially if you're looking to upgrade your PC.",
@@ -33,7 +44,6 @@
             "url": "https://www.merkur.de/politik/ivanka-donald-trump-tochter-2020-new-york-usa-familie-wohnsitz-new-jersey-jared-kushner-image-90115607.html",
             "image": "https://www.merkur.de/bilder/2020/11/29/90115607/24418324-ivanka-trump-und-jared-kushner-laufen-haendchenhaltend-auf-einem-rasen-30FsUQXVcZef.jpg",
             "publishedAt": "2020-12-02T14:52:00Z",
-
             "source": {
                 "name": "merkur.de",
                 "url": "https://www.merkur.de"
@@ -49,18 +59,6 @@
             "source": {
                 "name": "The Hockey Writers",
                 "url": "https://thehockeywriters.com"
-            }
-        },
-        {
-            "title": "Biden vows to be 'the most pro-union president'-Congress is preparing",
-            "description": "On Nov 13th, Pocan and Rep. Donald Norcross of New Jersey announced the creation of the Labor Caucus.",
-            "content": "Over the past several decades, union membership has steadily declined. Bureau of Labor Statistics data indicates that in 1983, 20.1% of employed Americans were members of a union. By 2019, that share had decreased by roughly half to 10.3%. But as wea... [3262 chars]",
-            "url": "https://www.cnbc.com/2020/12/01/biden-promises-to-be-the-most-pro-union-president-and-rep.html",
-            "image": "https://image.cnbcfm.com/api/v1/image/106804326-1606838444310-Biden_speaks_at_a_campaign_rally_at_Teamsters_Local_249_Union_Hall.jpg?v=1606838538",
-            "publishedAt": "2020-12-02T14:15:05Z",
-            "source": {
-                "name": "CNBC",
-                "url": "https://www.cnbc.com"
             }
         }
     ]
