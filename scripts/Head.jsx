@@ -33,7 +33,7 @@ export default function Head({ logIn, loggedIn }) {
             <HeadTitle />
             <FixedPlugin />
             <button onClick={handleClick} type="button" className="login-button">Log In</button>
-            <LoginModal logIn={logIn} display={display} setDisplay={setDisplay} />
+            <LoginModal logIn={logIn} setProfilePic={setProfilePic} display={display} setDisplay={setDisplay} />
         </div>
     );
 }
