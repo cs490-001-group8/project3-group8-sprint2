@@ -4,12 +4,13 @@ import FacebookLogin from 'react-facebook-login';
 
 export default function FacebookAuth({ logIn, setProfilePic }) {
     function responseFacebook(response) {
+        console.log(response);
         logIn({
             newName: response.name,
             newEmail: response.email,
             newType: 'Facebook',
         });
-        setProfilePic({ url: response.picture });
+        setProfilePic({ url: response.picture.data.url });
     }
 
     function failureFacebook() {
