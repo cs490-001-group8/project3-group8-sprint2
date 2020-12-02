@@ -7,17 +7,24 @@ import FixedPlugin from './FixedPlugin';
 
 export default function Head({ logIn, loggedIn }) {
     const [display, setDisplay] = useState('none');
+    const [ppic, updatePpic] = useState('');
+    const [userName, updateUserName] = useState('');
 
     const handleClick = () => {
         setDisplay('block');
     };
+
+    function setProfilePic({ url, name }) {
+        updatePpic(() => url);
+        updateUserName(() => name);
+    }
 
     if (loggedIn) {
         return (
             <div className="Head">
                 <HeadTitle />
                 <FixedPlugin />
-                <LoggedIn />
+                <LoggedIn profilePic={ppic} userName={userName} />
             </div>
         );
     }
@@ -27,7 +34,12 @@ export default function Head({ logIn, loggedIn }) {
             <HeadTitle />
             <FixedPlugin />
             <button onClick={handleClick} type="button" className="login-button">Log In</button>
-            <LoginModal logIn={logIn} display={display} setDisplay={setDisplay} />
+            <LoginModal
+              logIn={logIn}
+              setProfilePic={setProfilePic}
+              display={display}
+              setDisplay={setDisplay}
+            />
         </div>
     );
 }
