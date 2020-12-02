@@ -12,8 +12,8 @@ export default function OAuthButton({ logIn, setProfilePic }) {
             newType: 'Google',
         });
         setProfilePic({
-            url: response.profileObj.imageUrl, 
-            name: response.profileObj.name
+            url: response.profileObj.imageUrl,
+            name: response.profileObj.name,
         });
     }
 

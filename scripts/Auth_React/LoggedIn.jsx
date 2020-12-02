@@ -5,7 +5,10 @@ export default function LoggedIn({ profilePic, userName }) {
     return (
         <div className="logged-in">
             <img className="user-profile-pic" alt="" src={profilePic} />
-            Welcome {userName}!
+            Welcome
+            {' '}
+            {userName}
+            !
         </div>
     );
 }
