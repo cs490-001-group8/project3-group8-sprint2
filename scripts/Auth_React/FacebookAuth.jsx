@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FacebookLogin from 'react-facebook-login';
 
-export default function FacebookAuth({ logIn }) {
+export default function FacebookAuth({ logIn, setProfilePic }) {
     function responseFacebook(response) {
         logIn({
             newName: response.name,
             newEmail: response.email,
             newType: 'Facebook',
         });
+        setProfilePic({ url: response.picture });
     }
 
     function failureFacebook() {
@@ -21,7 +22,7 @@ export default function FacebookAuth({ logIn }) {
             <FacebookLogin
               appId="856995921505171"
               autoLoad={false}
-              fields="name, email"
+              fields="name, email, picture"
               callback={responseFacebook}
               onFailure={failureFacebook}
               cookie={false}
@@ -34,4 +35,5 @@ export default function FacebookAuth({ logIn }) {
 
 FacebookAuth.propTypes = {
     logIn: PropTypes.func.isRequired,
+    setProfilePic: PropTypes.func.isRequired,
 };

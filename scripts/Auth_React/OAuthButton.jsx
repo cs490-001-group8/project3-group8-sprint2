@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { GoogleLogin } from 'react-google-login';
 
-export default function OAuthButton({ logIn, setProfilePic, }) {
+export default function OAuthButton({ logIn, setProfilePic }) {
     const clientID = '881732433179-i733jq65m0j09pio425p40hosd8r2klf.apps.googleusercontent.com';
 
     function successGoogle(response) {
@@ -11,7 +11,7 @@ export default function OAuthButton({ logIn, setProfilePic, }) {
             newEmail: response.profileObj.email,
             newType: 'Google',
         });
-        setProfilePic({url: response.profileObj.imageUrl});
+        setProfilePic({ url: response.profileObj.imageUrl });
     }
 
     function failureGoogle() {

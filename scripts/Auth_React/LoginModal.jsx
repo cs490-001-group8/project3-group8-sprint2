@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import FacebookAuth from './FacebookAuth';
 import OAuthButton from './OAuthButton';
 
-const LoginModal = ({ logIn, display, setDisplay, setProfilePic, }) => {
+const LoginModal = ({
+    logIn, display, setDisplay, setProfilePic,
+}) => {
     const modalDisplay = {
         display,
     };
