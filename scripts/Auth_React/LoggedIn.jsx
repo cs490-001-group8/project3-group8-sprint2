@@ -5,9 +5,9 @@ export default function LoggedIn({ profilePic, userName }) {
     return (
         <div className="logged-in">
             <img className="user-profile-pic" alt="" src={profilePic} />
-            Welcome
+            Welcome,
             {' '}
-            {userName}
+            {userName.split(' ')[0]}
             !
         </div>
     );

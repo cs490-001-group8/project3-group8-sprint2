@@ -1,6 +1,30 @@
 {
-    "timestamp": 1606926152.967389,
+    "timestamp": 1606931388.806536,
     "articles": [
+        {
+            "title": "Start a new PC build with $60 off the Intel Core i7-10700K processor and get some free CLG swag",
+            "description": "The bundle comes with a free jersey and mousepad representing the eSports org CLG, but regardless of that the processor is $60 less than it normally is. That's a lot of value in one bundle, especially if you're looking to upgrade your PC.",
+            "content": "This is a super unique bundle from Newegg. The Intel CLG i7 Gamer Drop Bundle is currently $319.99 through the Newegg site. The key to this deal is the Intel Core i7-10700K processor, which is selling for around $380 at other retailers like Amazon an... [1885 chars]",
+            "url": "https://www.windowscentral.com/start-new-pc-build-60-intel-core-i7-10700k-processor-and-get-some-free-clg-swag",
+            "image": "https://www.windowscentral.com/sites/wpcentral.com/files/styles/large/public/field/image/2020/12/core-i7-10700k-gamer-bundle.jpg",
+            "publishedAt": "2020-12-02T16:39:30Z",
+            "source": {
+                "name": "Windows Central",
+                "url": "https://www.windowscentral.com"
+            }
+        },
+        {
+            "title": "Kering : Ouvre de nouveaux bureaux aux \u00c9tats-Unis",
+            "description": "(CercleFinance.com) - Kering annonce l'ouverture de ses nouveaux bureaux aux \u00c9tats-Unis, \u00e0 Wayne, dans le New Jersey \u2026",
+            "content": "\u00c0 lire aussi Cr\u00e9ez et g\u00e9rez votre portefeuille virtuel\n(CercleFinance.com) - Kering annonce l'ouverture de ses nouveaux bureaux aux \u00c9tats-Unis, \u00e0 Wayne, dans le New Jersey.\nCe complexe ultra-moderne remplace les anciennes installations du Groupe \u00e0 Se... [620 chars]",
+            "url": "https://www.tradingsat.com/kering-FR0000121485/actualites/kering-kering-ouvre-de-nouveaux-bureaux-aux-etats-unis-943065.html",
+            "image": "https://www.tradingsat.com/refonte/img/logos/BFM-Bourse.jpg",
+            "publishedAt": "2020-12-02T16:13:00Z",
+            "source": {
+                "name": "BFM Bourse",
+                "url": "https://www.tradingsat.com"
+            }
+        },
         {
             "title": "Ivanka Trump: Zukunft in der Provinz? In der Heimat-Metropole ist Trumps Tochter pl\u00f6tzlich unerw\u00fcnscht",
             "description": "F\u00fcr Ivanka Trump ist die Zeit als \u201eFirst Daughter\u201c der USA bald beendet. Doch in ihrer Heimatstadt New York k\u00f6nnte sie unerw\u00fcnscht sein. Ger\u00fcchte ranken sich um ein Anwesen in New Jersey.",
@@ -35,30 +59,6 @@
             "source": {
                 "name": "CNBC",
                 "url": "https://www.cnbc.com"
-            }
-        },
-        {
-            "title": "Dallas Stars unveil 'Blackout' alternate jersey",
-            "description": "The Dallas Stars unveiled a new Blackout alternate uniform for the upcoming season.",
-            "content": "article\nAs Dallas Stars fans are still thinking about the team\u2019s run to the Stanley Cup Final, they were given a treat Wednesday, as the Stars unveiled a new Blackout alternate uniform for the upcoming season.\nThis will be the first time since 2006 t... [1101 chars]",
-            "url": "https://www.fox4news.com/sports/dallas-stars-unveil-blackout-alternate-jersey",
-            "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/10/1280/720/1028starsblackout.jpg?ve=1&tl=1",
-            "publishedAt": "2020-12-02T12:35:52Z",
-            "source": {
-                "name": "FOX 4 News",
-                "url": "https://www.fox4news.com"
-            }
-        },
-        {
-            "title": "Waiting for you: Please come home, affluent New Yorkers",
-            "description": "To all 300,000 or so New Yorkers who left the city last March when COVID struck, plenty of whom are still biding time in the Hamptons and Connecticut and New Jersey or parts unknown, this is a pointed and personal appeal: Come back home.",
-            "content": "Your city, and all the people still here, those who couldn\u2019t leave, need your help. You still love New York, don\u2019t you? You proudly lived here, even as you groused as we all do about the craziness, the smells, the traffic, the noise?...",
-            "url": "https://www.nydailynews.com/opinion/ny-edit-nyc-fled-coronavirus-covid-new-yorkers-economy-recovery-20201202-fgxpjac56fg7pp6xysgg3wydya-story.html",
-            "image": "https://www.nydailynews.com/resizer/1vc9NeDX3JT19H6BK7lNi9OAqWA=/1200x0/center/middle/cloudfront-us-east-1.images.arcpublishing.com/tronc/ROBK3J4TZRDXPJM566FZSD64DM.JPG",
-            "publishedAt": "2020-12-02T09:00:00Z",
-            "source": {
-                "name": "New York Daily News",
-                "url": "https://www.nydailynews.com"
             }
         }
     ]
