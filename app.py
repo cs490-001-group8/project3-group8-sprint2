@@ -6,6 +6,7 @@
 # E1101 disabled, false positive when working with database.
 import os
 import json
+import ast
 from datetime import datetime
 import flask
 import flask_socketio
@@ -13,7 +14,7 @@ import sqlalchemy
 from dotenv import load_dotenv
 from pytz import timezone
 import tables
-from tables import BASE, Theme, FavoriteParks
+from tables import BASE, Theme, FavoriteParks, PersonalTab
 import hourly_weather
 import tweets
 import news
@@ -81,6 +82,7 @@ def on_user_login(data):
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid not in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS[flask.request.sid] = data
+
     theme = SESSION.query(Theme).filter(
         Theme.name == data["newName"],
         Theme.email == data["newEmail"],
@@ -105,6 +107,15 @@ def on_user_login(data):
             "value": theme.value
         }
     SOCKETIO.emit("theme", result)
+    
+    curr_personal_tab = SESSION.query(PersonalTab).filter(
+        PersonalTab.email == data["newEmail"],
+        PersonalTab.login_type == data["loginType"]).first()
+    if (curr_personal_tab):
+        test_str = curr_personal_tab.personal_values
+        curr_obj = ast.literal_eval(test_str)
+        on_personal_tab_change(curr_obj)
+    
     liked_comments = [
         comment.comment_id
         for comment in SESSION.query(
@@ -133,6 +144,27 @@ def on_update_theme(data):
         Theme.login_type == data["loginType"]).update(
             {'pattern': data["pattern"], 'value': data['value']})
     SESSION.commit()
+
+@SOCKETIO.on("personal tab change")
+def on_personal_tab_change(data):
+    """Updates the personal tab"""
+    flask_socketio.emit("update personal tab", data)
+
+    if (flask.request.sid in LOGGEDIN_CLIENTS):
+        curr_email = LOGGEDIN_CLIENTS[flask.request.sid]["newEmail"]
+        curr_login = LOGGEDIN_CLIENTS[flask.request.sid]["loginType"]
+        
+        curr_personal_tab = SESSION.query(PersonalTab).filter(
+            PersonalTab.email == curr_email,
+            PersonalTab.login_type == curr_login).first()
+        
+        if not curr_personal_tab:
+            SESSION.add(PersonalTab(curr_email, curr_login, str(data)))
+            SESSION.commit()
+        else:
+            SESSION.query(PersonalTab).filter(
+            	PersonalTab.email == curr_email,
+            	PersonalTab.login_type == curr_login).update({'personal_values': str(data)})
 
 
 @SOCKETIO.on("disconnect")
@@ -389,11 +421,6 @@ def on_add_favorite_parks(data):
             )
             SESSION.delete(remove_favorite_park)
             SESSION.commit()
-
-@SOCKETIO.on("personal tab change")
-def on_personal_tab_change(data):
-    """Updates the personal tab"""
-    flask_socketio.emit("update personal tab", data)
 
 if __name__ == "__main__":
     SOCKETIO.run(
