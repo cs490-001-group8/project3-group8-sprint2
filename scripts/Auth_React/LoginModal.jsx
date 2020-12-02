@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import FacebookAuth from './FacebookAuth';
 import OAuthButton from './OAuthButton';
 
-const LoginModal = ({ logIn, display, setDisplay }) => {
+const LoginModal = ({
+    logIn, display, setDisplay, setProfilePic,
+}) => {
     const modalDisplay = {
         display,
     };
@@ -21,10 +23,10 @@ const LoginModal = ({ logIn, display, setDisplay }) => {
                 </div>
                 <div className="modal-body">
                     <div className="facebook-button">
-                        <FacebookAuth logIn={logIn} />
+                        <FacebookAuth logIn={logIn} setProfilePic={setProfilePic} />
                     </div>
                     <div className="google-button">
-                        <OAuthButton logIn={logIn} />
+                        <OAuthButton logIn={logIn} setProfilePic={setProfilePic} />
                     </div>
                 </div>
             </div>
@@ -35,6 +37,7 @@ const LoginModal = ({ logIn, display, setDisplay }) => {
 LoginModal.propTypes = {
     display: PropTypes.string.isRequired,
     logIn: PropTypes.func.isRequired,
+    setProfilePic: PropTypes.func.isRequired,
     setDisplay: PropTypes.func.isRequired,
 };
 

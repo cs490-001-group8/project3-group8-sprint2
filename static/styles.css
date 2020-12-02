@@ -44,6 +44,28 @@ body {
     margin: auto;
   }
 
+  .logged-in {
+    line-height: 1.01;
+    justify-self: left;
+    align-self: center;
+    font-size: 1.5rem;
+    background: #546E6E;
+    color: #FFFFFF;
+    padding: 1rem;
+    width: fit-content;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+    .user-profile-pic {
+      margin: 5px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px #2a4a4a solid;
+    }
+
 
 
 
@@ -149,7 +171,6 @@ body {
   display: flex;
   flex-flow: column;
   padding: 0px;
-  margin: 2px;
   height: 100%;
   box-shadow: 0 10px 15px rgba(0,0,0,0.3);
   transition: all 0.5s ease-in-out;
@@ -1714,4 +1735,26 @@ body {
 .fixed-plugin.rtl-fixed-plugin .dropdown-menu {
   right: auto;
   left: 80px;
+}
+
+.tooltip {
+  position: relative;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  right: 105%;
+  top: -5px;
+  font-size: 0.9rem;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
