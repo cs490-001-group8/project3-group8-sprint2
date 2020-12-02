@@ -57,6 +57,7 @@ const NationalParks = () => {
                               buttonType="&#8681;"
                               moveAction={moveFromFavorite}
                               key={park.id}
+                              tooltiptext="Move to other parks"
                             />
                             ))}
                     </div>
@@ -72,6 +73,7 @@ const NationalParks = () => {
                                       buttonType="&#8679;"
                                       moveAction={moveFromOther}
                                       key={park.id}
+                                      tooltiptext="Move to favorite parks"
                                     />
 )
                                 : (
@@ -80,6 +82,7 @@ const NationalParks = () => {
                                       buttonType=""
                                       moveAction={moveFromOther}
                                       key={park.id}
+                                      tooltiptext=""
                                     />
 )
                             ))}
