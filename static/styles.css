@@ -44,6 +44,21 @@ body {
     margin: auto;
   }
 
+  .logged-in {
+    justify-self: left;
+    align-self: center;
+    font-size: 2rem;
+    background: #2a4a4a;
+    color: #FFFFFF;
+    padding: 1rem;
+    width: fit-content;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    transition: all 0.5s ease-in-out;
+  }
+
 
 
 
