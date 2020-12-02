@@ -7,17 +7,23 @@ import FixedPlugin from './FixedPlugin';
 
 export default function Head({ logIn, loggedIn }) {
     const [display, setDisplay] = useState('none');
+    const [ppic, updatePpic] = useState('https://pyxis.nymag.com/v1/imgs/496/329/a32a4361653ee50f48ef2e5be2d85c3550-clone-high-2.rsquare.w1200.jpg');
 
     const handleClick = () => {
         setDisplay('block');
     };
+    
+    function setProfilePic({url})
+    {
+        updatePpic(() => url);
+    }
 
     if (loggedIn) {
         return (
             <div className="Head">
                 <HeadTitle />
                 <FixedPlugin />
-                <LoggedIn />
+                <LoggedIn profile_pic={ppic} />
             </div>
         );
     }

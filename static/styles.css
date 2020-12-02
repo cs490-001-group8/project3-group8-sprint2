@@ -48,16 +48,22 @@ body {
     justify-self: left;
     align-self: center;
     font-size: 2rem;
-    background: #2a4a4a;
+    background: #546E6E;
     color: #FFFFFF;
     padding: 1rem;
     width: fit-content;
     height: 64px;
     display: flex;
     align-items: center;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
     transition: all 0.5s ease-in-out;
   }
+  
+    .user-profile-pic {
+      margin: 5px;
+      height: 50px;
+      border-radius: 50%;
+      border: 1px #2a4a4a solid;
+    }
 
 
 
