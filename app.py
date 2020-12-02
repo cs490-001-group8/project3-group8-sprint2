@@ -284,6 +284,7 @@ def on_weather_request(data):
         flask_socketio.emit("weather error", {})
 
 
+@SOCKETIO.on("get location")
 def send_update_location(city):
     """send updated location to map module"""
     coordinates = forward_geocoding.get_latlon(city)
@@ -390,10 +391,12 @@ def on_add_favorite_parks(data):
             SESSION.delete(remove_favorite_park)
             SESSION.commit()
 
+
 @SOCKETIO.on("personal tab change")
 def on_personal_tab_change(data):
     """Updates the personal tab"""
     flask_socketio.emit("update personal tab", data)
+
 
 if __name__ == "__main__":
     SOCKETIO.run(

@@ -558,14 +558,16 @@ body {
       }
 
 
-
-
-
-.traffic-map {
-  height: 95%;
+.commuter-input {
+  padding:3px;
+  border-radius:10px;
+  box-shadow: 5px 5px 5px #888888;
 }
 
-
+.traffic-map {
+  height: 85%;
+  text-align: center;
+}
 
 
 .login-button {

@@ -23,6 +23,7 @@ export default function GoogleTrafficView() {
     const [currCoordinates, setCurrCoordinates] = useState(() => (
         { lat: 40.560806, lng: -74.465591 }));
     const [zoom, setZoom] = useState(() => 9);
+    const [search, setSearch] = useState(() => '');
 
     useEffect(() => {
         Socket.on('location_update', (data) => {
@@ -31,8 +32,20 @@ export default function GoogleTrafficView() {
         });
     }, []);
 
+    function onChange(event) {
+        setSearch(event.target.value);
+    }
+
+    function onSearch(event) {
+        if (event.key === 'Enter' && search !== '') {
+            Socket.emit('get location', search);
+            setSearch('');
+        }
+    }
+
     return (
         <div className="traffic-map">
+            <input className="commuter-input" onKeyPress={onSearch} onChange={onChange} id="inputCity" value={search} placeholder="Search location" type="text" />
             <GoogleMapReact
               bootstrapURLKeys={{
                     key: getAPIkey(),
