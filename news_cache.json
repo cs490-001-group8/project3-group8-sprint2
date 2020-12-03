@@ -1,6 +1,42 @@
 {
-    "timestamp": 1606943380.672115,
+    "timestamp": 1606972916.417601,
     "articles": [
+        {
+            "title": "Video shows moment NJ police car fatally crashing into pedestrian",
+            "description": "A porch security video shows the moment a New Jersey police car slams into a 65-year-old pedestrian, killing the woman, before smashing into a home.",
+            "content": "A porch security video shows the moment a New Jersey police car slams into a 65-year-old pedestrian, killing the woman, before smashing into a home.\nThe footage \u2014 captured just after 7 p.m. on Oct. 22 from a Nest camera \u2014 shows the flashing blue and ... [1754 chars]",
+            "url": "https://nypost.com/2020/12/02/video-shows-moment-nj-police-car-fatally-crashing-into-pedestrian/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/12/NJ.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-12-03T00:22:29Z",
+            "source": {
+                "name": "New York Post",
+                "url": "https://nypost.com"
+            }
+        },
+        {
+            "title": "New Jersey Governor Asks Residents Not to Travel Out of State as Covid-19 Cases Reach New Highs",
+            "description": "Visitors and residents returning to New Jersey should quarantine for 14 days, under the state\u2019s newest version of its travel advisory.",
+            "content": "New Jersey Gov. Phil Murphy strongly discouraged residents from traveling out of state for nonessential reasons as Covid-19 cases continued to mount in the region.\nVisitors and residents returning to New Jersey should quarantine for 14 days, under th... [915 chars]",
+            "url": "https://www.wsj.com/articles/new-jersey-governor-asks-residents-not-to-travel-out-of-state-as-covid-19-cases-reach-new-highs-11606946867",
+            "image": "https://images.wsj.net/im-267422/social",
+            "publishedAt": "2020-12-02T22:07:00Z",
+            "source": {
+                "name": "The Wall Street Journal",
+                "url": "https://www.wsj.com"
+            }
+        },
+        {
+            "title": "Biden Promises to Be \u2018the Most Pro-Union President'\u2014and Union Members in Congress Are Optimistic",
+            "description": "On Nov 13th, Pocan and Rep. Donald Norcross of New Jersey announced the creation of the Labor Caucus.",
+            "content": "Over the past several decades, union membership has steadily declined. Bureau of Labor Statistics data indicates that in 1983, 20.1% of employed Americans were members of a union. By 2019, that share had decreased by roughly half to 10.3%.\nBut as wea... [4823 chars]",
+            "url": "https://www.nbcboston.com/news/business/money-report/biden-promises-to-be-the-most-pro-union-president-and-union-members-in-congress-are-optimistic/2246036/",
+            "image": "https://media.nbcboston.com/2020/12/106804326-1606838444310-Biden_speaks_at_a_campaign_rally_at_Teamsters_Local_249_Union_Hall.jpg?resize=1200%2C675",
+            "publishedAt": "2020-12-02T22:05:19Z",
+            "source": {
+                "name": "NBC10 Boston",
+                "url": "https://www.nbcboston.com"
+            }
+        },
         {
             "title": "Rare Pok\u00e9mon card already has $170K bid ahead of auction",
             "description": "A New Jersey-based auction house may be on the cusp of setting a new record for the priciest Pok\u00e9mon card ever auctioned.",
@@ -23,42 +59,6 @@
             "source": {
                 "name": "New York Post",
                 "url": "https://nypost.com"
-            }
-        },
-        {
-            "title": "Immigrants At New Jersey ICE Facility On Hunger Strike To Protest Unsafe Conditions",
-            "description": "Detainees at Bergen County Jail have described rat infestations, undrinkable water and a high-risk environment for spreading COVID-19.",
-            "content": "HACKENSACK, N.J. \u2014 At least eight immigrants being held by Immigration and Customs Enforcement at Bergen County Jail in New Jersey are participating in a hunger strike to protest conditions at the facility and demand to be released.\nLocal activists s... [5304 chars]",
-            "url": "https://www.huffpost.com/entry/hunger-strike-ice-new-jersey-immigrants_n_5fc7a612c5b6b47a31ed3700",
-            "image": "https://img.huffingtonpost.com/asset/5fc7a53624000018069f9943.jpeg?cache=krl09vnaye&ops=1778_1000",
-            "publishedAt": "2020-12-02T17:31:42Z",
-            "source": {
-                "name": "The Huffington Post",
-                "url": "https://www.huffpost.com"
-            }
-        },
-        {
-            "title": "Start a new PC build with $60 off the Intel Core i7-10700K processor and get some free CLG swag",
-            "description": "The bundle comes with a free jersey and mousepad representing the eSports org CLG, but regardless of that the processor is $60 less than it normally is. That's a lot of value in one bundle, especially if you're looking to upgrade your PC.",
-            "content": "This is a super unique bundle from Newegg. The Intel CLG i7 Gamer Drop Bundle is currently $319.99 through the Newegg site. The key to this deal is the Intel Core i7-10700K processor, which is selling for around $380 at other retailers like Amazon an... [1885 chars]",
-            "url": "https://www.windowscentral.com/start-new-pc-build-60-intel-core-i7-10700k-processor-and-get-some-free-clg-swag",
-            "image": "https://www.windowscentral.com/sites/wpcentral.com/files/styles/large/public/field/image/2020/12/core-i7-10700k-gamer-bundle.jpg",
-            "publishedAt": "2020-12-02T16:39:30Z",
-            "source": {
-                "name": "Windows Central",
-                "url": "https://www.windowscentral.com"
-            }
-        },
-        {
-            "title": "Kering : Ouvre de nouveaux bureaux aux \u00c9tats-Unis",
-            "description": "(CercleFinance.com) - Kering annonce l'ouverture de ses nouveaux bureaux aux \u00c9tats-Unis, \u00e0 Wayne, dans le New Jersey \u2026",
-            "content": "\u00c0 lire aussi Cr\u00e9ez et g\u00e9rez votre portefeuille virtuel\n(CercleFinance.com) - Kering annonce l'ouverture de ses nouveaux bureaux aux \u00c9tats-Unis, \u00e0 Wayne, dans le New Jersey.\nCe complexe ultra-moderne remplace les anciennes installations du Groupe \u00e0 Se... [620 chars]",
-            "url": "https://www.tradingsat.com/kering-FR0000121485/actualites/kering-kering-ouvre-de-nouveaux-bureaux-aux-etats-unis-943065.html",
-            "image": "https://www.tradingsat.com/refonte/img/logos/BFM-Bourse.jpg",
-            "publishedAt": "2020-12-02T16:13:00Z",
-            "source": {
-                "name": "BFM Bourse",
-                "url": "https://www.tradingsat.com"
             }
         }
     ]

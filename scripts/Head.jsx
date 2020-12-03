@@ -4,6 +4,7 @@ import LoggedIn from './Auth_React/LoggedIn';
 import HeadTitle from './HeadTitle';
 import LoginModal from './Auth_React/LoginModal';
 import FixedPlugin from './FixedPlugin';
+import Navbar from './Navbar';
 
 export default function Head({ logIn, loggedIn }) {
     const [display, setDisplay] = useState('none');
@@ -21,25 +22,31 @@ export default function Head({ logIn, loggedIn }) {
 
     if (loggedIn) {
         return (
-            <div className="Head">
-                <HeadTitle />
-                <FixedPlugin />
-                <LoggedIn profilePic={ppic} userName={userName} />
+            <div>
+                <div className="Head">
+                    <HeadTitle />
+                    <FixedPlugin />
+                    <LoggedIn profilePic={ppic} userName={userName} />
+                </div>
+                <Navbar />
             </div>
         );
     }
 
     return (
-        <div className="Head">
-            <HeadTitle />
-            <FixedPlugin />
-            <button onClick={handleClick} type="button" className="login-button">Log In</button>
-            <LoginModal
-              logIn={logIn}
-              setProfilePic={setProfilePic}
-              display={display}
-              setDisplay={setDisplay}
-            />
+        <div className="sticky shadow">
+            <div className="Head">
+                <HeadTitle />
+                <FixedPlugin />
+                <button onClick={handleClick} type="button" className="login-button">Log In</button>
+                <LoginModal
+                  logIn={logIn}
+                  setProfilePic={setProfilePic}
+                  display={display}
+                  setDisplay={setDisplay}
+                />
+            </div>
+            <Navbar />
         </div>
     );
 }
