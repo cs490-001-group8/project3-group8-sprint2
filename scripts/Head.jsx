@@ -6,7 +6,7 @@ import LoginModal from './Auth_React/LoginModal';
 import FixedPlugin from './FixedPlugin';
 import Navbar from './Navbar';
 
-export default function Head({ logIn, loggedIn }) {
+export default function Head({ logIn, loggedIn, headerClass }) {
     const [display, setDisplay] = useState('none');
     const [ppic, updatePpic] = useState('');
     const [userName, updateUserName] = useState('');
@@ -22,7 +22,7 @@ export default function Head({ logIn, loggedIn }) {
 
     if (loggedIn) {
         return (
-            <div>
+            <div className={`sticky shadow ${headerClass}`}>
                 <div className="Head">
                     <HeadTitle />
                     <FixedPlugin />
@@ -34,7 +34,7 @@ export default function Head({ logIn, loggedIn }) {
     }
 
     return (
-        <div className="sticky shadow">
+        <div className={`sticky shadow ${headerClass}`}>
             <div className="Head">
                 <HeadTitle />
                 <FixedPlugin />
@@ -54,4 +54,5 @@ export default function Head({ logIn, loggedIn }) {
 Head.propTypes = {
     logIn: PropTypes.func.isRequired,
     loggedIn: PropTypes.bool.isRequired,
+    headerClass: PropTypes.string.isRequired,
 };
