@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Socket } from './Socket';
 import Body from './Body';
@@ -7,12 +7,15 @@ import Footer from './Footer';
 import ThemeContext from './ThemeContext';
 
 export default function App() {
+    const prevOffset = useRef(0);
+
     const [name, setName] = useState(() => '');
     const [email, setEmail] = useState(() => '');
     const [loginType, setLoginType] = useState(() => '');
     const [loggedIn, setLoggedIn] = useState(() => false);
     const [image, setImage] = useState(localStorage.getItem('image'));
     const [color, setColor] = useState(localStorage.getItem('color'));
+    const [headerClass, setHeaderClass] = useState('up');
     const contextValue = {
         contextImage: [image, setImage],
         contextColor: [color, setColor],
@@ -20,6 +23,21 @@ export default function App() {
         contextEmail: [email, setEmail],
         contextLoginType: [loginType, setLoginType],
     };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const curOffset = window.scrollY;
+
+            if (prevOffset.current < curOffset) setHeaderClass('scroll-down');
+            else setHeaderClass('scroll-up');
+
+            prevOffset.current = curOffset;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    });
 
     function saveChanges(img, clr) {
         setColor(clr);
@@ -52,7 +70,7 @@ export default function App() {
         <ThemeContext.Provider value={contextValue}>
             <BrowserRouter>
                 <div className="App">
-                    <Head loggedIn={loggedIn} logIn={logIn} />
+                    <Head loggedIn={loggedIn} logIn={logIn} headerClass={headerClass} />
                     <Body
                       loggedIn={loggedIn}
                       myName={name}
