@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { Socket } from './Socket';
 import Body from './Body';
 import Head from './Head';
@@ -49,11 +50,18 @@ export default function App() {
 
     return (
         <ThemeContext.Provider value={contextValue}>
-            <div className="App">
-                <Head loggedIn={loggedIn} logIn={logIn} />
-                <Body loggedIn={loggedIn} myName={name} myEmail={email} myLoginType={loginType} />
-                <Footer />
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <Head loggedIn={loggedIn} logIn={logIn} />
+                    <Body
+                      loggedIn={loggedIn}
+                      myName={name}
+                      myEmail={email}
+                      myLoginType={loginType}
+                    />
+                    <Footer />
+                </div>
+            </BrowserRouter>
         </ThemeContext.Provider>
     );
 }
