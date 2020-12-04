@@ -289,6 +289,7 @@ def on_like_comment(data):
 def on_weather_request(data):
     """Recieve city, return back weather for the day"""
     request_name = data["city_name"]
+    send_update_location(request_name)
     if not request_name.isdigit():
         request_name = request_name.lower()
 
@@ -304,12 +305,10 @@ def on_weather_request(data):
 
     if request_name.isdigit() and request_name in zip_codes:
         request_name = zip_codes[request_name]
-        send_update_location(request_name)
         weather_object = hourly_weather.fetch_weather(request_name)
         weather_object["city_name"] = request_name.title()
         flask_socketio.emit("send weather", weather_object)
     elif request_name in cities:
-        send_update_location(request_name)
         weather_object = hourly_weather.fetch_weather(request_name)
         weather_object["city_name"] = request_name.title()
         flask_socketio.emit("send weather", weather_object)
@@ -318,10 +317,28 @@ def on_weather_request(data):
 
 
 @SOCKETIO.on("get location")
-def send_update_location(city):
+def send_update_location(text):
     """send updated location to map module"""
-    coordinates = forward_geocoding.get_latlon(city)
-    flask_socketio.emit("location_update", coordinates)
+    if not text.isdigit():
+        request_name = text.lower()
+
+    zip_codes = {}
+    with open('weather_resources/zip_dict.json') as zip_dict:
+        zip_codes = json.load(zip_dict)
+    zip_dict.close()
+
+    cities = {}
+    with open("weather_resources/city_list.txt", 'r') as city_file:
+        cities = {line.strip() for line in city_file}
+    city_file.close()
+
+    if text.isdigit() and text in zip_codes:
+        request_name = zip_codes[text]
+        coordinates = forward_geocoding.get_latlon(request_name)
+        flask_socketio.emit("location_update", coordinates)
+    elif text in cities:
+        coordinates = forward_geocoding.get_latlon(text)
+        flask_socketio.emit("location_update", coordinates)
 
 
 @SOCKETIO.on("get political tweets")

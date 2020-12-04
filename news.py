@@ -36,7 +36,19 @@ def get_latest_news():
             KEY_TOKEN: FREE_NEWS_API_KEY,
         }
         response = requests.get(FREE_NEWS_API_BASE_URL, params=payload)
-        result = response.json()[KEY_ARTICLES][:5]
+        response = response.json()[KEY_ARTICLES][:10]
+        result = []
+        title = []
+
+        for item in response:
+            if item["title"] in title:
+                continue
+
+            title.append(item["title"])
+            result.append(item)
+            
+            if len(result) == 5:
+                break
 
         with open(CACHE_FILE, "w", encoding="utf8") as cache:
             json_object = json.dumps({
