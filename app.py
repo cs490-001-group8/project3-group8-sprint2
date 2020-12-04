@@ -71,6 +71,7 @@ def personal_tab():
     """When someone opens the recreation tab, send them the page"""
     return flask.render_template("index.html")
 
+
 @APP.route("/landing_page")
 def landing_page():
     """When someone click About link, render landing page"""
@@ -83,20 +84,32 @@ def on_user_login(data):
     if flask.request.sid not in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS[flask.request.sid] = data
 
-    theme = SESSION.query(Theme).filter(
-        Theme.name == data["newName"],
-        Theme.email == data["newEmail"],
-        Theme.login_type == data["loginType"]).first()
+    theme = (
+        SESSION.query(Theme)
+        .filter(
+            Theme.name == data["newName"],
+            Theme.email == data["newEmail"],
+            Theme.login_type == data["loginType"],
+        )
+        .first()
+    )
     if not theme:
         result = {
             "name": data["newName"],
             "email": data["newEmail"],
             "loginType": data["loginType"],
             "pattern": "color",
-            "value": "white"
+            "value": "white",
         }
-        SESSION.add(Theme(data["newName"], data["newEmail"],
-                          data["loginType"], result["pattern"], result["value"]))
+        SESSION.add(
+            Theme(
+                data["newName"],
+                data["newEmail"],
+                data["loginType"],
+                result["pattern"],
+                result["value"],
+            )
+        )
         SESSION.commit()
     else:
         result = {
@@ -104,26 +117,31 @@ def on_user_login(data):
             "email": data["newEmail"],
             "loginType": data["loginType"],
             "pattern": theme.pattern,
-            "value": theme.value
+            "value": theme.value,
         }
     SOCKETIO.emit("theme", result)
-    
-    curr_personal_tab = SESSION.query(PersonalTab).filter(
-        PersonalTab.email == data["newEmail"],
-        PersonalTab.login_type == data["loginType"]).first()
-    if (curr_personal_tab):
+
+    curr_personal_tab = (
+        SESSION.query(PersonalTab)
+        .filter(
+            PersonalTab.email == data["newEmail"],
+            PersonalTab.login_type == data["loginType"],
+        )
+        .first()
+    )
+    if curr_personal_tab:
         test_str = curr_personal_tab.personal_values
         curr_obj = ast.literal_eval(test_str)
         flask_socketio.emit("update existing personal", curr_obj)
-    
+
     liked_comments = [
         comment.comment_id
-        for comment in SESSION.query(
-            tables.Like
-        ).filter_by(
+        for comment in SESSION.query(tables.Like)
+        .filter_by(
             email=data["newEmail"],
             login_type=data["loginType"],
-        ).all()
+        )
+        .all()
     ]
     SOCKETIO.emit("liked comments", {"comments": liked_comments})
     flask_socketio.emit(
@@ -141,30 +159,35 @@ def on_update_theme(data):
     SESSION.query(Theme).filter(
         Theme.name == data["name"],
         Theme.email == data["email"],
-        Theme.login_type == data["loginType"]).update(
-            {'pattern': data["pattern"], 'value': data['value']})
+        Theme.login_type == data["loginType"],
+    ).update({"pattern": data["pattern"], "value": data["value"]})
     SESSION.commit()
+
 
 @SOCKETIO.on("personal tab change")
 def on_personal_tab_change(data):
     """Updates the personal tab"""
     flask_socketio.emit("update personal tab", data)
 
-    if (flask.request.sid in LOGGEDIN_CLIENTS):
+    if flask.request.sid in LOGGEDIN_CLIENTS:
         curr_email = LOGGEDIN_CLIENTS[flask.request.sid]["newEmail"]
         curr_login = LOGGEDIN_CLIENTS[flask.request.sid]["loginType"]
-        
-        curr_personal_tab = SESSION.query(PersonalTab).filter(
-            PersonalTab.email == curr_email,
-            PersonalTab.login_type == curr_login).first()
-        
+
+        curr_personal_tab = (
+            SESSION.query(PersonalTab)
+            .filter(
+                PersonalTab.email == curr_email, PersonalTab.login_type == curr_login
+            )
+            .first()
+        )
+
         if not curr_personal_tab:
             SESSION.add(PersonalTab(curr_email, curr_login, str(data)))
             SESSION.commit()
         else:
             SESSION.query(PersonalTab).filter(
-            	PersonalTab.email == curr_email,
-            	PersonalTab.login_type == curr_login).update({'personal_values': str(data)})
+                PersonalTab.email == curr_email, PersonalTab.login_type == curr_login
+            ).update({"personal_values": str(data)})
             SESSION.commit()
 
 
@@ -188,11 +211,10 @@ def on_get_comments(data):
                 "id": comment.id,
                 "likes": comment.likes,
             }
-            for comment in SESSION.query(
-                tables.Comment
-                ).filter(
-                    tables.Comment.tab == which_tab
-                ).order_by(sqlalchemy.asc(tables.Comment.time)).all()
+            for comment in SESSION.query(tables.Comment)
+            .filter(tables.Comment.tab == which_tab)
+            .order_by(sqlalchemy.asc(tables.Comment.time))
+            .all()
         ]
         all_comments_tab.reverse()
         flask_socketio.emit("old comments", {"comments": all_comments_tab})
@@ -201,12 +223,12 @@ def on_get_comments(data):
             user_info = LOGGEDIN_CLIENTS[flask.request.sid]
             liked_comments = [
                 comment.comment_id
-                for comment in SESSION.query(
-                    tables.Like
-                ).filter_by(
+                for comment in SESSION.query(tables.Like)
+                .filter_by(
                     email=user_info["newEmail"],
                     login_type=user_info["loginType"],
-                ).all()
+                )
+                .all()
             ]
             flask_socketio.emit("liked comments", {"comments": liked_comments})
     except KeyError:
@@ -251,35 +273,38 @@ def on_like_comment(data):
         user_info = LOGGEDIN_CLIENTS[flask.request.sid]
         comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
         if data["like"]:
-            if SESSION.query(
-                    tables.Like
-                ).filter_by(
+            if (
+                SESSION.query(tables.Like)
+                .filter_by(
                     email=user_info["newEmail"],
                     login_type=user_info["loginType"],
-                    comment_id=data["comment_id"]
-                ).first() is None:
+                    comment_id=data["comment_id"],
+                )
+                .first()
+                is None
+            ):
                 comment.likes += 1
                 like = tables.Like(
-                    user_info["newEmail"],
-                    user_info["loginType"],
-                    data["comment_id"])
+                    user_info["newEmail"], user_info["loginType"], data["comment_id"]
+                )
                 SESSION.add(like)
         else:
-            if SESSION.query(
-                    tables.Like
-                ).filter_by(
+            if (
+                SESSION.query(tables.Like)
+                .filter_by(
                     email=user_info["newEmail"],
                     login_type=user_info["loginType"],
-                    comment_id=data["comment_id"]
-                ).first() is not None:
+                    comment_id=data["comment_id"],
+                )
+                .first()
+                is not None
+            ):
                 comment.likes -= 1
-                SESSION.query(
-                    tables.Like
-                    ).filter_by(
-                        email=user_info["newEmail"],
-                        login_type=user_info["loginType"],
-                        comment_id=data["comment_id"]
-                    ).delete()
+                SESSION.query(tables.Like).filter_by(
+                    email=user_info["newEmail"],
+                    login_type=user_info["loginType"],
+                    comment_id=data["comment_id"],
+                ).delete()
         SESSION.commit()
     except KeyError:
         return
@@ -294,12 +319,12 @@ def on_weather_request(data):
         request_name = request_name.lower()
 
     zip_codes = {}
-    with open('weather_resources/zip_dict.json') as zip_dict:
+    with open("weather_resources/zip_dict.json") as zip_dict:
         zip_codes = json.load(zip_dict)
     zip_dict.close()
 
     cities = {}
-    with open("weather_resources/city_list.txt", 'r') as city_file:
+    with open("weather_resources/city_list.txt", "r") as city_file:
         cities = {line.strip() for line in city_file}
     city_file.close()
 
@@ -323,12 +348,12 @@ def send_update_location(text):
         request_name = text.lower()
 
     zip_codes = {}
-    with open('weather_resources/zip_dict.json') as zip_dict:
+    with open("weather_resources/zip_dict.json") as zip_dict:
         zip_codes = json.load(zip_dict)
     zip_dict.close()
 
     cities = {}
-    with open("weather_resources/city_list.txt", 'r') as city_file:
+    with open("weather_resources/city_list.txt", "r") as city_file:
         cities = {line.strip() for line in city_file}
     city_file.close()
 
@@ -440,6 +465,7 @@ def on_add_favorite_parks(data):
             )
             SESSION.delete(remove_favorite_park)
             SESSION.commit()
+
 
 if __name__ == "__main__":
     SOCKETIO.run(
