@@ -7,6 +7,7 @@ import unittest.mock as mock
 from datetime import datetime
 import sys
 from os.path import dirname, join
+import ast
 
 # pylint: disable=C0413
 sys.path.append(join(dirname(__file__), "../"))
@@ -49,6 +50,10 @@ class MockedQueryResponseObj:
         self.comment_id = 7
         self.pattern = "w"
         self.value = "78"
+        self.personal_values =\
+            "{'News': True, 'Weather': True, 'Traffic': False, \
+            'Bills': False, 'Politician_Twitter': False, \
+            'Hiking_Destinations': True, 'Sports': False}"
 
 
 class MockedOrderResponse:
@@ -209,6 +214,18 @@ class MockedFavoriteParkQuery:
         returns all the records form db
         """
         return MockedAllFunction(self.park_id)
+
+class MockedPersonalTab:
+    """
+    Mocking a personal tab retrieval
+    """
+    def __init__(self, email, login_type, personal_values):
+        self.email = email
+        self.login_type = login_type
+        self.personal_values = personal_values
+    
+    def filter_by(self, **kwarg):
+        return MockedAllFunction(self.personal_values)
 
 
 # pylint: disable=R0902
@@ -385,6 +402,8 @@ class AppTestCases(unittest.TestCase):
             pass
         elif channel == "national parks update":
             pass
+        elif channel == "update existing personal":
+            pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -465,6 +484,8 @@ class AppTestCases(unittest.TestCase):
         elif channel == "send sport":
             pass
         elif channel == "national parks update":
+            pass
+        elif channel == "update existing personal":
             pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -803,7 +824,21 @@ class AppTestCases(unittest.TestCase):
         """Test the personal tab socket"""
         test_tabs = {"tab": "tested"}
         import app
-
+            
+        with mock.patch(
+            "app.SESSION.add"
+        ) as mocked_session_add, mock.patch(
+            "app.SESSION.delete"
+        ) as mocked_session_delete, mock.patch(
+            "app.SESSION.commit"
+        ), mock.patch(
+            "app.SESSION.query"
+        ) as mocked_session_query:
+            mocker = mock.MagicMock()
+            mocker.sid = "12345"
+            with mock.patch("app.flask.request", mocker):
+                mocked_session_query.return_value #####
+        
         with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
             app.on_personal_tab_change(test_tabs)
             self.assertIsInstance(test_tabs, dict)
