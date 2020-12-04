@@ -81,6 +81,12 @@ body {
   align-items: center;
   flex-direction: row;
   margin: 2px;
+  position: relative;
+}
+
+.absolute-class {
+  position: absolute;
+  left: 0px;
 }
 
 .tab {
@@ -535,8 +541,8 @@ body {
 
 .commuter-input {
   padding: 3px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px #888888;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #888888;
 }
 
 .traffic-map {
