@@ -19,9 +19,9 @@ const Footer = () => (
                             </div>
                             <div className="footer-text">
                                 <p>
-                                    This website was designed and deployed under New Jersey Institute of Technology. 
-                                    
-                    
+                                    This website was designed and deployed under
+                                    New Jersey Institute of Technology.
+
                                 </p>
                             </div>
                         </div>
@@ -33,10 +33,10 @@ const Footer = () => (
                             </div>
                             <ul>
                                 <li><NavLink className="a" to="/">Home</NavLink></li>
-                                <li><a href="https://www.nj.com/jobs/" target="_blank">NJ Jobs</a></li>
-                                <li><a href="https://www.myunemployment.nj.gov/" target="_blank">Unemployment</a></li>
-                                <li><a href="https://www.state.nj.us/mvc/" target="_blank">MVC</a></li>
-                                <li><a href="https://www.nj.gov/health/cd/topics/covid2019_dashboard.shtml/" target="_blank">COVID-19 Tracker</a></li>
+                                <li><a href="https://www.nj.com/jobs/" target="_blank" rel="noreferrer">NJ Jobs</a></li>
+                                <li><a href="https://www.myunemployment.nj.gov/" target="_blank" rel="noreferrer">Unemployment</a></li>
+                                <li><a href="https://www.state.nj.us/mvc/" target="_blank" rel="noreferrer">MVC</a></li>
+                                <li><a href="https://www.nj.gov/health/cd/topics/covid2019_dashboard.shtml/" target="_blank" rel="noreferrer">COVID-19 Tracker</a></li>
                                 <li><a href="/landing_page">About</a></li>
                             </ul>
                         </div>
