@@ -88,3 +88,24 @@ class FavoriteParks(BASE):
             self.login_type,
             self.park_id,
         )
+
+class PersonalTab(BASE):
+    '''Defines the Themes table'''
+    __tablename__ = 'personal_tab'
+    id = Column(Integer, primary_key=True)
+    email = Column(String(100))
+    login_type = Column(String(50))
+    personal_values = Column(String(300))
+
+    # pylint: disable=R0913
+    def __init__(self, email, login_type, personal_values):
+        self.email = email
+        self.login_type = login_type
+        self.personal_values = personal_values
+
+    def __repr__(self):
+        return 'Name: %s, Login Type: %s, Tab Values: %s' % (
+            self.name,
+            self.login_type,
+            self.personal_values
+        )
