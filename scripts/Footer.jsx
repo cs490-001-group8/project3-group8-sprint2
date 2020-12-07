@@ -9,7 +9,7 @@ const Footer = () => (
                     <div className="col-xl-4 col-lg-4 mb-50">
                         <div className="footer-widget">
                             <div className="footer-logo">
-                                <a href="https://www.njit.com/" target="_blank" rel="noreferrer"></a></li>
+                                <a href="https://www.njit.edu/" target="_blank" rel="noreferrer"></a></li>
                                     <img
                                       src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/NJIT_Highlanders_logo.svg/1200px-NJIT_Highlanders_logo.svg.png"
                                       className="img-fluid"
