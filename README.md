@@ -140,6 +140,9 @@ If you wish to check the linting on this project, execute the following commands
 4. Karan Patoliya
 	1. Add tab switching and the functionality therein.
 	2. Give users the option of using FaceBook OAuth.
+	3. Add search to traffic widget & make it responsive concurrent to weather search.
+	4. Create the sports module with info on NJ sports team.
+	5. Redesigning and setting up landing page.
 5. Bishoy Kamel
 	1. Create a widget to display local news stories using cache.
 	2. Create news unit testing. 
