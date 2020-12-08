@@ -274,14 +274,14 @@ def on_like_comment(data):
         comment = SESSION.query(tables.Comment).filter_by(id=data["comment_id"]).first()
         if data["like"]:
             if (
-                SESSION.query(tables.Like)
-                .filter_by(
-                    email=user_info["newEmail"],
-                    login_type=user_info["loginType"],
-                    comment_id=data["comment_id"],
-                )
-                .first()
-                is None
+                    SESSION.query(tables.Like)
+                    .filter_by(
+                        email=user_info["newEmail"],
+                        login_type=user_info["loginType"],
+                        comment_id=data["comment_id"],
+                    )
+                    .first()
+                    is None
             ):
                 comment.likes += 1
                 like = tables.Like(
@@ -290,14 +290,14 @@ def on_like_comment(data):
                 SESSION.add(like)
         else:
             if (
-                SESSION.query(tables.Like)
-                .filter_by(
-                    email=user_info["newEmail"],
-                    login_type=user_info["loginType"],
-                    comment_id=data["comment_id"],
-                )
-                .first()
-                is not None
+                    SESSION.query(tables.Like)
+                    .filter_by(
+                        email=user_info["newEmail"],
+                        login_type=user_info["loginType"],
+                        comment_id=data["comment_id"],
+                    )
+                    .first()
+                    is not None
             ):
                 comment.likes -= 1
                 SESSION.query(tables.Like).filter_by(
