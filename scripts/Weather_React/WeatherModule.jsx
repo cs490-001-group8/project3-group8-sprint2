@@ -56,6 +56,7 @@ export default function WeatherModule() {
         localStorage.setItem('weatherInput', currCityValue);
         currCityEvent.value = '';
         event.preventDefault();
+        setCurrWeather([]);
     }
     return (
         <div className="widget weather_widget">
@@ -64,7 +65,7 @@ export default function WeatherModule() {
                 <input className="commuter-input" id="inputCity" placeholder="Search your city" type="text" />
             </form>
             <hr />
-            {currWeather}
+            {currWeather.length !== 0 ? currWeather : <div className="loader" />}
         </div>
     );
 }
