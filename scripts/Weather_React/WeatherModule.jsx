@@ -65,7 +65,7 @@ export default function WeatherModule() {
                 <input className="commuter-input" id="inputCity" placeholder="Search your city" type="text" />
             </form>
             <hr />
-            {currWeather.length !== 0 ? currWeather : <div className="loader" />}
+            {currWeather.length !== 0 || !localStorage.getItem("weatherInput") ? currWeather : <div className="loader" />}
         </div>
     );
 }
