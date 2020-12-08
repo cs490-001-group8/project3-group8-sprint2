@@ -1,64 +1,66 @@
 {
-    "timestamp": 1607373725.844938,
+    "timestamp": 1607112339.086698,
     "articles": [
         {
-            "title": "New Jersey certifies vote showing Joe Biden's victory",
-            "description": "TRENTON, N.J. (AP) \u2014 Joe Biden is officially the winner in New Jersey's presidential contest. Secretary of State Tahesha Way and the Board of State Canvassers certified New Jersey\u2019s vote on...",
-            "content": "TRENTON, N.J. (AP) \u2014 Joe Biden is officially the winner in New Jersey\u2019s presidential contest.\nSecretary of State Tahesha Way and the Board of State Canvassers certified New Jersey\u2019s vote on Monday Gov. Phil Murphy said.\nMurphy, a Democrat, said he wi... [355 chars]",
-            "url": "https://apnews.com/article/donald-trump-joe-biden-new-jersey-d8c7c0a149cbace9e97419815d0996f8",
-            "image": "https://apnews.com/images/ShareLogo2.png",
-            "publishedAt": "2020-12-07T19:31:24Z",
+            "title": "Off-duty cop finds missing man by following dog's paw prints",
+            "description": "An off-duty New Jersey cop on a hunting trip located Fred Rapp, who had crashed his vehicle in the woods \u2013 thanks to the 78-year-old\u2019s dog, whose paw prints led right to him.",
+            "content": "An off-duty New Jersey cop on a hunting trip located a missing man who had crashed his vehicle in the woods \u2013 thanks to the 78-year-old\u2019s dog, whose paw prints led right to him, police said.\nManchester police launched a search after Heidi Sarno notif... [1832 chars]",
+            "url": "https://nypost.com/2020/12/04/off-duty-cop-finds-missing-man-by-following-dogs-paw-prints/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/12/dog-missing-person-26.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-12-04T17:47:16Z",
             "source": {
                 "name": "The Associated Press",
                 "url": "https://apnews.com"
             }
         },
         {
-            "title": "'Bud Light Mike' strikes again, Florida cops claim",
-            "description": "New Jersey native 'Bud Light Mike' accused of stealing his favorite beer from a Florida supermarket over the weekend",
-            "content": "In addition to being convicted of stealing Budweiser beer in April, Bud Light Mike has reportedly been busted for carrying open containers of Bud Light at the beach and at a bus stop. He has also been busted for stealing beer from a Speedway story an... [99 chars]",
-            "url": "https://www.nydailynews.com/news/crime/ny-bud-light-mike-steals-beer-budweiser-new-jersey-20201207-wlx57g2h6new5ic4vk5ay74t44-story.html",
-            "image": "https://www.nydailynews.com/resizer/kcrBlGqOC0lguqZf4ceo5c86kww=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/SFDHUJHNIJBRZNR6AX74LGKQ2E.jpg",
-            "publishedAt": "2020-12-07T19:13:06Z",
+            "title": "Human remains discovered on New Jersey beach",
+            "description": "The remains were found around 9:45 a.m. Thursday along the northern portion of Brigantine Beach, New Jersey state police said.",
+            "content": "The remains were found around 9:45 a.m. Thursday along the northern portion of Brigantine Beach, New Jersey state police said....",
+            "url": "https://www.nydailynews.com/news/national/ny-human-remains-beach-new-jersey-20201204-mmjey4ehyfe4fepmy7dzpzb5fi-story.html",
+            "image": "https://www.nydailynews.com/resizer/TBivRmpvUXNourCuL5yBScdKkBk=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/Z5KNYW5FMFA6NC354SLK72H45Q.jpg",
+            "publishedAt": "2020-12-04T16:51:27Z",
             "source": {
                 "name": "New York Daily News",
                 "url": "https://www.nydailynews.com"
             }
         },
         {
-            "title": "Stephanie Ruhle 'sick and scared' after COVID diagnosis",
-            "description": "MSNBC anchor Stephanie Ruhle revealed Monday that she and her family are recovering from coronavirus after she spent the better part of the past two weeks in bed. The mother of three, who is in quarantine at her New Jersey home, told viewers that she was \u201cincredibly lucky\u201d that her symptoms felt \u201cjust like a terrible flu\u201d and that she was able to take time off from work to focus on her health.",
-            "content": "The mother of three, who is in quarantine at her New Jersey home, told viewers that she was \u201cincredibly lucky\u201d that her symptoms felt \u201cjust like a terrible flu\u201d and that she was able to take time off from work to focus on her health....",
-            "url": "https://www.nydailynews.com/snyde/ny-stephanie-ruhle-msnbc-anchor-covid-20201207-wn6mbetfona2xkg7smjojbnwaq-story.html",
-            "image": "https://www.nydailynews.com/resizer/7u67eeRF_cm5mq6CwIBYvTWsOYQ=/1200x0/center/middle/cloudfront-us-east-1.images.arcpublishing.com/tronc/K22RIWPMIZD2LEDROHYIEOCNFY.jpg",
-            "publishedAt": "2020-12-07T18:57:21Z",
+            "title": "Missing man, 78, saved by dog and off-duty cop",
+            "description": "A 78-year-old man who crashed his car in the middle of the wilderness in New Jersey was rescued thanks to his loyal dog and an eagle-eyed off-duty cop.",
+            "content": "\u201cThis situation highlights the fact that a police officer is a police officer 24/7,\u201d said Manchester Police Chief Lisa Parker. \u201cWe are truly fortunate that Sgt. Brooks was in the right place at the right time because without his help there is no tell... [37 chars]",
+            "url": "https://www.nydailynews.com/new-york/ny-dog-missing-elderly-new-jersey-20201204-f63naam535gaboxf6qvtj4ykxi-story.html",
+            "image": "https://www.nydailynews.com/resizer/_6rhCAS2p47YpcvYV2NydkWMzys=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/XLNHTK7WAFF2VKO4EZGILSWTKE.jpg",
+            "publishedAt": "2020-12-04T15:14:41Z",
             "source": {
                 "name": "New York Daily News",
                 "url": "https://www.nydailynews.com"
             }
         },
         {
-            "title": "FBI urges second COVID-19 test for clients of New Jersey lab",
-            "description": "The FBI\u2019s Newark office urged anyone who got screened for COVID-19 at Infinity Diagnostic Laboratory in Ventnor to be \u201cretested as soon as possible.\u201d",
-            "content": "Anyone recently tested for the coronavirus at a New Jersey lab that was raided by the feds last week should be re-screened, FBI officials said.\nThe FBI\u2019s Newark office released a statement Friday urging anyone who got screened for the virus at Infini... [2349 chars]",
-            "url": "https://nypost.com/2020/12/07/fbi-urges-second-covid-19-test-for-clients-of-jersey-shore-lab/",
-            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/12/covid-test-new-jersey.jpg?quality=90&strip=all&w=1200",
-            "publishedAt": "2020-12-07T15:59:56Z",
+
+            "title": "Missing elderly man\u2019s dog leads off-duty NJ cop to its owner",
+            "description": "A grueling nine-hour search for a missing elderly man in New Jersey came to an end last week when his dog led an off-duty police officer to the owner.\nFred...",
+            "content": "A grueling nine-hour search for a missing elderly man in New Jersey came to an end last week when his dog led an off-duty police officer to the owner.\nFred Rapp, 78, was reported missing to Manchester Police on Nov. 27. Officers started a search for ... [1053 chars]",
+            "url": "https://nypost.com/2020/12/04/missing-elderly-mans-dog-leads-off-duty-nj-cop-to-its-owner/",
+            "image": "https://nypost.com/wp-content/uploads/sites/2/2020/12/petie-dog.jpg?quality=90&strip=all&w=480",
+            "publishedAt": "2020-12-04T05:56:52Z",
             "source": {
                 "name": "New York Post",
                 "url": "https://nypost.com"
             }
         },
         {
-            "title": "Construction start for huge Lancaster shipping hub",
-            "description": "A New Jersey-based logistics firm is breaking ground today on a huge shipping hub in Lancaster. DSV International is starting work on the project at 3001...",
-            "content": "A New Jersey-based logistics firm is breaking ground today on a huge shipping hub in Lancaster.\nDSV International is starting work on the project at 3001 Midpoint Drive, and the industrial development will cost more than $65 million, according to fil... [1259 chars]",
-            "url": "https://www.dallasnews.com/business/real-estate/2020/12/07/construction-start-for-huge-lancaster-shipping-hub/",
-            "image": "https://dmn-dallas-news-prod.cdn.arcpublishing.com/resizer/vdKNHrhM7VrNjV4JTnr9dwonZGg=/1200x630/smart/filters:no_upscale()/cloudfront-us-east-1.images.arcpublishing.com/dmn/SCCVE4IBEBFWTMBGI7GISBYVMU.jpg",
-            "publishedAt": "2020-12-07T14:28:46Z",
+
+            "title": "LOOK: Russell Westbrook picks new jersey number with the Wizards and here's why he made the switch",
+            "description": "No. 4 was Westbrook's high school number",
+            "content": "Russell Westbrook has a new team and a new number. On Wednesday, it was reported that the Houston Rockets traded Westbrook to the Washington Wizards for John Wall and a 2023 protected first-round pick.\nOn Thursday, the Wizards tweeted out that there ... [982 chars]",
+            "url": "https://www.cbssports.com/nba/news/look-russell-westbrook-picks-new-jersey-number-with-the-wizards-and-heres-why-he-made-the-switch/",
+            "image": "https://sportshub.cbsistatic.com/i/r/2020/09/13/4890c0b7-19f1-4e11-ad3f-021e349d5cb9/thumbnail/1200x675/526018b140bc3ce4412e5f53770226c4/russel-westbrook-rockets-2.jpg",
+            "publishedAt": "2020-12-04T03:01:15Z",
             "source": {
-                "name": "The Dallas Morning News",
-                "url": "https://www.dallasnews.com"
+                "name": "CBS Sports",
+                "url": "https://www.cbssports.com"
             }
         }
     ]
