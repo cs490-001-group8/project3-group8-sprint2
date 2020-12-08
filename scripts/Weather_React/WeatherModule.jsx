@@ -61,7 +61,7 @@ export default function WeatherModule() {
         <div className="widget weather_widget">
             <WidgetTitle title={`${currCity} Forecast`} />
             <form onSubmit={handleSubmit}>
-                <input id="inputCity" placeholder="Search your city" type="text" />
+                <input className="commuter-input" id="inputCity" placeholder="Search your city" type="text" />
             </form>
             <hr />
             {currWeather}

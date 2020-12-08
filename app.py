@@ -6,6 +6,7 @@
 # E1101 disabled, false positive when working with database.
 import os
 import json
+import ast
 from datetime import datetime
 import flask
 import flask_socketio
@@ -13,7 +14,7 @@ import sqlalchemy
 from dotenv import load_dotenv
 from pytz import timezone
 import tables
-from tables import BASE, Theme, FavoriteParks, UserInformation
+from tables import BASE, Theme, FavoriteParks, UserInformation, PersonalTab
 import hourly_weather
 import tweets
 import news
@@ -85,6 +86,7 @@ def on_user_login(data):
     """Recieve OAuth information when sent by the client"""
     if flask.request.sid not in LOGGEDIN_CLIENTS:
         LOGGEDIN_CLIENTS[flask.request.sid] = data
+
     theme = (
         SESSION.query(Theme)
         .filter(
@@ -121,6 +123,20 @@ def on_user_login(data):
             "value": theme.value,
         }
     SOCKETIO.emit("theme", result)
+
+    curr_personal_tab = (
+        SESSION.query(PersonalTab)
+        .filter(
+            PersonalTab.email == data["newEmail"],
+            PersonalTab.login_type == data["loginType"],
+        )
+        .first()
+    )
+    if curr_personal_tab:
+        test_str = curr_personal_tab.personal_values
+        curr_obj = ast.literal_eval(test_str)
+        flask_socketio.emit("update existing personal", curr_obj)
+
     liked_comments = [
         comment.comment_id
         for comment in SESSION.query(tables.Like)
@@ -150,6 +166,33 @@ def on_update_theme(data):
         Theme.login_type == data["loginType"],
     ).update({"pattern": data["pattern"], "value": data["value"]})
     SESSION.commit()
+
+
+@SOCKETIO.on("personal tab change")
+def on_personal_tab_change(data):
+    """Updates the personal tab"""
+    flask_socketio.emit("update personal tab", data)
+
+    if flask.request.sid in LOGGEDIN_CLIENTS:
+        curr_email = LOGGEDIN_CLIENTS[flask.request.sid]["newEmail"]
+        curr_login = LOGGEDIN_CLIENTS[flask.request.sid]["loginType"]
+
+        curr_personal_tab = (
+            SESSION.query(PersonalTab)
+            .filter(
+                PersonalTab.email == curr_email, PersonalTab.login_type == curr_login
+            )
+            .first()
+        )
+
+        if not curr_personal_tab:
+            SESSION.add(PersonalTab(curr_email, curr_login, str(data)))
+            SESSION.commit()
+        else:
+            SESSION.query(PersonalTab).filter(
+                PersonalTab.email == curr_email, PersonalTab.login_type == curr_login
+            ).update({"personal_values": str(data)})
+            SESSION.commit()
 
 
 @SOCKETIO.on("disconnect")
@@ -275,6 +318,7 @@ def on_like_comment(data):
 def on_weather_request(data):
     """Recieve city, return back weather for the day"""
     request_name = data["city_name"]
+    send_update_location(request_name)
     if not request_name.isdigit():
         request_name = request_name.lower()
 
@@ -290,12 +334,10 @@ def on_weather_request(data):
 
     if request_name.isdigit() and request_name in zip_codes:
         request_name = zip_codes[request_name]
-        send_update_location(request_name)
         weather_object = hourly_weather.fetch_weather(request_name)
         weather_object["city_name"] = request_name.title()
         flask_socketio.emit("send weather", weather_object)
     elif request_name in cities:
-        send_update_location(request_name)
         weather_object = hourly_weather.fetch_weather(request_name)
         weather_object["city_name"] = request_name.title()
         flask_socketio.emit("send weather", weather_object)
@@ -303,10 +345,29 @@ def on_weather_request(data):
         flask_socketio.emit("weather error", {})
 
 
-def send_update_location(city):
+@SOCKETIO.on("get location")
+def send_update_location(text):
     """send updated location to map module"""
-    coordinates = forward_geocoding.get_latlon(city)
-    flask_socketio.emit("location_update", coordinates)
+    if not text.isdigit():
+        request_name = text.lower()
+
+    zip_codes = {}
+    with open("weather_resources/zip_dict.json") as zip_dict:
+        zip_codes = json.load(zip_dict)
+    zip_dict.close()
+
+    cities = {}
+    with open("weather_resources/city_list.txt", "r") as city_file:
+        cities = {line.strip() for line in city_file}
+    city_file.close()
+
+    if text.isdigit() and text in zip_codes:
+        request_name = zip_codes[text]
+        coordinates = forward_geocoding.get_latlon(request_name)
+        flask_socketio.emit("location_update", coordinates)
+    elif text in cities:
+        coordinates = forward_geocoding.get_latlon(text)
+        flask_socketio.emit("location_update", coordinates)
 
 
 @SOCKETIO.on("get political tweets")
@@ -410,10 +471,6 @@ def on_add_favorite_parks(data):
             SESSION.commit()
 
 
-@SOCKETIO.on("personal tab change")
-def on_personal_tab_change(data):
-    """Updates the personal tab"""
-    flask_socketio.emit("update personal tab", data)
 
 
 @SOCKETIO.on("last weather input")

@@ -17,7 +17,8 @@ sys.path.append(join(dirname(__file__), "../"))
 # pylint: disable=W0612
 # pylint: disable=E0401
 # pylint: disable=C0330
-
+# pylint: disable=E1120
+# pylint: disable=R0201
 
 def weather_do_nothing(one, two, three):
     """Do nothing instead of getting weather"""
@@ -49,6 +50,9 @@ class MockedQueryResponseObj:
         self.comment_id = 7
         self.pattern = "w"
         self.value = "78"
+        self.personal_values = "{'News': True, 'Weather': True, 'Traffic': False, \
+            'Bills': False, 'Politician_Twitter': False, \
+            'Hiking_Destinations': True, 'Sports': False}"
 
 
 class MockedOrderResponse:
@@ -235,6 +239,39 @@ class MockedFavoriteParkQuery:
         return MockedAllFunction(self.park_id)
 
 
+class MockedPersonalTabFirst:
+    """Mock a false retrieval from the db"""
+    def __init__(self):
+        pass
+
+    def first(self):
+        """When a db call is done, return false"""
+        return False
+
+    def update(self, personal_values):
+        """When a db update is done, return false"""
+        return False
+
+
+class MockedPersonalTab:
+    """
+    Mocking a personal tab retrieval
+    """
+
+    def __init__(self, email, login_type, personal_values):
+        self.email = email
+        self.login_type = login_type
+        self.personal_values = personal_values
+
+    def filter(self, email, login_type):
+        """
+        Return the mocked tab in order
+        to simulate a false retrieval
+        from the db
+        """
+        return MockedPersonalTabFirst()
+
+
 # pylint: disable=R0902
 # pylint: disable=R0916
 # pylint: disable=R0201
@@ -409,6 +446,8 @@ class AppTestCases(unittest.TestCase):
             pass
         elif channel == "national parks update":
             pass
+        elif channel == "update existing personal":
+            pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
 
@@ -489,6 +528,8 @@ class AppTestCases(unittest.TestCase):
         elif channel == "send sport":
             pass
         elif channel == "national parks update":
+            pass
+        elif channel == "update existing personal":
             pass
         else:
             raise ValueError("NO ESTABLISHED CHANNEL")
@@ -832,9 +873,43 @@ class AppTestCases(unittest.TestCase):
         test_tabs = {"tab": "tested"}
         import app
 
-        with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
-            app.on_personal_tab_change(test_tabs)
-            self.assertIsInstance(test_tabs, dict)
+        with mock.patch("app.SESSION.add") as mocked_session_add, mock.patch(
+            "app.SESSION.delete"
+        ) as mocked_session_delete, mock.patch("app.SESSION.commit"), mock.patch(
+            "app.SESSION.query"
+        ) as mocked_session_query:
+            mocker = mock.MagicMock()
+            mocker.sid = "12345"
+            with mock.patch("app.flask.request", mocker):
+                # pylint: disable=C0103
+                LOGGEDIN_CLIENTS = {}
+                LOGGEDIN_CLIENTS["12345"] = {"test": "done"}
+                with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
+                    app.on_personal_tab_change(test_tabs)
+                    self.assertIsInstance(test_tabs, dict)
+
+    def test_on_personal_tab_change_failed(self):
+        """Test the personal tab socket"""
+        test_tabs = {"tab": "tested"}
+        import app
+
+        with mock.patch("app.SESSION.add") as mocked_session_add, mock.patch(
+            "app.SESSION.delete"
+        ) as mocked_session_delete, mock.patch("app.SESSION.commit"), mock.patch(
+            "app.SESSION.query"
+        ) as mocked_session_query:
+            mocker = mock.MagicMock()
+            mocker.sid = "12345"
+            with mock.patch("app.flask.request", mocker):
+                # pylint: disable=C0103
+                LOGGEDIN_CLIENTS = {}
+                LOGGEDIN_CLIENTS["12345"] = {"test": "done"}
+                mocked_session_query.return_value = MockedPersonalTab(
+                    "ameer", "fb", "test:true"
+                )
+                with mock.patch("flask_socketio.emit", self.mock_flask_emit_weather):
+                    app.on_personal_tab_change(test_tabs)
+                    self.assertIsInstance(test_tabs, dict)
 
     def mock_update_theme(self, data):
         """Mock Session update for theme"""

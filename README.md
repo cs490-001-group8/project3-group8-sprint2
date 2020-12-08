@@ -124,7 +124,7 @@ If you wish to check the linting on this project, execute the following commands
 1. Ameer Hassan
 	1. Create the weather widget and its functionality.
 	2. Establish Google OAuth.
-	3. Set up the Heroku deployment.
+	3. Set up the Heroku deployment for first week.
 2. Joseph Fiore
 	1. Create the Comment section and have it be different for every tab.
 	2. Create the widget displaying tweets from political figures.
@@ -138,24 +138,29 @@ If you wish to check the linting on this project, execute the following commands
 	1. Add tab switching and the functionality therein.
 	2. Give users the option of using FaceBook OAuth.
 5. Bishoy Kamel
-	1. Create a widget to display local news stories.
+	1. Create a widget to display local news stories using cache.
+	2. Create news unit testing. 
+	3. Create background gear feature to change colors and save to database. 
+	4. Create header that appears when user scrolls up but will disappear when user scrolls down.
+	5. Create footer to display information about us and usefull links for New Jersey Residents. 
 6. Group Work
 	1. Edit Proposal
 	2. Establish and continuously update Kanban Board
 	3. Work on the style of the site.
 	4. Add content to the landing page.
 	5. Find bugs and report them to the person who's work it applies to.
-	6. Lint and test their code.
+	6. Lint and test one anothers code.
 
 ## Technical Issues and Solutions
 The comment section was having an issue where each tab was not recognizing different comment sections as different.
   This was solved by utilizing hooks to keep the comment sections as the same element that
   simply updates on a switched tab.
 API Requests are incredibly frequent, making it likely we run out of requests often.
-  This was solved by caching the results of API requests so a minimal amount of them occur.
+	This was solved by caching the results of API requests so a minimal amount of them occur.
 The background button was by default set to the left where it was overlapping on the discussion tab.
-The solution was adjusting and moving the positions in multiple css files.
-  
+	The solution was adjusting and moving the positions in multiple css files.
+The news very rarley displayed the same articles multiple times, due to the api sending over that infomation.
+	The solution for this was adding an if else statment that check if whats being added to cache is already there or not.
 The comment section was having issues where they were getting the comments sent to all tabs.
   This was solved by utilizing rooms in the backend to ensure that comments were only sent 
   to users in one tab.
