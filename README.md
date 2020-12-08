@@ -124,7 +124,10 @@ If you wish to check the linting on this project, execute the following commands
 1. Ameer Hassan
 	1. Create the weather widget and its functionality.
 	2. Establish Google OAuth.
-	3. Set up the Heroku deployment for first week.
+	3. Set up the Heroku deployment for the MVP deployment.
+	4. Set up zipcode/city authorization for the weather.
+	5. Create a list of city/zipcode pairs for authorization of NJ municipalities within the app.
+	6. Create the personal tab and user account persistence for the personal tabs.
 2. Joseph Fiore
 	1. Create the Comment section and have it be different for every tab.
 	2. Create the widget displaying tweets from political figures.
