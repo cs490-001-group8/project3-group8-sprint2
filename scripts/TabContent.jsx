@@ -5,7 +5,7 @@ import TabWidgets from './TabWidgets';
 import ThemeContext from './ThemeContext';
 
 export default function TabContent({
-    myName, loggedIn, currTab, myLoginType, myEmail,
+    myName, loggedIn, currTab, myLoginType, myEmail, hasDiscussion,
 }) {
     const colorTable = {
         purple: '#9c27b0',
@@ -29,6 +29,7 @@ export default function TabContent({
     return (
         <div className="tab-content" style={style}>
             <TabWidgets currTab={currTab} />
+            { hasDiscussion && (
             <CommentBlock
               currTab={currTab}
               myName={myName}
@@ -36,6 +37,7 @@ export default function TabContent({
               myEmail={myEmail}
               myLoginType={myLoginType}
             />
+) }
         </div>
     );
 }
@@ -46,4 +48,5 @@ TabContent.propTypes = {
     myEmail: PropTypes.string.isRequired,
     myLoginType: PropTypes.string.isRequired,
     currTab: PropTypes.string.isRequired,
+    hasDiscussion: PropTypes.bool.isRequired,
 };

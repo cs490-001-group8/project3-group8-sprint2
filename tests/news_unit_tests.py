@@ -97,10 +97,10 @@ class NewsTestCases(unittest.TestCase):
         self.test_fetch_recent_success = {
             KEY_INPUT: """{"articles": [
                     {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
-                    {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "B","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "C","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "D","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
+                    {"title": "E","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}},
                     {"title": "A","description": "B","content": "C","url": "D","image": "E","publishedAt": "F","source": {"name": "G","url": "H"}}
                 ]}""",
             KEY_EXPECTED: [
@@ -114,7 +114,7 @@ class NewsTestCases(unittest.TestCase):
                     "source": {"name": "G", "url": "H"},
                 },
                 {
-                    "title": "A",
+                    "title": "B",
                     "description": "B",
                     "content": "C",
                     "url": "D",
@@ -123,7 +123,7 @@ class NewsTestCases(unittest.TestCase):
                     "source": {"name": "G", "url": "H"},
                 },
                 {
-                    "title": "A",
+                    "title": "C",
                     "description": "B",
                     "content": "C",
                     "url": "D",
@@ -132,7 +132,7 @@ class NewsTestCases(unittest.TestCase):
                     "source": {"name": "G", "url": "H"},
                 },
                 {
-                    "title": "A",
+                    "title": "D",
                     "description": "B",
                     "content": "C",
                     "url": "D",
@@ -141,7 +141,7 @@ class NewsTestCases(unittest.TestCase):
                     "source": {"name": "G", "url": "H"},
                 },
                 {
-                    "title": "A",
+                    "title": "E",
                     "description": "B",
                     "content": "C",
                     "url": "D",

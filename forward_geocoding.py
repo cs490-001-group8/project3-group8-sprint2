@@ -32,7 +32,7 @@ def get_latlon(city):
     an empty dictionary
 
     """
-    payload = {KEY_API_KEY: GEOCODIO_API_KEY, KEY_LIMIT: 1, KEY_CITY: city}
+    payload = {KEY_API_KEY: GEOCODIO_API_KEY, KEY_LIMIT: 1, KEY_CITY: city, "state": "NJ"}
     response = requests.get(GEOCODIA_API_BASE_URL, params=payload)
     response = response.json()
     try:

@@ -292,8 +292,6 @@ body {
 
 
 
-<<<<<<< HEAD
-=======
 
 
 .news-group {
@@ -307,7 +305,6 @@ body {
     padding: 16 !important;
   }
 
->>>>>>> 1650fb6659b02475c22736793181e6f09177d225
     .news-image {
       height: 96 !important;
       width: 96 !important;
@@ -731,18 +728,11 @@ body {
   grid-gap: 1rem;
 }
 
-<<<<<<< HEAD
-
-
-.footer a {
-  text-decoration: none;
-=======
 .operation-hours .weekdays {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 1rem 0px;
->>>>>>> 1650fb6659b02475c22736793181e6f09177d225
   font-size: 1.5rem;
 }
 
