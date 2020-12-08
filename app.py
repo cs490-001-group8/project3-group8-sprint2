@@ -14,7 +14,7 @@ import sqlalchemy
 from dotenv import load_dotenv
 from pytz import timezone
 import tables
-from tables import BASE, Theme, FavoriteParks, PersonalTab
+from tables import BASE, Theme, FavoriteParks, UserInformation, PersonalTab
 import hourly_weather
 import tweets
 import news
@@ -36,6 +36,9 @@ BASE.metadata.create_all(ENGINE, checkfirst=True)
 
 SESSION_MAKER = sqlalchemy.orm.sessionmaker(bind=ENGINE)
 SESSION = SESSION_MAKER()
+
+KEY_EMAIL = "newEmail"
+KEY_LOGIN_TYPE = "loginType"
 
 LOGGEDIN_CLIENTS = {}
 
@@ -151,6 +154,7 @@ def on_user_login(data):
         },
     )
     on_national_parks()
+    get_last_weather_input({"localStorage": ""})
 
 
 @SOCKETIO.on("update theme")
@@ -408,8 +412,8 @@ def on_national_parks():
     sid = flask.request.sid
     favorite_parks = []
     if sid in LOGGEDIN_CLIENTS:
-        client_email = LOGGEDIN_CLIENTS[sid]["newEmail"]
-        login_type = LOGGEDIN_CLIENTS[sid]["loginType"]
+        client_email = LOGGEDIN_CLIENTS[sid][KEY_EMAIL]
+        login_type = LOGGEDIN_CLIENTS[sid][KEY_LOGIN_TYPE]
         all_favorite_parks_ids = [
             each_favorite.park_id
             for each_favorite in SESSION.query(FavoriteParks)
@@ -442,8 +446,8 @@ def on_add_favorite_parks(data):
     sid = flask.request.sid
     park_id = data["parkID"]
     if sid in LOGGEDIN_CLIENTS:
-        client_email = LOGGEDIN_CLIENTS[sid]["newEmail"]
-        login_type = LOGGEDIN_CLIENTS[sid]["loginType"]
+        client_email = LOGGEDIN_CLIENTS[sid][KEY_EMAIL]
+        login_type = LOGGEDIN_CLIENTS[sid][KEY_LOGIN_TYPE]
         favorite_parks_ids = [
             each.park_id
             for each in SESSION.query(FavoriteParks)
@@ -465,6 +469,52 @@ def on_add_favorite_parks(data):
             )
             SESSION.delete(remove_favorite_park)
             SESSION.commit()
+
+
+
+
+@SOCKETIO.on("last weather input")
+def on_last_weather_input(data):
+    """
+    send last inputed text in the weather
+    search bar if any exist in the DB
+    """
+    last_weather_input = data["last_weather_input"]
+    sid = flask.request.sid
+    if sid in LOGGEDIN_CLIENTS:
+        email = LOGGEDIN_CLIENTS[sid][KEY_EMAIL]
+        weather_input = SESSION.query(UserInformation).filter_by(email=email).first()
+        if not weather_input:
+            SESSION.add(UserInformation(email=email, weather_input=last_weather_input))
+            SESSION.commit()
+        else:
+            SESSION.query(UserInformation).filter_by(email=email).update(
+                {"weather_input": last_weather_input}
+            )
+            SESSION.commit()
+
+
+@SOCKETIO.on("get last weather input")
+def get_last_weather_input(data):
+    """
+    Return last weather input
+    from DB if any data exist
+    """
+    sid = flask.request.sid
+    local_storage = data["localStorage"]
+    if sid in LOGGEDIN_CLIENTS:
+        email = LOGGEDIN_CLIENTS[sid][KEY_EMAIL]
+        last_weather_input = (
+            SESSION.query(UserInformation).filter_by(email=email).first()
+        )
+        if last_weather_input:
+            flask_socketio.emit(
+                "here last weather input",
+                {"last_weather_input": last_weather_input.weather_input},
+            )
+            local_storage = last_weather_input.weather_input
+    if local_storage:
+        on_weather_request({"city_name": local_storage})
 
 
 if __name__ == "__main__":

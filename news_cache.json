@@ -1,6 +1,18 @@
 {
-    "timestamp": 1607443885.300529,
+    "timestamp": 1607467903.817069,
     "articles": [
+        {
+            "title": "New Jersey Starts $190 Million Makeover of Newark Penn Station",
+            "description": "Gov. Phil Murphy said Tuesday that the renovations would restore the almost 90-year-old building to its former grandeur.",
+            "content": "NJ Transit has begun a $190 million renovation and modernization of its transportation hub in New Jersey\u2019s largest city, Newark.\nAbout 50,000 riders on rail, buses, PATH and light-rail systems passed each weekday through the gloomy spaces of Newark P... [671 chars]",
+            "url": "https://www.wsj.com/articles/new-jersey-starts-190-million-makeover-of-newark-penn-station-11607458412",
+            "image": "https://images.wsj.net/im-269961/social",
+            "publishedAt": "2020-12-08T20:13:00Z",
+            "source": {
+                "name": "The Wall Street Journal",
+                "url": "https://www.wsj.com"
+            }
+        },
         {
             "title": "Genovese family consigliere Bobby Manna denied release bid",
             "description": "The imprisoned 91-year-old\u2019s bid for compassionate release was shot down by a New Jersey federal judge, a decision that likely means the venerable gangster \u2014 imprisoned at the Federal Medical Center in Rochester, Minn. \u2014 will die behind bars.",
@@ -47,18 +59,6 @@
             "source": {
                 "name": "News18",
                 "url": "https://www.news18.com"
-            }
-        },
-        {
-            "title": "Dallas Stars unveil 'Blackout' alternate jersey",
-            "description": "The Dallas Stars unveiled a new Blackout alternate uniform for the upcoming season.",
-            "content": "article\nAs Dallas Stars fans are still thinking about the team\u2019s run to the Stanley Cup Final, they were given a treat Wednesday, as the Stars unveiled a new Blackout alternate uniform for the upcoming season.\nThis will be the first time since 2006 t... [1101 chars]",
-            "url": "https://www.fox4news.com/sports/dallas-stars-unveil-blackout-alternate-jersey",
-            "image": "https://images.foxtv.com/static.fox4news.com/www.fox4news.com/content/uploads/2020/10/1280/720/1028starsblackout.jpg?ve=1&tl=1",
-            "publishedAt": "2020-12-08T03:09:15Z",
-            "source": {
-                "name": "FOX 4 News",
-                "url": "https://www.fox4news.com"
             }
         }
     ]

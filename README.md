@@ -49,6 +49,9 @@ In order to get the modules to work correctly, you will need to register and obt
 6. [OpenStates API](https://v3.openstates.org/docs) - This is used for the modules for politician information and bill information.
 	1. Go to the link above and click on "Register for an account".
 	2. Follow the steps and click "Activate API Key"
+7. [National Park Service](https://www.nps.gov/subjects/developer/get-started.htm) - used to retrieve NJ natinal parks information.
+	1. Go to the link above and sign up by filling out your information.
+	2. You will recieve an email containing your API key so this email safe and secure for your use
 
 Create a file named `.env` and set it up as the following:
 ```
@@ -62,6 +65,7 @@ TWITTER_ACCESS_TOKEN = "<Twitter access token>"
 TWITTER_ACCESS_TOKEN_SECRET = "<Twitter access token secret>"
 GOOGLE_MAP_API_KEY=<Google map API Key Here>
 POLITICS_API_KEY=<OpenStates API key Here>
+NPS_API_KEY=<NPS API Key Here>
 ```
 
 Note: Do not include quotes or the `<>` characters in the `.env` file.\
@@ -137,6 +141,10 @@ If you wish to check the linting on this project, execute the following commands
 3. Akash Patel
 	1. Create the Traffic Widget so it shows a map of NJ and the traffic within.
 	2. Create the page's landing page and set up that page's CSS.
+	3. Create NJ National Park Widget and all the necessary features to make it usefull
+	4. Combined both OAuth login button into one login modal
+	5. Worked on storing use input in DB from the weather search bar for convenient 
+	6. All of the my above features were tested and linted before launching
 4. Karan Patoliya
 	1. Add tab switching and the functionality therein.
 	2. Give users the option of using FaceBook OAuth.
