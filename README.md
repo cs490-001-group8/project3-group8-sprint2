@@ -133,7 +133,8 @@ If you wish to check the linting on this project, execute the following commands
 	2. Create the widget displaying tweets from political figures.
 	3. Create widget displaying info on political figures.
 	4. Create widget displaying bills up for vote.
-	5. Allow for users to like and unlike comments
+	5. Allow for users to like and unlike comments.
+	6. Show user's profile pictures when they log in.
 3. Akash Patel
 	1. Create the Traffic Widget so it shows a map of NJ and the traffic within.
 	2. Create the page's landing page and set up that page's CSS.
